@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6AF0F48C1D80E4E9008FE181 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF0F48B1D80E4E9008FE181 /* main.cpp */; };
+		6AF0F4931D80E513008FE181 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF0F4921D80E513008FE181 /* SDL2.framework */; };
+		6AF0F4971D80E5E1008FE181 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF0F4961D80E5E1008FE181 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6AF0F4881D80E4E9008FE181 /* Game (to be changed) */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Game (to be changed)"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AF0F48B1D80E4E9008FE181 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6AF0F4881D80E4E9008FE181 /* Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF0F4921D80E513008FE181 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		6AF0F4961D80E5E1008FE181 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AF0F4931D80E513008FE181 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +44,7 @@
 		6AF0F47F1D80E4E9008FE181 = {
 			isa = PBXGroup;
 			children = (
+				6AF0F4921D80E513008FE181 /* SDL2.framework */,
 				6AF0F48A1D80E4E9008FE181 /* Game (to be changed) */,
 				6AF0F4891D80E4E9008FE181 /* Products */,
 			);
@@ -49,7 +53,7 @@
 		6AF0F4891D80E4E9008FE181 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6AF0F4881D80E4E9008FE181 /* Game (to be changed) */,
+				6AF0F4881D80E4E9008FE181 /* Game */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,17 +61,33 @@
 		6AF0F48A1D80E4E9008FE181 /* Game (to be changed) */ = {
 			isa = PBXGroup;
 			children = (
-				6AF0F48B1D80E4E9008FE181 /* main.cpp */,
+				6AF0F4981D80E609008FE181 /* include */,
+				6AF0F4951D80E5C6008FE181 /* src */,
 			);
 			path = "Game (to be changed)";
+			sourceTree = "<group>";
+		};
+		6AF0F4951D80E5C6008FE181 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6AF0F4961D80E5E1008FE181 /* main.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		6AF0F4981D80E609008FE181 /* include */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6AF0F4871D80E4E9008FE181 /* Game (to be changed) */ = {
+		6AF0F4871D80E4E9008FE181 /* Game */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AF0F48F1D80E4E9008FE181 /* Build configuration list for PBXNativeTarget "Game (to be changed)" */;
+			buildConfigurationList = 6AF0F48F1D80E4E9008FE181 /* Build configuration list for PBXNativeTarget "Game" */;
 			buildPhases = (
 				6AF0F4841D80E4E9008FE181 /* Sources */,
 				6AF0F4851D80E4E9008FE181 /* Frameworks */,
@@ -77,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = "Game (to be changed)";
+			name = Game;
 			productName = "Game (to be changed)";
-			productReference = 6AF0F4881D80E4E9008FE181 /* Game (to be changed) */;
+			productReference = 6AF0F4881D80E4E9008FE181 /* Game */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6AF0F4831D80E4E9008FE181 /* Build configuration list for PBXProject "Game (to be changed)" */;
+			buildConfigurationList = 6AF0F4831D80E4E9008FE181 /* Build configuration list for PBXProject "Game" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -108,7 +128,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6AF0F4871D80E4E9008FE181 /* Game (to be changed) */,
+				6AF0F4871D80E4E9008FE181 /* Game */,
 			);
 		};
 /* End PBXProject section */
@@ -118,7 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF0F48C1D80E4E9008FE181 /* main.cpp in Sources */,
+				6AF0F4971D80E5E1008FE181 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,21 +229,31 @@
 		6AF0F4901D80E4E9008FE181 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				INSTALL_PATH = bin;
+				PRODUCT_NAME = Game;
 			};
 			name = Debug;
 		};
 		6AF0F4911D80E4E9008FE181 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				INSTALL_PATH = bin;
+				PRODUCT_NAME = Game;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6AF0F4831D80E4E9008FE181 /* Build configuration list for PBXProject "Game (to be changed)" */ = {
+		6AF0F4831D80E4E9008FE181 /* Build configuration list for PBXProject "Game" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AF0F48D1D80E4E9008FE181 /* Debug */,
@@ -232,7 +262,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AF0F48F1D80E4E9008FE181 /* Build configuration list for PBXNativeTarget "Game (to be changed)" */ = {
+		6AF0F48F1D80E4E9008FE181 /* Build configuration list for PBXNativeTarget "Game" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AF0F4901D80E4E9008FE181 /* Debug */,
