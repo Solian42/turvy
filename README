@@ -1,1 +1,6 @@
 So, I guess we're supposed to build a game or something. Crazy.
+
+File Locations:
+
+Products and intermediaries are in lizard/Game/Build/
+Source files and headers are in lizard/Game/Game/
