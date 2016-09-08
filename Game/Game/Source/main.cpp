@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  Game (to be changed)
+//  Game
 //
 //  Created by Tristan Orton-Urbina on 9/7/16.
 //  Copyright © 2016 Tristan. All rights reserved.

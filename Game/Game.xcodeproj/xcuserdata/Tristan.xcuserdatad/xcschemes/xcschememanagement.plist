@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Game (to be changed).xcscheme</key>
+		<key>Game.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6AF0F4871D80E4E9008FE181</key>
+		<key>6AF0F4A41D80EA31008FE181</key>
 		<dict>
 			<key>primary</key>
 			<true/>

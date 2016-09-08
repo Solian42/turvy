@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/Tristan/Library/Mobile Documents/com~apple~CloudDocs/Hopkins/CS/cs255/lizard/Game (to be changed)/Game.xcodeproj">
+      location = "self:Game.xcodeproj">
    </FileRef>
 </Workspace>
