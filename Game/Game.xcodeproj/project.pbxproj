@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6AF0F4B01D80EA4D008FE181 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF0F4AF1D80EA4D008FE181 /* SDL2.framework */; };
+		6AC7CBBD1D8746940020408D /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC7CBBC1D8746940020408D /* SDL2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +23,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6AC7CBBC1D8746940020408D /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../../../../Library/Extensions/SDL2.framework; sourceTree = "<group>"; };
 		6AF0F4A51D80EA31008FE181 /* Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AF0F4AF1D80EA4D008FE181 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		6AF0F4B11D80EAD5008FE181 /* Include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Include; sourceTree = "<group>"; };
 		6AF0F4B21D80EAD5008FE181 /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -34,7 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF0F4B01D80EA4D008FE181 /* SDL2.framework in Frameworks */,
+				6AC7CBBD1D8746940020408D /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,7 +44,7 @@
 		6AF0F49C1D80EA30008FE181 = {
 			isa = PBXGroup;
 			children = (
-				6AF0F4AF1D80EA4D008FE181 /* SDL2.framework */,
+				6AC7CBBC1D8746940020408D /* SDL2.framework */,
 				6AF0F4A71D80EA31008FE181 /* Game */,
 				6AF0F4A61D80EA31008FE181 /* Products */,
 			);
@@ -216,6 +216,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Extensions",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -227,6 +228,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(LOCAL_LIBRARY_DIR)/Extensions",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -251,6 +253,7 @@
 				6AF0F4AE1D80EA31008FE181 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
