@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6AC7CBBC1D8746940020408D /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../../../../Library/Extensions/SDL2.framework; sourceTree = "<group>"; };
+		6AC7CBBC1D8746940020408D /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = "/Users/Tristan/Library/Mobile Documents/com~apple~CloudDocs/Hopkins/CS/cs255/lizard/Game/../../../../../../../../../../Library/Extensions/SDL2.framework"; sourceTree = "<absolute>"; };
 		6AF0F4A51D80EA31008FE181 /* Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF0F4B11D80EAD5008FE181 /* Include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Include; sourceTree = "<group>"; };
 		6AF0F4B21D80EAD5008FE181 /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source; sourceTree = "<group>"; };
