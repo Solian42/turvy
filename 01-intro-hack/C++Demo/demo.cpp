@@ -17,7 +17,7 @@
 const int width = 800;
 const int height = 600;
 const char* title = "Intro to Video Games";
-const char* musicTitle = "abstract_tracking.wav";
+const char* musicTitle = "abstract_tracking.xm";
 const double twoPi = 2 * M_PI;
 const double radToDeg = 180 / M_PI;
 
@@ -73,6 +73,8 @@ void setup() {
 }
 
 void load() {
+
+	Mix_SetMusicCMD("xmp");
 	gMusic = Mix_LoadMUS(musicTitle);
 	if (gMusic == NULL) {
 		std::cerr <<"SDL_mixer Error:"
