@@ -6,14 +6,6 @@
 //  Copyright © 2016 Tristan. All rights reserved.
 //
 
-/*Very simple SDL demo in C++
- *
- * Made by Tristan Orton-Urbina tortonu1 for
- * 600.255 FA 2016
- *
- *
- */
-
 
 int center(int large, int small) {
     return (large /2 - small / 2);
@@ -158,5 +150,3 @@ int main() {
     
     cleanup();
     
-    return 0;
-}
