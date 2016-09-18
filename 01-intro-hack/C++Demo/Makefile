@@ -1,23 +1,30 @@
-#OBJS specifies which files to compile as part of the project
-OBJS = demo.cpp
-
-#CC specifies which compiler we're using
+# Set up basic variables:
 CC = g++
+CFLAGS = -c -Wall -pedantic
+LDFLAGS =
+ 
+# List of sources:
+SOURCES = demo.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
+ 
+# Name of executable target:
+EXECUTABLE = demo
+ 
+# pkg-config specific flags:
+CFLAGS += `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer libmikmod`
+LDFLAGS += `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer libmikmod`
 
-#COMPILER_FLAGS specifies the additional compilation options we're using
-# -w suppresses all warnings
-COMPILER_FLAGS = -w
+#all target
+all: $(SOURCES) $(EXECUTABLE)
 
-#LINKER_FLAGS specifies the libraries we're linking against
-LINKER_FLAGS = -I/usr/local/include -L/usr/local/lib -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm
+#executable targets 
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
 
-#OBJ_NAME specifies the name of our exectuable
-OBJ_NAME = demo
+#object target
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
 
-#This is the target that compiles our executable
-all : $(OBJS)
-	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
-
-#This cleans
-clean : 
-	rm demo
+#clean target 
+clean:
+	rm $(OBJECTS) $(EXECUTABLE)

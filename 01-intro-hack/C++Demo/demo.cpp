@@ -7,12 +7,12 @@
 *
 */
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_image.h>
+#include <SDL.h>
+#include <SDL_ttf.h>
+#include <SDL_mixer.h>
+#include <SDL_image.h>
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 const int width = 800;
 const int height = 600;
@@ -74,7 +74,14 @@ void setup() {
 
 void load() {
 
-	Mix_SetMusicCMD("xmp");
+	int flags=MIX_INIT_OGG|MIX_INIT_MOD;
+	int initted=Mix_Init(flags);
+	if ( (initted & flags) != flags) {
+    	std::cout << "Mix_Init: Failed to init required ogg and mod support!\n" <<
+    		"Mix_Init:" << Mix_GetError() << "\n";
+    
+	}
+	
 	gMusic = Mix_LoadMUS(musicTitle);
 	if (gMusic == NULL) {
 		std::cerr <<"SDL_mixer Error:"
@@ -109,6 +116,7 @@ void cleanup() {
 }
 
 void run() {
+	Mix_PlayMusic(gMusic, -1);
 	SDL_Event event;
 	bool running = true;
 	unsigned int lastTime = 0;
@@ -179,8 +187,6 @@ int main() {
 	setup();
 	
 	load();
-	
-	Mix_PlayMusic(gMusic, -1);
 	
 	run();
 	
