@@ -1,6 +1,1 @@
 So, I guess we're supposed to build a game or something. Crazy.
-
-File Locations:
-
-Products and intermediaries should be built to lizard/Game/Build/Products and lizard/Game/Build/Intermediaries (you have to create those files yourselves, don't add them to git)
-Source files and headers are in lizard/Game/Game/
