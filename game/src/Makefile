@@ -1,20 +1,18 @@
 #directories
-SRCDIR   = .
-OBJDIR   = ./obj
-BINDIR   = ../bin
+SRCDIR   := .
+OBJDIR   := ./obj
+BINDIR   := ../bin
 
-TARGET   = lizard
+TARGET   := lizard
 
-CC       = g++
+CC       := g++
 # compiling flags here
-CFLAGS   = -Wall -Wextra -pedantic
+CFLAGS   := -c -Wall -Wextra -pedantic `pkg-config  sdl2 SDL2_image SDL2_ttf SDL2_mixer --cflags`
 
-LINKER   = g++ -o
+LINKER   := g++ -o
 # linking flags here
-LFLAGS   = -Wall -lm
+LFLAGS   := -Wall -lm `pkg-config  sdl2 SDL2_image SDL2_ttf SDL2_mixer --libs`
 
-CFLAGS += `pkg-config  sdl2 SDL2_image SDL2_ttf SDL2_mixer --cflags`
-LFLAGS += `pkg-config  sdl2 SDL2_image SDL2_ttf SDL2_mixer --libs`
 
 SOURCES  := $(wildcard $(SRCDIR)/*.cpp)
 INCLUDES := $(wildcard $(SRCDIR)/*.h)
