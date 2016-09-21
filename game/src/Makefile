@@ -7,14 +7,14 @@ TARGET   = lizard
 
 CC       = g++
 # compiling flags here
-CFLAGS   = -c -Wall -Wextra -pedantic
+CFLAGS   = -Wall -Wextra -pedantic
 
 LINKER   = g++ -o
 # linking flags here
 LFLAGS   = -Wall -lm
 
-CFLAGS += `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer`
-LFLAGS += `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer`
+CFLAGS += `pkg-config  sdl2 SDL2_image SDL2_ttf SDL2_mixer --cflags`
+LFLAGS += `pkg-config  sdl2 SDL2_image SDL2_ttf SDL2_mixer --libs`
 
 SOURCES  := $(wildcard $(SRCDIR)/*.cpp)
 INCLUDES := $(wildcard $(SRCDIR)/*.h)
