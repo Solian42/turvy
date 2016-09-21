@@ -11,10 +11,10 @@ CFLAGS   = -c -Wall -Wextra -pedantic
 
 LINKER   = g++ -o
 # linking flags here
-LFLAGS   = -Wall -I. -lm
+LFLAGS   = -Wall -lm
 
-CFLAGS += `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer libmikmod`
-LFLAGS += `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer libmikmod`
+CFLAGS += `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer`
+LFLAGS += `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer`
 
 SOURCES  := $(wildcard $(SRCDIR)/*.cpp)
 INCLUDES := $(wildcard $(SRCDIR)/*.h)
