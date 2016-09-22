@@ -3,36 +3,47 @@ SRCDIR   := .
 OBJDIR   := ./obj
 BINDIR   := ../bin
 
+#target executable
 TARGET   := lizard
 
+#C compiler/linker
 CC       := g++
-# compiling flags here
-CFLAGS   := -c -Wall -Wextra -pedantic `pkg-config  sdl2 SDL2_image SDL2_ttf SDL2_mixer --cflags`
-
 LINKER   := g++ -o
+
+# compiling flags here
+CFLAGS   := -c -Wall -Wextra -pedantic `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer`
+
+
 # linking flags here
-LFLAGS   := -Wall -lm `pkg-config  sdl2 SDL2_image SDL2_ttf SDL2_mixer --libs`
+LFLAGS   := `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer` -Wall -lm
 
-
+#defining source/include/obj variables.
 SOURCES  := $(wildcard $(SRCDIR)/*.cpp)
 INCLUDES := $(wildcard $(SRCDIR)/*.h)
 OBJECTS  := $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+
+#making rm force
 rm       = rm -f
 
 
+#Target for linking objects
 $(BINDIR)/$(TARGET): $(OBJECTS)
-	@$(LINKER) $@ $(LFLAGS) $(OBJECTS)
-	@echo "Linking complete!"
+	@$(LINKER) $@ $(OBJECTS) $(LFLAGS)
+	@echo "Linking complete!"	
 
+
+#Target for compiling object files
 $(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.cpp
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) -c $< -o $@ $(CFLAGS)
 	@echo "Compiled "$<" successfully!"
 
+#Cleaning target
 .PHONEY: clean
 clean:
 	@$(rm) $(OBJECTS)
 	@echo "Cleanup complete!"
 
+#removing target
 .PHONEY: remove
 remove: clean
 	@$(rm) $(BINDIR)/$(TARGET)
