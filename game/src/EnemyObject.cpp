@@ -17,7 +17,7 @@ EnemyObject::EnemyObject(int x, int y, int xVelocity, int yVelocity, EnemyInputC
 void EnemyObject::update(World *world, SDL_Renderer *renderer){
 	this->input->update(this);
 	this->graphics->update(this, renderer);
-	// this->physics->update(this, world);
+	this->physics->update(this, world);
 }
 
 EnemyObject::~EnemyObject() {}
