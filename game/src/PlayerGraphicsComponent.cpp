@@ -23,7 +23,7 @@ void PlayerGraphicsComponent::update(PlayerObject* playerObj, SDL_Renderer* rend
 	
 	if(playerObj->playerRect->w == 0) {
 		int textureW, textureH;
-    	textureSize(this->playerSprite, &textureW, &textureH);
+    	SDL_QueryTexture(this->playerSprite, NULL, NULL, &textureW, &textureH);
     	playerObj->playerRect->w = textureW;
     	playerObj->playerRect->w = textureH;
     }
