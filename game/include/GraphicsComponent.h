@@ -14,4 +14,9 @@ private:
 	SDL_Renderer * renderer;
 };
 
+void textureSize(SDL_Texture *t, int *w, int *h) {
+    SDL_QueryTexture(t, NULL, NULL, w, h);
+    return;
+}
+
 #endif

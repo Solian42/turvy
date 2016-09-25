@@ -20,7 +20,4 @@ public:
   	SDL_Texture *playerSprite;
 };
 
-void textureSize(SDL_Texture *t, int *w, int *h);
-
-
 #endif

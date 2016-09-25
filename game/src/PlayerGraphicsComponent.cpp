@@ -32,8 +32,3 @@ void PlayerGraphicsComponent::update(PlayerObject* playerObj, SDL_Renderer* rend
             std::cout << "Something broke: " << SDL_GetError();
         }
 }
-
-void textureSize(SDL_Texture *t, int *w, int *h) {
-    SDL_QueryTexture(t, NULL, NULL, w, h);
-    return;
-}
