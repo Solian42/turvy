@@ -2,21 +2,28 @@
 #define ENEMY_OBJECT_LIZARD
 
 #include "GameObject.h"
-#include "InputComponent.h"
-#include "GraphicsComponent.h"
-#include "PhysicsComponent.h"
+#include "EnemyInputComponent.h"
+#include "EnemyGraphicsComponent.h"
+#include "EnemyPhysicsComponent.h"
+
+class EnemyInputComponent;
+class EnemyGraphicsComponent;
+class EnemyPhysicsComponent;
+
 class EnemyObject: public GameObject {
 	
 	public:
-	int x,y,velocity;
-	EnemyObject(int x, int y, int velocity, InputComponent *i, GraphicsComponent *g,
-				 PhysicsComponent *p);
+	int x,y, xVelocity, yVelocity;
+	SDL_Rect* enemyRect;
+	EnemyObject(int x, int y, int xVelocity, int yVelocity, EnemyInputComponent *i, EnemyGraphicsComponent *g,
+				 EnemyPhysicsComponent *p);
+	~EnemyObject();
 	void update(World *world, SDL_Renderer *renderer);
 	
 	private:
-	InputComponent * input;
-	GraphicsComponent *graphics;
-	PhysicsComponent *physics;
+	EnemyInputComponent * input;
+	EnemyGraphicsComponent *graphics;
+	EnemyPhysicsComponent *physics;
 };
 
 #endif
