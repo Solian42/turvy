@@ -10,7 +10,7 @@ class PlayerObject;
 class PlayerInputComponent : public InputComponent
 {
 public:
-  	void update(PlayerObject* Playerobj);
+  	void update(PlayerObject* playerObj);
   	~PlayerInputComponent();
   	
   	
