@@ -2,12 +2,12 @@
 #define INPUT_COMPONENT_LIZARD
 
 #include "GameObject.h"
-#include "World.h"
+#include <SDL.h>
 class InputComponent
 {
 public:
   virtual ~InputComponent() {}
-  virtual void update(GameObject* obj, World* world) = 0;
+  void update(GameObject* obj);
 };
 
 #endif

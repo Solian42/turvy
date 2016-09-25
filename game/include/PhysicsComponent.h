@@ -7,7 +7,7 @@ class PhysicsComponent
 {
 public:
   virtual ~PhysicsComponent() {}
-  virtual void update(GameObject& obj, World& world) = 0;
+  void update(GameObject* obj, World* world);
 };
 
 #endif

@@ -7,10 +7,7 @@ class GameObject {
 	
 	public:
 	int x,y,velocity;
-	GameObject(int x, int y, int velocity) {this->x = x; this->y = y; this->velocity = velocity;}
-	virtual void update(World *world, SDL_Renderer *renderer);
-	
-	private:
+	void update(World *world, SDL_Renderer *renderer);
 	
 };
 

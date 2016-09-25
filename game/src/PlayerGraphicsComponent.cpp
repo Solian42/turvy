@@ -8,8 +8,13 @@ PlayerGraphicsComponent::PlayerGraphicsComponent(std::string textureName, SDL_Re
         std::cout << "IMG_Load: " << IMG_GetError() << "\n";
     }
     this->playerSprite = SDL_CreateTextureFromSurface(renderer, image);	
+    if (playerSprite == NULL) {
+        std::cout << "Something broke: " << SDL_GetError();
+    }
 }
 
 PlayerGraphicsComponent::~PlayerGraphicsComponent() {}
 
-void PlayerGraphicsComponent::update(GameObject* obj, SDL_Renderer* renderer) {}
+void PlayerGraphicsComponent::update(PlayerObject* playerObj, SDL_Renderer* renderer) {
+	
+}
