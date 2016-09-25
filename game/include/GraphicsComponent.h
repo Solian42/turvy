@@ -9,7 +9,7 @@ class GraphicsComponent
 {
 public:
   virtual ~GraphicsComponent() {}
-  virtual void update(GameObject& obj, SDL_Renderer& renderer) = 0;
+  virtual void update(GameObject* obj, SDL_Renderer* renderer) = 0;
 };
 
 #endif
