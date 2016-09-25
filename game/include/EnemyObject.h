@@ -11,7 +11,7 @@ class EnemyObject: public GameObject {
 	int x,y,velocity;
 	EnemyObject(int x, int y, int velocity, InputComponent *i, GraphicsComponent *g,
 				 PhysicsComponent *p);
-	void update();
+	void update(World *world, SDL_Renderer *renderer);
 	
 	private:
 	InputComponent * input;

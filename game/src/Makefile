@@ -11,11 +11,11 @@ CC       := g++
 LINKER   := g++ -o
 
 # compiling flags here
-CFLAGS   := -c -Wall -Wextra -pedantic `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer`
+CFLAGS   := -c -std=c++11 -Wall -Wextra -pedantic `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer`
 
 
 # linking flags here
-LFLAGS   := `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer` -Wall -lm
+LFLAGS   := `pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer` -Wall -lm -std=c++11
 
 #defining source/include/obj variables.
 SOURCES  := $(wildcard $(SRCDIR)/*.cpp)
