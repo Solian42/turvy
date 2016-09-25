@@ -3,6 +3,7 @@
 
 #include "GameObject.h"
 #include "World.h"
+#include <SDL.h>
 class PhysicsComponent
 {
 public:

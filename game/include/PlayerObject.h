@@ -15,14 +15,17 @@ class PlayerSoundComponent;
 class PlayerObject: public GameObject {
 	
 	public:
-	int x,y,velocity;
-	PlayerObject(int x, int y, int velocity, PlayerInputComponent *i, PlayerGraphicsComponent *g,
-				 PlayerSoundComponent *s, PlayerPhysicsComponent *p);
+	int x, y, xVelocity, yVelocity;
+	PlayerObject(int x, int y, int xVelocity, int yVelocity, PlayerInputComponent *i,
+				 PlayerGraphicsComponent *g, PlayerSoundComponent *s, 
+				 PlayerPhysicsComponent *p);
 	void update(World * world, SDL_Renderer *renderer);
 	
 	~PlayerObject();
-	private:
 	
+	SDL_Rect *playerRect;
+	
+	private:
 	PlayerInputComponent * input;
 	PlayerGraphicsComponent *graphics;
 	PlayerSoundComponent *sound;

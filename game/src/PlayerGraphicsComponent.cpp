@@ -8,13 +8,32 @@ PlayerGraphicsComponent::PlayerGraphicsComponent(std::string textureName, SDL_Re
         std::cout << "IMG_Load: " << IMG_GetError() << "\n";
     }
     this->playerSprite = SDL_CreateTextureFromSurface(renderer, image);	
-    if (playerSprite == NULL) {
+    if (this->playerSprite == NULL) {
         std::cout << "Something broke: " << SDL_GetError();
     }
+    SDL_FreeSurface(image);
+    
+    
+    
 }
 
 PlayerGraphicsComponent::~PlayerGraphicsComponent() {}
 
 void PlayerGraphicsComponent::update(PlayerObject* playerObj, SDL_Renderer* renderer) {
 	
+	if(playerObj->playerRect->w == 0) {
+		int textureW, textureH;
+    	textureSize(this->playerSprite, &textureW, &textureH);
+    	playerObj->playerRect->w = textureW;
+    	playerObj->playerRect->w = textureH;
+    }
+    
+	if (SDL_RenderCopy(renderer, this->playerSprite, NULL, playerObj->playerRect) < 0) {
+            std::cout << "Something broke: " << SDL_GetError();
+        }
+}
+
+void textureSize(SDL_Texture *t, int *w, int *h) {
+    SDL_QueryTexture(t, NULL, NULL, w, h);
+    return;
 }

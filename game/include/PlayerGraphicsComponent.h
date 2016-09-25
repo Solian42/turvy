@@ -10,7 +10,8 @@ class PlayerObject;
 class PlayerGraphicsComponent : public GraphicsComponent
 {
 public:
-	PlayerGraphicsComponent(std::string textureName, SDL_Renderer* renderer);
+	PlayerGraphicsComponent(std::string textureName,
+							SDL_Renderer* renderer);
   	void update(PlayerObject* Playerobj, SDL_Renderer* renderer);
   	~PlayerGraphicsComponent();
   	
@@ -18,6 +19,8 @@ public:
   	private:
   	SDL_Texture *playerSprite;
 };
+
+void textureSize(SDL_Texture *t, int *w, int *h);
 
 
 #endif
