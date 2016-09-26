@@ -5,13 +5,13 @@
 #include "World.h"
 #include <SDL.h>
 #include <SDL_image.h>
-class GraphicsComponent
-{
-public:
-	virtual ~GraphicsComponent() {}
-  	void update(GameObject* obj, SDL_Renderer* renderer);
-private:
-	SDL_Renderer * renderer;
+class GraphicsComponent {
+  public:
+    virtual ~GraphicsComponent() {}
+    void update(GameObject *obj, SDL_Renderer *renderer);
+
+  private:
+    SDL_Renderer *renderer;
 };
 
 #endif

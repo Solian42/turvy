@@ -1,45 +1,44 @@
 #include "../include/PlayerInputComponent.h"
-void PlayerInputComponent::update(PlayerObject* playerObj) {
-	SDL_Event event;
-	while (SDL_PollEvent(&event) != 0) {
-		switch(event.type) {
-			
-			case SDL_KEYDOWN:
-				if(event.key.keysym.sym == SDLK_UP) {
-					playerObj->xVelocity = MAX_ACCEL;
-				} 
-				if(event.key.keysym.sym == SDLK_DOWN) {
-					playerObj->xVelocity = -MAX_ACCEL;
-				} 
-				if(event.key.keysym.sym == SDLK_RIGHT) {
-					playerObj->yVelocity = MAX_ACCEL;
-				} 
-				if(event.key.keysym.sym == SDLK_LEFT) {
-					playerObj->yVelocity = -MAX_ACCEL;
-				} 
-				break;
-				
-				
-			case SDL_KEYUP:
-				if(event.key.keysym.sym == SDLK_UP) {
-					playerObj->xVelocity = 0;
-				} 
-				if(event.key.keysym.sym == SDLK_DOWN) {
-					playerObj->xVelocity = 0;
-				} 
-				if(event.key.keysym.sym == SDLK_RIGHT) {
-					playerObj->yVelocity = 0;
-				} 
-				if(event.key.keysym.sym == SDLK_LEFT) {
-					playerObj->yVelocity = 0;
-				} 
-				break;
-			default:
-				std::cerr << "Error: Unrecognized input\n";
-				break;
-		}
-	}
+void PlayerInputComponent::update(PlayerObject *playerObj, SDL_Event *event) {
+    SDL_Event e = *event;
+    {
+        // If a key was pressed
+        if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
+            // Adjust the velocity
+            switch (e.key.keysym.sym) {
+            case SDLK_UP:
+                playerObj->yVelocity += MAX_ACCEL;
+                break;
+            case SDLK_DOWN:
+                playerObj->yVelocity -= MAX_ACCEL;
+                break;
+            case SDLK_LEFT:
+                playerObj->xVelocity -= MAX_ACCEL;
+                break;
+            case SDLK_RIGHT:
+                playerObj->xVelocity += MAX_ACCEL;
+                break;
+            }
+        }
+        // If a key was released
+        else if (e.type == SDL_KEYUP && e.key.repeat == 0) {
+            // Adjust the velocity
+            switch (e.key.keysym.sym) {
+            case SDLK_UP:
+                playerObj->yVelocity -= MAX_ACCEL;
+                break;
+            case SDLK_DOWN:
+                playerObj->yVelocity += MAX_ACCEL;
+                break;
+            case SDLK_LEFT:
+                playerObj->xVelocity += MAX_ACCEL;
+                break;
+            case SDLK_RIGHT:
+                playerObj->xVelocity -= MAX_ACCEL;
+                break;
+            }
+        }
+    }
 }
-			
-			
-	
+
+PlayerInputComponent::~PlayerInputComponent() {}

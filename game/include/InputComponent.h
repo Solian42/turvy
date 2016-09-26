@@ -3,11 +3,10 @@
 
 #include "GameObject.h"
 #include <SDL.h>
-class InputComponent
-{
-public:
-  virtual ~InputComponent() {}
-  void update(GameObject* obj);
+class InputComponent {
+  public:
+    virtual ~InputComponent() {}
+    void update(GameObject *obj);
 };
 
 #endif

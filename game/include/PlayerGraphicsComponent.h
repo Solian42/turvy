@@ -3,21 +3,23 @@
 
 #include "GraphicsComponent.h"
 #include "PlayerObject.h"
-#include <string>
 #include <iostream>
+#include <string>
 class PlayerObject;
 
-class PlayerGraphicsComponent : public GraphicsComponent
-{
-public:
-	PlayerGraphicsComponent(std::string textureName,
-							SDL_Renderer* renderer);
-  	void update(PlayerObject* Playerobj, SDL_Renderer* renderer);
-  	~PlayerGraphicsComponent();
-  	
-  	
-  	private:
-  	SDL_Texture *playerSprite;
+class PlayerGraphicsComponent : public GraphicsComponent {
+  public:
+    PlayerGraphicsComponent(std::string textureName, SDL_Renderer *renderer);
+    void update(PlayerObject *Playerobj, SDL_Renderer *renderer, World *world);
+    ~PlayerGraphicsComponent();
+
+    int getTextureW();
+    int getTextureH();
+
+  private:
+    SDL_Texture *playerSprite;
+    int textureW;
+    int textureH;
 };
 
 #endif

@@ -4,11 +4,10 @@
 #include "GameObject.h"
 #include "World.h"
 #include <SDL_mixer.h>
-class SoundComponent
-{
-public:
-  virtual ~SoundComponent() {}
-  void update(GameObject* obj);
+class SoundComponent {
+  public:
+    virtual ~SoundComponent() {}
+    void update(GameObject *obj);
 };
 
 #endif

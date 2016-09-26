@@ -3,20 +3,17 @@
 
 #include "InputComponent.h"
 #include "PlayerObject.h"
-#include <string>
 #include <iostream>
+#include <string>
 class PlayerObject;
 
-class PlayerInputComponent : public InputComponent
-{
-public:
-  	void update(PlayerObject* playerObj);
-  	~PlayerInputComponent();
-  	
-  	
-  	private:
-  	const int MAX_ACCEL = 1;
-};
+class PlayerInputComponent : public InputComponent {
+  public:
+    void update(PlayerObject *playerObj, SDL_Event *event);
+    ~PlayerInputComponent();
 
+  private:
+    const int MAX_ACCEL = 10;
+};
 
 #endif
