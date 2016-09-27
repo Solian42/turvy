@@ -4,7 +4,7 @@
 #include "GameObject.h"
 #include <SDL.h>
 class InputComponent {
-  public:
+public:
     virtual ~InputComponent() {}
     void update(GameObject *obj);
 };

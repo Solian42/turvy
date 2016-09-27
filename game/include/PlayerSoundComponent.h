@@ -10,12 +10,12 @@
 class PlayerObject;
 
 class PlayerSoundComponent : public SoundComponent {
-  public:
+public:
     PlayerSoundComponent(std::vector<std::string> chunks);
     void update(World *world);
     ~PlayerSoundComponent();
 
-  private:
+private:
     std::vector<Mix_Chunk *> chunks;
 };
 

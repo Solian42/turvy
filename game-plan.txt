@@ -1,33 +1,86 @@
 Vision:
+Our protagonist, Captain Proton (for now), has been teleported to an alternate dimension
+after his spaceshift ran into a mysterious obelisk.  His crew members have also been 
+teleported, scattered throuhout this unknown dimension.  There are only a few things about
+this universe; it's all full of little robots, aliens, and booby traps.  However, Captain 
+Proton has found him/herself with the control over gravity, and must escape and rescue 
+his/her crew by solving difficult and dangerous mazes with this newfound power.  However, 
+Captain Proton is looking to do more than just that:  Where did this obelisk come from and
+what is its purpose?
 
-Our protagonist, Captain To-Be-Named, has been teleported to an alternate dimension, where he/she has gained control over gravity, and now must escape by solving difficult and dangerous puzzles with this newfound power.
+The game takes place in an alternate dimension, where everything looks really 16-bit. 
+There are spikes on a lot of surfaces, and various other deadly traps that you must avoid
+to complete levels. There will also be little robots and aliens that (for now) will move 
+in repeated motions.  The player must also avoid these along with the obstacles.  As a 
+little feature, there can also be a boss at the end of certain levels that the player must
+defeat in order to move on.  The environment is mostly static, but has some moving 
+elements to add additional gameplay complexity. The music is rather chip-tune like.
 
-bThe game takes place in an alternate dimension, where everything looks really 16-bit. There are spikes on a lot of surfaces, and various other deadly traps that you must avoid to complete levels. The environment is mostly static, but has some moving elements to add additional gameplay complexity. The music is rather chip-tune like.
+We can have an infinite amount of levels, with checkpoints at the beginning/in the middle 
+of each level. Each level will be one screen, we will start with 5, but can always 
+increase the amount. Each screen is scrollable and essentially is a maze, which will not 
+too hard or tedious to go through, and has obstacles everywhere.  The first level will be 
+a tutorial of sorts, where the player either learns the mechanics, or dies a lot until 
+they do. The 2nd level will have a little bit more of a challenging maze that may take 
+some thought on how to solve, including how to get through differing obstacles. The 3rd 
+level and onwards will increase the difficulty and require more advanced controls to get 
+past it.  The outcome of each level will be progressing to the next one!  Each level may 
+also introduce a new mechanic, such as moving blocks in the level, or other 
+powerups/collectibles, but the main mechanic relies on Captain Proton's control over 
+gravity. 
 
-We can have an infinite amount of levels, with checkpoints at the beginning/in the middle of each level. Each level will be one screen, we will start with 5, but can always increase the amount. The first level will be a tutorial of sorts, where the player either learns the mechanics, or dies a lot until they do. The 2nd level will have a little bit more of a challenging puzzle that may take some thought on how to solve. The 3rd level and onwards will increase the difficulty and require more advanced controls to get past it. Each level may also introduce a new mechanic, such as moving blocks in the level, or other powerups/collectibles. The outcome of each level will be progressing to the next one! 
-
-The basic mechanics of the game will be that the player character can move left/right, but cannot jump. Instead of jumping, the player can flip the direction of gravity if they are standing on a surface. The skill involved will mostly be dexterity/figuring out the correct path through a level. The main way that they player can die is by colliding with various amount of spikes or other static traps scattered throughout the level. Levels will stick to the overall theme/setting, perhaps deviating in color scheme and each having their own. There is no concept if HP, if you touch spikes, you die. You can always go back in levels, and you can teleport to any checkpoint that you have already passed from the main menu. The player has an infinite amount of lives, and their high-score is based on how many times they die, less being better.
+The basic mechanics of the game will be that the player character can move left/right, but
+cannot jump. Instead of jumping, the player can flip the direction of gravity if they are 
+standing on a surface. This is the main mechanic of the game.  The skill involved will 
+mostly be dexterity/figuring out the correct path through a level. In order to still stick
+to the theme of jumping around platforms, there will be mutiple "neon lines".  Whenever 
+the player character hits these lines, his gravity switches.  This gives the same motion 
+of jumping, just in a very unique way as you can "jump" upside down as well.  It also 
+serves as part of the unique difficulty of this game.  The player must find a way (will 
+be challenging, but not too hard to overcome) to use these "gravity shifting lines" to 
+avoid obstacles and land to the next platform.  The main way that they player can die is 
+by colliding with various amount of spikes or other static traps scattered throughout the 
+level. Levels will stick to the overall theme/setting, perhaps deviating in color scheme 
+and each having their own.  Other power ups may be introduced, but that is a concern for 
+later.  There is no concept of HP, if you touch spikes, you die. You can always go back in
+levels, and you can teleport to any checkpoint that you have already passed from the main
+menu. The player has an infinite amount of lives, and their high-score is based on how 
+many times they die, less being better.
 
 Game Plan:
-
 Milestones:
-Alpha: Oct 5th: Main Menu, with barebones 1st level. (2 platforms top and bottom of the screen, can move in-between them)
+Alpha: Oct 5th: Main Menu, with barebones 1st level. (2 platforms top and bottom of the
+screen, can move in-between them)
+
 Beta: Nov 2nd: Full 1st and 2nd levels (spikes and all). 
-Gold: Dec 14th: All 5 levels minimum with checkpoints, possibly more by changing it to a 2-leveled structure. (multiple “worlds” with ~5 levels each).
+
+Gold: Dec 14th: All 5 levels minimum with checkpoints, possibly more by changing it to a 
+2-leveled structure. (multiple “worlds” with ~5 levels each).
 
 Responsibilities:
-Tristan: Technical Lead, I will build the base of the engine, and help with level creation. I will also submit group files.
-Brian: I will design how the levels look like and build them.  I will also help with the engine development (with Tristan) and art/graphics (with Anthony).  
-Anthony: Art & music hunter, I will create or pull graphic/sound resources from the internet. I will work with Brian on level design as well as helping out Tristan on implementing the game mechanics.
+Tristan: Technical Lead, I will build the base of the engine, and help with level 
+creation. I will also submit group files.
+Brian: I will design how the levels look like and build them.  I will also help with the 
+engine development (with Tristan) and art/graphics (with Anthony).  
+Anthony: Art & music hunter, I will create or pull graphic/sound resources from the 
+internet. I will work with Brian on level design as well as helping out Tristan on 
+implementing the game mechanics.
 
 Risks:
-The game is not fun/is too difficult: we will rebuild levels to lower the difficulty/ make the game more “fun” based on feedback from friends + peers in the class.
-Someone finds their role too difficult: We will meet to discuss this, and see if we can shift responsibilities around so that everyone’s life is easier.
-The codebase becomes difficult to read/manage, possibly impacting performance: We will schedule a large block of time to go through and attempt to refactor the codebase, making it more efficient. To mitigate this, we will also stick to a strict coding style (clang-format llvm). 
+The game is not fun/is too difficult: we will rebuild levels to lower the difficulty/ 
+make the game more “fun” based on feedback from friends + peers in the class.
+Someone finds their role too difficult: We will meet to discuss this, and see if we can 
+shift responsibilities around so that everyone’s life is easier.
+The codebase becomes difficult to read/manage, possibly impacting performance: We will 
+schedule a large block of time to go through and attempt to refactor the codebase, making 
+it more efficient. To mitigate this, we will also stick to a strict coding style 
+(clang-format llvm). 
 
 Technical Decisions: 
 We will be using C++ to build this game.
+We will be structuring the backend of our game using entity based design.
 We will be using git over bitbucket for source/version control.
 Team communication will be done over facebook chat.
 We will not insure cross-platform compatibility. 
+
 

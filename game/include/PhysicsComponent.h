@@ -5,7 +5,7 @@
 #include "World.h"
 #include <SDL.h>
 class PhysicsComponent {
-  public:
+public:
     virtual ~PhysicsComponent() {}
     void update(GameObject *obj, World *world);
 };

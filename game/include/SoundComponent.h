@@ -5,7 +5,7 @@
 #include "World.h"
 #include <SDL_mixer.h>
 class SoundComponent {
-  public:
+public:
     virtual ~SoundComponent() {}
     void update(GameObject *obj);
 };

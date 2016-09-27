@@ -44,12 +44,6 @@ void load() {
         std::cerr << "SDL_mixer Error:" << Mix_GetError() << "\n";
     }
 
-    SDL_Surface *image =
-        IMG_Load("../data/images/1280x720-white-solid-color-background.jpg");
-    if (!image) {
-        std::cout << "IMG_Load: " << IMG_GetError() << "\n";
-    }
-
     return;
 }
 

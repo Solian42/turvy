@@ -9,12 +9,12 @@
 class EnemyObject;
 
 class EnemyInputComponent : public InputComponent {
-  public:
+public:
     void update(EnemyObject *enemyObj);
     ~EnemyInputComponent();
 
-  private:
-    const int MAX_ACCEL = 10;
+private:
+    const int MAX_ACCEL = 5;
 };
 
 #endif

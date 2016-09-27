@@ -8,7 +8,7 @@
 class EnemyObject;
 
 class EnemyGraphicsComponent : public GraphicsComponent {
-  public:
+public:
     EnemyGraphicsComponent(std::string textureName, SDL_Renderer *renderer);
     void update(EnemyObject *enemyObj, SDL_Renderer *renderer, World *world);
     ~EnemyGraphicsComponent();
@@ -16,7 +16,7 @@ class EnemyGraphicsComponent : public GraphicsComponent {
     int getTextureW();
     int getTextureH();
 
-  private:
+private:
     SDL_Texture *enemySprite;
     int textureW;
     int textureH;

@@ -5,7 +5,7 @@
 #include <SDL.h>
 class GameObject {
 
-  public:
+public:
     int x, y, xVelocity, yVelocity;
     void update(World *world, SDL_Renderer *renderer);
 };

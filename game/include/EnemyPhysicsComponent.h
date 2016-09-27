@@ -8,12 +8,12 @@
 class EnemyObject;
 
 class EnemyPhysicsComponent : public PhysicsComponent {
-  public:
+public:
     EnemyPhysicsComponent();
     void update(EnemyObject *enemyObj, World *world);
     ~EnemyPhysicsComponent();
 
-  private:
+private:
 };
 
 #endif

@@ -1,1 +1,22 @@
-So, I guess we're supposed to build a game or something. Crazy.
+Hey All! This is our codebase.
+
+To Build:
+
+navigate to game/src, and run "make"
+
+To Run:
+
+navigate to game/bin, and run ./lizard
+
+To Clean:
+
+run "make remove" from game/src
+
+This took forever to build, but it was really fun learning how exactly to do things, while
+encountering tons of weird bugs and various other difficulties.
+
+All of our source code is in src, .h files in include
+
+hope it works well! :D
+
+-Lizard Games

@@ -12,7 +12,7 @@ class EnemyPhysicsComponent;
 
 class EnemyObject : public GameObject {
 
-  public:
+public:
     int x, y, xVelocity, yVelocity;
     EnemyObject(int x, int y, int xVelocity, int yVelocity,
                 EnemyInputComponent *i, EnemyGraphicsComponent *g,
@@ -26,7 +26,7 @@ class EnemyObject : public GameObject {
     EnemyGraphicsComponent *graphics;
     EnemyPhysicsComponent *physics;
 
-  private:
+private:
 };
 
 #endif

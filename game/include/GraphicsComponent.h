@@ -6,11 +6,11 @@
 #include <SDL.h>
 #include <SDL_image.h>
 class GraphicsComponent {
-  public:
+public:
     virtual ~GraphicsComponent() {}
     void update(GameObject *obj, SDL_Renderer *renderer);
 
-  private:
+private:
     SDL_Renderer *renderer;
 };
 

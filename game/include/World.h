@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 class World {
-  public:
+public:
     World(int numEntities);
 
     int transformX(int x);
@@ -20,7 +20,7 @@ class World {
 
     int numEntities;
 
-  private:
+private:
     std::vector<SDL_Rect> entityVolumes;
 };
 

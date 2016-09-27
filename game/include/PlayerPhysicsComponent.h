@@ -8,7 +8,7 @@
 class PlayerObject;
 
 class PlayerPhysicsComponent : public PhysicsComponent {
-  public:
+public:
     PlayerPhysicsComponent();
     void update(PlayerObject *playerObj, World *world);
     ~PlayerPhysicsComponent();

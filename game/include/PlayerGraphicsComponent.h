@@ -8,7 +8,7 @@
 class PlayerObject;
 
 class PlayerGraphicsComponent : public GraphicsComponent {
-  public:
+public:
     PlayerGraphicsComponent(std::string textureName, SDL_Renderer *renderer);
     void update(PlayerObject *Playerobj, SDL_Renderer *renderer, World *world);
     ~PlayerGraphicsComponent();
@@ -16,7 +16,7 @@ class PlayerGraphicsComponent : public GraphicsComponent {
     int getTextureW();
     int getTextureH();
 
-  private:
+private:
     SDL_Texture *playerSprite;
     int textureW;
     int textureH;
