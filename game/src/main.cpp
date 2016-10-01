@@ -1,15 +1,9 @@
 #include "../include/main.h"
-
-// This is a bad idea for later.
-int numEntities = 10;
-World *mainWorld = new World(numEntities);
-int width = mainWorld->x;
-int height = mainWorld->y;
+const int width = 1280;
+const int height = 720;
 SDL_Window *mainWindow;
 SDL_Renderer *mainRenderer;
 ResourceManager *resources;
-
-int center(int large, int small) { return large / 2 - small / 2; }
 
 void setup(const char *title) {
 
@@ -34,6 +28,8 @@ void setup(const char *title) {
         std::cout << "Something broke: " << SDL_GetError();
     }
 
+    TTF_Init();
+
     return;
 }
 
@@ -43,44 +39,14 @@ void load() {
     return;
 }
 
-PlayerObject *createPlayer(int entityNum,
-                           std::vector<std::string> spriteNames) {
-    PlayerInputComponent *i = new PlayerInputComponent();
-    PlayerGraphicsComponent *g =
-        new PlayerGraphicsComponent(mainRenderer, resources, spriteNames);
-    PlayerPhysicsComponent *p = new PlayerPhysicsComponent();
-    std::vector<std::string> chunks = {std::string("bonk")};
-    PlayerSoundComponent *s = new PlayerSoundComponent(chunks, resources);
-    PlayerObject *player = new PlayerObject((width / 2), (height / 2), 0, 0, i,
-                                            g, s, p, entityNum);
-    return player;
-}
+void run() {
 
-EnemyObject *createEnemy(int x, int y, int entityNum,
-                         std::vector<std::string> spriteNames) {
-    EnemyInputComponent *i = new EnemyInputComponent();
-    EnemyGraphicsComponent *g =
-        new EnemyGraphicsComponent(mainRenderer, resources, spriteNames);
-    EnemyPhysicsComponent *p = new EnemyPhysicsComponent();
-    EnemyObject *e = new EnemyObject(x, y, 0, 0, i, g, p, entityNum);
-    return e;
-}
-
-void run(std::vector<GameObject *> *entitiesPtr, std::string music) {
-
-    std::vector<GameObject *> entities = *entitiesPtr;
-    // Separate out the player
-    PlayerObject *player = (PlayerObject *)entities[0];
-
-    // grab the enemies
-    std::vector<EnemyObject *> enemies = std::vector<EnemyObject *>(10);
-
-    for (int i = 0; i < 9; i++) {
-        enemies[i] = (EnemyObject *)entities[i + 1];
-        enemies[i]->input->update(enemies[i]);
-    }
-
-    Mix_PlayMusic(resources->getMusic(music), -1);
+    std::vector<State *> states = std::vector<State *>(4);
+    states[STATE_GAME] = new GameState(mainRenderer, width, height, resources);
+    states[STATE_TITLE] =
+        new TitleState(mainRenderer, width, height, resources);
+    State *currState = states[STATE_TITLE];
+    currState->startMusic();
     SDL_Event e;
     bool running = true;
     unsigned int lastTime = 0;
@@ -104,35 +70,41 @@ void run(std::vector<GameObject *> *entitiesPtr, std::string music) {
             }
 
             // Handle input for the player
-            player->input->update(player, &e, dt);
+            int stateChange = currState->handleEvent(&e, dt);
+            if (stateChange != currState->STATETYPE) {
+                switch (stateChange) {
+                case STATE_GAME:
+                    currState = states[STATE_GAME];
+                    break;
+                case STATE_MAINMENU:
+                    currState = states[STATE_MAINMENU];
+                    break;
+                case STATE_HIGHSCORE:
+                    currState = states[STATE_HIGHSCORE];
+                default:
+                    break;
+                }
+                continue;
+            }
         }
         // Physics stage
-        player->physics->update(player, mainWorld, dt);
-        for (int i = 0; i < 9; i++) {
-            enemies[i]->physics->update(enemies[i], mainWorld, dt);
-        }
-        mainWorld->collision = mainWorld->checkCollisions();
+        currState->doPhysics(dt);
         // sounds!
-        player->sound->update(mainWorld);
-
+        currState->doSound();
         // draw stuffff!
         SDL_RenderClear(mainRenderer);
-        for (int i = 0; i < 9; i++) {
-            enemies[i]->graphics->GraphicsComponent::update(mainRenderer,
-                                                            mainWorld);
-        }
-        player->graphics->GraphicsComponent::update(mainRenderer, mainWorld);
+        currState->render(dt);
         SDL_RenderPresent(mainRenderer);
+    }
+    for (State *s : states) {
+        delete s;
     }
 
     return;
 }
 
-void cleanup(std::vector<GameObject *> entities) {
+void cleanup() {
     delete resources;
-    for (GameObject *g : entities) {
-        delete g;
-    }
     SDL_DestroyRenderer(mainRenderer);
     SDL_DestroyWindow(mainWindow);
     Mix_Quit();
@@ -141,19 +113,11 @@ void cleanup(std::vector<GameObject *> entities) {
 
 int main() {
     setup("Lizard Games Assignment 1");
+
     load();
 
-    std::vector<GameObject *> entities(10);
-    entities[0] = createPlayer(0, {std::string("defaultPlayerSprite")});
-    for (int i = 1; i < 10; i++) {
-        int randX = std::rand() % width;
-        int randY = std::rand() % height;
-        entities[i] =
-            createEnemy(randX, randY, i, {std::string("defaultEnemySprite")});
-    }
+    run();
 
-    run(&entities, std::string("abstract_tracking"));
-
-    cleanup(entities);
+    cleanup();
     return 0;
 }

@@ -16,7 +16,8 @@ public:
     SDL_Texture *getTexture(std::string name);
     Mix_Music *getMusic(std::string name);
     Mix_Chunk *getChunk(std::string name);
-    TTF_Font *getFont(std::string name);
+    SDL_Texture *getFont(std::string fontName, std::string text,
+                         SDL_Color color);
 
     void cleanup();
 

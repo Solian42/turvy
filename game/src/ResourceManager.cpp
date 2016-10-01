@@ -90,4 +90,9 @@ Mix_Music *ResourceManager::getMusic(std::string name) { return music[name]; }
 
 Mix_Chunk *ResourceManager::getChunk(std::string name) { return chunks[name]; }
 
-TTF_Font *ResourceManager::getFont(std::string name) { return fonts[name]; }
+SDL_Texture *ResourceManager::getFont(std::string fontName, std::string text,
+                                      SDL_Color color) {
+    SDL_Surface *temp =
+        TTF_RenderUTF8_Blended(fonts[fontName], text.c_str(), color);
+    return SDL_CreateTextureFromSurface(myRenderer, temp);
+}

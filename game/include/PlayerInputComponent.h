@@ -9,10 +9,12 @@ class PlayerObject;
 
 class PlayerInputComponent : public InputComponent {
 public:
-    void update(PlayerObject *playerObj, SDL_Event *event, int dt);
+    void setPlayer(PlayerObject *p);
+    void update(SDL_Event *event, int dt);
     ~PlayerInputComponent();
 
 private:
+    PlayerObject *player;
     const int MAX_ACCEL = 1;
 };
 
