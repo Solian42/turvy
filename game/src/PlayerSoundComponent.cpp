@@ -1,8 +1,9 @@
 #include "../include/PlayerSoundComponent.h"
 
-PlayerSoundComponent::PlayerSoundComponent(std::vector<std::string> chunks, ResourceManager *r) {
-	this->chunks = chunks;
-	resources = r;
+PlayerSoundComponent::PlayerSoundComponent(std::vector<std::string> chunks,
+                                           ResourceManager *r) {
+    this->chunks = chunks;
+    resources = r;
 }
 
 void PlayerSoundComponent::update(World *world) {

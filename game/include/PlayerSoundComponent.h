@@ -16,8 +16,8 @@ public:
     ~PlayerSoundComponent();
 
 private:
-	ResourceManager * resources;
-	std::vector<std::string> chunks;
+    ResourceManager *resources;
+    std::vector<std::string> chunks;
 };
 
 #endif

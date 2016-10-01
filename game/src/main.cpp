@@ -38,14 +38,16 @@ void setup(const char *title) {
 }
 
 void load() {
-	resources = new ResourceManager(mainRenderer);
+    resources = new ResourceManager(mainRenderer);
 
     return;
 }
 
-PlayerObject *createPlayer(int entityNum, std::vector<std::string> spriteNames) {
+PlayerObject *createPlayer(int entityNum,
+                           std::vector<std::string> spriteNames) {
     PlayerInputComponent *i = new PlayerInputComponent();
-    PlayerGraphicsComponent *g = new PlayerGraphicsComponent(mainRenderer, resources, spriteNames);
+    PlayerGraphicsComponent *g =
+        new PlayerGraphicsComponent(mainRenderer, resources, spriteNames);
     PlayerPhysicsComponent *p = new PlayerPhysicsComponent();
     std::vector<std::string> chunks = {std::string("bonk")};
     PlayerSoundComponent *s = new PlayerSoundComponent(chunks, resources);
@@ -54,9 +56,11 @@ PlayerObject *createPlayer(int entityNum, std::vector<std::string> spriteNames) 
     return player;
 }
 
-EnemyObject *createEnemy(int x, int y, int entityNum, std::vector<std::string> spriteNames) {
+EnemyObject *createEnemy(int x, int y, int entityNum,
+                         std::vector<std::string> spriteNames) {
     EnemyInputComponent *i = new EnemyInputComponent();
-    EnemyGraphicsComponent *g = new EnemyGraphicsComponent(mainRenderer, resources, spriteNames);
+    EnemyGraphicsComponent *g =
+        new EnemyGraphicsComponent(mainRenderer, resources, spriteNames);
     EnemyPhysicsComponent *p = new EnemyPhysicsComponent();
     EnemyObject *e = new EnemyObject(x, y, 0, 0, i, g, p, entityNum);
     return e;
@@ -90,8 +94,8 @@ void run(std::vector<GameObject *> *entitiesPtr, std::string music) {
         dt = currentTime - lastTime;
         lastTime = currentTime;
         // Input stage
-        //while (dt > 16) {
-            //dt -= 16;
+        // while (dt > 16) {
+        // dt -= 16;
         while (SDL_PollEvent(&e) != 0) {
             // User requests quit
             if ((e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_ESCAPE) ||
@@ -111,24 +115,24 @@ void run(std::vector<GameObject *> *entitiesPtr, std::string music) {
         // sounds!
         player->sound->update(mainWorld);
 
-			
-        //draw stuffff!
-		SDL_RenderClear(mainRenderer);
-		for (int i = 0; i < 9; i++) {
-            enemies[i]->graphics->GraphicsComponent::update(mainRenderer, mainWorld);
-		}
+        // draw stuffff!
+        SDL_RenderClear(mainRenderer);
+        for (int i = 0; i < 9; i++) {
+            enemies[i]->graphics->GraphicsComponent::update(mainRenderer,
+                                                            mainWorld);
+        }
         player->graphics->GraphicsComponent::update(mainRenderer, mainWorld);
-		SDL_RenderPresent(mainRenderer);
+        SDL_RenderPresent(mainRenderer);
     }
 
     return;
 }
 
 void cleanup(std::vector<GameObject *> entities) {
-	delete resources;
-	for( GameObject *g : entities) {
-		delete g;
-	}
+    delete resources;
+    for (GameObject *g : entities) {
+        delete g;
+    }
     SDL_DestroyRenderer(mainRenderer);
     SDL_DestroyWindow(mainWindow);
     Mix_Quit();
@@ -142,13 +146,13 @@ int main() {
     std::vector<GameObject *> entities(10);
     entities[0] = createPlayer(0, {std::string("defaultPlayerSprite")});
     for (int i = 1; i < 10; i++) {
-		int randX = std::rand() % width;
-		int randY = std::rand() % height;
-		entities[i] =
-		createEnemy(randX, randY, i, {std::string("defaultEnemySprite")});
+        int randX = std::rand() % width;
+        int randY = std::rand() % height;
+        entities[i] =
+            createEnemy(randX, randY, i, {std::string("defaultEnemySprite")});
     }
 
-	run(&entities, std::string("abstract_tracking"));
+    run(&entities, std::string("abstract_tracking"));
 
     cleanup(entities);
     return 0;

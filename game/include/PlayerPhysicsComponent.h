@@ -10,7 +10,7 @@ class PlayerObject;
 class PlayerPhysicsComponent : public PhysicsComponent {
 public:
     PlayerPhysicsComponent();
-	void update(PlayerObject *playerObj, World *world, int dt);
+    void update(PlayerObject *playerObj, World *world, int dt);
     ~PlayerPhysicsComponent();
 };
 

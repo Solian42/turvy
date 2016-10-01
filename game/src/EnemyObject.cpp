@@ -3,7 +3,7 @@
 EnemyObject::EnemyObject(int x, int y, int xVelocity, int yVelocity,
                          EnemyInputComponent *i, EnemyGraphicsComponent *g,
                          EnemyPhysicsComponent *p, int entityNum) {
-	location = {x,y,0,0};
+    location = {x, y, 0, 0};
     this->xVelocity = xVelocity;
     this->yVelocity = yVelocity;
     this->input = i;
@@ -14,10 +14,9 @@ EnemyObject::EnemyObject(int x, int y, int xVelocity, int yVelocity,
     this->entityNum = entityNum;
 }
 
-
 EnemyObject::~EnemyObject() {
-	delete input;
-	delete graphics;
-	delete physics;
-	return;
+    delete input;
+    delete graphics;
+    delete physics;
+    return;
 }

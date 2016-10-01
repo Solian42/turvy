@@ -1,20 +1,15 @@
 #ifndef STAGE_LIZARD
 #define STAGE_LIZARD
 
-
 class Scene {
-	
+
 public:
-	Scene();
-	
-	bool cleanup();
+    Scene();
+
+    bool cleanup();
+
 private:
-
-	void run();
-	
+    void run();
 };
-
-
-
 
 #endif

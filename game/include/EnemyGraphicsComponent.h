@@ -9,10 +9,10 @@ class EnemyObject;
 
 class EnemyGraphicsComponent : public GraphicsComponent {
 public:
-    EnemyGraphicsComponent(SDL_Renderer * ren, ResourceManager *r, std::vector<std::string> spritenames);
+    EnemyGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
+                           std::vector<std::string> spritenames);
     void update(EnemyObject *enemyObj, SDL_Renderer *renderer, World *world);
     ~EnemyGraphicsComponent();
-
 
 private:
     void updateCurrentSprite();
