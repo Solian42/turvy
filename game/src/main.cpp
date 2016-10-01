@@ -102,8 +102,21 @@ void run() {
         // sounds!
         currState->doSound();
         // draw stuffff!
+		double framerate = 1000/(double) dt;
+		std::ostringstream strs;
+		strs << framerate;
+		std::string str = strs.str();
         SDL_RenderClear(mainRenderer);
+		
         currState->render(dt);
+		
+		SDL_Color white = {255, 255, 255, 255};
+		SDL_Texture * fps = resources->getFont(std::string("manaspc60"), std::string("FPS = ") + str, white);
+		int w,h;
+		SDL_QueryTexture(fps, NULL, NULL, &w, &h);
+		SDL_Rect temp = {0,0,w,h};
+		SDL_RenderCopy(mainRenderer, fps, NULL, &temp);
+		
         SDL_RenderPresent(mainRenderer);
     }
     for (State *s : states) {
