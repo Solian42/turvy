@@ -32,6 +32,8 @@ void GraphicsComponent::setCurrentSprite(std::string name) {
     currentSprite = name;
 }
 
+void GraphicsComponent::updateCurrentSprite() {}
+
 std::string GraphicsComponent::getCurrentSprite() { return currentSprite; }
 
 SDL_Rect GraphicsComponent::getTextureRect(std::string name) {

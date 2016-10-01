@@ -6,10 +6,9 @@
 #include "State.h"
 #include "World.h"
 
-
 class GameState : public State {
 public:
-	int getMyState() {return STATE_GAME;}
+    int getMyState() { return STATE_GAME; }
     GameState(SDL_Renderer *r, int width, int height, ResourceManager *res);
     int handleEvent(SDL_Event *e, int dt);
     void doSound();

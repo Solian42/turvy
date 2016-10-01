@@ -3,23 +3,23 @@
 GameState::GameState(SDL_Renderer *r, int width, int height,
                      ResourceManager *res) {
 
-    numEntities = 5;
+    numEntities = 10;
     renderer = r;
     resources = res;
-    entities = std::vector<GameObject *>(5);
+    entities = std::vector<GameObject *>(10);
     world = new World(numEntities);
 
     entities[0] = createPlayer(0, {std::string("defaultPlayerSprite")});
 
-    for (int i = 1; i < 5; i++) {
+    for (int i = 1; i < 10; i++) {
         int randX = std::rand() % width;
         int randY = std::rand() % height;
         entities[i] =
             createEnemy(randX, randY, i, {std::string("defaultEnemySprite")});
     }
     player = (PlayerObject *)entities[0];
-    enemies = std::vector<EnemyObject *>(4);
-    for (int i = 0; i < 4; i++) {
+    enemies = std::vector<EnemyObject *>(9);
+    for (int i = 0; i < 9; i++) {
         enemies[i] = (EnemyObject *)entities[i + 1];
         enemies[i]->input->update(enemies[i]);
     }
@@ -45,14 +45,14 @@ void GameState::doSound() { player->sound->update(world); }
 
 void GameState::doPhysics(int dt) {
     player->physics->update(player, world, dt);
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 9; i++) {
         enemies[i]->physics->update(enemies[i], world, dt);
     }
     world->collision = world->checkCollisions();
 }
 
 void GameState::render(int dt) {
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 9; i++) {
         enemies[i]->graphics->GraphicsComponent::update(renderer, world);
     }
     player->graphics->GraphicsComponent::update(renderer, world);

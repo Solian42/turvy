@@ -46,24 +46,32 @@ void run() {
     states[STATE_TITLE] =
         new TitleState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
-	int currStateType = STATE_TITLE;
+    int currStateType = STATE_TITLE;
     currState->startMusic();
     SDL_Event e;
     bool running = true;
     unsigned int lastTime = 0;
     unsigned int currentTime;
-	unsigned int dt = 0;
+    unsigned int dt = 0;
     lastTime = SDL_GetTicks();
 
-	bool changeState = false;
+    bool changeState = false;
+    std::chrono::high_resolution_clock nano =
+        std::chrono::high_resolution_clock();
+    std::chrono::duration<double> dtNano;
+    std::chrono::high_resolution_clock::time_point ctp = nano.now();
+    std::chrono::high_resolution_clock::time_point ltp = nano.now();
+
     while (running) {
-		changeState = false;
+        changeState = false;
         currentTime = SDL_GetTicks();
+        ctp = nano.now();
+        dtNano = std::chrono::duration_cast<std::chrono::duration<double>>(ltp -
+                                                                           ctp);
         dt = currentTime - lastTime;
+        ltp = ctp;
         lastTime = currentTime;
         // Input stage
-        // while (dt > 16) {
-        // dt -= 16;
         while (SDL_PollEvent(&e) != 0) {
             // User requests quit
             if ((e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_ESCAPE) ||
@@ -72,51 +80,53 @@ void run() {
             }
             // Handle input for the player
             int stateChange = currState->handleEvent(&e, dt);
-			if (stateChange != currStateType) {
-				std::cout<< stateChange << " " << currStateType << "\n";
+            if (stateChange != currStateType) {
+                std::cout << stateChange << " " << currStateType << "\n";
                 switch (stateChange) {
                 case STATE_GAME:
                     currState = states[STATE_GAME];
-					currStateType = STATE_GAME;
-					currState->startMusic();
+                    currStateType = STATE_GAME;
+                    currState->startMusic();
                     break;
                 case STATE_MAINMENU:
                     currState = states[STATE_MAINMENU];
-					currStateType = STATE_MAINMENU;
-					currState->startMusic();
+                    currStateType = STATE_MAINMENU;
+                    currState->startMusic();
                     break;
                 case STATE_HIGHSCORE:
                     currState = states[STATE_HIGHSCORE];
-					currStateType = STATE_HIGHSCORE;
-					currState->startMusic();
-					break;
+                    currStateType = STATE_HIGHSCORE;
+                    currState->startMusic();
+                    break;
                 default:
                     break;
                 }
-				changeState = true;
+                changeState = true;
             }
         }
-		if(changeState) continue;
+        if (changeState)
+            continue;
         // Physics stage
         currState->doPhysics(dt);
         // sounds!
         currState->doSound();
         // draw stuffff!
-		double framerate = 1000/(double) dt;
-		std::ostringstream strs;
-		strs << framerate;
-		std::string str = strs.str();
+        double framerate = -1.0 / dtNano.count();
+        std::ostringstream strs;
+        strs << framerate;
+        std::string str = strs.str();
         SDL_RenderClear(mainRenderer);
-		
+
         currState->render(dt);
-		
-		SDL_Color white = {255, 255, 255, 255};
-		SDL_Texture * fps = resources->getFont(std::string("manaspc60"), std::string("FPS = ") + str, white);
-		int w,h;
-		SDL_QueryTexture(fps, NULL, NULL, &w, &h);
-		SDL_Rect temp = {0,0,w,h};
-		SDL_RenderCopy(mainRenderer, fps, NULL, &temp);
-		
+
+        SDL_Color white = {255, 255, 255, 255};
+        SDL_Texture *fps = resources->getFont(
+            std::string("manaspc60"), std::string("FPS = ") + str, white);
+        int w, h;
+        SDL_QueryTexture(fps, NULL, NULL, &w, &h);
+        SDL_Rect temp = {0, 0, w, h};
+        SDL_RenderCopy(mainRenderer, fps, NULL, &temp);
+
         SDL_RenderPresent(mainRenderer);
     }
     for (State *s : states) {

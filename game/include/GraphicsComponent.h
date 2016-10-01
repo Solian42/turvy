@@ -28,7 +28,7 @@ protected:
     GameObject *myObj;
     ResourceManager *resources;
     void updateParent();
-    virtual void updateCurrentSprite() = 0;
+    void updateCurrentSprite();
     std::string currentSprite;
     int currW = 0;
     int currH = 0;

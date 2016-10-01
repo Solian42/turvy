@@ -17,10 +17,10 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     }
 
     // If the player went too far up or down
-	if (playerObj->getY() - playerObj->getH() < 0) {
-		//move back
-		playerObj->setY(playerObj->getH());
-	} else if(playerObj->getY() > world->y) {
+    if (playerObj->getY() - playerObj->getH() < 0) {
+        // move back
+        playerObj->setY(playerObj->getH());
+    } else if (playerObj->getY() > world->y) {
         // Move back
         playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
         // playerObj->y -= playerObj->yVelocity;
