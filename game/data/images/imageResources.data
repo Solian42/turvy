@@ -1,0 +1,2 @@
+defaultPlayerSprite ../data/images/player_sprite.png
+defaultEnemySprite ../data/images/evil_sprite.png

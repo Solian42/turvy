@@ -9,17 +9,13 @@ class EnemyObject;
 
 class EnemyGraphicsComponent : public GraphicsComponent {
 public:
-    EnemyGraphicsComponent(std::string textureName, SDL_Renderer *renderer);
+    EnemyGraphicsComponent(SDL_Renderer * ren, ResourceManager *r, std::vector<std::string> spritenames);
     void update(EnemyObject *enemyObj, SDL_Renderer *renderer, World *world);
     ~EnemyGraphicsComponent();
 
-    int getTextureW();
-    int getTextureH();
 
 private:
-    SDL_Texture *enemySprite;
-    int textureW;
-    int textureH;
+    void updateCurrentSprite();
 };
 
 #endif

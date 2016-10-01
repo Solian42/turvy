@@ -1,5 +1,5 @@
 #include "../include/PlayerInputComponent.h"
-void PlayerInputComponent::update(PlayerObject *playerObj, SDL_Event *event) {
+void PlayerInputComponent::update(PlayerObject *playerObj, SDL_Event *event, int dt) {
     SDL_Event e = *event;
     {
         // If a key was pressed
@@ -7,16 +7,20 @@ void PlayerInputComponent::update(PlayerObject *playerObj, SDL_Event *event) {
             // Adjust the velocity
             switch (e.key.keysym.sym) {
             case SDLK_UP:
-                playerObj->yVelocity += MAX_ACCEL;
+                playerObj->setYVel(playerObj->getYVel() + MAX_ACCEL);
+                //playerObj->yVelocity += MAX_ACCEL;
                 break;
             case SDLK_DOWN:
-                playerObj->yVelocity -= MAX_ACCEL;
+                playerObj->setYVel(playerObj->getYVel() - MAX_ACCEL);
+                //playerObj->yVelocity -= MAX_ACCEL;
                 break;
             case SDLK_LEFT:
-                playerObj->xVelocity -= MAX_ACCEL;
+                playerObj->setXVel(playerObj->getXVel() - MAX_ACCEL);
+                //playerObj->xVelocity -= MAX_ACCEL;
                 break;
             case SDLK_RIGHT:
-                playerObj->xVelocity += MAX_ACCEL;
+                playerObj->setXVel(playerObj->getXVel() + MAX_ACCEL);
+                //playerObj->xVelocity += MAX_ACCEL;
                 break;
             }
         }
@@ -25,16 +29,20 @@ void PlayerInputComponent::update(PlayerObject *playerObj, SDL_Event *event) {
             // Adjust the velocity
             switch (e.key.keysym.sym) {
             case SDLK_UP:
-                playerObj->yVelocity -= MAX_ACCEL;
+                playerObj->setYVel(playerObj->getYVel() - MAX_ACCEL);
+                //playerObj->yVelocity -= MAX_ACCEL;
                 break;
             case SDLK_DOWN:
-                playerObj->yVelocity += MAX_ACCEL;
+                playerObj->setYVel(playerObj->getYVel() + MAX_ACCEL);
+                //playerObj->yVelocity += MAX_ACCEL;
                 break;
             case SDLK_LEFT:
-                playerObj->xVelocity += MAX_ACCEL;
+                playerObj->setXVel(playerObj->getXVel() + MAX_ACCEL);
+                //playerObj->xVelocity += MAX_ACCEL;
                 break;
             case SDLK_RIGHT:
-                playerObj->xVelocity -= MAX_ACCEL;
+                playerObj->setXVel(playerObj->getXVel() - MAX_ACCEL);
+                //playerObj->xVelocity -= MAX_ACCEL;
                 break;
             }
         }

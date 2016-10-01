@@ -2,26 +2,27 @@
 
 PlayerPhysicsComponent::PlayerPhysicsComponent() {}
 
-void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world) {
-    playerObj->x += playerObj->xVelocity;
-    playerObj->y += playerObj->yVelocity;
+void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world, int dt) {
+    playerObj->setX(playerObj->getX() + playerObj->getXVel() * dt);
+    //playerObj->x += playerObj->xVelocity;
+    playerObj->setY(playerObj->getY() + playerObj->getYVel() * dt);
+    //playerObj->y += playerObj->yVelocity;
     // If the player went too far to the left or right
-    if ((playerObj->x < 0) ||
-        (playerObj->x + playerObj->playerSpriteW > world->x)) {
+    if ((playerObj->getX() < 0) ||
+        (playerObj->getX() + playerObj->getW() > world->x)) {
         // Move back
-        playerObj->x -= playerObj->xVelocity;
+        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+        //playerObj->x -= playerObj->xVelocity;
     }
 
     // If the player went too far up or down
-    if (playerObj->y - playerObj->playerSpriteH < 0) {
-        playerObj->y -= playerObj->yVelocity;
-    } else if (playerObj->y > world->y) {
+    if (playerObj->getY() - playerObj->getH()< 0 || (playerObj->getY() > world->y)) {
         // Move back
-        playerObj->y -= playerObj->yVelocity;
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        //playerObj->y -= playerObj->yVelocity;
     }
 
-    world->updateVolume(playerObj->entityNum, playerObj->x, playerObj->y,
-                        playerObj->playerSpriteW, playerObj->playerSpriteH);
+    world->updateVolume(playerObj->entityNum, playerObj->getX(), playerObj->getY(), playerObj->getW(), playerObj->getH());
 }
 
 PlayerPhysicsComponent::~PlayerPhysicsComponent() {}

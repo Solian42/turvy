@@ -15,7 +15,6 @@ class PlayerSoundComponent;
 class PlayerObject : public GameObject {
 
 public:
-    int x, y, xVelocity, yVelocity;
     PlayerObject(int x, int y, int xVelocity, int yVelocity,
                  PlayerInputComponent *i, PlayerGraphicsComponent *g,
                  PlayerSoundComponent *s, PlayerPhysicsComponent *p,
@@ -23,8 +22,6 @@ public:
 
     ~PlayerObject();
 
-    int playerSpriteW, playerSpriteH;
-    int entityNum;
     PlayerGraphicsComponent *graphics;
     PlayerInputComponent *input;
     PlayerSoundComponent *sound;

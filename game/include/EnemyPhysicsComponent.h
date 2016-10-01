@@ -10,7 +10,7 @@ class EnemyObject;
 class EnemyPhysicsComponent : public PhysicsComponent {
 public:
     EnemyPhysicsComponent();
-    void update(EnemyObject *enemyObj, World *world);
+    void update(EnemyObject *enemyObj, World *world, int dt);
     ~EnemyPhysicsComponent();
 
 private:

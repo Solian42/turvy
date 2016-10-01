@@ -3,17 +3,21 @@
 EnemyObject::EnemyObject(int x, int y, int xVelocity, int yVelocity,
                          EnemyInputComponent *i, EnemyGraphicsComponent *g,
                          EnemyPhysicsComponent *p, int entityNum) {
-    this->x = x;
-    this->y = y;
+	location = {x,y,0,0};
     this->xVelocity = xVelocity;
     this->yVelocity = yVelocity;
     this->input = i;
     this->graphics = g;
     this->physics = p;
-    enemySpriteW = g->getTextureW();
-    enemySpriteH = g->getTextureH();
-
+    g->GraphicsComponent::setGameObject(this);
+    this->location = (g->getTextureRect(g->getCurrentSprite()));
     this->entityNum = entityNum;
 }
 
-EnemyObject::~EnemyObject() {}
+
+EnemyObject::~EnemyObject() {
+	delete input;
+	delete graphics;
+	delete physics;
+	return;
+}

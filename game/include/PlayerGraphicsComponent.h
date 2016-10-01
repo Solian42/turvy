@@ -4,22 +4,17 @@
 #include "GraphicsComponent.h"
 #include "PlayerObject.h"
 #include <iostream>
+#include <vector>
 #include <string>
 class PlayerObject;
 
 class PlayerGraphicsComponent : public GraphicsComponent {
 public:
-    PlayerGraphicsComponent(std::string textureName, SDL_Renderer *renderer);
+    PlayerGraphicsComponent(SDL_Renderer * ren, ResourceManager *r, std::vector<std::string> spritenames);
     void update(PlayerObject *Playerobj, SDL_Renderer *renderer, World *world);
     ~PlayerGraphicsComponent();
-
-    int getTextureW();
-    int getTextureH();
-
 private:
-    SDL_Texture *playerSprite;
-    int textureW;
-    int textureH;
+    void updateCurrentSprite();
 };
 
 #endif

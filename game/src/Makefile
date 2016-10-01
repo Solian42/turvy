@@ -11,7 +11,7 @@ CC       := g++
 LINKER   := g++ -o
 
 # compiling flags here
-CFLAGS   := -c -std=c++11 -Wall -Wextra -pedantic `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer`
+CFLAGS   := -c -std=c++11 -g -O2 -Wall -Wextra -pedantic `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer`
 
 
 # linking flags here

@@ -11,12 +11,13 @@ class PlayerObject;
 
 class PlayerSoundComponent : public SoundComponent {
 public:
-    PlayerSoundComponent(std::vector<std::string> chunks);
+    PlayerSoundComponent(std::vector<std::string> chunks, ResourceManager *r);
     void update(World *world);
     ~PlayerSoundComponent();
 
 private:
-    std::vector<Mix_Chunk *> chunks;
+	ResourceManager * resources;
+	std::vector<std::string> chunks;
 };
 
 #endif
