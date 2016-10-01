@@ -38,7 +38,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
 
     player->input->update(e, dt);
 
-    return STATE_GAME;
+    return getMyState();
 }
 
 void GameState::doSound() { player->sound->update(world); }

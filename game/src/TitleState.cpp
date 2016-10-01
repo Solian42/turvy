@@ -30,24 +30,30 @@ int TitleState::handleEvent(SDL_Event *e, int dt) {
         // TODO: Change to STATE_MAINMENU
         return STATE_GAME;
     }
-    return STATETYPE;
+    return getMyState();
 }
 void TitleState::doSound() { return; }
 void TitleState::doPhysics(int dt) { return; }
 void TitleState::render(int dt) {
-    if (titleAlpha < 255 && !fadein) {
-        titleAlpha++;
-        fadein = false;
-    } else {
-        if (titleAlpha > 10) {
-            fadein = true;
-            titleAlpha = titleAlpha - 5;
-        } else {
-            fadein = false;
-        }
-    }
+	time +=dt;
+	while(time > 16) {
+		time -= 16;
+		if (titleAlpha < 255 && !fadein) {
+			titleAlpha++;
+			fadein = false;
+		} else {
+			if (titleAlpha > 10) {
+				fadein = true;
+				titleAlpha = titleAlpha - 5;
+			} else {
+				fadein = false;
+			}
+		}
+		floatingMove(5, time);
+	}
+	
     SDL_SetTextureAlphaMod(titleFont, titleAlpha);
-    floatingMove(5, dt);
+
     if (SDL_RenderCopy(renderer, msgFont, NULL, &msgRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
     }

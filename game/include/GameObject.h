@@ -16,18 +16,18 @@ public:
     int getY() { return location.y; }
     int getW() { return location.w; }
     int getH() { return location.h; }
-    int getXVel() { return xVelocity; }
-    int getYVel() { return yVelocity; }
+    float getXVel() { return xVelocity; }
+    float getYVel() { return yVelocity; }
 
     void setX(int x) { location.x = x; }
     void setY(int y) { location.y = y; }
     void setW(int w) { location.w = w; }
     void setH(int h) { location.h = h; }
-    void setXVel(int xVel) { xVelocity = xVel; }
-    void setYVel(int yVel) { yVelocity = yVel; }
+    void setXVel(float xVel) { xVelocity = xVel; }
+    void setYVel(float yVel) { yVelocity = yVel; }
 
 protected:
-    int xVelocity, yVelocity;
+    float xVelocity, yVelocity;
     SDL_Rect location;
 };
 

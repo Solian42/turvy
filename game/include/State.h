@@ -21,7 +21,7 @@ enum {
 class State {
 
 public:
-    int STATETYPE = -1;
+	int getMyState();
     virtual int handleEvent(SDL_Event *e, int dt) = 0;
     virtual void doPhysics(int dt) = 0;
     virtual void doSound() = 0;

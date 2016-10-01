@@ -46,16 +46,18 @@ void run() {
     states[STATE_TITLE] =
         new TitleState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
+	int currStateType = STATE_TITLE;
     currState->startMusic();
     SDL_Event e;
     bool running = true;
     unsigned int lastTime = 0;
     unsigned int currentTime;
-
-    unsigned int dt = 0;
+	unsigned int dt = 0;
     lastTime = SDL_GetTicks();
 
+	bool changeState = false;
     while (running) {
+		changeState = false;
         currentTime = SDL_GetTicks();
         dt = currentTime - lastTime;
         lastTime = currentTime;
@@ -68,25 +70,33 @@ void run() {
                 e.type == SDL_QUIT) {
                 running = false;
             }
-
             // Handle input for the player
             int stateChange = currState->handleEvent(&e, dt);
-            if (stateChange != currState->STATETYPE) {
+			if (stateChange != currStateType) {
+				std::cout<< stateChange << " " << currStateType << "\n";
                 switch (stateChange) {
                 case STATE_GAME:
                     currState = states[STATE_GAME];
+					currStateType = STATE_GAME;
+					currState->startMusic();
                     break;
                 case STATE_MAINMENU:
                     currState = states[STATE_MAINMENU];
+					currStateType = STATE_MAINMENU;
+					currState->startMusic();
                     break;
                 case STATE_HIGHSCORE:
                     currState = states[STATE_HIGHSCORE];
+					currStateType = STATE_HIGHSCORE;
+					currState->startMusic();
+					break;
                 default:
                     break;
                 }
-                continue;
+				changeState = true;
             }
         }
+		if(changeState) continue;
         // Physics stage
         currState->doPhysics(dt);
         // sounds!

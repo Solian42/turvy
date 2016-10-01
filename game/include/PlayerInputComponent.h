@@ -15,7 +15,7 @@ public:
 
 private:
     PlayerObject *player;
-    const int MAX_ACCEL = 1;
+    const float MAX_ACCEL = .5;
 };
 
 #endif

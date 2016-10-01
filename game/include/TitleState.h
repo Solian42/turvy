@@ -5,7 +5,7 @@
 
 class TitleState : public State {
 public:
-    const int STATETYPE = STATE_TITLE;
+	int getMyState() {return STATE_TITLE;}
     TitleState(SDL_Renderer *r, int width, int height, ResourceManager *res);
     int handleEvent(SDL_Event *e, int dt);
     void doSound();
@@ -17,6 +17,7 @@ public:
 
 private:
     int width, height;
+	int time = 0;
 
     SDL_Texture *titleFont;
     SDL_Rect titleRect;
