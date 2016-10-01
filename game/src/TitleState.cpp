@@ -26,7 +26,7 @@ TitleState::TitleState(SDL_Renderer *r, int width, int height,
 }
 
 int TitleState::handleEvent(SDL_Event *e, int dt) {
-    if (e->type == SDL_KEYDOWN) {
+    if (e->type == SDL_KEYUP) {
         // TODO: Change to STATE_MAINMENU
         return STATE_GAME;
     }
