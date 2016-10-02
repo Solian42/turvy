@@ -18,4 +18,15 @@
 #include <sstream>
 #include <vector>
 
+void printFPS(std::chrono::duration<double> dtNano);
+void load();
+void run();
+void cleanup();
+void setup(const char *title);
+
+const int width = 1280;
+const int height = 720;
+SDL_Window *mainWindow;
+SDL_Renderer *mainRenderer;
+ResourceManager *resources;
 #endif

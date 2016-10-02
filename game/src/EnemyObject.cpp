@@ -4,6 +4,8 @@ EnemyObject::EnemyObject(int x, int y, int xVelocity, int yVelocity,
                          EnemyInputComponent *i, EnemyGraphicsComponent *g,
                          EnemyPhysicsComponent *p, int entityNum) {
     location = {x, y, 0, 0};
+    this->xFloat = x;
+    this->yFloat = y;
     this->xVelocity = xVelocity;
     this->yVelocity = yVelocity;
     this->input = i;

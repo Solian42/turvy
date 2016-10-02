@@ -11,11 +11,13 @@ class EnemyGraphicsComponent : public GraphicsComponent {
 public:
     EnemyGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
                            std::vector<std::string> spritenames);
-    void update(EnemyObject *enemyObj, SDL_Renderer *renderer, World *world);
+    void update(SDL_Renderer *renderer, World *world, int dt);
     ~EnemyGraphicsComponent();
 
 private:
-    void updateCurrentSprite();
+    int time = 0;
+    int currState = 0;
+    void updateCurrentSprite(int dt);
 };
 
 #endif

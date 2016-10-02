@@ -1,2 +1,24 @@
-defaultPlayerSprite ../data/images/player_sprite.png
-defaultEnemySprite ../data/images/evil_sprite.png
+rps4 ../data/images/player/r4_sprite_1.png
+rps3  ../data/images/player/r3_sprite_1.png
+rps0  ../data/images/player/r0_sprite_1.png
+rps1 ../data/images/player/r1_sprite_1.png
+
+ulps4 ../data/images/player/ul4_sprite_1.png
+ulps3 ../data/images/player/ul3_sprite_1.png
+ulps0 ../data/images/player/ul0_sprite_1.png
+ulps1 ../data/images/player/ul1_sprite_1.png
+
+lps4 ../data/images/player/l4_sprite_1.png 
+lps3 ../data/images/player/l3_sprite_1.png
+lps0 ../data/images/player/l0_sprite_1.png
+lps1 ../data/images/player/l1_sprite_1.png
+
+urps4 ../data/images/player/ur4_sprite_1.png
+urps3 ../data/images/player/ur3_sprite_1.png
+urps0 ../data/images/player/ur0_sprite_1.png
+urps1 ../data/images/player/ur1_sprite_1.png
+
+es1 ../data/images/enemy/l0_evil1.png
+es2 ../data/images/enemy/l1_evil1.png
+es3 ../data/images/enemy/l2_evil1.png
+es4 ../data/images/enemy/l3_evil1.png

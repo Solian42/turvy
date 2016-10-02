@@ -14,7 +14,7 @@ public:
     ~EnemyInputComponent();
 
 private:
-    const float MAX_ACCEL = .5;
+    const float MAX_ACCEL = .25;
 };
 
 #endif

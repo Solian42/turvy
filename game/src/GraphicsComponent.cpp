@@ -56,3 +56,10 @@ void GraphicsComponent::updateParent() {
     myObj->setH(currH);
     myObj->setW(currW);
 }
+
+void GraphicsComponent::scaleCurrentSprite(int scale) {
+    SDL_QueryTexture(resources->getTexture(currentSprite), NULL, NULL, &currW,
+                     &currH);
+    currW *= scale;
+    currH *= scale;
+}

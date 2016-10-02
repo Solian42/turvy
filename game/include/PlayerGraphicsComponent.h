@@ -12,11 +12,14 @@ class PlayerGraphicsComponent : public GraphicsComponent {
 public:
     PlayerGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
                             std::vector<std::string> spritenames);
-    void update(PlayerObject *Playerobj, SDL_Renderer *renderer, World *world);
+    void update(SDL_Renderer *renderer, World *world, int dt);
     ~PlayerGraphicsComponent();
 
 private:
-    void updateCurrentSprite();
+    int time = 0;
+    int currState = 0;
+    bool upsideDown = false;
+    void updateCurrentSprite(int dt);
 };
 
 #endif

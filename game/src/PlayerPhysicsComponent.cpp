@@ -20,9 +20,16 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     if (playerObj->getY() - playerObj->getH() < 0) {
         // move back
         playerObj->setY(playerObj->getH());
-    } else if (playerObj->getY() > world->y) {
+        if (playerObj->getYVel() != 0.0) {
+           playerObj->setYVel(0.0);
+        }
+        
+    } else if (playerObj->getY() >= world->y) {
         // Move back
-        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        playerObj->setY(world->y);
+        if (playerObj->getYVel() != 0.0) {
+            playerObj->setYVel(0.0);
+        }
         // playerObj->y -= playerObj->yVelocity;
     }
 

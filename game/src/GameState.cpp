@@ -6,20 +6,24 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     numEntities = 10;
     renderer = r;
     resources = res;
-    entities = std::vector<GameObject *>(10);
+    entities = std::vector<GameObject *>(numEntities);
     world = new World(numEntities);
 
-    entities[0] = createPlayer(0, {std::string("defaultPlayerSprite")});
+    entities[0] = createPlayer(0,
+       {"rps0", "rps1", "rps2", "rps3",
+        "ulps0", "ulps1", "ulps2", "ulps3",
+        "lps0", "lps1", "lps2", "lps3",
+        "urps0", "urps1", "urps2", "urps3"});
 
-    for (int i = 1; i < 10; i++) {
+    for (int i = 1; i < numEntities; i++) {
         int randX = std::rand() % width;
         int randY = std::rand() % height;
         entities[i] =
-            createEnemy(randX, randY, i, {std::string("defaultEnemySprite")});
+            createEnemy(randX, randY, i, {"es1", "es2", "es3", "es4", "es3", "es2"});
     }
     player = (PlayerObject *)entities[0];
-    enemies = std::vector<EnemyObject *>(9);
-    for (int i = 0; i < 9; i++) {
+    enemies = std::vector<EnemyObject *>(numEntities - 1);
+    for (int i = 0; i < numEntities - 1; i++) {
         enemies[i] = (EnemyObject *)entities[i + 1];
         enemies[i]->input->update(enemies[i]);
     }
@@ -45,17 +49,17 @@ void GameState::doSound() { player->sound->update(world); }
 
 void GameState::doPhysics(int dt) {
     player->physics->update(player, world, dt);
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < numEntities - 1; i++) {
         enemies[i]->physics->update(enemies[i], world, dt);
     }
     world->collision = world->checkCollisions();
 }
 
 void GameState::render(int dt) {
-    for (int i = 0; i < 9; i++) {
-        enemies[i]->graphics->GraphicsComponent::update(renderer, world);
+    for (int i = 0; i < numEntities - 1; i++) {
+        enemies[i]->graphics->update(renderer, world, dt);
     }
-    player->graphics->GraphicsComponent::update(renderer, world);
+    player->graphics->update(renderer, world, dt);
 }
 
 GameState::~GameState() {
@@ -67,13 +71,13 @@ GameState::~GameState() {
 
 PlayerObject *GameState::createPlayer(int entityNum,
                                       std::vector<std::string> spriteNames) {
-    PlayerInputComponent *i = new PlayerInputComponent();
+    PlayerInputComponent *i = new PlayerInputComponent(world);
     PlayerGraphicsComponent *g =
         new PlayerGraphicsComponent(renderer, resources, spriteNames);
     PlayerPhysicsComponent *p = new PlayerPhysicsComponent();
     std::vector<std::string> chunks = {std::string("bonk")};
     PlayerSoundComponent *s = new PlayerSoundComponent(chunks, resources);
-    PlayerObject *player = new PlayerObject((world->x / 2), (world->y / 2), 0,
+    PlayerObject *player = new PlayerObject(0,0, 0,
                                             0, i, g, s, p, entityNum);
     i->setPlayer(player);
     return player;

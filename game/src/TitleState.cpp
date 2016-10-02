@@ -30,10 +30,15 @@ int TitleState::handleEvent(SDL_Event *e, int dt) {
         // TODO: Change to STATE_MAINMENU
         return STATE_GAME;
     }
+    int supressWarning = dt;
+    supressWarning++;
     return getMyState();
 }
 void TitleState::doSound() { return; }
-void TitleState::doPhysics(int dt) { return; }
+void TitleState::doPhysics(int dt) {
+    int supressWarning = dt;
+    supressWarning++;
+    return; }
 void TitleState::render(int dt) {
     time += dt;
     while (time > 16) {

@@ -21,7 +21,7 @@ public:
 
     void setGameObject(GameObject *obj);
     void setCurrentSprite(std::string name);
-
+    void scaleCurrentSprite(int scale);
     int centerRect(int large, int small) { return large / 2 - small / 2; }
 
 protected:
