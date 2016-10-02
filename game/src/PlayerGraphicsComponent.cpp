@@ -5,90 +5,100 @@ PlayerGraphicsComponent::PlayerGraphicsComponent(
 
 PlayerGraphicsComponent::~PlayerGraphicsComponent() {}
 
-void PlayerGraphicsComponent::update(SDL_Renderer *renderer, World *world, int dt) {
-    
+void PlayerGraphicsComponent::update(SDL_Renderer *renderer, World *world,
+                                     int dt) {
+
     updateCurrentSprite(dt);
-    
+
     SDL_Rect temp = {world->transformX(myObj->getX()),
-        world->transformY(myObj->getY()), currW, currH};
+                     world->transformY(myObj->getY()), currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
-    
+
     if (SDL_RenderCopy(renderer, resources->getTexture(currentSprite), NULL,
                        &temp) < 0) {
-        std::cout << "Something broke: " << SDL_GetError() << " " << currentSprite <<"\n";
+        std::cout << "Something broke: " << SDL_GetError() << " "
+                  << currentSprite << "\n";
     }
     updateParent();
 }
 
 void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
     // TODO:Logic for current sprite
-    if(myObj->getY() > 500) {
+    if (myObj->getY() > 500) {
         upsideDown = true;
-        
+
     } else {
         upsideDown = false;
     }
-    
-    if(myObj->getYVel() < 0) {
-        
-        if(myObj->getXVel() > 0) {
+
+    if (myObj->getYVel() < 0) {
+
+        if (myObj->getXVel() > 0) {
             currState = 1;
-        } else if(myObj->getXVel() < 0) {
+        } else if (myObj->getXVel() < 0) {
             currState = 9;
         } else if (upsideDown) {
             currState = 9;
         }
-        
-    } else if (myObj ->getYVel() > 0) {
-        if(myObj->getXVel() > 0) {
+
+    } else if (myObj->getYVel() > 0) {
+        if (myObj->getXVel() > 0) {
             currState = 13;
-        } else if(myObj->getXVel() < 0) {
+        } else if (myObj->getXVel() < 0) {
             currState = 5;
         } else if (!upsideDown) {
             currState = 5;
         }
-        
-    } else if(myObj->getXVel() > 0.0) {
+
+    } else if (myObj->getXVel() > 0.0) {
         time += dt;
         if (time > 200) {
             time -= 200;
-            if(upsideDown) {
+            if (upsideDown) {
                 if (currState == 12) {
                     currState = 13;
-                } else currState = 12;
+                } else
+                    currState = 12;
             } else {
-                
+
                 if (currState == 0) {
                     currState = 1;
-                } else currState = 0;
+                } else
+                    currState = 0;
             }
         }
-        if (upsideDown && currState < 4) currState +=8;
-        else if (!upsideDown && currState > 11) currState -=8;
-        
+        if (upsideDown && currState < 4)
+            currState += 8;
+        else if (!upsideDown && currState > 11)
+            currState -= 8;
+
     } else if (myObj->getXVel() < 0.0) {
         time += dt;
         if (time > 200) {
             time -= 200;
-            if(upsideDown) {
+            if (upsideDown) {
                 if (currState == 4) {
                     currState = 5;
-                } else currState = 4;
+                } else
+                    currState = 4;
             } else {
                 if (currState == 8) {
                     currState = 9;
-                } else currState = 8;
+                } else
+                    currState = 8;
             }
         }
-        if (upsideDown && currState > 7) currState -=4;
-        else if (!upsideDown && currState < 8) currState +=4;
-        
+        if (upsideDown && currState > 7)
+            currState -= 4;
+        else if (!upsideDown && currState < 8)
+            currState += 4;
+
     } else if (time > 0) {
         time = 0;
-        if(currState % 2 != 0) currState--;
+        if (currState % 2 != 0)
+            currState--;
     }
     currentSprite = spriteNames[currState];
     scaleCurrentSprite(2);
-    
 }

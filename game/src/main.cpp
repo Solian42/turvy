@@ -2,16 +2,15 @@
 
 int main() {
     setup("Lizard Games Assignment 1");
-    
+
     load();
-    
+
     run();
-    
+
     cleanup();
-    
+
     return 0;
 }
-
 
 void run() {
 
@@ -19,6 +18,8 @@ void run() {
     states[STATE_GAME] = new GameState(mainRenderer, width, height, resources);
     states[STATE_TITLE] =
         new TitleState(mainRenderer, width, height, resources);
+    states[STATE_MAINMENU] =
+        new MainMenuState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
     int currStateType = STATE_TITLE;
     currState->startMusic();
@@ -89,10 +90,11 @@ void run() {
         // sounds!
         currState->doSound();
         // draw stuffff!
-                SDL_RenderClear(mainRenderer);
+        SDL_RenderClear(mainRenderer);
 
         currState->render(dt);
-        if(renderFPS) printFPS(dtNano);
+        if (renderFPS)
+            printFPS(dtNano);
         SDL_RenderPresent(mainRenderer);
     }
     for (State *s : states) {
@@ -110,16 +112,15 @@ void cleanup() {
     SDL_Quit();
 }
 
-
 void setup(const char *title) {
-    
+
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
         std::cerr << "oops. Failed to init: " << SDL_GetError() << "\n";
     }
-    
+
     if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
         std::cerr << "SDL_mixer could not initialize! SDL_mixer Error:"
-        << Mix_GetError() << "\n";
+                  << Mix_GetError() << "\n";
     }
     Mix_Volume(-1, 64);
     mainWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED,
@@ -128,14 +129,14 @@ void setup(const char *title) {
     if (mainWindow == NULL) {
         std::cout << "Something broke: " << SDL_GetError();
     }
-    
+
     mainRenderer = SDL_CreateRenderer(mainWindow, -1, SDL_RENDERER_ACCELERATED);
     if (mainRenderer == NULL) {
         std::cout << "Something broke: " << SDL_GetError();
     }
-    
+
     TTF_Init();
-    
+
     return;
 }
 
@@ -145,18 +146,16 @@ void printFPS(std::chrono::duration<double> dtNano) {
     strs << framerate;
     std::string str = strs.str();
     SDL_Color white = {255, 255, 255, 255};
-    SDL_Texture *fps = resources->getFont(
-                                          std::string("manaspc30"), std::string("FPS = ") + str, white);
+    SDL_Texture *fps = resources->getFont(std::string("manaspc30"),
+                                          std::string("FPS = ") + str, white);
     int w, h;
     SDL_QueryTexture(fps, NULL, NULL, &w, &h);
     SDL_Rect temp = {0, 0, w, h};
     SDL_RenderCopy(mainRenderer, fps, NULL, &temp);
 }
 
-
-
 void load() {
     resources = new ResourceManager(mainRenderer);
-    
+
     return;
 }

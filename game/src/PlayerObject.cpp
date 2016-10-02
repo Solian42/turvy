@@ -5,8 +5,8 @@ PlayerObject::PlayerObject(int x, int y, int xVelocity, int yVelocity,
                            PlayerSoundComponent *s, PlayerPhysicsComponent *p,
                            int entityNum) {
     location = {x, y, 0, 0};
-    this->xFloat = (float) x;
-    this->yFloat = (float) y;
+    this->xFloat = (float)x;
+    this->yFloat = (float)y;
     this->xVelocity = xVelocity;
     this->yVelocity = yVelocity;
     this->input = i;

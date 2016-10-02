@@ -28,7 +28,7 @@ TitleState::TitleState(SDL_Renderer *r, int width, int height,
 int TitleState::handleEvent(SDL_Event *e, int dt) {
     if (e->type == SDL_KEYUP) {
         // TODO: Change to STATE_MAINMENU
-        return STATE_GAME;
+        return STATE_MAINMENU;
     }
     int supressWarning = dt;
     supressWarning++;
@@ -38,7 +38,8 @@ void TitleState::doSound() { return; }
 void TitleState::doPhysics(int dt) {
     int supressWarning = dt;
     supressWarning++;
-    return; }
+    return;
+}
 void TitleState::render(int dt) {
     time += dt;
     while (time > 16) {

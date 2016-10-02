@@ -15,7 +15,7 @@ public:
     ~PlayerInputComponent();
 
 private:
-    World* world;
+    World *world;
     PlayerObject *player;
     const float MAX_ACCEL = .5;
 };

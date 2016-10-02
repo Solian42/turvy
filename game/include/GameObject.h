@@ -19,15 +19,21 @@ public:
     float getXVel() { return xVelocity; }
     float getYVel() { return yVelocity; }
 
-    void setX(float x) { xFloat = x; location.x = x;}
-    void setY(float y) { yFloat = y; location.y = y;}
+    void setX(float x) {
+        xFloat = x;
+        location.x = x;
+    }
+    void setY(float y) {
+        yFloat = y;
+        location.y = y;
+    }
     void setW(int w) { location.w = w; }
     void setH(int h) { location.h = h; }
     void setXVel(float xVel) { xVelocity = xVel; }
     void setYVel(float yVel) { yVelocity = yVel; }
 
 protected:
-    float xFloat,yFloat;
+    float xFloat, yFloat;
     float xVelocity, yVelocity;
     SDL_Rect location;
 };
