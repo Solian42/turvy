@@ -84,3 +84,5 @@ void TitleState::floatingMove(int speed, int dt) {
     msgRect.y = height * 0.75 + 0.2 * radToDegs(sin(8 * dt));
     return;
 }
+
+TitleState::~TitleState() {}

@@ -52,6 +52,8 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
         }
 
     } else if (myObj->getXVel() > 0.0) {
+        if (time == 0)
+            time += 200;
         time += dt;
         if (time > 200) {
             time -= 200;

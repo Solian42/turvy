@@ -36,14 +36,16 @@ MainMenuState::MainMenuState(SDL_Renderer *r, int width, int height,
 }
 
 int MainMenuState::handleEvent(SDL_Event *e, int dt) {
-    switch (e->key.keysym.sym) {
-    case SDLK_SPACE:
-        return STATE_GAME;
-        break;
-    case SDLK_h:
-        return STATE_HIGHSCORE;
-    default:
-        break;
+    if (e->type == SDL_KEYUP) {
+        switch (e->key.keysym.sym) {
+        case SDLK_SPACE:
+            return STATE_GAME;
+            break;
+        case SDLK_h:
+            return STATE_HIGHSCORE;
+        default:
+            break;
+        }
     }
 
     int supressWarning = dt;
@@ -83,8 +85,12 @@ void MainMenuState::render(int dt) {
     if (SDL_RenderCopy(renderer, adjustVol, NULL, &adjustVolRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
     }
+    int supressWarning = dt;
+    supressWarning++;
 }
 void MainMenuState::startMusic() {
     // Add menu screen music?
     return;
 }
+
+MainMenuState::~MainMenuState() {}

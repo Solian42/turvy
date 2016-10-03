@@ -20,6 +20,8 @@ void run() {
         new TitleState(mainRenderer, width, height, resources);
     states[STATE_MAINMENU] =
         new MainMenuState(mainRenderer, width, height, resources);
+    states[STATE_HIGHSCORE] =
+        new HighScoreState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
     int currStateType = STATE_TITLE;
     currState->startMusic();
@@ -60,7 +62,6 @@ void run() {
             // Handle input for the player
             int stateChange = currState->handleEvent(&e, dt);
             if (stateChange != currStateType) {
-                std::cout << stateChange << " " << currStateType << "\n";
                 switch (stateChange) {
                 case STATE_GAME:
                     currState = states[STATE_GAME];

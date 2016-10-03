@@ -43,6 +43,8 @@ void PlayerInputComponent::update(SDL_Event *event, int dt) {
             }
         }
     }
+    int supressWarning = dt;
+    supressWarning++;
 }
 
 void PlayerInputComponent::setPlayer(PlayerObject *p) { player = p; }
