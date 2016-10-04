@@ -15,7 +15,13 @@ run "make remove" from game/src
 This took forever to build, but it was really fun learning how exactly to do things, while
 encountering tons of weird bugs and various other difficulties.
 
-All of our source code is in src, .h files in include
+We're now properly implementing an entity component system! We have state-based frames,
+and it all looks cool.
+
+We also implemented the jumping mechanic that we want to use in the game, let us know how
+you like it!
+
+All of our source code is in src, .h files in include, music, images, and fonts in data
 
 hope it works well! :D
 

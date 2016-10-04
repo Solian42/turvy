@@ -44,8 +44,8 @@ void run() {
         changeState = false;
         currentTime = SDL_GetTicks();
         ctp = nano.now();
-        dtNano = std::chrono::duration_cast<std::chrono::duration<double>>(ltp -
-                                                                           ctp);
+        dtNano = std::chrono::duration_cast<std::chrono::duration<double>>(ctp -
+																		   ltp);
         dt = currentTime - lastTime;
         ltp = ctp;
         lastTime = currentTime;
@@ -142,7 +142,7 @@ void setup(const char *title) {
 }
 
 void printFPS(std::chrono::duration<double> dtNano) {
-    double framerate = -1.0 / dtNano.count();
+    double framerate = 1.0 / dtNano.count();
     std::ostringstream strs;
     strs << framerate;
     std::string str = strs.str();

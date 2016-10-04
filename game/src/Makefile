@@ -1,3 +1,6 @@
+#get the OS name
+UNAME_S := $(shell uname -s)
+
 #directories
 SRCDIR   := .
 OBJDIR   := ./obj
@@ -7,9 +10,13 @@ BINDIR   := ../bin
 TARGET   := lizard
 
 #C compiler/linker
-CC       := g++
-LINKER   := g++ -o
-
+ifeq ($(UNAME_S), Darwin)
+	CC       := g++-6.2.0
+	LINKER   := g++-6.2.0 -o
+else
+	CC := g++
+	LINKER := g++ -o
+endif
 # compiling flags here
 CFLAGS   := -c -std=c++11 -g -O2 -Wall -Wextra -pedantic `pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer`
 
