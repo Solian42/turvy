@@ -3,7 +3,7 @@
 GameState::GameState(SDL_Renderer *r, int width, int height,
                      ResourceManager *res) {
 
-    numEntities = 10;
+    numEntities = 30;
     renderer = r;
     resources = res;
     entities = std::vector<GameObject *>(numEntities);
@@ -15,8 +15,8 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
                          "urps0", "urps1", "urps2", "urps3"});
 
     for (int i = 1; i < numEntities; i++) {
-        int randX = std::rand() % width;
-        int randY = std::rand() % height;
+        int randX = (std::rand() % (width - 240)) + 120;
+        int randY = (std::rand() % (height - 144)) + 72;
         entities[i] = createEnemy(randX, randY, i,
                                   {"es1", "es2", "es3", "es4", "es3", "es2"});
     }

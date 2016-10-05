@@ -45,7 +45,7 @@ void run() {
         currentTime = SDL_GetTicks();
         ctp = nano.now();
         dtNano = std::chrono::duration_cast<std::chrono::duration<double>>(ctp -
-																		   ltp);
+                                                                           ltp);
         dt = currentTime - lastTime;
         ltp = ctp;
         lastTime = currentTime;
@@ -106,6 +106,7 @@ void run() {
 }
 
 void cleanup() {
+    resources->cleanup();
     delete resources;
     SDL_DestroyRenderer(mainRenderer);
     SDL_DestroyWindow(mainWindow);
@@ -123,7 +124,7 @@ void setup(const char *title) {
         std::cerr << "SDL_mixer could not initialize! SDL_mixer Error:"
                   << Mix_GetError() << "\n";
     }
-    Mix_Volume(-1, 64);
+    // Mix_Volume(-1, 32);
     mainWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED,
                                   SDL_WINDOWPOS_UNDEFINED, width, height,
                                   SDL_WINDOW_SHOWN);

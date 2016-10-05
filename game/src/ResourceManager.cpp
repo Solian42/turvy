@@ -96,3 +96,18 @@ SDL_Texture *ResourceManager::getFont(std::string fontName, std::string text,
         TTF_RenderUTF8_Blended(fonts[fontName], text.c_str(), color);
     return SDL_CreateTextureFromSurface(myRenderer, temp);
 }
+
+void ResourceManager::cleanup() {
+    for (std::pair<std::string, SDL_Texture *> p : textures) {
+        SDL_DestroyTexture(p.second);
+    }
+    for (std::pair<std::string, Mix_Music *> p : music) {
+        Mix_FreeMusic(p.second);
+    }
+    for (std::pair<std::string, Mix_Chunk *> p : chunks) {
+        Mix_FreeChunk(p.second);
+    }
+    for (std::pair<std::string, TTF_Font *> p : fonts) {
+        TTF_CloseFont(p.second);
+    }
+}
