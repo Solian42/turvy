@@ -85,4 +85,7 @@ void TitleState::floatingMove(int speed, int dt) {
     return;
 }
 
-TitleState::~TitleState() {}
+TitleState::~TitleState() {
+    SDL_DestroyTexture(titleFont);
+    SDL_DestroyTexture(msgFont);
+}

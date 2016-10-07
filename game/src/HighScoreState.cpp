@@ -66,4 +66,8 @@ void HighScoreState::startMusic() {
     return;
 }
 
-HighScoreState::~HighScoreState() {}
+HighScoreState::~HighScoreState() {
+    SDL_DestroyTexture(title);
+    SDL_DestroyTexture(highScore);
+    SDL_DestroyTexture(backToMenu);
+}

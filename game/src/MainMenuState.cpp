@@ -93,4 +93,11 @@ void MainMenuState::startMusic() {
     return;
 }
 
-MainMenuState::~MainMenuState() {}
+MainMenuState::~MainMenuState() {
+    SDL_DestroyTexture(title);
+    SDL_DestroyTexture(newGame);
+    SDL_DestroyTexture(highScore);
+    SDL_DestroyTexture(quitGame);
+    SDL_DestroyTexture(adjustBright);
+    SDL_DestroyTexture(adjustVol);
+}

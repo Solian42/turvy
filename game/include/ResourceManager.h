@@ -12,6 +12,7 @@
 class ResourceManager {
 public:
     ResourceManager(SDL_Renderer *renderer);
+    ~ResourceManager();
 
     SDL_Texture *getTexture(std::string name);
     Mix_Music *getMusic(std::string name);
@@ -19,9 +20,8 @@ public:
     SDL_Texture *getFont(std::string fontName, std::string text,
                          SDL_Color color);
 
-    void cleanup();
-
 private:
+    void cleanup();
     SDL_Renderer *myRenderer;
     void loadImages();
     void loadMusic();

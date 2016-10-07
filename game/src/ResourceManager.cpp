@@ -111,3 +111,5 @@ void ResourceManager::cleanup() {
         TTF_CloseFont(p.second);
     }
 }
+
+ResourceManager::~ResourceManager() { cleanup(); }
