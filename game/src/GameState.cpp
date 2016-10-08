@@ -27,7 +27,7 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         enemies[i]->input->update(enemies[i]);
     }
 
-    backgroundMusic = std::string("abstract_tracking");
+    backgroundMusic = std::string("treadmill");
 }
 
 void GameState::startMusic() {
