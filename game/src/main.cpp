@@ -108,15 +108,6 @@ void run() {
     return;
 }
 
-void cleanup() {
-    delete resources;
-    SDL_DestroyRenderer(mainRenderer);
-    SDL_DestroyWindow(mainWindow);
-    Mix_Quit();
-    SDL_Quit();
-    TTF_Quit();
-}
-
 void setup(const char *title) {
 
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
@@ -148,6 +139,15 @@ void setup(const char *title) {
     TTF_Init();
 
     return;
+}
+
+void cleanup() {
+    delete resources;
+    SDL_DestroyRenderer(mainRenderer);
+    SDL_DestroyWindow(mainWindow);
+    Mix_Quit();
+    TTF_Quit();
+    SDL_Quit();
 }
 
 void printFPS(std::chrono::duration<double> dtNano) {

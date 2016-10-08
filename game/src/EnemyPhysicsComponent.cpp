@@ -27,6 +27,13 @@ void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
         // enemyObj->yVelocity = -enemyObj->yVelocity;
     }
 
+    if ((enemyObj->getY() - enemyObj->getH()) < 72 &&
+        (enemyObj->getX() < 128)) {
+        enemyObj->setY(enemyObj->getY() - enemyObj->getYVel() * dt);
+        enemyObj->setYVel(-enemyObj->getYVel());
+        enemyObj->setX(enemyObj->getX() - enemyObj->getXVel() * dt);
+        enemyObj->setXVel(-enemyObj->getXVel());
+    }
     world->updateVolume(enemyObj->entityNum, enemyObj->getX(), enemyObj->getY(),
                         enemyObj->getW(), enemyObj->getH());
 }

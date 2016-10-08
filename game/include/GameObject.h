@@ -1,8 +1,18 @@
 #ifndef GAME_OBJECT_LIZARD
 #define GAME_OBJECT_LIZARD
 
+#include "GraphicsComponent.h"
+#include "InputComponent.h"
+#include "PhysicsComponent.h"
+#include "SoundComponent.h"
 #include "World.h"
 #include <SDL.h>
+
+class GraphicsComponent;
+class SoundComponent;
+class InputComponent;
+class PhysicsComponent;
+
 class GameObject {
 
 public:
@@ -31,6 +41,11 @@ public:
     void setH(int h) { location.h = h; }
     void setXVel(float xVel) { xVelocity = xVel; }
     void setYVel(float yVel) { yVelocity = yVel; }
+
+    GraphicsComponent *graphics = nullptr;
+    SoundComponent *sound = nullptr;
+    InputComponent *input = nullptr;
+    PhysicsComponent *physics = nullptr;
 
 protected:
     float xFloat, yFloat;

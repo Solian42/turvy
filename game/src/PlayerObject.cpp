@@ -7,8 +7,8 @@ PlayerObject::PlayerObject(int x, int y, int xVelocity, int yVelocity,
     location = {x, y, 0, 0};
     this->xFloat = (float)x;
     this->yFloat = (float)y;
-    this->xVelocity = xVelocity;
-    this->yVelocity = yVelocity;
+    this->xVelocity = (float)xVelocity;
+    this->yVelocity = (float)yVelocity;
     this->input = i;
     this->graphics = g;
     this->sound = s;

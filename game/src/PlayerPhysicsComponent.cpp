@@ -36,6 +36,18 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     world->updateVolume(playerObj->entityNum, playerObj->getX(),
                         playerObj->getY(), playerObj->getW(),
                         playerObj->getH());
+
+    // if we got hit by an enemy
+    if (world->collision) {
+        playerObj->setX(0);
+        playerObj->setY(0);
+        // no need to set the x velocity
+        playerObj->setYVel(0);
+        world->updateVolume(playerObj->entityNum, playerObj->getX(),
+                            playerObj->getY(), playerObj->getW(),
+                            playerObj->getH());
+        playerObj->graphics->setCurrState(0);
+    }
 }
 
 PlayerPhysicsComponent::~PlayerPhysicsComponent() {}

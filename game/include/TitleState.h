@@ -19,10 +19,10 @@ private:
     int width, height;
     int time = 0;
 
-    SDL_Texture *titleFont;
+    SDL_Texture *titleFont = nullptr;
     SDL_Rect titleRect;
 
-    SDL_Texture *msgFont;
+    SDL_Texture *msgFont = nullptr;
     SDL_Rect msgRect;
 
     std::string title = std::string("Lizard Games");

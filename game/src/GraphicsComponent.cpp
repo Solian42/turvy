@@ -12,7 +12,7 @@ GraphicsComponent::GraphicsComponent(SDL_Renderer *r, ResourceManager *res,
 }
 GraphicsComponent::~GraphicsComponent() {}
 
-void GraphicsComponent::update(SDL_Renderer *renderer, World *world) {
+void GraphicsComponent::update(World *world, int dt) {
 
     updateCurrentSprite();
 
@@ -21,7 +21,7 @@ void GraphicsComponent::update(SDL_Renderer *renderer, World *world) {
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 
-    if (SDL_RenderCopy(renderer, resources->getTexture(currentSprite), NULL,
+    if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,
                        &temp) < 0) {
         std::cout << "Something broke: " << SDL_GetError() << "\n";
     }
@@ -32,7 +32,11 @@ void GraphicsComponent::setCurrentSprite(std::string name) {
     currentSprite = name;
 }
 
-void GraphicsComponent::updateCurrentSprite() {}
+void GraphicsComponent::setCurrentState(int state) { currState = state; }
+
+void GraphicsComponent::updateCurrentSprite() {
+    currentSprite = spriteNames[currState];
+}
 
 std::string GraphicsComponent::getCurrentSprite() { return currentSprite; }
 
@@ -50,6 +54,7 @@ int GraphicsComponent::getCurrW() { return currW; }
 
 int GraphicsComponent::getCurrH() { return currH; }
 
+int GraphicsComponent::getCurrState() { return currState; }
 void GraphicsComponent::setGameObject(GameObject *obj) { myObj = obj; }
 
 void GraphicsComponent::updateParent() {

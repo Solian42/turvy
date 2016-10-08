@@ -14,6 +14,7 @@ public:
                             std::vector<std::string> spritenames);
     void update(SDL_Renderer *renderer, World *world, int dt);
     ~PlayerGraphicsComponent();
+    void setCurrState(int state);
 
 private:
     int time = 0;

@@ -91,11 +91,17 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
                     currState = 8;
             }
         }
-        if (upsideDown && currState > 7)
+        if (upsideDown && currState > 7) {
+            if (currState > 11)
+                currState -= 4;
             currState -= 4;
-        else if (!upsideDown && currState < 8)
-            currState += 4;
+        }
 
+        else if (!upsideDown && currState < 8) {
+            if (currState < 4)
+                currState += 4;
+            currState += 4;
+        }
     } else if (time > 0) {
         time = 0;
         if (currState % 2 != 0)
@@ -104,3 +110,5 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
     currentSprite = spriteNames[currState];
     scaleCurrentSprite(2);
 }
+
+void PlayerGraphicsComponent::setCurrState(int state) { currState = state; }

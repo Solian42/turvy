@@ -3,6 +3,9 @@
 
 #include "GameObject.h"
 #include <SDL.h>
+
+class GameObject;
+
 class InputComponent {
 public:
     virtual ~InputComponent() {}

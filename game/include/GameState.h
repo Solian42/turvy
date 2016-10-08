@@ -3,9 +3,9 @@
 
 #include "EnemyObject.h"
 #include "PlayerObject.h"
+#include "ScoreManager.h"
 #include "State.h"
 #include "World.h"
-#include "ScoreManager.h"
 
 class GameState : public State {
 public:
@@ -23,18 +23,23 @@ private:
     int numEntities;
 
     std::vector<GameObject *> entities;
+    std::vector<GameObject *> backgroundObjects;
     std::string backgroundMusic;
-    PlayerObject *player;
+    PlayerObject *player = nullptr;
     std::vector<EnemyObject *> enemies;
 
     SDL_Renderer *renderer;
-    World *world;
+    World *world = nullptr;
+
+    bool hasWon = false;
 
     PlayerObject *createPlayer(int entityNum,
                                std::vector<std::string> spriteNames);
     EnemyObject *createEnemy(int x, int y, int entityNum,
                              std::vector<std::string> spriteNames);
-    ScoreManager *scoreMgr;
+    GameObject *createSetpiece(int x, int y, std::vector<std::string> sprites);
+
+    ScoreManager *scoreMgr = nullptr;
 };
 
 #endif

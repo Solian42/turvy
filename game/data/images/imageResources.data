@@ -22,3 +22,8 @@ es1 ../data/images/enemy/l0_evil1.png
 es2 ../data/images/enemy/l1_evil1.png
 es3 ../data/images/enemy/l2_evil1.png
 es4 ../data/images/enemy/l3_evil1.png
+
+ss0 ../data/images/shield/shield_0.png
+ss1 ../data/images/shield/shield_1.png
+ss2 ../data/images/shield/shield_2.png
+ss3 ../data/images/shield/shield_3.png

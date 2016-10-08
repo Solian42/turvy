@@ -20,13 +20,13 @@ private:
     int width, height;
     int time = 0;
 
-    SDL_Texture *title;
+    SDL_Texture *title = nullptr;
     SDL_Rect titleRect;
 
-    SDL_Texture *highScore;
+    SDL_Texture *highScore = nullptr;
     SDL_Rect highScoreRect;
 
-    SDL_Texture *backToMenu;
+    SDL_Texture *backToMenu = nullptr;
     SDL_Rect backToMenuRect;
 
     std::string titleTitle = "Your high score is:";

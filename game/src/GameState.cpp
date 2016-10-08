@@ -15,7 +15,7 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
                          "urps0", "urps1", "urps2", "urps3"});
 
     for (int i = 1; i < numEntities; i++) {
-        int randX = (std::rand() % (width - 240)) + 120;
+        int randX = (std::rand() % (width - 256)) + 128;
         int randY = (std::rand() % (height - 144)) + 72;
         entities[i] = createEnemy(randX, randY, i,
                                   {"es1", "es2", "es3", "es4", "es3", "es2"});
@@ -27,8 +27,13 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         enemies[i]->input->update(enemies[i]);
     }
 
+    backgroundObjects = std::vector<GameObject *>(1);
+
+    backgroundObjects[0] = createSetpiece(
+        0, 72, {"ss0", "ss1", "ss2", "ss3", "ss2", "ss1", "ss0"});
     backgroundMusic = std::string("treadmill");
-    scoreMgr = new ScoreManager(renderer, resources, world);    /*added score manager by Anthony*/
+    scoreMgr = new ScoreManager(renderer, resources,
+                                world); /*added score manager by Anthony*/
 }
 
 void GameState::startMusic() {
@@ -48,11 +53,16 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
 void GameState::doSound() { player->sound->update(world); }
 
 void GameState::doPhysics(int dt) {
+    world->collision = world->checkCollisions();
     player->physics->update(player, world, dt);
     for (int i = 0; i < numEntities - 1; i++) {
         enemies[i]->physics->update(enemies[i], world, dt);
     }
-    world->collision = world->checkCollisions();
+    if ((player->getX() == (world->x - player->getW())) &&
+        (player->getY() == (world->y - player->getH()))) {
+        hasWon = true;
+        std::cout << "Yay we won!\n";
+    }
 }
 
 void GameState::render(int dt) {
@@ -60,16 +70,15 @@ void GameState::render(int dt) {
         enemies[i]->graphics->update(renderer, world, dt);
     }
     player->graphics->update(renderer, world, dt);
+    int currState = backgroundObjects[0]->graphics->getCurrState();
+    currState++;
+    if (currState == 7)
+        currState = 0;
+    backgroundObjects[0]->graphics->setCurrentState(currState);
+    backgroundObjects[0]->graphics->update(world, dt);
     scoreMgr->update();
-    scoreMgr->printScore(500, 0);                              /*added printscore upon width&height of screen*/
-}
-
-GameState::~GameState() {
-    for (GameObject *g : entities) {
-        delete g;
-    }
-    delete world;
-    delete scoreMgr;
+    scoreMgr->printScore(500,
+                         0); /*added printscore upon width&height of screen*/
 }
 
 PlayerObject *GameState::createPlayer(int entityNum,
@@ -92,4 +101,26 @@ EnemyObject *GameState::createEnemy(int x, int y, int entityNum,
     EnemyPhysicsComponent *p = new EnemyPhysicsComponent();
     EnemyObject *e = new EnemyObject(x, y, 0, 0, i, g, p, entityNum);
     return e;
+}
+
+GameObject *GameState::createSetpiece(int x, int y,
+                                      std::vector<std::string> sprites) {
+    GraphicsComponent *g = new GraphicsComponent(renderer, resources, sprites);
+
+    GameObject *game = new GameObject();
+    game->setX((float)x);
+    game->setY((float)y);
+    game->graphics = g;
+    g->setCurrentState(0);
+    g->setGameObject(game);
+
+    return game;
+}
+
+GameState::~GameState() {
+    for (GameObject *g : entities) {
+        delete g;
+    }
+    delete world;
+    delete scoreMgr;
 }
