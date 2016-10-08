@@ -43,10 +43,10 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         playerObj->setY(0);
         // no need to set the x velocity
         playerObj->setYVel(0);
+        playerObj->graphics->setCurrState(0);
         world->updateVolume(playerObj->entityNum, playerObj->getX(),
                             playerObj->getY(), playerObj->getW(),
                             playerObj->getH());
-        playerObj->graphics->setCurrState(0);
     }
 }
 

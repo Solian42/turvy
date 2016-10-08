@@ -110,6 +110,8 @@ void run() {
 
 void setup(const char *title) {
 
+    std::srand(time(NULL));
+
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
         std::cerr << "oops. Failed to init: " << SDL_GetError() << "\n";
     }

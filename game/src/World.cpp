@@ -1,49 +1,22 @@
 #include "../include/World.h"
 
-bool checkCollision(SDL_Rect a, SDL_Rect b) {
-    // The sides of the rectangles
-    int leftA, leftB;
-    int rightA, rightB;
-    int topA, topB;
-    int bottomA, bottomB;
-
-    // Calculate the sides of rect A
-    leftA = a.x;
-    rightA = a.x + a.w;
-    topA = a.y;
-    bottomA = a.y + a.h;
-
-    // Calculate the sides of rect B
-    leftB = b.x;
-    rightB = b.x + b.w;
-    topB = b.y;
-    bottomB = b.y + b.h;
-
-    // If any of the sides from A are outside of B
-    if (bottomA <= topB) {
-        return false;
+bool World::testCollide(SDL_Rect a, SDL_Rect b) {
+    SDL_Rect intersect = {0, 0, 0, 0};
+    SDL_Rect aTransform = {transformX(a.x), transformY(a.y), a.w, a.h};
+    SDL_Rect bTransform = {transformX(b.x), transformY(b.y), b.w, b.h};
+    SDL_bool result = SDL_IntersectRect(&aTransform, &bTransform, &intersect);
+    if (result == SDL_TRUE) {
+        return true;
     }
-
-    if (topA >= bottomB) {
-        return false;
-    }
-
-    if (rightA <= leftB) {
-        return false;
-    }
-
-    if (leftA >= rightB) {
-        return false;
-    }
-
-    // If none of the sides from A are outside B
-    return true;
+    return false;
 }
 
 World::World(int numEntities) {
     entityVolumes = std::vector<SDL_Rect>(numEntities);
     this->numEntities = numEntities;
 }
+
+SDL_Rect World::getEntityLocation(int num) { return entityVolumes[num]; }
 
 int World::transformX(int x) { return x; }
 
@@ -61,7 +34,7 @@ bool World::checkCollisions() {
     bool collision = false;
     for (int i = 1; i < numEntities; i++) {
         collision =
-            collision || checkCollision(entityVolumes[0], entityVolumes[i]);
+            collision || testCollide(entityVolumes[0], entityVolumes[i]);
     }
     return collision;
 }

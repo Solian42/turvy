@@ -15,11 +15,15 @@ void PlayerGraphicsComponent::update(SDL_Renderer *renderer, World *world,
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 
-    if (SDL_RenderCopy(renderer, resources->getTexture(currentSprite), NULL,
+    if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,
                        &temp) < 0) {
         std::cout << "Something broke: " << SDL_GetError() << " "
                   << currentSprite << "\n";
     }
+    /* Code to test Collisions. Turns things into rectangles.
+    SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);
+    SDL_RenderFillRect(myRenderer, &temp);
+    SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
     updateParent();
 }
 
@@ -111,4 +115,7 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
     scaleCurrentSprite(2);
 }
 
-void PlayerGraphicsComponent::setCurrState(int state) { currState = state; }
+void PlayerGraphicsComponent::setCurrState(int state) {
+    currState = state;
+    currentSprite = spriteNames[currState];
+}

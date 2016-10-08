@@ -13,6 +13,7 @@ public:
     void updateVolume(int entityNum, int newX, int newY, int newW, int newH);
     bool checkCollisions();
 
+    SDL_Rect getEntityLocation(int num);
     int x = 1280;
     int y = 720;
 
@@ -21,6 +22,7 @@ public:
     int numEntities;
 
 private:
+    bool testCollide(SDL_Rect a, SDL_Rect b);
     std::vector<SDL_Rect> entityVolumes;
 };
 
