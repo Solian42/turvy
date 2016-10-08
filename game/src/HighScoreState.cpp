@@ -73,7 +73,7 @@ std::string HighScoreState::getHighScore() {
     inputFile.open("../data/text/highscore.txt");
     std::string data;
 
-    inputFile >> data;
+	if(!(inputFile >> data)) data = std::to_string(-1);
 
     inputFile.close();
     if (std::stoi(data) == -1) {
@@ -93,7 +93,7 @@ std::string HighScoreState::getHighScore() {
 
 void HighScoreState::setHighScore(int score) {
     std::ofstream outFile;
-    outFile.open("../data/text/highscore.txt", std::ios::trunc);
+	outFile.open("../data/text/highscore.txt");
     outFile << score;
     outFile.close();
 }
