@@ -36,7 +36,11 @@ int HighScoreState::handleEvent(SDL_Event *e, int dt) {
     if (e->type == SDL_KEYUP) {
         switch (e->key.keysym.sym) {
         case SDLK_SPACE:
+            Mix_HaltMusic();
             return STATE_MAINMENU;
+            break;
+        case SDLK_r:
+            setHighScore(0);
             break;
         default:
             break;
@@ -57,8 +61,7 @@ void HighScoreState::setCurrScore(int score) {
     } else {
         currScore = resources->getFont("manaspc60",
                                        std::to_string(currScoreInt), white);
-        if (std::stoi(getHighScore()) > currScoreInt ||
-            std::stoi(getHighScore()) == -1) {
+        if (std::stoi(getHighScore()) < currScoreInt) {
             setHighScore(currScoreInt);
         }
     }
@@ -73,7 +76,8 @@ std::string HighScoreState::getHighScore() {
     inputFile.open("../data/text/highscore.txt");
     std::string data;
 
-	if(!(inputFile >> data)) data = std::to_string(-1);
+    if (!(inputFile >> data))
+        data = std::to_string(0);
 
     inputFile.close();
     if (std::stoi(data) == -1) {
@@ -93,7 +97,7 @@ std::string HighScoreState::getHighScore() {
 
 void HighScoreState::setHighScore(int score) {
     std::ofstream outFile;
-	outFile.open("../data/text/highscore.txt");
+    outFile.open("../data/text/highscore.txt");
     outFile << score;
     outFile.close();
 }
@@ -130,8 +134,9 @@ void HighScoreState::render(int dt) {
     int supressWarning = dt;
     supressWarning++;
 }
-void HighScoreState::startMusic() {
-    // Add menu screen music?
+void HighScoreState::startMusic(int vol) {
+    Mix_PlayMusic(resources->getMusic("highscore"), -1);
+    Mix_VolumeMusic(vol);
     return;
 }
 

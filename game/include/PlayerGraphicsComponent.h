@@ -12,7 +12,7 @@ class PlayerGraphicsComponent : public GraphicsComponent {
 public:
     PlayerGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
                             std::vector<std::string> spritenames);
-    void update(SDL_Renderer *renderer, World *world, int dt);
+    void update(World *world, int dt);
     ~PlayerGraphicsComponent();
     void setCurrState(int state);
 

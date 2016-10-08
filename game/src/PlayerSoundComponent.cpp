@@ -7,11 +7,13 @@ PlayerSoundComponent::PlayerSoundComponent(std::vector<std::string> chunks,
 }
 
 void PlayerSoundComponent::update(World *world) {
-    int i;
-    if (world->collision == true) {
-        i = 0;
-        // Mix_PlayChannel(-1, resources->getChunk(chunks[i]), 0);
+    if (world->collision) {
+        Mix_PlayChannel(-1, resources->getChunk("hurt"), 0);
     }
 }
 
+void PlayerSoundComponent::playSound(std::string soundName) {
+
+    Mix_PlayChannel(-1, resources->getChunk(soundName), 0);
+}
 PlayerSoundComponent::~PlayerSoundComponent() {}

@@ -12,9 +12,11 @@ void PlayerInputComponent::update(SDL_Event *event, int dt) {
             case SDLK_SPACE:
                 if (player->getY() - player->getH() <= 1) {
                     player->setYVel(MAX_ACCEL);
+                    player->sound->playSound("jump");
                 }
                 if (player->getY() >= world->y) {
                     player->setYVel(-MAX_ACCEL);
+                    player->sound->playSound("jump2");
                 }
                 break;
             case SDLK_LEFT:

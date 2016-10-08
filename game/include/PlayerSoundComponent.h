@@ -13,6 +13,7 @@ class PlayerSoundComponent : public SoundComponent {
 public:
     PlayerSoundComponent(std::vector<std::string> chunks, ResourceManager *r);
     void update(World *world);
+    void playSound(std::string soundName);
     ~PlayerSoundComponent();
 
 private:

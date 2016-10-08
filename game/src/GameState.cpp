@@ -3,7 +3,7 @@
 GameState::GameState(SDL_Renderer *r, int width, int height,
                      ResourceManager *res) {
 
-    numEntities = 30;
+    numEntities = 50;
     renderer = r;
     resources = res;
     entities = std::vector<GameObject *>(numEntities);
@@ -33,13 +33,16 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         0, 72, {"ss0", "ss1", "ss2", "ss3", "ss2", "ss1", "ss0"});
     backgroundObjects[1] = createSetpiece(1280 - (2 * 19), 720, {"ts0"});
     backgroundObjects[1]->graphics->scaleCurrentSprite(2);
-    backgroundMusic = std::string("treadmill");
+    backgroundMusic = std::string("game");
     scoreMgr = new ScoreManager(renderer, resources,
                                 world); /*added score manager by Anthony*/
+
+    background = resources->getTexture("background");
 }
 
-void GameState::startMusic() {
+void GameState::startMusic(int vol) {
     Mix_PlayMusic(resources->getMusic(backgroundMusic), -1);
+    Mix_VolumeMusic(vol);
 }
 
 int GameState::handleEvent(SDL_Event *e, int dt) {
@@ -78,10 +81,13 @@ void GameState::doPhysics(int dt) {
 }
 
 void GameState::render(int dt) {
+
+    SDL_RenderCopy(renderer, background, NULL, NULL);
+
     for (int i = 0; i < numEntities - 1; i++) {
         enemies[i]->graphics->update(renderer, world, dt);
     }
-    player->graphics->update(renderer, world, dt);
+    player->graphics->update(world, dt);
     int currState = backgroundObjects[0]->graphics->getCurrState();
     currState++;
     if (currState == 7)
@@ -90,7 +96,7 @@ void GameState::render(int dt) {
     backgroundObjects[0]->graphics->update(world, dt);
     backgroundObjects[1]->graphics->update(world, dt);
     scoreMgr->update();
-    scoreMgr->printScore(500,
+    scoreMgr->printScore(1280,
                          0); /*added printscore upon width&height of screen*/
 }
 
@@ -137,6 +143,7 @@ void GameState::reset() {
     player->setY(0.0);
     player->setXVel(0.0);
     player->setYVel(0.0);
+    player->graphics->setCurrState(0);
     scoreMgr->resetScore();
     hasWon = false;
     Mix_HaltMusic();
@@ -148,4 +155,5 @@ GameState::~GameState() {
     }
     delete world;
     delete scoreMgr;
+    SDL_DestroyTexture(background);
 }

@@ -29,3 +29,5 @@ ss2 ../data/images/shield/shield_2.png
 ss3 ../data/images/shield/shield_3.png
 
 ts0 ../data/images/trophy.png
+
+background ../data/images/background.png

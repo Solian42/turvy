@@ -1,3 +1,5 @@
-abstract_tracking ../data/sounds/abstract_tracking.xm
-treadmill ../data/sounds/The_Faster_The_Treadmill.ogg
+game ../data/sounds/BRD_Teleport_Prokg.xm
+title ../data/sounds/BraveNex.xm
+highscore ../data/sounds/little_swedish_girl.xm
+mainMenu ../data/sounds/unreeeal_superhero.xm
 

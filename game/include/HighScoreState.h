@@ -13,7 +13,7 @@ public:
     void doSound();
     void doPhysics(int dt);
     void render(int dt);
-    void startMusic();
+    void startMusic(int vol);
     void setCurrScore(int score);
     void setHighScore(int score);
 

@@ -24,7 +24,7 @@ void run() {
         new HighScoreState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
     int currStateType = STATE_TITLE;
-    currState->startMusic();
+    currState->startMusic(32);
     SDL_Event e;
     bool running = true;
     unsigned int lastTime = 0;
@@ -67,14 +67,12 @@ void run() {
                 case STATE_GAME:
                     currState = states[STATE_GAME];
                     currStateType = STATE_GAME;
-                    currState->startMusic();
-                    Mix_Volume(1, 32);
+                    currState->startMusic(32);
                     break;
                 case STATE_MAINMENU:
                     currState = states[STATE_MAINMENU];
                     currStateType = STATE_MAINMENU;
-                    currState->startMusic();
-                    Mix_Volume(-1, 32);
+                    currState->startMusic(32);
                     break;
                 case STATE_HIGHSCORE: {
                     int highScore = -1;
@@ -87,8 +85,7 @@ void run() {
                     currStateType = STATE_HIGHSCORE;
                     HighScoreState *hs = (HighScoreState *)currState;
                     hs->setCurrScore(highScore);
-                    currState->startMusic();
-                    Mix_Volume(-1, 32);
+                    currState->startMusic(32);
                 } break;
 
                 default:
@@ -136,6 +133,8 @@ void setup(const char *title) {
         std::cerr << "SDL_mixer could not initialize! SDL_mixer Error:"
                   << Mix_GetError() << "\n";
     }
+
+    Mix_Volume(2, 76);
     mainWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED,
                                   SDL_WINDOWPOS_UNDEFINED, width, height,
                                   SDL_WINDOW_SHOWN);

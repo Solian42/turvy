@@ -26,7 +26,7 @@ public:
     virtual void doPhysics(int dt) = 0;
     virtual void doSound() = 0;
     virtual void render(int dt) = 0;
-    virtual void startMusic() = 0;
+    virtual void startMusic(int vol) = 0;
     virtual ~State() {}
 
 protected:

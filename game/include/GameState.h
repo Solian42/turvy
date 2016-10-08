@@ -18,7 +18,7 @@ public:
     void doSound();
     void doPhysics(int dt);
     void render(int dt);
-    void startMusic();
+    void startMusic(int vol);
 
     ~GameState();
 
@@ -33,6 +33,8 @@ private:
 
     SDL_Renderer *renderer;
     World *world = nullptr;
+
+    SDL_Texture *background = nullptr;
 
     bool hasWon = false;
 

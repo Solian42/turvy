@@ -39,9 +39,11 @@ int MainMenuState::handleEvent(SDL_Event *e, int dt) {
     if (e->type == SDL_KEYUP) {
         switch (e->key.keysym.sym) {
         case SDLK_SPACE:
+            Mix_HaltMusic();
             return STATE_GAME;
             break;
         case SDLK_h:
+            Mix_HaltMusic();
             return STATE_HIGHSCORE;
         default:
             break;
@@ -88,8 +90,9 @@ void MainMenuState::render(int dt) {
     int supressWarning = dt;
     supressWarning++;
 }
-void MainMenuState::startMusic() {
-    // Add menu screen music?
+void MainMenuState::startMusic(int vol) {
+    Mix_PlayMusic(resources->getMusic("mainMenu"), -1);
+    Mix_VolumeMusic(vol);
     return;
 }
 

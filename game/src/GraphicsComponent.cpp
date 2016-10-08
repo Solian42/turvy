@@ -26,6 +26,9 @@ void GraphicsComponent::update(World *world, int dt) {
         std::cout << "Something broke: " << SDL_GetError() << "\n";
     }
     updateParent();
+
+    int supressWarnings = dt;
+    supressWarnings++;
 }
 
 void GraphicsComponent::setCurrentSprite(std::string name) {

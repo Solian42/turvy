@@ -5,8 +5,7 @@ PlayerGraphicsComponent::PlayerGraphicsComponent(
 
 PlayerGraphicsComponent::~PlayerGraphicsComponent() {}
 
-void PlayerGraphicsComponent::update(SDL_Renderer *renderer, World *world,
-                                     int dt) {
+void PlayerGraphicsComponent::update(World *world, int dt) {
 
     updateCurrentSprite(dt);
 

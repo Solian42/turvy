@@ -10,24 +10,37 @@ TitleState::TitleState(SDL_Renderer *r, int width, int height,
     SDL_Color white = {255, 255, 255, 255};
     titleFont = resources->getFont(std::string("manaspc80"), title, white);
 
-    msgFont = resources->getFont(std::string("manaspc60"), titleMessage, white);
+    msgFont = resources->getFont(std::string("manaspc30"), titleMessage, white);
+
+    gameTitle = resources->getFont("manaspc80", gameName, white);
 
     int textureW;
     int textureH;
     SDL_QueryTexture(msgFont, NULL, NULL, &textureW, &textureH);
 
-    msgRect = {(width - textureW) / 2, (int)floor(height * 0.75), textureW,
+    msgRect = {(width - textureW) / 2, (int)floor(height * 0.95), textureW,
                textureH};
+
+    SDL_SetTextureAlphaMod(msgFont, 16);
 
     SDL_QueryTexture(titleFont, NULL, NULL, &textureW, &textureH);
 
-    titleRect = {(width - textureW) / 2, (height - textureH) / 2, textureW,
+    titleRect = {(width - textureW) / 2, (int)floor(height * 0.3), textureW,
                  textureH};
+
+    SDL_SetTextureAlphaMod(titleFont, 0);
+
+    SDL_QueryTexture(gameTitle, NULL, NULL, &textureW, &textureH);
+
+    gameTitleRect = {(width - textureW) / 2, (int)floor(height * 0.65),
+                     textureW, textureH};
+    SDL_SetTextureAlphaMod(gameTitle, 0);
 }
 
 int TitleState::handleEvent(SDL_Event *e, int dt) {
     if (e->type == SDL_KEYUP) {
         // TODO: Change to STATE_MAINMENU
+        Mix_HaltMusic();
         return STATE_MAINMENU;
     }
     int supressWarning = dt;
@@ -42,23 +55,23 @@ void TitleState::doPhysics(int dt) {
 }
 void TitleState::render(int dt) {
     time += dt;
-    while (time > 16) {
-        time -= 16;
+    while (time > 64) {
+        time -= 64;
         if (titleAlpha < 255 && !fadein) {
             titleAlpha++;
             fadein = false;
+            SDL_SetTextureAlphaMod(titleFont, titleAlpha);
         } else {
             if (titleAlpha > 10) {
                 fadein = true;
                 titleAlpha = titleAlpha - 5;
-            } else {
-                fadein = false;
             }
         }
-        floatingMove(5, time);
-    }
 
-    SDL_SetTextureAlphaMod(titleFont, titleAlpha);
+        if (fadein) {
+            SDL_SetTextureAlphaMod(gameTitle, (255 - titleAlpha));
+        }
+    }
 
     if (SDL_RenderCopy(renderer, msgFont, NULL, &msgRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
@@ -67,9 +80,14 @@ void TitleState::render(int dt) {
     if (SDL_RenderCopy(renderer, titleFont, NULL, &titleRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
     }
+
+    if (SDL_RenderCopy(renderer, gameTitle, NULL, &gameTitleRect) < 0) {
+        std::cout << "Something broke: " << SDL_GetError();
+    }
 }
-void TitleState::startMusic() {
-    // Add title screen music?
+void TitleState::startMusic(int vol) {
+    Mix_PlayMusic(resources->getMusic("title"), 1);
+    Mix_VolumeMusic(vol);
     return;
 }
 
@@ -88,4 +106,5 @@ void TitleState::floatingMove(int speed, int dt) {
 TitleState::~TitleState() {
     SDL_DestroyTexture(titleFont);
     SDL_DestroyTexture(msgFont);
+    SDL_DestroyTexture(gameTitle);
 }

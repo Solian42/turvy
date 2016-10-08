@@ -14,6 +14,7 @@ PlayerObject::PlayerObject(int x, int y, int xVelocity, int yVelocity,
     this->sound = s;
     this->physics = p;
     g->setGameObject(this);
+    s->setGameObject(this);
     this->location = (g->getTextureRect(g->getCurrentSprite()));
     this->entityNum = entityNum;
 }

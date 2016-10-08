@@ -10,6 +10,10 @@ class SoundComponent {
 public:
     virtual ~SoundComponent() {}
     void update(GameObject *obj);
+    void setGameObject(GameObject *obj) { myObj = obj; };
+
+protected:
+    GameObject *myObj;
 };
 
 #endif

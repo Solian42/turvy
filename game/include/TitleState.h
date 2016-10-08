@@ -11,7 +11,7 @@ public:
     void doSound();
     void doPhysics(int dt);
     void render(int dt);
-    void startMusic();
+    void startMusic(int vol);
 
     ~TitleState();
 
@@ -25,7 +25,11 @@ private:
     SDL_Texture *msgFont = nullptr;
     SDL_Rect msgRect;
 
-    std::string title = std::string("Lizard Games");
+    SDL_Texture *gameTitle = nullptr;
+    SDL_Rect gameTitleRect;
+
+    std::string title = std::string("Lizard Games presents:");
+    std::string gameName = "Turvy";
     std::string titleMessage = std::string("Press any key to begin");
     int titleAlpha = 0;
     bool fadein = false;
