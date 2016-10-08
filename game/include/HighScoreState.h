@@ -9,6 +9,7 @@ public:
     HighScoreState(SDL_Renderer *r, int width, int height,
                    ResourceManager *res);
     int handleEvent(SDL_Event *e, int dt);
+    std::string getHighScore();
     void doSound();
     void doPhysics(int dt);
     void render(int dt);
@@ -30,7 +31,7 @@ private:
     SDL_Rect backToMenuRect;
 
     std::string titleTitle = "Your high score is:";
-    std::string highScoreTitle = "42";
+    std::string highScoreTitle = getHighScore();
     std::string backToMenuTitle = "[Press space to go back to menu!]";
 
     SDL_Renderer *renderer;

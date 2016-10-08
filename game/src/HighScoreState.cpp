@@ -38,6 +38,17 @@ int HighScoreState::handleEvent(SDL_Event *e, int dt) {
     return getMyState();
 }
 
+std::string HighScoreState::getHighScore() {
+    std::ifstream inputFile;
+    inputFile.open("../data/text/highscore.txt");
+    std::string data;
+
+    inputFile >> data;
+
+    inputFile.close();
+    return data;
+}
+
 void HighScoreState::doSound() { return; }
 
 void HighScoreState::doPhysics(int dt) {
