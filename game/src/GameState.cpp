@@ -28,6 +28,7 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     }
 
     backgroundMusic = std::string("abstract_tracking");
+    scoreMgr = new ScoreManager(renderer, resources, world);    /*added score manager by Anthony*/
 }
 
 void GameState::startMusic() {
@@ -59,6 +60,8 @@ void GameState::render(int dt) {
         enemies[i]->graphics->update(renderer, world, dt);
     }
     player->graphics->update(renderer, world, dt);
+    scoreMgr->update();
+    scoreMgr->printScore(500, 0);                              /*added printscore upon width&height of screen*/
 }
 
 GameState::~GameState() {
@@ -66,6 +69,7 @@ GameState::~GameState() {
         delete g;
     }
     delete world;
+    delete scoreMgr;
 }
 
 PlayerObject *GameState::createPlayer(int entityNum,

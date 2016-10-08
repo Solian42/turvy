@@ -5,6 +5,7 @@
 #include "PlayerObject.h"
 #include "State.h"
 #include "World.h"
+#include "ScoreManager.h"
 
 class GameState : public State {
 public:
@@ -33,6 +34,7 @@ private:
                                std::vector<std::string> spriteNames);
     EnemyObject *createEnemy(int x, int y, int entityNum,
                              std::vector<std::string> spriteNames);
+    ScoreManager *scoreMgr;
 };
 
 #endif
