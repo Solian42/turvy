@@ -67,7 +67,13 @@ void GameState::doPhysics(int dt) {
     if (world->testCollide(*player->getLocation(),
                            *backgroundObjects[1]->getLocation())) {
         hasWon = true;
-        std::cout << "Yay we won!\n";
+        SDL_Event user_event;
+
+        user_event.type = SDL_USEREVENT;
+        user_event.user.code = 2;
+        user_event.user.data1 = NULL;
+        user_event.user.data2 = NULL;
+        SDL_PushEvent(&user_event);
     }
 }
 
