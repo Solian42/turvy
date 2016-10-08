@@ -27,7 +27,7 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         enemies[i]->input->update(enemies[i]);
     }
 
-    backgroundMusic = std::string("abstract_tracking");
+    backgroundMusic = std::string("treadmill");
     scoreMgr = new ScoreManager(renderer, resources, world);    /*added score manager by Anthony*/
 }
 

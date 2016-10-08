@@ -67,16 +67,19 @@ void run() {
                     currState = states[STATE_GAME];
                     currStateType = STATE_GAME;
                     currState->startMusic();
+                    Mix_Volume(1, 32);
                     break;
                 case STATE_MAINMENU:
                     currState = states[STATE_MAINMENU];
                     currStateType = STATE_MAINMENU;
                     currState->startMusic();
+                    Mix_Volume(-1, 32);
                     break;
                 case STATE_HIGHSCORE:
                     currState = states[STATE_HIGHSCORE];
                     currStateType = STATE_HIGHSCORE;
                     currState->startMusic();
+                    Mix_Volume(-1, 32);
                     break;
                 default:
                     break;
@@ -120,11 +123,16 @@ void setup(const char *title) {
         std::cerr << "oops. Failed to init: " << SDL_GetError() << "\n";
     }
 
+    int code = Mix_Init(MIX_INIT_MOD | MIX_INIT_OGG);
+
+    if (code == (MIX_INIT_MOD | MIX_INIT_OGG)) {
+        std::cout << "MP3 libraries loaded fine: " << code << "\n";
+    }
+
     if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) < 0) {
         std::cerr << "SDL_mixer could not initialize! SDL_mixer Error:"
                   << Mix_GetError() << "\n";
     }
-    // Mix_Volume(-1, 32);
     mainWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED,
                                   SDL_WINDOWPOS_UNDEFINED, width, height,
                                   SDL_WINDOW_SHOWN);
@@ -155,7 +163,6 @@ void printFPS(std::chrono::duration<double> dtNano) {
     SDL_Rect temp = {0, 0, w, h};
     SDL_RenderCopy(mainRenderer, fps, NULL, &temp);
     SDL_DestroyTexture(fps);
-    free(fps);
 }
 
 void load() {
