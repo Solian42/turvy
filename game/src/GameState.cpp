@@ -27,10 +27,12 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         enemies[i]->input->update(enemies[i]);
     }
 
-    backgroundObjects = std::vector<GameObject *>(1);
+    backgroundObjects = std::vector<GameObject *>(2);
 
     backgroundObjects[0] = createSetpiece(
         0, 72, {"ss0", "ss1", "ss2", "ss3", "ss2", "ss1", "ss0"});
+    backgroundObjects[1] = createSetpiece(1280 - (2 * 19), 720, {"ts0"});
+    backgroundObjects[1]->graphics->scaleCurrentSprite(2);
     backgroundMusic = std::string("treadmill");
     scoreMgr = new ScoreManager(renderer, resources,
                                 world); /*added score manager by Anthony*/
@@ -42,7 +44,11 @@ void GameState::startMusic() {
 
 int GameState::handleEvent(SDL_Event *e, int dt) {
     if (e->type == SDL_KEYUP && e->key.keysym.sym == SDLK_q) {
+        reset();
         return STATE_MAINMENU;
+    }
+    if (hasWon) {
+        return STATE_HIGHSCORE;
     }
 
     player->input->update(e, dt);
@@ -58,8 +64,8 @@ void GameState::doPhysics(int dt) {
     for (int i = 0; i < numEntities - 1; i++) {
         enemies[i]->physics->update(enemies[i], world, dt);
     }
-    if ((player->getX() == (world->x - player->getW())) &&
-        (player->getY() == (world->y - player->getH()))) {
+    if (world->testCollide(*player->getLocation(),
+                           *backgroundObjects[1]->getLocation())) {
         hasWon = true;
         std::cout << "Yay we won!\n";
     }
@@ -76,6 +82,7 @@ void GameState::render(int dt) {
         currState = 0;
     backgroundObjects[0]->graphics->setCurrentState(currState);
     backgroundObjects[0]->graphics->update(world, dt);
+    backgroundObjects[1]->graphics->update(world, dt);
     scoreMgr->update();
     scoreMgr->printScore(500,
                          0); /*added printscore upon width&height of screen*/
@@ -115,6 +122,18 @@ GameObject *GameState::createSetpiece(int x, int y,
     g->setGameObject(game);
 
     return game;
+}
+
+int GameState::getHighScore() { return scoreMgr->getScore(); }
+
+void GameState::reset() {
+    player->setX(0.0);
+    player->setY(0.0);
+    player->setXVel(0.0);
+    player->setYVel(0.0);
+    scoreMgr->resetScore();
+    hasWon = false;
+    Mix_HaltMusic();
 }
 
 GameState::~GameState() {

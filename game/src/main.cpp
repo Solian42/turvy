@@ -62,6 +62,7 @@ void run() {
             // Handle input for the player
             int stateChange = currState->handleEvent(&e, dt);
             if (stateChange != currStateType) {
+
                 switch (stateChange) {
                 case STATE_GAME:
                     currState = states[STATE_GAME];
@@ -75,12 +76,21 @@ void run() {
                     currState->startMusic();
                     Mix_Volume(-1, 32);
                     break;
-                case STATE_HIGHSCORE:
+                case STATE_HIGHSCORE: {
+                    int highScore = -1;
+                    if (currStateType == STATE_GAME) {
+                        GameState *game = (GameState *)currState;
+                        highScore = game->getHighScore();
+                        game->reset();
+                    }
                     currState = states[STATE_HIGHSCORE];
                     currStateType = STATE_HIGHSCORE;
+                    HighScoreState *hs = (HighScoreState *)currState;
+                    hs->setCurrScore(highScore);
                     currState->startMusic();
                     Mix_Volume(-1, 32);
-                    break;
+                } break;
+
                 default:
                     break;
                 }

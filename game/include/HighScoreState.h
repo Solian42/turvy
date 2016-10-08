@@ -14,15 +14,24 @@ public:
     void doPhysics(int dt);
     void render(int dt);
     void startMusic();
+    void setCurrScore(int score);
+    void setHighScore(int score);
 
     ~HighScoreState();
 
 private:
     int width, height;
     int time = 0;
+    int currScoreInt = 0;
 
     SDL_Texture *title = nullptr;
     SDL_Rect titleRect;
+
+    SDL_Texture *currTitle = nullptr;
+    SDL_Rect currTitleRect;
+
+    SDL_Texture *currScore = nullptr;
+    SDL_Rect currScoreRect;
 
     SDL_Texture *highScore = nullptr;
     SDL_Rect highScoreRect;
@@ -31,7 +40,8 @@ private:
     SDL_Rect backToMenuRect;
 
     std::string titleTitle = "Your high score is:";
-    std::string highScoreTitle = getHighScore();
+    std::string currTitleTitle = "Your last score was:";
+    std::string highScoreTitle = "No high scores found";
     std::string backToMenuTitle = "[Press space to go back to menu!]";
 
     SDL_Renderer *renderer;

@@ -16,13 +16,12 @@ public:
     SDL_Rect getEntityLocation(int num);
     int x = 1280;
     int y = 720;
-
+    bool testCollide(SDL_Rect a, SDL_Rect b);
     bool collision = false;
 
     int numEntities;
 
 private:
-    bool testCollide(SDL_Rect a, SDL_Rect b);
     std::vector<SDL_Rect> entityVolumes;
 };
 

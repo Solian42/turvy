@@ -12,6 +12,9 @@ public:
     int getMyState() { return STATE_GAME; }
     GameState(SDL_Renderer *r, int width, int height, ResourceManager *res);
     int handleEvent(SDL_Event *e, int dt);
+    int getHighScore();
+
+    void reset();
     void doSound();
     void doPhysics(int dt);
     void render(int dt);
