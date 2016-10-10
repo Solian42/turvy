@@ -21,7 +21,7 @@ TitleState::TitleState(SDL_Renderer *r, int width, int height,
     msgRect = {(width - textureW) / 2, (int)floor(height * 0.95), textureW,
                textureH};
 
-    SDL_SetTextureAlphaMod(msgFont, 16);
+    SDL_SetTextureAlphaMod(msgFont, 32);
 
     SDL_QueryTexture(titleFont, NULL, NULL, &textureW, &textureH);
 
