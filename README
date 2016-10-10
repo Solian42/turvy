@@ -1,5 +1,6 @@
 Hey All! This is our codebase.
 
+##########################################################################################
 To Build:
 
 navigate to game/src, and run "make"
@@ -12,14 +13,36 @@ To Clean:
 
 run "make remove" from game/src
 
-This took forever to build, but it was really fun learning how exactly to do things, while
-encountering tons of weird bugs and various other difficulties.
+##########################################################################################
 
-We're now properly implementing an entity component system! We have state-based frames,
-and it all looks cool.
+How to Play:
 
-We also implemented the jumping mechanic that we want to use in the game, let us know how
-you like it!
+Left/Right: Corresponding arrowkeys
+Change Gravity: Spacebar
+Quit: Esc
+Show FPS: F
+From Game->Main menu: Q
+
+
+All others should be self explanatory!
+
+##########################################################################################
+
+We have a legit game now!
+We have decided to call it "Turvy" (As in topsy-turvy)
+
+It's kinda difficult, but that's the point. We found in testing that this was a good
+number of enemies to give a good game. Making getting the trophy possible, but difficult.
+
+We decided to start your score at 100,000, and subtract 500 points every time you die. You
+die whenever you collide with an enemy. When you die, you respawn at the shielded area
+down at the bottom left of the screen. 
+
+The score effectively gives you 200 lives, and rewards you for losing at little as 
+possible. Currently we can only remember one high score between games, but hey, we're a 
+poor independent studio with no money. :P
+
+Let us know what your high score is! :)
 
 All of our source code is in src, .h files in include, music, images, and fonts in data
 
