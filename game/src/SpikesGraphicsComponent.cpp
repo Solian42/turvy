@@ -29,11 +29,11 @@ void SpikesGraphicsComponent::update(World *world, SpikesObject *spikes) {
 void SpikesGraphicsComponent::updateCurrentSprite(SpikesObject *spikes) {
 
     /* Sets the sprite based on orientation. */
-    if (spikes->isUpsideDown()) {
+    /*if (spikes->isUpsideDown()) {
         currState = 1;
     } else {
         currState = 0;
-    }
+    }*/
 
     currentSprite = spriteNames[currState];
 }

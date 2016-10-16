@@ -28,9 +28,10 @@ private:
 
     std::vector<GameObject *> entities;
     std::vector<GameObject *> backgroundObjects;
+    std::vector<PlatformObject *> platforms;
+    std::vector<SpikesObject *> spikes;
     std::string backgroundMusic;
     PlayerObject *player = nullptr;
-    std::vector<EnemyObject *> enemies;
 
     SDL_Renderer *renderer;
     World *world = nullptr;

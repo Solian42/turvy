@@ -31,3 +31,9 @@ ss3 ../data/images/shield/shield_3.png
 ts0 ../data/images/trophy.png
 
 background ../data/images/background.png
+
+plat1 ../data/images/platforms/plat1.png
+plat2 ../data/images/platforms/plat2.png
+plat3 ../data/images/platforms/plat3.png
+
+spike1 ../data/images/spikes/spikeMiddle.png
