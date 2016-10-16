@@ -14,6 +14,7 @@ public:
 	SpikesGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
                             std::vector<std::string> spritenames);
 	void update(World *world, SpikesObject *spikes);
+	~SpikesGraphicsComponent();
     void setCurrState(int state);
 
 private:

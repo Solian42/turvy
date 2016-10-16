@@ -11,6 +11,8 @@ class PlatformObject : public GameObject {
 public:
     PlatformObject(int x, int y, int w, int h, PlatformGraphicsComponent *g);
 
+    ~PlatformObject();
+
     PlatformGraphicsComponent *graphics;
 };
 

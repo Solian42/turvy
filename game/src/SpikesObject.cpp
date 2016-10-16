@@ -9,3 +9,9 @@ SpikesObject::SpikesObject(int x, int y, bool orientation, SpikesGraphicsCompone
 	g->setGameObject(this);
 	this->location = (g->getTextureRect(g->getCurrentSprite()));
 }
+
+SpikesObject::~SpikesObject() {
+	delete graphics;
+
+	return;
+}

@@ -3,6 +3,8 @@ SpikesGraphicsComponent::SpikesGraphicsComponent(
     SDL_Renderer *ren, ResourceManager *r, std::vector<std::string> spritenames)
     : GraphicsComponent(ren, r, spritenames) {}
 
+SpikesGraphicsComponent::~SpikesGraphicsComponent() {}
+
 void SpikesGraphicsComponent::update(World *world, SpikesObject *spikes) {
 
 	updateCurrentSprite(spikes);

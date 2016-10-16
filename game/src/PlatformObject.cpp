@@ -10,3 +10,9 @@ PlatformObject::PlatformObject(int x, int y, int w, int h, PlatformGraphicsCompo
 	g->setGameObject(this);
 	this->location = (g->getTextureRect(g->getCurrentSprite()));
 }
+
+PlatformObject::~PlatformObject() {
+	delete graphics;
+
+	return;
+}

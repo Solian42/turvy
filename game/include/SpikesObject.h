@@ -12,6 +12,8 @@ public:
     SpikesObject(int x, int y, bool orientation, SpikesGraphicsComponent *g);
     bool isUpsideDown() { return upsideDown; }
     void setOrientation(bool o) { upsideDown = o; }
+
+    ~SpikesObject();
     
     SpikesGraphicsComponent *graphics;
 

@@ -3,6 +3,8 @@ PlatformGraphicsComponent::PlatformGraphicsComponent(
     SDL_Renderer *ren, ResourceManager *r, std::vector<std::string> spritenames)
     : GraphicsComponent(ren, r, spritenames) {}
 
+PlatformGraphicsComponent::~PlatformGraphicsComponent() {}
+
 void PlatformGraphicsComponent::update(World *world) {
 
 	updateCurrentSprite();
