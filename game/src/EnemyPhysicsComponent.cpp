@@ -10,7 +10,7 @@ void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
     // enemyObj->y += enemyObj->yVelocity;
     // If the enemy went too far to the left or right
     if ((enemyObj->getX() < 0) ||
-        (enemyObj->getX() + enemyObj->getW() > world->x)) {
+        (enemyObj->getX() + enemyObj->getW() > world->worldXLen)) {
         // Bounce
         enemyObj->setX(enemyObj->getX() - enemyObj->getXVel() * dt);
         enemyObj->setXVel(-enemyObj->getXVel());
@@ -19,7 +19,7 @@ void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
 
     // If the enemy went too far up or down
     if (enemyObj->getY() - enemyObj->getH() < 0 ||
-        enemyObj->getY() > world->y) {
+        enemyObj->getY() > world->worldYLen) {
 
         // Bounce
         enemyObj->setY(enemyObj->getY() - enemyObj->getYVel() * dt);

@@ -9,8 +9,8 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
 
     updateCurrentSprite(dt);
 
-    SDL_Rect temp = {world->transformX(myObj->getX()),
-                     world->transformY(myObj->getY()), currW, currH};
+    SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
+                     world->transformYtoCamera(myObj->getY()), currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 

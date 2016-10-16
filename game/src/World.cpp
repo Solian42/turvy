@@ -2,8 +2,10 @@
 
 bool World::testCollide(SDL_Rect a, SDL_Rect b) {
     SDL_Rect intersect = {0, 0, 0, 0};
-    SDL_Rect aTransform = {transformX(a.x), transformY(a.y), a.w, a.h};
-    SDL_Rect bTransform = {transformX(b.x), transformY(b.y), b.w, b.h};
+    SDL_Rect aTransform = {transformXtoCamera(a.x), transformYtoCamera(a.y),
+                           a.w, a.h};
+    SDL_Rect bTransform = {transformXtoCamera(b.x), transformYtoCamera(b.y),
+                           b.w, b.h};
     SDL_bool result = SDL_IntersectRect(&aTransform, &bTransform, &intersect);
     if (result == SDL_TRUE) {
         return true;
@@ -18,9 +20,11 @@ World::World(int numEntities) {
 
 SDL_Rect World::getEntityLocation(int num) { return entityVolumes[num]; }
 
-int World::transformX(int x) { return x; }
+int World::transformXtoCamera(int x) { return x - cameraX; }
 
-int World::transformY(int y) { return (this->y - y); }
+int World::transformYtoCamera(int y) {
+    return (this->worldYLen - (y - cameraY));
+}
 
 void World::updateVolume(int entityNum, int newX, int newY, int newW,
                          int newH) {
@@ -37,4 +41,41 @@ bool World::checkCollisions() {
             collision || testCollide(entityVolumes[0], entityVolumes[i]);
     }
     return collision;
+}
+
+int World::collideWithPlatform(GameObject *obj) {
+    SDL_Rect intersect = {0, 0, 0, 0};
+    for (SDL_Rect o : platformVolumes) {
+        SDL_Rect pRect = *obj->getLocation();
+        SDL_bool result = SDL_IntersectRect(&o, obj->getLocation(), &intersect);
+        if (result == SDL_TRUE) {
+
+            int hd =
+                abs((((pRect.x + pRect.w) / 2) * ((pRect.x + pRect.w) / 2)) +
+                    (((o.x + o.w) / 2) * ((o.x + o.w) / 2)));
+            int vd =
+                abs((((pRect.y + pRect.h) / 2) * ((pRect.y + pRect.h) / 2)) +
+                    (((o.y + o.h) / 2) * ((o.y + o.h) / 2)));
+
+            if (hd < vd) {
+                if (((pRect.x + pRect.w) / 2) < ((o.x + o.w) / 2)) {
+                    // Collision on right side of player
+                    return COLLIDE_RIGHT;
+                } else {
+                    // Collision on left side of player
+                    return COLLIDE_LEFT;
+                }
+            } else if (vd < hd) {
+
+                if (((pRect.y + pRect.h) / 2) < ((o.y + o.h) / 2)) {
+                    // Collision on bottom side of player
+                    return COLLIDE_DOWN;
+                } else {
+                    // Collision on top side of player
+                    return COLLIDE_UP;
+                }
+            }
+        }
+    }
+    return NO_COLLIDE;
 }

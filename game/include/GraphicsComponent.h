@@ -9,7 +9,7 @@
 #include <vector>
 
 class GameObject;
-
+class World;
 class GraphicsComponent {
 public:
     GraphicsComponent(SDL_Renderer *r, ResourceManager *res,

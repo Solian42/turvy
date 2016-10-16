@@ -4,6 +4,8 @@
 #include "GameObject.h"
 #include "World.h"
 #include <SDL.h>
+
+class World;
 class PhysicsComponent {
 public:
     virtual ~PhysicsComponent() {}

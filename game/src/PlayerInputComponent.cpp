@@ -14,7 +14,7 @@ void PlayerInputComponent::update(SDL_Event *event, int dt) {
                     player->setYVel(MAX_ACCEL);
                     player->sound->playSound("jump");
                 }
-                if (player->getY() >= world->y) {
+                if (player->getY() >= world->worldYLen) {
                     player->setYVel(-MAX_ACCEL);
                     player->sound->playSound("jump2");
                 }
