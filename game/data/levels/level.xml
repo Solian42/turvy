@@ -1,27 +1,154 @@
 <rectangles>
 	<platforms>
 		<p1>
-			<x> 30 </x>
-			<y> 0 </y>
-			<width> 100 </width>
+			<x> 210 </x>
+			<y> 240 </y>
+			<width> 430 </width>
 			<height> 50 </height>
-			<texture> rectBlue </texture>
+			<texture> plat1 </texture>
 		</p1>
 		<p2>
-			<x> 50 </x>
-			<y> 0 </y>
-			<width> 100 </width>
+			<x> 640 </x>
+			<y> 480 </y>
+			<width> 600 </width>
 			<height> 50 </height>
-			<texture> rectBlue </texture>
+			<texture> plat1 </texture>
 		</p2>
+		<p3>
+			<x> 1330 </x>
+			<y> 620 </y>
+			<width> 620 </width>
+			<height> 50 </height>
+			<texture> plat1 </texture>
+		</p3>
+		<p4>
+			<x> 1330 </x>
+			<y> 220 </y>
+			<width> 620 </width>
+			<height> 50 </height>
+			<texture> plat1 </texture>
+		</p4>
+		<p5>
+			<x> 1930 </x>
+			<y> 360 </y>
+			<widgth> 620 </widgth>
+			<height> 50 </height>
+			<texture> plat1 </texture>
+		</p5>
+		<p6>
+			<x> 2600 </x>
+			<y> 600 </y>
+			<width> 430 </width>
+			<height> 50 </height>
+			<texture> plat1 </texture>
+		</p6>
+		<p7>
+			<x> 2560 </x>
+			<y> 220 </y>
+			<width> 850 </width>
+			<height> 50 </height>
+			<texture> plat1 </texture>
+		</p7>
+		<p8>
+			<x> 3840 </x>
+			<y> 240 </y>
+			<width> 430 </width>
+			<height> 50 </height>
+			<texture> plat1 </texture>
+		</p8>
+		<p9>
+			<x> 4270 </x>
+			<y> 480 </y>
+			<width> 430 </width>
+			<height> 50 </height>
+			<texture> plat1 </texture>
+		</p9>
+	    <p10>
+	    	<x> 0 </x>
+	    	<y> 0 </y>
+	    	<width> 50 </width>
+	    	<height> 720 </height>
+	    	<texture> plat1 </texture>
+	    </p10>
+	    <p11>
+	    	<x> 50 </x>
+	    	<y> 670 </y>
+	    	<width> 5070 </width>
+	    	<height> 50 </height>
+	    	<texture> plat1 </texture>
+	    </p11>
+	    <p12>
+	    	<x> 50 </x>
+	    	<y> 0 </y>
+	    	<width> 5070 </width>
+	    	<height> 50 </height>
+	    	<texture> plat1 </texture>
+	    </p12>
+	    <p13>
+	    	<x> 5070 </x>
+	    	<y> 50 </y>
+	    	<width> 50 </width>
+	    	<height> 620 </height>
+	    	<texture> plat1 </texture>
+	    </p13>
 	</platforms>
+	
 	<spikes>
 		<s1>
-			<x> 30 </x>
-			<y> 0 </y>
-			<w> 40 </w>
-			<direction> 0 </direction>
-			<texture> spikeLeft </texture>
+			<x> 210 </x>
+			<y> 220 </y>
+			<w> 420 </w>
+			<direction> 1 </direction>
+			<texture> spikeMiddle </texture>
 		</s1>
+        <s2>
+        	<x> 210 </x>
+        	<y> 650 </y>
+        	<w> 600 </w>
+        	<direction> 1 </direction>
+        	<texture> spikeMiddle </texture>
+        </s2>
+        <s3>
+        	<x> 210 </x>
+        	<y> 50 </y>
+        	<w> 1040 </w>
+        	<direction> 0 </direction>
+        	<texture> spikeMiddle </texture>
+        </s3>
+        <s4>
+        	<x> 1330 </x>
+        	<y> 200 </y>
+        	<w> 620 </w>
+        	<direction> 1 </direction>
+        	<texture> spikeMiddle </texture>
+        </s4>
+        <s5>
+        	<x> 1930 </x>
+        	<y> 650 </y>
+        	<w> 1480 </w>
+        	<direction> 1 </direction>
+        	<texture> spikeMiddle </texture>
+        </s5>
+        <s6>
+        	<x> 1930 </x>
+        	<y> 50 </y>
+        	<w> 1900 </w>
+        	<direction> 0 </direction>
+        	<texture> spikeMiddle </texture>
+        </s6>
+        <s7>
+        	<x> 4270 </x>
+        	<y> 530 </y>
+        	<w> 420 </w>
+        	<direction> 0 </direction>
+        	<texture> spikeMiddle </texture>
+        </s7>
+        <s8>
+        	<x> 4370 </x>
+        	<y> 650 </y>
+        	<w> 530 </w>
+        	<direction> 1 </direction>
+        	<texture> spikeMiddle </texture>
+        </s8>
 	</spikes>	
 </rectangles>
