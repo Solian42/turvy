@@ -99,56 +99,56 @@
 			<y> 220 </y>
 			<w> 420 </w>
 			<direction> 1 </direction>
-			<texture> spikeMiddle </texture>
+			<texture> spike1 </texture>
 		</s1>
         <s2>
         	<x> 210 </x>
         	<y> 650 </y>
         	<w> 600 </w>
         	<direction> 1 </direction>
-        	<texture> spikeMiddle </texture>
+        	<texture> spike1 </texture>
         </s2>
         <s3>
         	<x> 210 </x>
         	<y> 50 </y>
         	<w> 1040 </w>
         	<direction> 0 </direction>
-        	<texture> spikeMiddle </texture>
+        	<texture> spike1 </texture>
         </s3>
         <s4>
         	<x> 1330 </x>
         	<y> 200 </y>
         	<w> 620 </w>
         	<direction> 1 </direction>
-        	<texture> spikeMiddle </texture>
+        	<texture> spike1 </texture>
         </s4>
         <s5>
         	<x> 1930 </x>
         	<y> 650 </y>
         	<w> 1480 </w>
         	<direction> 1 </direction>
-        	<texture> spikeMiddle </texture>
+        	<texture> spike1 </texture>
         </s5>
         <s6>
         	<x> 1930 </x>
         	<y> 50 </y>
         	<w> 1900 </w>
         	<direction> 0 </direction>
-        	<texture> spikeMiddle </texture>
+        	<texture> spike1 </texture>
         </s6>
         <s7>
         	<x> 4270 </x>
         	<y> 530 </y>
         	<w> 420 </w>
         	<direction> 0 </direction>
-        	<texture> spikeMiddle </texture>
+        	<texture> spike1 </texture>
         </s7>
         <s8>
         	<x> 4370 </x>
         	<y> 650 </y>
         	<w> 540 </w>
         	<direction> 1 </direction>
-        	<texture> spikeMiddle </texture>
+        	<texture> spike1 </texture>
         </s8>
 	</spikes>	
 </rectangles>
