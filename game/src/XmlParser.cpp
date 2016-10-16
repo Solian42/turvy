@@ -27,15 +27,19 @@ void XmlParser::parse(std::string startTag){
 		int w = std::stoi(singleTagHandler());
 		int h = std::stoi(singleTagHandler());
 		std::string textureName = singleTagHandler();
-		
-		parsedPlatforms.push_back(new Platform(x, y, w, h, textureName));
+
+		parsedPlatforms.push_back(std::make_pair(textureName, SDL_Rect(x, y, w, h)));
 	} else if(objName.compare("<Spike>") == 0){
 		int x = std::stoi(singleTagHandler());
 		int y = std::stoi(singleTagHandler());
-		std::string direction = singleTagHandler();
+		int direction = std::stoi(singleTagHandler());
 		std::string textureName = singleTagHandler();
 
-		parsedSpikes.push_back(new Spike(x, y, direction, textureName));
+		std::vector<int> xydir;
+		xydir.push_back(x);
+		xydir.push_back(y);
+		xydir.push_back(dir);
+		parsedSpikes.push_back(std::make_pair(textureName, xydir));
 	} else {
 		std::cout << "unidentified objName!";
 	}
