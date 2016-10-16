@@ -8,7 +8,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
-#include <SDL>
+#include <SDL.h>
 
 class XmlParser {
 	
@@ -16,10 +16,9 @@ public:
 	XmlParser();
 	~XmlParser();
 
-	std::vector<std::pair<std::string textureName,
-		SDL_Rect platRect> platPair> parsedPlatforms;
-	std::vector<std::pair<std::string textureName,
-		std::vector<int> spikeList> spikePair> parsedSpikes;
+	std::vector<std::pair<std::string, SDL_Rect>> parsedPlatforms;
+	std::vector<std::pair<std::string,
+		std::vector<int>>> parsedSpikes;
 	std::string startTag;
 	std::string objName;
 	std::ifstream infile;
