@@ -1,5 +1,5 @@
-#ifndef PLATFORM_OBJECT_LIZARD
-#define PLATFORM_OBJECT_LIZARD
+#ifndef SPIKES_OBJECT_LIZARD
+#define SPIKES_OBJECT_LIZARD
 
 #include "GameObject.h"
 #include "SpikesGraphicsComponent.h"
