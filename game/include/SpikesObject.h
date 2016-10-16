@@ -2,16 +2,21 @@
 #define PLATFORM_OBJECT_LIZARD
 
 #include "GameObject.h"
-#include "TerrainObject.h"
+#include "SpikesGraphicsComponent.h"
 
-class TerrainGraphicsComponent;
+class SpikesGraphicsComponent;
 
-class SpikesObject : public TerrainObject {
+class SpikesObject : public GameObject {
 
 public:
-    SpikesObject(int x, int y, int w, int h, TerrainGraphicsComponent *g);
+    SpikesObject(int x, int y, bool orientation, SpikesGraphicsComponent *g);
+    bool isUpsideDown() { return upsideDown; }
+    void setOrientation(bool o) { upsideDown = o; }
+    
+    SpikesGraphicsComponent *graphics;
 
-    TerrainGraphicsComponent *graphics;
+private:
+	bool upsideDown = false;
 };
 
 #endif

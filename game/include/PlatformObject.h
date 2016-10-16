@@ -2,16 +2,16 @@
 #define PLATFORM_OBJECT_LIZARD
 
 #include "GameObject.h"
-#include "TerrainObject.h"
+#include "PlatformGraphicsComponent.h"
 
-class TerrainGraphicsComponent;
+class PlatformGraphicsComponent;
 
-class PlatformObject : public TerrainObject {
+class PlatformObject : public GameObject {
 
 public:
-    PlatformObject(int x, int y, int w, int h, TerrainGraphicsComponent *g);
+    PlatformObject(int x, int y, int w, int h, PlatformGraphicsComponent *g);
 
-    TerrainGraphicsComponent *graphics;
+    PlatformGraphicsComponent *graphics;
 };
 
 #endif

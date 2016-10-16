@@ -1,14 +1,14 @@
-#include "../include/TerrainGraphicsComponent.h"
-TerrainGraphicsComponent::TerrainGraphicsComponent(
+#include "../include/SpikesGraphicsComponent.h"
+SpikesGraphicsComponent::SpikesGraphicsComponent(
     SDL_Renderer *ren, ResourceManager *r, std::vector<std::string> spritenames)
     : GraphicsComponent(ren, r, spritenames) {}
 
-void TerrainGraphicsComponent::update(World *world, TerrainObject *terrain) {
+void SpikesGraphicsComponent::update(World *world, SpikesObject *spikes) {
 
-	updateCurrentSprite(terrain);
+	updateCurrentSprite(spikes);
 
-    SDL_Rect temp = {world->transformX(myObj->getX()),
-                     world->transformY(myObj->getY()), currW, currH};
+    SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
+                     world->transformYtoCamera(myObj->getY()), currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 
@@ -24,16 +24,11 @@ void TerrainGraphicsComponent::update(World *world, TerrainObject *terrain) {
     //updateParent();
 }
 
-void TerrainGraphicsComponent::updateCurrentSprite(TerrainObject *terrain) {
+void SpikesGraphicsComponent::updateCurrentSprite(SpikesObject *spikes) {
 
-    /* Sets the sprite based of if its a spike, and if so if its upside down. */
-	if (terrain->isSpikes()) { 
-        if (terrain->isUpsideDown()) {
-            currState = 2;
-        } else {
-            currState = 1;
-        }
-
+    /* Sets the sprite based on orientation. */
+	if (spikes->isUpsideDown()) {
+        currState = 1;
     } else {
         currState = 0;
     }
@@ -42,7 +37,7 @@ void TerrainGraphicsComponent::updateCurrentSprite(TerrainObject *terrain) {
 
 }
 
-void TerrainGraphicsComponent::setCurrState(int state) {
+void SpikesGraphicsComponent::setCurrState(int state) {
     currState = state;
     currentSprite = spriteNames[currState];
 }
