@@ -1,0 +1,27 @@
+<rectangles>
+	<platforms>
+		<p1>
+			<x> 30 </x>
+			<y> 0 </y>
+			<width> 100 </width>
+			<height> 50 </height>
+			<texture> rectBlue </texture>
+		</p1>
+		<p2>
+			<x> 50 </x>
+			<y> 0 </y>
+			<width> 100 </width>
+			<height> 50 </height>
+			<texture> rectBlue </texture>
+		</p2>
+	</platforms>
+	
+	<spikes>
+		<s1>
+			<x> 30 </x>
+			<y> 0 </y>
+			<direction> up </direction>
+			<texture> spikeLeft </texture>
+		</s1>
+	</spikes>	
+</rectangles>

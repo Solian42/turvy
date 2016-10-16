@@ -18,8 +18,11 @@ public:
 	std::string startTag;
 	std::string objName;
 	std::ifstream infile;
-}
+	
+private:
+	void parse(std::string startTag);
+	
+	std::string singleTagHandler();
+};
 
-void XmlParser::parse(std::string startTag);
-
-std::string XmlParser::singleTagHandler();
+#endif

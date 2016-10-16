@@ -10,7 +10,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     playerObj->setY(playerObj->getY() + playerObj->getYVel() * dt);
     // playerObj->y += playerObj->yVelocity;
     // If the player went too far to the left or right
-    if ((playerObj->getX() < 0) ||
+    if ((playerObj->getX() < 0.0) ||
         (playerObj->getX() + playerObj->getW() > world->worldXLen)) {
         // Move back
         playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
@@ -20,10 +20,15 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
 
     switch (world->collideWithPlatform(playerObj)) {
     case COLLIDE_LEFT:
+            playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+            world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
         break;
     case COLLIDE_RIGHT:
+            playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+            world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
         break;
     case COLLIDE_UP:
+			
         break;
     case COLLIDE_DOWN:
         break;
@@ -32,16 +37,18 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     }
 
     // If the player went too far up or down
-    if (playerObj->getY() - playerObj->getH() < 0) {
+    if (playerObj->getY() < 0.0) {
         // move back
-        playerObj->setY(playerObj->getH());
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+		playerObj->setYVel(0.0);  
         if (playerObj->getYVel() != 0.0) {
             playerObj->setYVel(0.0);
         }
 
-    } else if (playerObj->getY() >= world->worldYLen) {
+    } else if (playerObj->getY() + playerObj->getH()   >= world->worldYLen) {
         // Move back
-        playerObj->setY(world->worldYLen);
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+		playerObj->setYVel(0.0);
         if (playerObj->getYVel() != 0.0) {
             playerObj->setYVel(0.0);
         }
@@ -59,6 +66,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         playerObj->setY(0);
         // no need to set the x velocity
         playerObj->setYVel(0);
+		playerObj->graphics->setUpsideDown(false);
         playerObj->graphics->setCurrState(0);
         world->updateVolume(playerObj->entityNum, playerObj->getX(),
                             playerObj->getY(), playerObj->getW(),

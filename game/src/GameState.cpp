@@ -146,6 +146,7 @@ void GameState::reset() {
     player->setXVel(0.0);
     player->setYVel(0.0);
     player->graphics->setCurrState(0);
+	player->graphics->setUpsideDown(false);
     scoreMgr->resetScore();
     hasWon = false;
     Mix_HaltMusic();

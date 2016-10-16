@@ -22,20 +22,19 @@ void XmlParser::parse(std::string startTag){
 
 	infile >> garbage;
 	if(objName.compare("<Platform>") == 0){
-		int x = atoi(singleTagHandler());
-		int y = atoi(singleTagHandler());
-		int w = atoi(singleTagHandler());
-		int h = atoi(singleTagHandler());
+		int x = std::stoi(singleTagHandler());
+		int y = std::stoi(singleTagHandler());
+		int w = std::stoi(singleTagHandler());
+		int h = std::stoi(singleTagHandler());
 		std::string textureName = singleTagHandler();
 		
 		parsedPlatforms.push_back(new Platform(x, y, w, h, textureName));
 	} else if(objName.compare("<Spike>") == 0){
-		int x = atoi(singleTagHandler());
-		int y = atoi(singleTagHandler());
+		int x = std::stoi(singleTagHandler());
+		int y = std::stoi(singleTagHandler());
 		std::string direction = singleTagHandler();
 		std::string textureName = singleTagHandler();
 
-		texture = ResourceManager->texture.at(textureName);
 		parsedSpikes.push_back(new Spike(x, y, direction, textureName));
 	} else {
 		std::cout << "unidentified objName!";

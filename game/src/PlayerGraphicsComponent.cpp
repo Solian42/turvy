@@ -10,7 +10,7 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
     updateCurrentSprite(dt);
 
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
-                     world->transformYtoCamera(myObj->getY()), currW, currH};
+                     world->transformYtoCamera(myObj->getY()+ myObj->getH()), currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 
@@ -19,7 +19,7 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
         std::cout << "Something broke: " << SDL_GetError() << " "
                   << currentSprite << "\n";
     }
-    /* Code to test Collisions. Turns things into rectangles.
+	/*//Code to test Collisions. Turns things into rectangles.
     SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);
     SDL_RenderFillRect(myRenderer, &temp);
     SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
@@ -28,30 +28,27 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
 
 void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
     // TODO:Logic for current sprite
-    if (myObj->getY() > 500) {
-        upsideDown = true;
 
-    } else {
-        upsideDown = false;
-    }
-
-    if (myObj->getYVel() < 0) {
-
-        if (myObj->getXVel() > 0) {
-            currState = 1;
-        } else if (myObj->getXVel() < 0) {
-            currState = 9;
-        } else if (upsideDown) {
-            currState = 9;
+    if (myObj->getYVel() < 0.0) {
+        if (myObj->getXVel() > 0.0) {
+            currState = RIGHT_GRIN_DOWN;
+        } else if (myObj->getXVel() < 0.0) {
+            currState = LEFT_GRIN_DOWN;
+        } else {
+			if ( currState ==  LEFT_GRIN_DOWN || currState == RIGHT_GRIN_DOWN) {
+			} else if (currState < 8) currState = LEFT_GRIN_DOWN;
+			else currState = RIGHT_GRIN_DOWN;
         }
 
     } else if (myObj->getYVel() > 0) {
         if (myObj->getXVel() > 0) {
-            currState = 13;
+            currState = U_RIGHT_GRIN_DOWN;
         } else if (myObj->getXVel() < 0) {
-            currState = 5;
-        } else if (!upsideDown) {
-            currState = 5;
+            currState = U_LEFT_GRIN_DOWN;
+        } else {
+			if ( currState ==  U_LEFT_GRIN_DOWN || currState == U_RIGHT_GRIN_DOWN) {
+			} else if (currState > 3) currState = U_LEFT_GRIN_DOWN;
+			else currState = U_RIGHT_GRIN_DOWN;
         }
 
     } else if (myObj->getXVel() > 0.0) {
@@ -61,21 +58,21 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
         if (time > 200) {
             time -= 200;
             if (upsideDown) {
-                if (currState == 12) {
-                    currState = 13;
+                if (currState == U_RIGHT_GRIN_UP) {
+                    currState = U_RIGHT_GRIN_DOWN;
                 } else
-                    currState = 12;
+                    currState = U_RIGHT_GRIN_UP;
             } else {
 
-                if (currState == 0) {
-                    currState = 1;
+                if (currState == RIGHT_GRIN_UP) {
+                    currState = RIGHT_GRIN_DOWN;
                 } else
-                    currState = 0;
+                    currState = RIGHT_GRIN_UP;
             }
         }
-        if (upsideDown && currState < 4)
+        if (upsideDown && currState < U_LEFT_GRIN_UP)
             currState += 8;
-        else if (!upsideDown && currState > 11)
+        else if (!upsideDown && currState > LEFT_SMILE_DOWN)
             currState -= 8;
 
     } else if (myObj->getXVel() < 0.0) {
@@ -83,25 +80,25 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
         if (time > 200) {
             time -= 200;
             if (upsideDown) {
-                if (currState == 4) {
-                    currState = 5;
+                if (currState == U_LEFT_GRIN_UP) {
+                    currState = U_LEFT_GRIN_DOWN;
                 } else
-                    currState = 4;
+                    currState = U_LEFT_GRIN_UP;
             } else {
-                if (currState == 8) {
-                    currState = 9;
+                if (currState == LEFT_GRIN_UP) {
+                    currState = LEFT_GRIN_DOWN;
                 } else
-                    currState = 8;
+                    currState = LEFT_GRIN_UP;
             }
         }
-        if (upsideDown && currState > 7) {
-            if (currState > 11)
+        if (upsideDown && currState > U_LEFT_SMILE_DOWN) {
+            if (currState > LEFT_SMILE_DOWN)
                 currState -= 4;
             currState -= 4;
         }
 
-        else if (!upsideDown && currState < 8) {
-            if (currState < 4)
+        else if (!upsideDown && currState < LEFT_GRIN_UP) {
+            if (currState < U_LEFT_GRIN_UP)
                 currState += 4;
             currState += 4;
         }

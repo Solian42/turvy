@@ -18,8 +18,8 @@ void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
     }
 
     // If the enemy went too far up or down
-    if (enemyObj->getY() - enemyObj->getH() < 0 ||
-        enemyObj->getY() > world->worldYLen) {
+    if (enemyObj->getY() < 0.0 ||
+        enemyObj->getY() + enemyObj->getH() > world->worldYLen) {
 
         // Bounce
         enemyObj->setY(enemyObj->getY() - enemyObj->getYVel() * dt);
@@ -27,7 +27,7 @@ void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
         // enemyObj->yVelocity = -enemyObj->yVelocity;
     }
 
-    if ((enemyObj->getY() - enemyObj->getH()) < 72 &&
+    if ((enemyObj->getY() < 72) &&
         (enemyObj->getX() < 128)) {
         enemyObj->setY(enemyObj->getY() - enemyObj->getYVel() * dt);
         enemyObj->setYVel(-enemyObj->getYVel());

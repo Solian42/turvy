@@ -14,7 +14,7 @@ void EnemyGraphicsComponent::update(SDL_Renderer *renderer, World *world,
     updateCurrentSprite(dt);
 
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
-                     world->transformYtoCamera(myObj->getY()), currW, currH};
+                     world->transformYtoCamera(myObj->getY()+ myObj->getH()), currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 
@@ -22,7 +22,7 @@ void EnemyGraphicsComponent::update(SDL_Renderer *renderer, World *world,
                        &temp) < 0) {
         std::cout << "Something broke: " << SDL_GetError() << "\n";
     }
-    /* Code to test collisiions. Turns things into colored rectangles.
+    /*//Code to test collisiions. Turns things into colored rectangles.
     SDL_SetRenderDrawColor(myRenderer, 0, 255, 0, 255);
     SDL_RenderFillRect(myRenderer, &temp);
     SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
