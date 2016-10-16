@@ -7,7 +7,7 @@ SpikesGraphicsComponent::~SpikesGraphicsComponent() {}
 
 void SpikesGraphicsComponent::update(World *world, SpikesObject *spikes) {
 
-	updateCurrentSprite(spikes);
+    updateCurrentSprite(spikes);
 
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
                      world->transformYtoCamera(myObj->getY()), currW, currH};
@@ -23,20 +23,19 @@ void SpikesGraphicsComponent::update(World *world, SpikesObject *spikes) {
     SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);
     SDL_RenderFillRect(myRenderer, &temp);
     SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
-    //updateParent();
+    // updateParent();
 }
 
 void SpikesGraphicsComponent::updateCurrentSprite(SpikesObject *spikes) {
 
     /* Sets the sprite based on orientation. */
-	if (spikes->isUpsideDown()) {
+    if (spikes->isUpsideDown()) {
         currState = 1;
     } else {
         currState = 0;
     }
 
-	currentSprite = spriteNames[currState];
-
+    currentSprite = spriteNames[currState];
 }
 
 void SpikesGraphicsComponent::setCurrState(int state) {

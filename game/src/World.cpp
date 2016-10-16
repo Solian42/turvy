@@ -2,10 +2,8 @@
 
 bool World::testCollide(SDL_Rect a, SDL_Rect b) {
     SDL_Rect intersect = {0, 0, 0, 0};
-    SDL_Rect aTransform = {a.x, a.y,
-                           a.w, a.h};
-    SDL_Rect bTransform = {b.x, b.y,
-                           b.w, b.h};
+    SDL_Rect aTransform = {a.x, a.y, a.w, a.h};
+    SDL_Rect bTransform = {b.x, b.y, b.w, b.h};
     SDL_bool result = SDL_IntersectRect(&aTransform, &bTransform, &intersect);
     if (result == SDL_TRUE) {
         return true;

@@ -7,7 +7,7 @@ PlatformGraphicsComponent::~PlatformGraphicsComponent() {}
 
 void PlatformGraphicsComponent::update(World *world) {
 
-	updateCurrentSprite();
+    updateCurrentSprite();
 
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
                      world->transformYtoCamera(myObj->getY()), currW, currH};
@@ -23,12 +23,11 @@ void PlatformGraphicsComponent::update(World *world) {
     SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);
     SDL_RenderFillRect(myRenderer, &temp);
     SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
-    //updateParent();
+    // updateParent();
 }
 
 void PlatformGraphicsComponent::updateCurrentSprite() {
-	currentSprite = spriteNames[currState];
-
+    currentSprite = spriteNames[currState];
 }
 
 void PlatformGraphicsComponent::setCurrState(int state) {

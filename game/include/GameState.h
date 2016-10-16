@@ -6,6 +6,7 @@
 #include "ScoreManager.h"
 #include "State.h"
 #include "World.h"
+#include "XmlParser.h"
 
 class GameState : public State {
 public:

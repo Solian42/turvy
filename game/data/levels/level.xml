@@ -15,12 +15,12 @@
 			<texture> rectBlue </texture>
 		</p2>
 	</platforms>
-	
 	<spikes>
 		<s1>
 			<x> 30 </x>
 			<y> 0 </y>
-			<direction> up </direction>
+			<w> 40 </w>
+			<direction> 0 </direction>
 			<texture> spikeLeft </texture>
 		</s1>
 	</spikes>	

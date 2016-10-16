@@ -14,11 +14,11 @@ public:
     void setOrientation(bool o) { upsideDown = o; }
 
     ~SpikesObject();
-    
+
     SpikesGraphicsComponent *graphics;
 
 private:
-	bool upsideDown = false;
+    bool upsideDown = false;
 };
 
 #endif

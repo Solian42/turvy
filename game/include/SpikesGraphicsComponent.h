@@ -11,10 +11,10 @@ class SpikesObject;
 
 class SpikesGraphicsComponent : public GraphicsComponent {
 public:
-	SpikesGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
+    SpikesGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
                             std::vector<std::string> spritenames);
-	void update(World *world, SpikesObject *spikes);
-	~SpikesGraphicsComponent();
+    void update(World *world, SpikesObject *spikes);
+    ~SpikesGraphicsComponent();
     void setCurrState(int state);
 
 private:

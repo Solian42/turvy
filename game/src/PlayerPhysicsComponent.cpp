@@ -20,15 +20,15 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
 
     switch (world->collideWithPlatform(playerObj)) {
     case COLLIDE_LEFT:
-            playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
-            world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
+        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
         break;
     case COLLIDE_RIGHT:
-            playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
-            world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
+        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
         break;
     case COLLIDE_UP:
-			
+
         break;
     case COLLIDE_DOWN:
         break;
@@ -40,15 +40,15 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     if (playerObj->getY() < 0.0) {
         // move back
         playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-		playerObj->setYVel(0.0);  
+        playerObj->setYVel(0.0);
         if (playerObj->getYVel() != 0.0) {
             playerObj->setYVel(0.0);
         }
 
-    } else if (playerObj->getY() + playerObj->getH()   >= world->worldYLen) {
+    } else if (playerObj->getY() + playerObj->getH() >= world->worldYLen) {
         // Move back
         playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-		playerObj->setYVel(0.0);
+        playerObj->setYVel(0.0);
         if (playerObj->getYVel() != 0.0) {
             playerObj->setYVel(0.0);
         }
@@ -66,7 +66,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         playerObj->setY(0);
         // no need to set the x velocity
         playerObj->setYVel(0);
-		playerObj->graphics->setUpsideDown(false);
+        playerObj->graphics->setUpsideDown(false);
         playerObj->graphics->setCurrState(0);
         world->updateVolume(playerObj->entityNum, playerObj->getX(),
                             playerObj->getY(), playerObj->getW(),

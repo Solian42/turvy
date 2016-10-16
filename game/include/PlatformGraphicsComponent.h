@@ -11,10 +11,10 @@ class PlatformObject;
 
 class PlatformGraphicsComponent : public GraphicsComponent {
 public:
-	PlatformGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
-                            std::vector<std::string> spritenames);
-	void update(World *world);
-	~PlatformGraphicsComponent();
+    PlatformGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
+                              std::vector<std::string> spritenames);
+    void update(World *world);
+    ~PlatformGraphicsComponent();
     void setCurrState(int state);
 
 private:

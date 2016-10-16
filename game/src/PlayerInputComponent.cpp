@@ -10,17 +10,17 @@ void PlayerInputComponent::update(SDL_Event *event, int dt) {
             // Adjust the velocity
             switch (e.key.keysym.sym) {
             case SDLK_SPACE:
-				if (player->getYVel() == 0.0) {
-					if (!player->graphics->isUpsideDown()) {
-						player->setYVel(MAX_ACCEL);
-						player->sound->playSound("jump");
-						player->graphics->setUpsideDown(true);
-					} else {
-						player->setYVel(-MAX_ACCEL);
-						player->sound->playSound("jump2");
-						player->graphics->setUpsideDown(false);
-					}
-				}
+                if (player->getYVel() == 0.0) {
+                    if (!player->graphics->isUpsideDown()) {
+                        player->setYVel(MAX_ACCEL);
+                        player->sound->playSound("jump");
+                        player->graphics->setUpsideDown(true);
+                    } else {
+                        player->setYVel(-MAX_ACCEL);
+                        player->sound->playSound("jump2");
+                        player->graphics->setUpsideDown(false);
+                    }
+                }
                 break;
             case SDLK_LEFT:
                 player->setXVel(player->getXVel() - MAX_ACCEL);

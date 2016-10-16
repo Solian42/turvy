@@ -10,7 +10,8 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
     updateCurrentSprite(dt);
 
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
-                     world->transformYtoCamera(myObj->getY()+ myObj->getH()), currW, currH};
+                     world->transformYtoCamera(myObj->getY() + myObj->getH()),
+                     currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 
@@ -19,7 +20,7 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
         std::cout << "Something broke: " << SDL_GetError() << " "
                   << currentSprite << "\n";
     }
-	/*//Code to test Collisions. Turns things into rectangles.
+    /*//Code to test Collisions. Turns things into rectangles.
     SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);
     SDL_RenderFillRect(myRenderer, &temp);
     SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
@@ -35,9 +36,11 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
         } else if (myObj->getXVel() < 0.0) {
             currState = LEFT_GRIN_DOWN;
         } else {
-			if ( currState ==  LEFT_GRIN_DOWN || currState == RIGHT_GRIN_DOWN) {
-			} else if (currState < 8) currState = LEFT_GRIN_DOWN;
-			else currState = RIGHT_GRIN_DOWN;
+            if (currState == LEFT_GRIN_DOWN || currState == RIGHT_GRIN_DOWN) {
+            } else if (currState < 8)
+                currState = LEFT_GRIN_DOWN;
+            else
+                currState = RIGHT_GRIN_DOWN;
         }
 
     } else if (myObj->getYVel() > 0) {
@@ -46,9 +49,12 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
         } else if (myObj->getXVel() < 0) {
             currState = U_LEFT_GRIN_DOWN;
         } else {
-			if ( currState ==  U_LEFT_GRIN_DOWN || currState == U_RIGHT_GRIN_DOWN) {
-			} else if (currState > 3) currState = U_LEFT_GRIN_DOWN;
-			else currState = U_RIGHT_GRIN_DOWN;
+            if (currState == U_LEFT_GRIN_DOWN ||
+                currState == U_RIGHT_GRIN_DOWN) {
+            } else if (currState > 3)
+                currState = U_LEFT_GRIN_DOWN;
+            else
+                currState = U_RIGHT_GRIN_DOWN;
         }
 
     } else if (myObj->getXVel() > 0.0) {

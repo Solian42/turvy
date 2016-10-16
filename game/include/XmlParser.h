@@ -3,30 +3,29 @@
 
 #include "PlatformObject.h"
 #include "SpikesObject.h"
-#include <cstdlib>
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <string>
 #include <SDL.h>
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
 
 class XmlParser {
-	
-public:
-	XmlParser();
-	~XmlParser();
 
-	std::vector<std::pair<std::string, SDL_Rect>> parsedPlatforms;
-	std::vector<std::pair<std::string,
-		std::vector<int>>> parsedSpikes;
-	std::string startTag;
-	std::string objName;
-	std::ifstream infile;
-	
+public:
+    XmlParser();
+    ~XmlParser();
+
+    std::vector<std::pair<std::string, SDL_Rect>> parsedPlatforms;
+    std::vector<std::pair<std::string, std::vector<int>>> parsedSpikes;
+    std::string startTag;
+    std::string objName;
+    std::ifstream infile;
+
 private:
-	void parse(std::string startTag);
-	
-	std::string singleTagHandler();
+    void parse(std::string startTag);
+
+    std::string singleTagHandler();
 };
 
 #endif
