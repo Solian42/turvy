@@ -132,7 +132,7 @@
 		<s2>
 			<x> 210 </x>
 			<y> 380 </y>
-			<w> 50 </w>
+			<w> 40 </w>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s2> 
@@ -145,7 +145,7 @@
         </s3>
         <s4>
         	<x> 210 </x>
-        	<y> 40 </y>
+        	<y> 50 </y>
         	<w> 1040 </w>
         	<direction> 0 </direction>
         	<texture> spike1 </texture>
@@ -181,7 +181,7 @@
         <s9>
         	<x> 1930 </x>
         	<y> 50 </y>
-        	<w> 1900 </w>
+        	<w> 2100 </w>
         	<direction> 0 </direction>
         	<texture> spike1 </texture>
         </s9>
