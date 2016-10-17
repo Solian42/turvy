@@ -9,11 +9,15 @@ class PlatformGraphicsComponent;
 class PlatformObject : public GameObject {
 
 public:
-    PlatformObject(int x, int y, int w, int h, PlatformGraphicsComponent *g);
+    PlatformObject(int x, int y, int w, int h, int platNum,
+                   PlatformGraphicsComponent *g);
 
     ~PlatformObject();
 
     PlatformGraphicsComponent *graphics;
+    int platNum;
+
+private:
 };
 
 #endif

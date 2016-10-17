@@ -21,6 +21,8 @@ World::World(int numEntities, int numPlatforms, int numSpikes) {
 }
 
 SDL_Rect World::getEntityLocation(int num) { return entityVolumes[num]; }
+SDL_Rect World::getPlatformLocation(int num) { return platformVolumes[num]; }
+SDL_Rect World::getSpikeLocation(int num) { return spikeVolumes[num]; }
 
 int World::transformXtoCamera(int x) { return x - cameraX; }
 
@@ -88,8 +90,10 @@ bool World::collideWithSpike(GameObject *obj) {
     for (SDL_Rect s : spikeVolumes) {
         SDL_bool result = SDL_IntersectRect(&s, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
+            collision = true;
             return true;
         }
     }
+    collision = false;
     return false;
 }

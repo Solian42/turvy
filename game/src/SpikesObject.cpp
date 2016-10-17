@@ -1,8 +1,9 @@
 #include "../include/SpikesObject.h"
 
-SpikesObject::SpikesObject(int x, int y, bool orientation,
+SpikesObject::SpikesObject(int x, int y, bool orientation, int spikeNum,
                            SpikesGraphicsComponent *g) {
     location = {x, y, 0, 20};
+    this->spikeNum = spikeNum;
     this->xFloat = (float)x;
     this->yFloat = (float)y;
     this->setXVel(0.0);

@@ -9,7 +9,7 @@ ScoreManager::ScoreManager(SDL_Renderer *r, ResourceManager *res,
 
 int ScoreManager::getScore() { return 100000 - (500) * numDeaths; }
 void ScoreManager::update() {
-    if (world->checkCollisions()) {
+    if (world->collision) {
         numDeaths++;
     }
 }

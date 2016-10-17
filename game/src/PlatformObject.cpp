@@ -1,8 +1,9 @@
 #include "../include/PlatformObject.h"
 
-PlatformObject::PlatformObject(int x, int y, int w, int h,
+PlatformObject::PlatformObject(int x, int y, int w, int h, int platNum,
                                PlatformGraphicsComponent *g) {
     location = {x, y, w, h};
+    this->platNum = platNum;
     this->xFloat = (float)x;
     this->yFloat = (float)y;
     this->setXVel(0.0);

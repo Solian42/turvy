@@ -2,6 +2,7 @@
 #define LIZARD_SCORE_MANAGER
 
 // #include "GameState.h"
+#include "PlayerObject.h"
 #include "ResourceManager.h"
 #include "World.h"
 #include <SDL.h>

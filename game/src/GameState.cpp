@@ -23,7 +23,7 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         PlatformGraphicsComponent *g =
             new PlatformGraphicsComponent(renderer, resources, {pair.first});
         PlatformObject *platform = new PlatformObject(
-            pair.second.x, pair.second.y, pair.second.w, pair.second.h, g);
+            pair.second.x, pair.second.y, pair.second.w, pair.second.h, j, g);
         platforms.push_back(platform);
         world->platformVolumes[j] = *platform->getLocation();
         j++;
@@ -34,8 +34,9 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
             SpikesGraphicsComponent *s =
                 new SpikesGraphicsComponent(renderer, resources, {pair.first});
             s->scaleCurrentSprite(2);
-            SpikesObject *spike = new SpikesObject(
-                (pair.second[0] + 20 * i), pair.second[1], pair.second[3], s);
+            SpikesObject *spike =
+                new SpikesObject((pair.second[0] + 20 * i), pair.second[1],
+                                 pair.second[3], j, s);
             spikes.push_back(spike);
         }
         SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2], 20};

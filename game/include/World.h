@@ -42,6 +42,8 @@ public:
     }
 
     SDL_Rect getEntityLocation(int num);
+    SDL_Rect getSpikeLocation(int num);
+    SDL_Rect getPlatformLocation(int num);
     int worldXLen = 4 * 1280;
     int worldYLen = 720;
     bool testCollide(SDL_Rect a, SDL_Rect b);
