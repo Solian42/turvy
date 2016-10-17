@@ -15,7 +15,7 @@ class PlayerSoundComponent;
 class PlayerObject : public GameObject {
 
 public:
-    PlayerObject(int x, int y, int xVelocity, int yVelocity,
+    PlayerObject(int x, int y, float xVelocity, float yVelocity,
                  PlayerInputComponent *i, PlayerGraphicsComponent *g,
                  PlayerSoundComponent *s, PlayerPhysicsComponent *p,
                  int entityNum);
@@ -26,6 +26,7 @@ public:
     PlayerInputComponent *input;
     PlayerSoundComponent *sound;
     PlayerPhysicsComponent *physics;
+    bool onPlatform;
 };
 
 #endif

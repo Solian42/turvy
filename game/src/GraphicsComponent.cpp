@@ -17,7 +17,8 @@ void GraphicsComponent::update(World *world, int dt) {
     updateCurrentSprite();
 
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
-                     world->transformYtoCamera(myObj->getY() + myObj->getH()), currW, currH};
+                     world->transformYtoCamera(myObj->getY() + myObj->getH()),
+                     currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 

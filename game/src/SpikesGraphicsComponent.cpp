@@ -5,19 +5,26 @@ SpikesGraphicsComponent::SpikesGraphicsComponent(
 
 SpikesGraphicsComponent::~SpikesGraphicsComponent() {}
 
-void SpikesGraphicsComponent::update(World *world, SpikesObject *spikes) {
+void SpikesGraphicsComponent::update(World *world) {
 
-    updateCurrentSprite(spikes);
+    updateCurrentSprite((SpikesObject *)myObj);
 
-    SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
-                     world->transformYtoCamera(myObj->getY()), currW, currH};
+    SDL_Rect temp = {
+        world->transformXtoCamera(myObj->getX()),
+        world->transformYtoCamera(myObj->getY() + 2 * myObj->getH()), currW,
+        currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
-
-    if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,
-                       &temp) < 0) {
-        std::cout << "Something broke: " << SDL_GetError() << " "
-                  << currentSprite << "\n";
+    SpikesObject *mySpike = (SpikesObject *)myObj;
+    if (mySpike->isUpsideDown()) {
+        SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
+                         &temp, NULL, NULL, SDL_FLIP_VERTICAL);
+    } else {
+        if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite),
+                           NULL, &temp) < 0) {
+            std::cout << "Something broke: " << SDL_GetError() << " "
+                      << currentSprite << "\n";
+        }
     }
     /* Code to test Collisions. Turns things into rectangles.
     SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);

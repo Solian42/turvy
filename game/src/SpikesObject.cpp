@@ -2,9 +2,11 @@
 
 SpikesObject::SpikesObject(int x, int y, bool orientation,
                            SpikesGraphicsComponent *g) {
-    location = {x, y, 0, 0};
+    location = {x, y, 0, 20};
     this->xFloat = (float)x;
     this->yFloat = (float)y;
+    this->setXVel(0.0);
+    this->setYVel(0.0);
     this->setOrientation(orientation);
     this->graphics = g;
     g->setGameObject(this);

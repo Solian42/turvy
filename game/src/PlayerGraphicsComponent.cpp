@@ -29,11 +29,11 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
 
 void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
     // TODO:Logic for current sprite
-
-    if (myObj->getYVel() < 0.0) {
-        if (myObj->getXVel() > 0.0) {
+    PlayerObject *myPlayer = (PlayerObject *)myObj;
+    if (myPlayer->getYVel() < 0.0 && !myPlayer->onPlatform) {
+        if (myPlayer->getXVel() > 0.0) {
             currState = RIGHT_GRIN_DOWN;
-        } else if (myObj->getXVel() < 0.0) {
+        } else if (myPlayer->getXVel() < 0.0) {
             currState = LEFT_GRIN_DOWN;
         } else {
             if (currState == LEFT_GRIN_DOWN || currState == RIGHT_GRIN_DOWN) {
@@ -43,10 +43,10 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
                 currState = RIGHT_GRIN_DOWN;
         }
 
-    } else if (myObj->getYVel() > 0) {
-        if (myObj->getXVel() > 0) {
+    } else if (myPlayer->getYVel() > 0 && !myPlayer->onPlatform) {
+        if (myPlayer->getXVel() > 0) {
             currState = U_RIGHT_GRIN_DOWN;
-        } else if (myObj->getXVel() < 0) {
+        } else if (myPlayer->getXVel() < 0) {
             currState = U_LEFT_GRIN_DOWN;
         } else {
             if (currState == U_LEFT_GRIN_DOWN ||
@@ -57,7 +57,7 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
                 currState = U_RIGHT_GRIN_DOWN;
         }
 
-    } else if (myObj->getXVel() > 0.0) {
+    } else if (myPlayer->getXVel() > 0.0) {
         if (time == 0)
             time += 200;
         time += dt;
@@ -81,7 +81,7 @@ void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
         else if (!upsideDown && currState > LEFT_SMILE_DOWN)
             currState -= 8;
 
-    } else if (myObj->getXVel() < 0.0) {
+    } else if (myPlayer->getXVel() < 0.0) {
         time += dt;
         if (time > 200) {
             time -= 200;

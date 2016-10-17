@@ -10,33 +10,45 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     renderer = r;
     resources = res;
     entities = std::vector<GameObject *>(1);
-    world = new World(numEntities);
+    world = new World(numEntities, parser->parsedPlatforms.size(),
+                      parser->parsedSpikes.size());
 
     entities[0] =
         createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
                          "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
                          "urps0", "urps1", "urps2", "urps3"});
+    int j = 0;
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
-        PlatformGraphicsComponent* g = new PlatformGraphicsComponent(renderer, resources, {pair.first});
-        PlatformObject *platform = new PlatformObject(pair.second.x, pair.second.y, pair.second.w, pair.second.h, g);
+
+        PlatformGraphicsComponent *g =
+            new PlatformGraphicsComponent(renderer, resources, {pair.first});
+        PlatformObject *platform = new PlatformObject(
+            pair.second.x, pair.second.y, pair.second.w, pair.second.h, g);
         platforms.push_back(platform);
+        world->platformVolumes[j] = *platform->getLocation();
+        j++;
     }
+    j = 0;
     for (std::pair<std::string, std::vector<int>> pair : parser->parsedSpikes) {
-        for (int i = 0; i < pair.second[2]; i++) {
-            SpikesGraphicsComponent *s = new SpikesGraphicsComponent(renderer, resources, {pair.first});
-            SpikesObject * spike = new SpikesObject(pair.second[0], (pair.second[1] + 20 * i), pair.second[3], s);
+        for (int i = 0; i < (pair.second[2] / 20); i++) {
+            SpikesGraphicsComponent *s =
+                new SpikesGraphicsComponent(renderer, resources, {pair.first});
+            s->scaleCurrentSprite(2);
+            SpikesObject *spike = new SpikesObject(
+                (pair.second[0] + 20 * i), pair.second[1], pair.second[3], s);
             spikes.push_back(spike);
         }
-        
+        SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2], 20};
+        world->spikeVolumes[j] = temp;
+        j++;
     }
 
     player = (PlayerObject *)entities[0];
- 
 
     backgroundObjects = std::vector<GameObject *>(1);
 
-
-    backgroundObjects[0] = createSetpiece(1280 - (2 * 19), 720 - (2 * 18), {"ts0"});
+    backgroundObjects[0] = createSetpiece((1280 * 4) - (2 * 19) - 50,
+                                          720 - (2 * 18) - 50, {"ts0"});
     backgroundObjects[0]->graphics->scaleCurrentSprite(2);
     backgroundMusic = std::string("game");
     scoreMgr = new ScoreManager(renderer, resources,
@@ -85,11 +97,11 @@ void GameState::doPhysics(int dt) {
 void GameState::render(int dt) {
 
     SDL_RenderCopy(renderer, background, NULL, NULL);
-    for ( PlatformObject * p : platforms) {
+    for (PlatformObject *p : platforms) {
         p->graphics->update(world);
     }
-    for (SpikesObject * s : spikes) {
-        s->graphics->update(world, s);
+    for (SpikesObject *s : spikes) {
+        s->graphics->update(world);
     }
     player->graphics->update(world, dt);
     backgroundObjects[0]->graphics->update(world, dt);
@@ -106,7 +118,8 @@ PlayerObject *GameState::createPlayer(int entityNum,
     PlayerPhysicsComponent *p = new PlayerPhysicsComponent();
     std::vector<std::string> chunks = {std::string("bonk")};
     PlayerSoundComponent *s = new PlayerSoundComponent(chunks, resources);
-    PlayerObject *player = new PlayerObject(0, 0, 0, 0, i, g, s, p, entityNum);
+    PlayerObject *player =
+        new PlayerObject(50, 50, 0, -.5, i, g, s, p, entityNum);
     i->setPlayer(player);
     return player;
 }
@@ -128,11 +141,11 @@ GameObject *GameState::createSetpiece(int x, int y,
 int GameState::getHighScore() { return scoreMgr->getScore(); }
 
 void GameState::reset() {
-    player->setX(0.0);
-    player->setY(0.0);
-    world->setCameraX(-640.0);
+    player->setX(50.0);
+    player->setY(50.0);
+    world->setCameraX(-640.0 + 50);
     player->setXVel(0.0);
-    player->setYVel(0.0);
+    player->setYVel(-.5);
     player->graphics->setCurrState(0);
     player->graphics->setUpsideDown(false);
     scoreMgr->resetScore();

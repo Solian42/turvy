@@ -13,7 +13,7 @@ class SpikesGraphicsComponent : public GraphicsComponent {
 public:
     SpikesGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
                             std::vector<std::string> spritenames);
-    void update(World *world, SpikesObject *spikes);
+    void update(World *world);
     ~SpikesGraphicsComponent();
     void setCurrState(int state);
 

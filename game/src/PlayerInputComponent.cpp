@@ -8,9 +8,11 @@ void PlayerInputComponent::update(SDL_Event *event, int dt) {
         // If a key was pressed
         if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
             // Adjust the velocity
+            int collide = 0;
             switch (e.key.keysym.sym) {
             case SDLK_SPACE:
-                if (player->getYVel() == 0.0) {
+                collide = world->collideWithPlatform(player);
+                if (player->onPlatform) {
                     if (!player->graphics->isUpsideDown()) {
                         player->setYVel(MAX_ACCEL);
                         player->sound->playSound("jump");

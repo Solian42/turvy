@@ -9,15 +9,9 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     // playerObj->x += playerObj->xVelocity;
     playerObj->setY(playerObj->getY() + playerObj->getYVel() * dt);
     // playerObj->y += playerObj->yVelocity;
-    // If the player went too far to the left or right
-    if ((playerObj->getX() < 0.0) ||
-        (playerObj->getX() + playerObj->getW() > world->worldXLen)) {
-        // Move back
-        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
-        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
-        // playerObj->x -= playerObj->xVelocity;
+    if (playerObj->getX() >= 5070 - 27) {
+        std::cout << "Halp\n";
     }
-
     switch (world->collideWithPlatform(playerObj)) {
     case COLLIDE_LEFT:
         playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
@@ -28,44 +22,53 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
         break;
     case COLLIDE_UP:
-
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        playerObj->onPlatform = true;
         break;
     case COLLIDE_DOWN:
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        playerObj->onPlatform = true;
         break;
+    case (COLLIDE_DOWN | COLLIDE_RIGHT):
+        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        playerObj->onPlatform = true;
+        break;
+    case (COLLIDE_DOWN | COLLIDE_LEFT):
+        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        playerObj->onPlatform = true;
+        break;
+    case (COLLIDE_UP | COLLIDE_RIGHT):
+        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        playerObj->onPlatform = true;
+        break;
+    case (COLLIDE_UP | COLLIDE_LEFT):
+        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        playerObj->onPlatform = true;
+        break;
+
     case NO_COLLIDE:
+        playerObj->onPlatform = false;
         break;
-    }
-
-    // If the player went too far up or down
-    if (playerObj->getY() < 0.0) {
-        // move back
-        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-        playerObj->setYVel(0.0);
-        if (playerObj->getYVel() != 0.0) {
-            playerObj->setYVel(0.0);
-        }
-
-    } else if (playerObj->getY() + playerObj->getH() >= world->worldYLen) {
-        // Move back
-        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-        playerObj->setYVel(0.0);
-        if (playerObj->getYVel() != 0.0) {
-            playerObj->setYVel(0.0);
-        }
-        // playerObj->y -= playerObj->yVelocity;
     }
 
     world->updateVolume(playerObj->entityNum, playerObj->getX(),
                         playerObj->getY(), playerObj->getW(),
                         playerObj->getH());
-
     // if we got hit by an enemy
-    if (world->collision) {
-        playerObj->setX(0);
-        world->setCameraX(-640);
-        playerObj->setY(0);
+    if (world->collideWithSpike(playerObj)) {
+        playerObj->setX(50);
+        world->setCameraX(-640 + 50);
+        playerObj->setY(50);
         // no need to set the x velocity
-        playerObj->setYVel(0);
+        playerObj->setYVel(-.5);
         playerObj->graphics->setUpsideDown(false);
         playerObj->graphics->setCurrState(0);
         world->updateVolume(playerObj->entityNum, playerObj->getX(),

@@ -10,7 +10,8 @@ void PlatformGraphicsComponent::update(World *world) {
     updateCurrentSprite();
 
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
-                     world->transformYtoCamera(myObj->getY()), currW, currH};
+                     world->transformYtoCamera(myObj->getY() + myObj->getH()),
+                     currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 
@@ -19,7 +20,7 @@ void PlatformGraphicsComponent::update(World *world) {
         std::cout << "Something broke: " << SDL_GetError() << " "
                   << currentSprite << "\n";
     }
-    /* Code to test Collisions. Turns things into rectangles.
+    /*//Code to test Collisions. Turns things into rectangles.
     SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);
     SDL_RenderFillRect(myRenderer, &temp);
     SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
@@ -27,6 +28,8 @@ void PlatformGraphicsComponent::update(World *world) {
 }
 
 void PlatformGraphicsComponent::updateCurrentSprite() {
+    currW = myObj->getW();
+    currH = myObj->getH();
     currentSprite = spriteNames[currState];
 }
 

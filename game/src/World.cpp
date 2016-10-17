@@ -11,8 +11,12 @@ bool World::testCollide(SDL_Rect a, SDL_Rect b) {
     return false;
 }
 
-World::World(int numEntities) {
+World::World(int numEntities, int numPlatforms, int numSpikes) {
     entityVolumes = std::vector<SDL_Rect>(numEntities);
+    platformVolumes = std::vector<SDL_Rect>(numPlatforms);
+    spikeVolumes = std::vector<SDL_Rect>(numSpikes);
+    this->numPlatforms = numPlatforms;
+    this->numSpikes = numSpikes;
     this->numEntities = numEntities;
 }
 
@@ -43,6 +47,7 @@ bool World::checkCollisions() {
 
 int World::collideWithPlatform(GameObject *obj) {
     SDL_Rect intersect = {0, 0, 0, 0};
+    int returnResult = 0;
     for (SDL_Rect o : platformVolumes) {
         SDL_Rect pRect = *obj->getLocation();
         SDL_bool result = SDL_IntersectRect(&o, obj->getLocation(), &intersect);
@@ -58,22 +63,33 @@ int World::collideWithPlatform(GameObject *obj) {
             if (hd < vd) {
                 if (((pRect.x + pRect.w) / 2) < ((o.x + o.w) / 2)) {
                     // Collision on right side of player
-                    return COLLIDE_RIGHT;
+                    returnResult |= COLLIDE_RIGHT;
                 } else {
                     // Collision on left side of player
-                    return COLLIDE_LEFT;
+                    returnResult |= COLLIDE_LEFT;
                 }
             } else if (vd < hd) {
 
                 if (((pRect.y + pRect.h) / 2) < ((o.y + o.h) / 2)) {
                     // Collision on bottom side of player
-                    return COLLIDE_DOWN;
+                    returnResult |= COLLIDE_DOWN;
                 } else {
                     // Collision on top side of player
-                    return COLLIDE_UP;
+                    returnResult |= COLLIDE_UP;
                 }
             }
         }
     }
-    return NO_COLLIDE;
+    return returnResult;
+}
+
+bool World::collideWithSpike(GameObject *obj) {
+    SDL_Rect intersect = {0, 0, 0, 0};
+    for (SDL_Rect s : spikeVolumes) {
+        SDL_bool result = SDL_IntersectRect(&s, obj->getLocation(), &intersect);
+        if (result == SDL_TRUE) {
+            return true;
+        }
+    }
+    return false;
 }
