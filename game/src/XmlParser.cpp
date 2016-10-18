@@ -8,7 +8,6 @@ XmlParser::XmlParser() {
     objName = "unknown";
     infile >> waste;
     while (infile >> startTag) {
-        std::cout << startTag << "\n";
         parse(startTag);
     }
     infile >> waste;

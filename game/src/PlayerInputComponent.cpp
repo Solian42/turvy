@@ -8,7 +8,7 @@ void PlayerInputComponent::update(SDL_Event *event, int dt) {
         // If a key was pressed
         if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
             // Adjust the velocity
-            int collide = 0;
+            int collide;
             switch (e.key.keysym.sym) {
             case SDLK_SPACE:
                 collide = world->collideWithPlatform(player);

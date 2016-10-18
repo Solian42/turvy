@@ -25,7 +25,7 @@ public:
 
 private:
     int numEntities;
-
+    int windowHeight, windowWidth;
     std::vector<GameObject *> entities;
     std::vector<GameObject *> backgroundObjects;
     std::vector<PlatformObject *> platforms;

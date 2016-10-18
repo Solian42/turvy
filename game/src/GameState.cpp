@@ -2,9 +2,8 @@
 
 GameState::GameState(SDL_Renderer *r, int width, int height,
                      ResourceManager *res) {
-    // This control difficulty. I have found that 50 is tough, but not
-    // impossible.
-    // 30 = easy, 40=medium, 50=hard, 60=insane 70=impossible
+    windowHeight = height;
+    windowWidth = width;
     XmlParser *parser = new XmlParser();
     numEntities = 1;
     renderer = r;

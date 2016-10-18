@@ -54,31 +54,20 @@ int World::collideWithPlatform(GameObject *obj) {
         SDL_Rect pRect = *obj->getLocation();
         SDL_bool result = SDL_IntersectRect(&o, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
-
-            int hd =
-                abs((((pRect.x + pRect.w) / 2) * ((pRect.x + pRect.w) / 2)) +
-                    (((o.x + o.w) / 2) * ((o.x + o.w) / 2)));
-            int vd =
-                abs((((pRect.y + pRect.h) / 2) * ((pRect.y + pRect.h) / 2)) +
-                    (((o.y + o.h) / 2) * ((o.y + o.h) / 2)));
-
-            if (hd < vd) {
-                if (((pRect.x + pRect.w) / 2) < ((o.x + o.w) / 2)) {
-                    // Collision on right side of player
-                    returnResult |= COLLIDE_RIGHT;
-                } else {
-                    // Collision on left side of player
-                    returnResult |= COLLIDE_LEFT;
-                }
-            } else if (vd < hd) {
-
-                if (((pRect.y + pRect.h) / 2) < ((o.y + o.h) / 2)) {
-                    // Collision on bottom side of player
-                    returnResult |= COLLIDE_DOWN;
-                } else {
-                    // Collision on top side of player
-                    returnResult |= COLLIDE_UP;
-                }
+            if (pRect.x < o.x + o.w && pRect.x + pRect.w > o.x &&
+                pRect.y + pRect.h < o.y && intersect.w >= intersect.h) {
+                returnResult |= COLLIDE_UP;
+            } else if (pRect.x < o.x + o.w && pRect.x + pRect.w > o.x &&
+                       pRect.y < o.y + o.h && intersect.w > intersect.h) {
+                returnResult |= COLLIDE_DOWN;
+            } else if (pRect.x < o.x + o.w && pRect.x > o.x &&
+                       pRect.y + pRect.h > o.y && pRect.y < o.y + o.h &&
+                       intersect.w <= intersect.h) {
+                returnResult |= COLLIDE_LEFT;
+            } else if (pRect.x + pRect.w > o.x && pRect.x < o.x + o.w &&
+                       pRect.y + pRect.h > o.y && pRect.y < o.y + o.h &&
+                       intersect.w < intersect.h) {
+                returnResult |= COLLIDE_RIGHT;
             }
         }
     }

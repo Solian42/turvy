@@ -18,7 +18,7 @@ void SpikesGraphicsComponent::update(World *world) {
     SpikesObject *mySpike = (SpikesObject *)myObj;
     if (mySpike->isUpsideDown()) {
         SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
-                         &temp, NULL, NULL, SDL_FLIP_VERTICAL);
+                         &temp, 0.0, NULL, SDL_FLIP_VERTICAL);
     } else {
         if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite),
                            NULL, &temp) < 0) {
