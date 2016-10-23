@@ -5,119 +5,119 @@
 			<y> 240 </y>
 			<width> 430 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p1>
 		<p2>
 			<x> 210 </x>
 			<y> 400 </y>
 			<width> 50 </width>
 			<height> 210 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p2>
 		<p3>
 			<x> 640 </x>
 			<y> 480 </y>
 			<width> 600 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p3>
 		<p4>
 			<x> 1330 </x>
 			<y> 550 </y>
 			<width> 620 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p4>
 		<p5>
 			<x> 1330 </x>
 			<y> 220 </y>
 			<width> 620 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p5>
 		<p6>
 			<x> 1930 </x>
 			<y> 360 </y>
 			<widgth> 620 </widgth>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p6>
 		<p7>
 			<x> 2600 </x>
 			<y> 550 </y>
 			<width> 430 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p7>
 		<p8>
 			<x> 2560 </x>
 			<y> 220 </y>
 			<width> 850 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p8>
 		<p9>
 			<x> 3840 </x>
 			<y> 240 </y>
 			<width> 430 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p9>
 		<p10>
 			<x> 3840 </x>
 			<y> 290 </y>
 			<width> 50 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p10>
 		<p11>
 			<x> 3840 </x>
 			<y> 530 </y>
 			<width> 50 </width>
 			<height> 270 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p11>
 		<p12>
 			<x> 4270 </x>
 			<y> 480 </y>
 			<width> 430 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p12>
 		<p13>
 			<x> 4500 </x>
 			<y> 220 </y>
 			<width> 550 </width>
 			<height> 50 </height>
-			<texture> plat1 </texture>
+			<texture> plat6 </texture>
 		</p13>
 	    <p14>
 	    	<x> 0 </x>
 	    	<y> 0 </y>
 	    	<width> 50 </width>
 	    	<height> 720 </height>
-	    	<texture> plat1 </texture>
+	    	<texture> plat6 </texture>
 	    </p14>
 	    <p15>
 	    	<x> 0 </x>
 	    	<y> 670 </y>
 	    	<width> 5120 </width>
 	    	<height> 50 </height>
-	    	<texture> plat1 </texture>
+	    	<texture> plat6 </texture>
 	    </p15>
 	    <p16>
 	    	<x> 0 </x>
 	    	<y> 0 </y>
 	    	<width> 5120 </width>
 	    	<height> 50 </height>
-	    	<texture> plat1 </texture>
+	    	<texture> plat6 </texture>
 	    </p16>
 	    <p17>
 	    	<x> 5070 </x>
 	    	<y> 50 </y>
 	    	<width> 50 </width>
 	    	<height> 720 </height>
-	    	<texture> plat1 </texture>
+	    	<texture> plat6 </texture>
 	    </p17>
 	</platforms>
 	<spikes>

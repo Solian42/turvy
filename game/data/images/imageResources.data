@@ -35,6 +35,9 @@ background ../data/images/background.png
 plat1 ../data/images/platforms/plat1.png
 plat2 ../data/images/platforms/plat2.png
 plat3 ../data/images/platforms/plat3.png
+plat4 ../data/images/platforms/plat4.png
+plat5 ../data/images/platforms/plat5.png
+plat6 ../data/images/platforms/plat6.png
 
 spike1 ../data/images/spikes/spikeMiddle.png
 
