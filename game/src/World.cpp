@@ -11,18 +11,21 @@ bool World::testCollide(SDL_Rect a, SDL_Rect b) {
     return false;
 }
 
-World::World(int numEntities, int numPlatforms, int numSpikes) {
+World::World(int numEntities, int numPlatforms, int numSpikes, int numCheckpoints) {
     entityVolumes = std::vector<SDL_Rect>(numEntities);
     platformVolumes = std::vector<SDL_Rect>(numPlatforms);
     spikeVolumes = std::vector<SDL_Rect>(numSpikes);
+    checkpointVolumes = std::vector<SDL_Rect>(numCheckpoints);
     this->numPlatforms = numPlatforms;
     this->numSpikes = numSpikes;
     this->numEntities = numEntities;
+    this->numCheckpoints = numCheckpoints;
 }
 
 SDL_Rect World::getEntityLocation(int num) { return entityVolumes[num]; }
 SDL_Rect World::getPlatformLocation(int num) { return platformVolumes[num]; }
 SDL_Rect World::getSpikeLocation(int num) { return spikeVolumes[num]; }
+SDL_Rect World::getCheckpointLocation(int num) { return checkpointVolumes[num]; }
 
 int World::transformXtoCamera(int x) { return x - cameraX; }
 
@@ -84,5 +87,18 @@ bool World::collideWithSpike(GameObject *obj) {
         }
     }
     collision = false;
+    return false;
+}
+
+bool World::collideWithCheckpoint(GameObject *obj) {
+    SDL_Rect intersect = {0, 0, 0 ,0};
+    for (SDL_Rect c : checkpointVolumes) {
+        SDL_bool result = SDL_IntersectRect(&c, obj->getLocation(), &intersect);
+        if (result == SDL_TRUE) {
+            setCurrCheckX(c.x);
+            setCurrCheckY(c.y);
+            return true;
+        }
+    }
     return false;
 }

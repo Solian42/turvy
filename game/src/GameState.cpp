@@ -10,7 +10,7 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     resources = res;
     entities = std::vector<GameObject *>(1);
     world = new World(numEntities, parser->parsedPlatforms.size(),
-                      parser->parsedSpikes.size());
+                      parser->parsedSpikes.size(), parser->parsedCheckpoints.size());
 
     entities[0] =
         createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
@@ -40,6 +40,20 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         }
         SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2], 20};
         world->spikeVolumes[j] = temp;
+        j++;
+    }
+    j = 0;
+    for (std::pair<std::string, std::vector<int>> pair : parser->parsedCheckpoints) {
+        for (int i = 0; i < (pair.second[2] / 20); i++) {
+            CheckpointGraphicsComponent *c =
+                new CheckpointGraphicsComponent(renderer, resources, {pair.first});
+            c->scaleCurrentSprite(2);
+            CheckpointObject *checkpoint =
+                new CheckpointObject(pair.second[0], pair.second[1], j, c);
+            checkpoints.push_back(checkpoint);
+        }
+        SDL_Rect temp = {pair.second[0], pair.second[1], 20, 20};
+        world->checkpointVolumes[j] = temp;
         j++;
     }
 

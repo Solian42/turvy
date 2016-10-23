@@ -30,6 +30,7 @@ private:
     std::vector<GameObject *> backgroundObjects;
     std::vector<PlatformObject *> platforms;
     std::vector<SpikesObject *> spikes;
+    std::vector<CheckpointObject *> checkpoints;
     std::string backgroundMusic;
     PlayerObject *player = nullptr;
 

@@ -1,6 +1,19 @@
 Hey All! This is our codebase.
 
 ##########################################################################################
+
+PROGRRESS FOR ASSIGNMENT 6:
+
+Brian Cueto:  Added a new mechanic to the game:  checkpoints!  If you collide with a
+checkpoint, then you will respawn at that position.  If you die from spikes, then
+you will end up at the last checkpoint that you touched. This should be marked by
+a different tile from the platforms/spikes (it will be noticeable in game).
+
+Anthony Kim:
+
+Tristan Orton-Urbina:
+
+
 To Build:
 
 navigate to game/src, and run "make"

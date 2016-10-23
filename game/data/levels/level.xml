@@ -120,7 +120,6 @@
 	    	<texture> plat1 </texture>
 	    </p17>
 	</platforms>
-	
 	<spikes>
 		<s1>
 			<x> 210 </x>
@@ -234,5 +233,17 @@
         	<direction> 0 </direction>
         	<texture> spike1 </texture>
         </s16>
-	</spikes>	
+	</spikes>
+	<checkpoints>
+		<c1>
+			<x> 210 </x>
+			<y> 290 </y>
+			<texture> plat2 </texture>
+		</c1>
+		<c2>
+			<x> 3360 </x>
+			<y> 270 </y>
+			<texture> plat2 </texture>
+		</c2>
+	</checkpoints>
 </rectangles>

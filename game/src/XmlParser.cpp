@@ -17,11 +17,13 @@ XmlParser::XmlParser() {
 void XmlParser::parse(std::string startTag) {
     std::string garbage;
     if (startTag.compare("<platforms>") == 0 ||
-        startTag.compare("<spikes>") == 0) {
+        startTag.compare("<spikes>") == 0 ||
+        startTag.compare("<checkpoints>") == 0) {
         infile >> garbage;
         objName = startTag;
     } else if (startTag.compare("</platforms>") == 0 ||
-               startTag.compare("</spikes>") == 0) {
+               startTag.compare("</spikes>") == 0 ||
+               startTag.compare("</checkpoints>") == 0) {
         objName = "unknown";
         return;
     }
@@ -47,6 +49,15 @@ void XmlParser::parse(std::string startTag) {
         xydir.push_back(w);
         xydir.push_back(direction);
         parsedSpikes.push_back(std::make_pair(textureName, xydir));
+    } else if (objName.compare("<checkpoints>") == 0) {
+        int x = std::stoi(singleTagHandler());
+        int y = std::stoi(singleTagHandler());
+        std::string textureName = singleTagHandler();
+
+        std::vector<int> xy;
+        xy.push_back(x);
+        xy.push_back(y);
+        parsedCheckpoints.push_back(std::make_pair(textureName, xy));
     } else {
         std::cout << "unidentified objName!";
     }

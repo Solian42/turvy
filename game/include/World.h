@@ -17,7 +17,7 @@ enum {
 class GameObject;
 class World {
 public:
-    World(int numEntities, int numPlatforms, int numSpikes);
+    World(int numEntities, int numPlatforms, int numSpikes, int numCheckpoints);
 
     int transformXtoCamera(int x);
     int transformYtoCamera(int y);
@@ -32,6 +32,7 @@ public:
 
     int collideWithPlatform(GameObject *obj);
     bool collideWithSpike(GameObject *obj);
+    bool collideWithCheckpoint(GameObject *obj);
 
     void setCameraX(float x) {
         cameraX = x;
@@ -45,20 +46,30 @@ public:
     SDL_Rect getEntityLocation(int num);
     SDL_Rect getSpikeLocation(int num);
     SDL_Rect getPlatformLocation(int num);
+    SDL_Rect getCheckpointLocation(int num);
     int worldXLen = 4 * 1280;
     int worldYLen = 720;
     bool testCollide(SDL_Rect a, SDL_Rect b);
     bool collision = false;
 
-    int numEntities, numPlatforms, numSpikes;
+    float getCurrCheckX() { return currCheckX; }
+    float getCurrCheckY() { return currCheckY; }
+
+    void setCurrCheckX(float x) { currCheckX = x; }
+    void setCurrCheckY(float y) { currCheckY = y; }
+
+    int numEntities, numPlatforms, numSpikes, numCheckpoints;
 
     std::vector<SDL_Rect> entityVolumes;
     std::vector<SDL_Rect> platformVolumes;
     std::vector<SDL_Rect> spikeVolumes;
+    std::vector<SDL_Rect> checkpointVolumes;
 
 private:
     float cameraX = -640.0;
     float cameraY = 0.0;
+    float currCheckX = 50;
+    float currCheckY = 50;
     SDL_Rect camera = {-640, 0, 1280, 720};
 };
 

@@ -40,11 +40,11 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     world->updateVolume(playerObj->entityNum, playerObj->getX(),
                         playerObj->getY(), playerObj->getW(),
                         playerObj->getH());
-    // if we got hit by an enemy
+    // if we got hit by a spike
     if (world->collideWithSpike(playerObj)) {
-        playerObj->setX(50);
-        world->setCameraX(-640 + 50);
-        playerObj->setY(50);
+        playerObj->setX(playerObj->getCheckX());
+        world->setCameraX(-640 + playerObj->getCheckX());
+        playerObj->setY(playerObj->getCheckY());
         // no need to set the x velocity
         playerObj->setYVel(-.5);
         playerObj->graphics->setUpsideDown(false);
@@ -52,6 +52,12 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         world->updateVolume(playerObj->entityNum, playerObj->getX(),
                             playerObj->getY(), playerObj->getW(),
                             playerObj->getH());
+    }
+
+    // if we collide with a checkpoint
+    if (world->collideWithCheckpoint(playerObj)) {
+        playerObj->setCheckX(world->getCurrCheckX());
+        playerObj->setCheckY(world->getCurrCheckY());
     }
 }
 

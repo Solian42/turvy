@@ -22,11 +22,21 @@ public:
 
     ~PlayerObject();
 
+    float getCheckX() { return checkX; }
+    float getCheckY() { return checkY; }
+    void setCheckX(float x) { checkX = x; }
+    void setCheckY(float y) { checkY = y; }
+
+
     PlayerGraphicsComponent *graphics;
     PlayerInputComponent *input;
     PlayerSoundComponent *sound;
     PlayerPhysicsComponent *physics;
     bool onPlatform;
+
+private:
+    float checkX = 50;
+    float checkY = 50;
 };
 
 #endif
