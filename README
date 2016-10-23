@@ -7,9 +7,15 @@ PROGRRESS FOR ASSIGNMENT 6:
 Brian Cueto:  Added a new mechanic to the game:  checkpoints!  If you collide with a
 checkpoint, then you will respawn at that position.  If you die from spikes, then
 you will end up at the last checkpoint that you touched. This should be marked by
-a different tile from the platforms/spikes (it will be noticeable in game).
+a different image from the platforms/spikes (it will be noticeable in game).
+
+Also added a new state that is seen before the first level.  After starting a new game
+from the main menu, the player will see a screen that says "Level One",
+and tells the player to press space in order to start the first level.
+After pressing space, the player is directed to the game state to play the actual game.
 
 Anthony Kim:
+
 
 Tristan Orton-Urbina:
 

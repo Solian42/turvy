@@ -14,12 +14,14 @@ int main() {
 
 void run() {
 
-    std::vector<State *> states = std::vector<State *>(4);
+    std::vector<State *> states = std::vector<State *>(5);
     states[STATE_GAME] = new GameState(mainRenderer, width, height, resources);
     states[STATE_TITLE] =
         new TitleState(mainRenderer, width, height, resources);
     states[STATE_MAINMENU] =
         new MainMenuState(mainRenderer, width, height, resources);
+    states[STATE_LEVELONEBEGIN] =
+        new LevelOneBeginState(mainRenderer, width, height, resources);
     states[STATE_HIGHSCORE] =
         new HighScoreState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
@@ -87,7 +89,11 @@ void run() {
                     hs->setCurrScore(highScore);
                     currState->startMusic(32);
                 } break;
-
+                case STATE_LEVELONEBEGIN: {
+                    currState = states[STATE_LEVELONEBEGIN];
+                    currStateType = STATE_LEVELONEBEGIN;
+                    break;
+                }
                 default:
                     break;
                 }

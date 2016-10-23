@@ -40,7 +40,7 @@ int MainMenuState::handleEvent(SDL_Event *e, int dt) {
         switch (e->key.keysym.sym) {
         case SDLK_SPACE:
             Mix_HaltMusic();
-            return STATE_GAME;
+            return STATE_LEVELONEBEGIN;
             break;
         case SDLK_h:
             Mix_HaltMusic();
