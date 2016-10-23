@@ -10,6 +10,8 @@ LevelOneBeginState::LevelOneBeginState(SDL_Renderer *r, int width, int height,
     SDL_Color white = {255, 255, 255, 255};
     title = resources->getFont("manaspc80", titleTitle, white);
     ready = resources->getFont("manaspc60", readyTitle, white);
+    dialogue = resources->getFont("manaspc60", dialogueTitle, white);
+    instructions = resources->getFont("manaspc60", instructionsTitle, white);
 
     int w, h;
     SDL_QueryTexture(title, NULL, NULL, &w, &h);
@@ -17,6 +19,12 @@ LevelOneBeginState::LevelOneBeginState(SDL_Renderer *r, int width, int height,
 
     SDL_QueryTexture(ready, NULL, NULL, &w, &h);
     readyRect = {(this->width - w) / 2, (int)floor(height * 0.40), w, h};
+
+    SDL_QueryTexture(dialogue, NULL, NULL, &w, &h);
+    dialogueRect = {(this->width - w) / 2, (int)floor(height * 0.60), w, h};
+
+    SDL_QueryTexture(instructions, NULL, NULL, &w, &h);
+    instructionsRect = {(this->width - w) / 2, (int)floor(height * 0.80), w, h};
 
 }
 
@@ -53,6 +61,14 @@ void LevelOneBeginState::render(int dt) {
         std::cout << "Something broke: " << SDL_GetError();
     }
 
+    if (SDL_RenderCopy(renderer, dialogue, NULL, &dialogueRect) < 0) {
+        std::cout << "Something broke: " << SDL_GetError();
+    }
+
+    if (SDL_RenderCopy(renderer, instructions, NULL, &instructionsRect) < 0) {
+        std::cout << "Something broke: " << SDL_GetError();
+    }
+
     int supressWarning = dt;
     supressWarning++;
 }
@@ -64,4 +80,6 @@ void LevelOneBeginState::startMusic(int vol) {
 LevelOneBeginState::~LevelOneBeginState() {
     SDL_DestroyTexture(title);
     SDL_DestroyTexture(ready);
+    SDL_DestroyTexture(dialogue);
+    SDL_DestroyTexture(instructions);
 }
