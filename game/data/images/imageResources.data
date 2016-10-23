@@ -37,3 +37,5 @@ plat2 ../data/images/platforms/plat2.png
 plat3 ../data/images/platforms/plat3.png
 
 spike1 ../data/images/spikes/spikeMiddle.png
+
+checkpoint1 ../data/images/checkpoint1.png

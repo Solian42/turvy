@@ -2,7 +2,7 @@
 
 CheckpointObject::CheckpointObject(int x, int y, int checkNum,
                                    CheckpointGraphicsComponent *g) {
-    location = {x, y, 20, 20};
+    location = {x, y, 40, 40};
     this->checkNum = checkNum;
     this->xFloat = (float)x;
     this->yFloat = (float)y;
