@@ -27,7 +27,6 @@ public:
     void setCheckX(float x) { checkX = x; }
     void setCheckY(float y) { checkY = y; }
 
-
     PlayerGraphicsComponent *graphics;
     PlayerInputComponent *input;
     PlayerSoundComponent *sound;

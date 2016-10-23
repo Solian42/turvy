@@ -1,9 +1,9 @@
 #ifndef LIZARD_XMLPARSER
 #define LIZARD_XMLPARSER
 
+#include "CheckpointObject.h"
 #include "PlatformObject.h"
 #include "SpikesObject.h"
-#include "CheckpointObject.h"
 #include <SDL.h>
 #include <cstdlib>
 #include <fstream>

@@ -1,7 +1,7 @@
 #include "../include/CheckpointObject.h"
 
 CheckpointObject::CheckpointObject(int x, int y, int checkNum,
-                               CheckpointGraphicsComponent *g) {
+                                   CheckpointGraphicsComponent *g) {
     location = {x, y, 20, 20};
     this->checkNum = checkNum;
     this->xFloat = (float)x;
@@ -10,7 +10,6 @@ CheckpointObject::CheckpointObject(int x, int y, int checkNum,
     this->setYVel(0.0);
     this->graphics = g;
     g->setGameObject(this);
-    this->location = (g->getTextureRect(g->getCurrentSprite()));
 }
 
 CheckpointObject::~CheckpointObject() {

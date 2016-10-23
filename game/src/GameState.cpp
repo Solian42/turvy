@@ -10,7 +10,8 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     resources = res;
     entities = std::vector<GameObject *>(1);
     world = new World(numEntities, parser->parsedPlatforms.size(),
-                      parser->parsedSpikes.size(), parser->parsedCheckpoints.size());
+                      parser->parsedSpikes.size(),
+                      parser->parsedCheckpoints.size());
 
     entities[0] =
         createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
@@ -43,15 +44,13 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         j++;
     }
     j = 0;
-    for (std::pair<std::string, std::vector<int>> pair : parser->parsedCheckpoints) {
-        for (int i = 0; i < (pair.second[2] / 20); i++) {
-            CheckpointGraphicsComponent *c =
-                new CheckpointGraphicsComponent(renderer, resources, {pair.first});
-            c->scaleCurrentSprite(2);
-            CheckpointObject *checkpoint =
-                new CheckpointObject(pair.second[0], pair.second[1], j, c);
-            checkpoints.push_back(checkpoint);
-        }
+    for (std::pair<std::string, std::vector<int>> pair :
+         parser->parsedCheckpoints) {
+        CheckpointGraphicsComponent *c =
+            new CheckpointGraphicsComponent(renderer, resources, {pair.first});
+        CheckpointObject *checkpoint =
+            new CheckpointObject(pair.second[0], pair.second[1], j, c);
+        checkpoints.push_back(checkpoint);
         SDL_Rect temp = {pair.second[0], pair.second[1], 20, 20};
         world->checkpointVolumes[j] = temp;
         j++;
@@ -77,9 +76,23 @@ void GameState::startMusic(int vol) {
 }
 
 int GameState::handleEvent(SDL_Event *e, int dt) {
-    if (e->type == SDL_KEYUP && e->key.keysym.sym == SDLK_q) {
-        reset();
-        return STATE_MAINMENU;
+    if (e->type == SDL_KEYUP) {
+        switch (e->key.keysym.sym) {
+        case SDLK_q:
+            reset();
+            return STATE_MAINMENU;
+            break;
+        case SDLK_r:
+            player->setX(player->getCheckX());
+            player->setY(player->getCheckY());
+            world->setCameraX(-640 + player->getCheckX());
+            player->setYVel(-.5);
+            player->graphics->setUpsideDown(false);
+            player->graphics->setCurrState(0);
+            world->updateVolume(player->entityNum, player->getX(),
+                                player->getY(), player->getW(), player->getH());
+            break;
+        }
     }
     if (hasWon) {
         return STATE_HIGHSCORE;
@@ -116,6 +129,9 @@ void GameState::render(int dt) {
     }
     for (SpikesObject *s : spikes) {
         s->graphics->update(world);
+    }
+    for (CheckpointObject *c : checkpoints) {
+        c->graphics->update(world);
     }
     player->graphics->update(world, dt);
     backgroundObjects[0]->graphics->update(world, dt);
@@ -158,6 +174,10 @@ void GameState::reset() {
     player->setX(50.0);
     player->setY(50.0);
     world->setCameraX(-640.0 + 50);
+    world->setCurrCheckX(50.0);
+    world->setCurrCheckY(50.0);
+    player->setCheckX(50.0);
+    player->setCheckY(50.0);
     player->setXVel(0.0);
     player->setYVel(-.5);
     player->graphics->setCurrState(0);
