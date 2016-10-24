@@ -14,7 +14,9 @@ from the main menu, the player will see a screen that says "Level One",
 and tells the player to press space in order to start the first level.
 After pressing space, the player is directed to the game state to play the actual game.
 
-Anthony Kim:
+Anthony Kim: Fixed a collision detection bug, which resulted in player getting stuck
+inside a platform when he enters from the side of the platform. Also, redesigned the
+platform skins, and made some other tile-based pixel graphics for future use.
 
 
 Tristan Orton-Urbina:
