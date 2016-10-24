@@ -32,7 +32,7 @@ int LevelOneBeginState::handleEvent(SDL_Event *e, int dt) {
     if (e->type == SDL_KEYUP) {
         switch (e->key.keysym.sym) {
         case SDLK_SPACE:
-            return STATE_GAME;
+            return STATE_LEVELONEINSTRUCT;
             break;
         default:
             break;

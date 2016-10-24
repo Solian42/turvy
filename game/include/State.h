@@ -15,8 +15,9 @@ enum {
     STATE_TITLE = 0,
     STATE_MAINMENU = 1,
     STATE_LEVELONEBEGIN = 2,
-    STATE_GAME = 3,
-    STATE_HIGHSCORE = 4
+    STATE_LEVELONEINSTRUCT = 3,
+    STATE_GAME = 4,
+    STATE_HIGHSCORE = 5
 };
 
 class State {

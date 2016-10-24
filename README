@@ -12,7 +12,10 @@ a different image from the platforms/spikes (it will be noticeable in game).
 Also added a new state that is seen before the first level.  After starting a new game
 from the main menu, the player will see a screen that says "Level One",
 and tells the player to press space in order to start the first level.
-After pressing space, the player is directed to the game state to play the actual game.
+There is also dialogue coming from our protagonist.  Since this is the very first level,
+our protagonist is still clueless with what happened, but will remember after this level.
+After pressing space, the player is directed to another state with some information for
+the first level.
 
 Anthony Kim: Fixed a collision detection bug, which resulted in player getting stuck
 inside a platform when he enters from the side of the platform. Also, redesigned the
