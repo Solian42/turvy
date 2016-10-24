@@ -6,7 +6,8 @@
 class LevelOneInstructState : public State {
 public:
     int getMyState() { return STATE_LEVELONEINSTRUCT; }
-    LevelOneInstructState(SDL_Renderer *r, int width, int height, ResourceManager *res);
+    LevelOneInstructState(SDL_Renderer *r, int width, int height,
+                          ResourceManager *res);
     int handleEvent(SDL_Event *e, int dt);
     void doSound();
     void doPhysics(int dt);

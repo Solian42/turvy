@@ -1,7 +1,7 @@
 #include "../include/LevelOneInstructState.h"
 
-LevelOneInstructState::LevelOneInstructState(SDL_Renderer *r, int width, int height,
-                             ResourceManager *res) {
+LevelOneInstructState::LevelOneInstructState(SDL_Renderer *r, int width,
+                                             int height, ResourceManager *res) {
 
     this->width = width;
     this->height = height;
@@ -25,7 +25,6 @@ LevelOneInstructState::LevelOneInstructState(SDL_Renderer *r, int width, int hei
 
     SDL_QueryTexture(startInfo, NULL, NULL, &w, &h);
     startInfoRect = {(this->width - w) / 2, (int)floor(height * 0.80), w, h};
-
 }
 
 int LevelOneInstructState::handleEvent(SDL_Event *e, int dt) {
@@ -73,9 +72,7 @@ void LevelOneInstructState::render(int dt) {
     supressWarning++;
 }
 
-void LevelOneInstructState::startMusic(int vol) {
-    return;
-}
+void LevelOneInstructState::startMusic(int vol) { return; }
 
 LevelOneInstructState::~LevelOneInstructState() {
     SDL_DestroyTexture(spikeInfo);

@@ -1,7 +1,7 @@
 #include "../include/LevelOneBeginState.h"
 
 LevelOneBeginState::LevelOneBeginState(SDL_Renderer *r, int width, int height,
-                             ResourceManager *res) {
+                                       ResourceManager *res) {
 
     this->width = width;
     this->height = height;
@@ -25,7 +25,6 @@ LevelOneBeginState::LevelOneBeginState(SDL_Renderer *r, int width, int height,
 
     SDL_QueryTexture(instructions, NULL, NULL, &w, &h);
     instructionsRect = {(this->width - w) / 2, (int)floor(height * 0.80), w, h};
-
 }
 
 int LevelOneBeginState::handleEvent(SDL_Event *e, int dt) {
@@ -73,9 +72,7 @@ void LevelOneBeginState::render(int dt) {
     supressWarning++;
 }
 
-void LevelOneBeginState::startMusic(int vol) {
-    return;
-}
+void LevelOneBeginState::startMusic(int vol) { return; }
 
 LevelOneBeginState::~LevelOneBeginState() {
     SDL_DestroyTexture(title);

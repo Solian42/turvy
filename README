@@ -23,7 +23,10 @@ platform skins, and made some other tile-based pixel graphics for future use.
 
 
 Tristan Orton-Urbina:
-
+Fixed checkpoints not appearing on the screen, cleaned up various memory leaks. Created
+new sprite for checkpoints + did preliminary work on creating level editor. I tried to
+do some tile-based rendering stuffs but ran out of time. Isn't necessary right now, but I
+will hopefully have it ready for next week! 
 
 To Build:
 
@@ -39,7 +42,8 @@ run "make remove" from game/src
 
 ##########################################################################################
 
-BUGS: Platform collision is wonky. We're working on that.
+BUGS: Platform collision is still wonky (less than it used to be, though). 
+We're working on that.
 
 ##########################################################################################
 

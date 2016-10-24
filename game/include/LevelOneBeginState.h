@@ -6,7 +6,8 @@
 class LevelOneBeginState : public State {
 public:
     int getMyState() { return STATE_LEVELONEBEGIN; }
-    LevelOneBeginState(SDL_Renderer *r, int width, int height, ResourceManager *res);
+    LevelOneBeginState(SDL_Renderer *r, int width, int height,
+                       ResourceManager *res);
     int handleEvent(SDL_Event *e, int dt);
     void doSound();
     void doPhysics(int dt);
