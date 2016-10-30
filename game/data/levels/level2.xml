@@ -708,6 +708,13 @@
 			<texture> checkpoint1 </texture>
 		</c2>
 	</checkpoints>
+	<coins>
+		<coin1>
+			<x> 2820 </x>
+			<y> 250 </y>
+			<texture> coin1 </texture>
+		</coin1>
+	</coins>
 </rectangles>
 
 
