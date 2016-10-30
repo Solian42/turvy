@@ -35,7 +35,7 @@ private:
     std::string titleTitle = "LEVEL TWO";
     std::string readyTitle = "[Press space to start!]";
     std::string dialogueTitle = "\"Wait, where's my ship? Anybody there?\"";
-    std::string dialogueTwoTitle = "\"What are all these spikes!!!\"";
+    std::string dialogueTwoTitle = "(Get a coin for a HS boost!)";
     int titleAlpha = 0;
     bool fadein = false;
     SDL_Renderer *renderer;

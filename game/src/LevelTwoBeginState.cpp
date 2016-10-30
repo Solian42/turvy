@@ -11,7 +11,7 @@ LevelTwoBeginState::LevelTwoBeginState(SDL_Renderer *r, int width, int height,
     title = resources->getFont("manaspc80", titleTitle, white);
     ready = resources->getFont("manaspc60", readyTitle, white);
     dialogue = resources->getFont("manaspc30", dialogueTitle, white);
-    dialogueTwo = resources->getFont("manaspc60", dialogueTwoTitle, white);
+    dialogueTwo = resources->getFont("manaspc30", dialogueTwoTitle, white);
 
     int w, h;
     SDL_QueryTexture(title, NULL, NULL, &w, &h);
