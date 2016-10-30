@@ -25,6 +25,8 @@ void run() {
         new LevelOneBeginState(mainRenderer, width, height, resources);
     states[STATE_LEVELONEINSTRUCT] =
         new LevelOneInstructState(mainRenderer, width, height, resources);
+    states[STATE_LEVELTWOBEGIN] =
+        new LevelTwoBeginState(mainRenderer, width, height, resources);
     states[STATE_HIGHSCORE] =
         new HighScoreState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
@@ -100,6 +102,11 @@ void run() {
                 case STATE_LEVELONEINSTRUCT: {
                     currState = states[STATE_LEVELONEINSTRUCT];
                     currStateType = STATE_LEVELONEINSTRUCT;
+                    break;
+                }
+                case STATE_LEVELTWOBEGIN: {
+                    currState = states[STATE_LEVELTWOBEGIN];
+                    currStateType = STATE_LEVELTWOBEGIN;
                     break;
                 }
                 default:

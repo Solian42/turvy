@@ -6,6 +6,7 @@
 #include "HighScoreState.h"
 #include "LevelOneBeginState.h"
 #include "LevelOneInstructState.h"
+#include "LevelTwoBeginState.h"
 #include "MainMenuState.h"
 #include "PlayerObject.h"
 #include "State.h"
