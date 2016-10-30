@@ -218,8 +218,8 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
                                 player->getY(), player->getW(), player->getH());
             break;
         case SDLK_2:
-            loadNewLevel(levelNames[currLevel]);
-            currLevel++;
+            currLevel = 2;
+            loadNewLevel(levelNames[1]);
             break;
         }
     }
