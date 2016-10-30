@@ -21,54 +21,96 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
         for (int i = 0; i < pair.second.w / MIN_TILE_SIZE; i++) {
             for (int k = 0; k < pair.second.h / MIN_TILE_SIZE; k++) {
-                if (i == 0 && k == 0) {
-                    // bottom left corner
+                if (i == 0) {
+                    if (k == 0) {
+                        // bottom left corner
+                        PlatformGraphicsComponent *g =
+                            new PlatformGraphicsComponent(renderer, resources,
+                                                          {"plat1"});
+                        PlatformObject *platform = new PlatformObject(
+                            pair.second.x + (MIN_TILE_SIZE * i),
+                            pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
+                            MIN_TILE_SIZE, j, g);
+                        platforms.push_back(platform);
+                    } else if (k == (pair.second.h / MIN_TILE_SIZE) - 1) {
+                        // top left corner
+                        PlatformGraphicsComponent *g =
+                            new PlatformGraphicsComponent(renderer, resources,
+                                                          {"plat2"});
+                        PlatformObject *platform = new PlatformObject(
+                            pair.second.x + (MIN_TILE_SIZE * i),
+                            pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
+                            MIN_TILE_SIZE, j, g);
+                        platforms.push_back(platform);
+                    } else {
+                        // left side
+                        PlatformGraphicsComponent *g =
+                            new PlatformGraphicsComponent(renderer, resources,
+                                                          {"plat3"});
+                        PlatformObject *platform = new PlatformObject(
+                            pair.second.x + (MIN_TILE_SIZE * i),
+                            pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
+                            MIN_TILE_SIZE, j, g);
+                        platforms.push_back(platform);
+                    }
+
+                } else if (i == (pair.second.w / MIN_TILE_SIZE) - 1) {
+                    if (k == 0) {
+                        // bottom right corner
+                        PlatformGraphicsComponent *g =
+                            new PlatformGraphicsComponent(renderer, resources,
+                                                          {"plat4"});
+                        PlatformObject *platform = new PlatformObject(
+                            pair.second.x + (MIN_TILE_SIZE * i),
+                            pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
+                            MIN_TILE_SIZE, j, g);
+                        platforms.push_back(platform);
+                    } else if (k == (pair.second.h / MIN_TILE_SIZE) - 1) {
+                        // top right corner
+                        PlatformGraphicsComponent *g =
+                            new PlatformGraphicsComponent(renderer, resources,
+                                                          {"plat5"});
+                        PlatformObject *platform = new PlatformObject(
+                            pair.second.x + (MIN_TILE_SIZE * i),
+                            pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
+                            MIN_TILE_SIZE, j, g);
+                        platforms.push_back(platform);
+                    } else {
+                        // right side
+                        PlatformGraphicsComponent *g =
+                            new PlatformGraphicsComponent(renderer, resources,
+                                                          {"plat6"});
+                        PlatformObject *platform = new PlatformObject(
+                            pair.second.x + (MIN_TILE_SIZE * i),
+                            pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
+                            MIN_TILE_SIZE, j, g);
+                        platforms.push_back(platform);
+                    }
+
+                } else if (k == 0) {
+                    // bottom (not corner)
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat1"});
+                                                      {"plat7"});
                     PlatformObject *platform =
                         new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
                                            pair.second.y + (MIN_TILE_SIZE * k),
                                            MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
                     platforms.push_back(platform);
-                } else if ((i == (pair.second.w / MIN_TILE_SIZE) - 1) &&
-                           (k == 0)) {
+                } else if (k == (pair.second.h / MIN_TILE_SIZE) - 1) {
+                    // top (not corner)
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat2"});
+                                                      {"plat7"});
                     PlatformObject *platform =
                         new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
                                            pair.second.y + (MIN_TILE_SIZE * k),
                                            MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
-                    // bottom right corner
-                    platforms.push_back(platform);
-                } else if ((i == 0) &&
-                           (k == (pair.second.h / MIN_TILE_SIZE) - 1)) {
-                    PlatformGraphicsComponent *g =
-                        new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat3"});
-                    PlatformObject *platform =
-                        new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
-                                           pair.second.y + (MIN_TILE_SIZE * k),
-                                           MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
-                    // top left corner
-                    platforms.push_back(platform);
-                } else if ((i == (pair.second.w / MIN_TILE_SIZE) - 1) &&
-                           (k == (pair.second.h / MIN_TILE_SIZE) - 1)) {
-                    PlatformGraphicsComponent *g =
-                        new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat4"});
-                    PlatformObject *platform =
-                        new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
-                                           pair.second.y + (MIN_TILE_SIZE * k),
-                                           MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
-                    // top right corner
                     platforms.push_back(platform);
                 } else {
-
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat5"});
+                                                      {"plat8"});
                     PlatformObject *platform =
                         new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
                                            pair.second.y + (MIN_TILE_SIZE * k),

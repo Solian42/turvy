@@ -38,6 +38,8 @@ plat3 ../data/images/platforms/plat3.png
 plat4 ../data/images/platforms/plat4.png
 plat5 ../data/images/platforms/plat5.png
 plat6 ../data/images/platforms/plat6.png
+plat7 ../data/images/platforms/plat7.png
+plat8 ../data/images/platforms/plat8.png
 
 spike1 ../data/images/spikes/spikeMiddle.png
 
