@@ -1,0 +1,715 @@
+<rectangles>
+	<platforms>
+		<p1>
+			<x> 0 </x>
+	    	<y> 0 </y>
+	    	<width> 50 </width>
+	    	<height> 720 </height>
+	    	<texture> plat6 </texture>
+	    </p1>
+	    <p2>
+	    	<x> 0 </x>
+	    	<y> 670 </y>
+	    	<width> 5120 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p2>
+	    <p3>
+	    	<x> 0 </x>
+	    	<y> 0 </y>
+	    	<width> 5120 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p3>
+	    <p4>
+	    	<x> 5070 </x>
+	    	<y> 50 </y>
+	    	<width> 50 </width>
+	    	<height> 720 </height>
+	    	<texture> plat6 </texture>
+	    </p4>
+	    <p5>
+	    	<x> 200 </x>
+	    	<y> 200 </y>
+	    	<width> 200 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p5>
+	    <p7>
+	    	<x> 200 </x>
+	    	<y> 550 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p7>
+	    <p8> 
+	    	<x> 300 </x>
+	    	<y> 500 </y>
+	    	<width> 50 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p8>
+	    <p9>
+	    	<x> 350 </x>
+	    	<y> 450 </y>
+	    	<width> 50 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p9>
+	    <p10>
+	    	<x> 400 </x>
+	    	<y> 620 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p10>
+	    <p11>
+	    	<x> 500 </x>
+	    	<y> 570 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p11>
+	    <p12>
+	    	<x> 600 </x>
+	    	<y> 520 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p12>
+	    <p13>
+	    	<x> 700 </x>
+	    	<y> 570 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p13>
+	    <p14>
+	    	<x> 400 </x>
+	    	<y> 330 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p14>
+	    <p15>
+	    	<x> 480 </x>
+	    	<y> 350 </y>
+	    	<width> 120 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p15>
+	    <p16>
+	    	<x> 600 </x>
+	    	<y> 400 </y>
+	    	<width> 300 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p16>
+	    <p19>
+	    	<x> 400 </x>
+	    	<y> 100 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p19>
+	    <p20>
+	    	<x> 500 </x>
+	    	<y> 150 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p20>
+	    <p21>
+	    	<x> 600 </x>
+	    	<y> 200 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p21>
+	    <p22>
+	    	<x> 700 </x>
+	    	<y> 250 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p22>
+	    <p23>
+	    	<x> 800 </x>
+	    	<y> 200 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p23>
+	    <p24>
+	    	<x> 900 </x>
+	    	<y> 150 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p24>
+	    <p25>
+	    	<x> 1000 </x>
+	    	<y> 100 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p25>
+	    <p26>
+	    	<x> 1100 </x>
+	    	<y> 470 </y>
+	    	<width> 50 </width>
+	    	<height> 200 </height>
+	    	<texture> plat6 </texture>
+	    </p26>
+	    <p27>
+	    	<x> 1280 </x>
+	    	<y> 540 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p27>
+	    <p28>
+	    	<x> 1380 </x>
+	    	<y> 560 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p28>
+	    <p29>
+	    	<x> 1480 </x>
+	    	<y> 580 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p29>
+	    <p30>
+	    	<x> 1580 </x>
+	    	<y> 600 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p30>
+	    <p31>
+	    	<x> 1680 </x>
+	    	<y> 620 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p31>
+	    <p32>
+	    	<x> 1780 </x>
+	    	<y> 600 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p32>
+	    <p33>
+	    	<x> 1880 </x>
+	    	<y> 580 </y>
+	    	<width> 100 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p33>
+	    <p37>
+	    	<x> 1280 </x>
+	    	<y> 50 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p37>
+	    <p38>
+	    	<x> 1390 </x>
+	    	<y> 100 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p38>
+	    <p39>
+	    	<x> 1500 </x>
+	    	<y> 150 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p39>
+	    <p40>
+	    	<x> 1610 </x>
+	    	<y> 200 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p40>
+	    <p41>
+	    	<x> 1720 </x>
+	    	<y> 250 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p41>
+	    <p42>
+	    	<x> 1830 </x>
+	    	<y> 300 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p42>
+	    <p43>
+	    	<x> 1940 </x>
+	    	<y> 350 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p43>
+	    <p44>
+	    	<x> 2050 </x>
+	    	<y> 400 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p44>
+	    <p45>
+	    	<x> 2160 </x>
+	    	<y> 450 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p45>
+	    <p46>
+	    	<x> 2270 </x>
+	    	<y> 500 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p46>
+	    <p47>
+	    	<x> 2380 </x>
+	    	<y> 550 </y>
+	    	<width> 110 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p47>
+	    <p48>
+	    	<x> 2180 </x>
+	    	<y> 200 </y>
+	    	<width> 750 </width>
+	    	<height> 50 </height>
+	        <texture> plat6 </texture>
+	    </p48>
+	    <p49>
+	    	<x> 2880 </x>
+	    	<y> 250 </y>
+	    	<width> 50 </width>
+	    	<height> 420 </height>
+	    	<texture> plat6 </texture>
+	    </p49>
+        <p50>
+	    	<x> 3180 </x>
+	    	<y> 50 </y>
+	    	<width> 60 </width>
+	    	<height> 350 </height>
+	    	<texture> plat6 </texture>
+	    </p50>
+	    <p51>
+	    	<x> 3180 </x>
+	    	<y> 600 </y>
+	    	<width> 60 </width>
+	    	<height> 70 </height>
+	    	<texture> plat6 </texture>
+	    </p51>
+	    <p52>
+	    	<x> 3500 </x>
+	    	<y> 50 </y>
+	    	<width> 60 </width>
+	    	<height> 100 </height>
+	    	<texture> plat6 </texture>
+	    </p52>
+	    <p53>
+	    	<x> 3500 </x>
+	    	<y> 350 </y>
+	    	<width> 60 </width>
+	    	<height> 320 </height>
+	    	<texture> plat6 </texture>
+	    </p53>
+	    <p54>
+	    	<x> 3800 </x>
+	    	<y> 50 </y>
+	    	<width> 50 </width>
+	    	<height> 250 </height>
+	    	<texture> plat6 </texture>
+	    </p54>
+	    <p55>
+	    	<x> 3800 </x>
+	    	<y> 500 </y>
+	    	<width> 50 </width>
+	    	<height> 170 </height>
+	    	<texture> plat6 </texture>
+	    </p55>
+	    <p56>
+	    	<x> 3800 </x>
+	    	<y> 300 </y>
+	    	<width> 250 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p56>
+	    <p57>
+	    	<x> 3800 </x>
+	    	<y> 450 </y>
+	    	<width> 250 </width>
+	    	<height> 50 </height>
+	    	<texture> plat6 </texture>
+	    </p57>
+	    <p58>
+	    	<x> 4250 </x>
+	    	<y> 50 </y>
+	    	<width> 50 </width>
+	    	<height> 510 </height>
+	    	<texture> plat6 </texture>
+	    </p58>
+	    <p59>
+	    	<x> 4500 </x>
+	    	<y> 200 </y>
+	    	<width> 50 </width>
+	    	<height> 470 </height>
+	    	<texture> plat6 </texture>
+	    </p59>
+	    <p60>
+	    	<x> 4500 </x>
+	    	<y> 250 </y>
+	    	<width> 450 </width>
+	    	<height> 20 </height>
+	    	<texture> plat6 </texture>
+	    </p60>
+	    <p61>
+	    	<x> 4600 </x>
+	    	<y> 450 </y>
+	    	<width> 330 </width>
+	    	<height> 20 </height>
+	    	<texture> plat6 </texture>
+	    </p61>
+	    <p62>
+	    	<x> 4600 </x>
+	    	<y> 600 </y>
+	    	<width> 400 </width>
+	    	<height> 20 </height>
+	    	<texture> plat6 </texture>
+	    </p62>
+	    <p63>
+	    	<x> 5010 </x>
+	    	<y> 250 </y>
+	    	<width> 50 </width>
+	    	<height> 20 </height>
+	    	<texture> plat6 </texture>
+	    </p63>
+	    <p64>
+	    	<x> 5000 </x>
+	    	<y> 450 </y>
+	    	<width> 50 </width>
+	    	<height> 20 </height>
+	    	<texture> plat6 </texture>
+	    </p64>
+	</platforms>
+	<spikes>
+		<s1>
+			<x> 200 </x>
+			<y> 530 </y>
+			<w> 100 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s1>
+		<s2>
+			<x> 200 </x>
+			<y> 250 </y>
+			<w> 100 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s2>
+		<s3> 
+			<x> 600 </x>
+			<y> 450 </y>
+			<w> 100 </w>
+			<direction> 0 </direciton>
+			<texture> spike1 </texture>
+		</s3>
+		<s4>
+			<x> 600 </x>
+			<y> 500 </y>
+			<w> 100 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s4>
+		<s5>
+			<x> 350 </x>
+			<y> 500 </y>
+			<w> 50 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s5>
+		<s6>
+			<x> 400 </x>
+			<y> 310 </y>
+			<w> 100 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s6>
+		<s7> 
+			<x> 520 </x>
+			<y> 200 </y>
+			<w> 80 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s7>
+		<s8>
+			<x> 600 </x>
+			<y> 380 </y>
+			<w> 60 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s8>
+		<s9> 
+			<x> 720 </x>
+			<y> 300 </y>
+			<w> 60 </w>
+			<direction> 0 </direciton>
+			<texture> spike1 </texture>
+		</s9>
+		<s10>
+			<x> 820 </x>
+			<y> 380 </y>
+			<w> 80 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s10>
+		<s11>
+			<x> 1000 </x>
+			<y> 150 </y>
+			<w> 100 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s11>
+		<s12>
+			<x> 1100 </x>
+			<y> 450 </y>
+			<w> 50 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s12>
+		<s13>
+			<x> 1280 </x>
+			<y> 520 </y>
+			<w> 100 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s13>
+		<s14>
+			<x> 1480 </x>
+			<y> 560 </y>
+			<w> 100 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s14>
+		<s15>
+			<x> 1680 </x>
+			<y> 600 </y>
+			<w> 100 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s15>
+		<s16>
+			<x> 1880 </x>
+			<y> 560 </y>
+			<w> 100 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s16>
+		<s17>
+			<x> 1390 </x>
+			<y> 150 </y>
+			<w> 110 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s17>
+		<s18>
+			<x> 1610 </x>
+			<y> 250 </y>
+			<w> 110 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s18>
+		<s19>
+			<x> 1830 </x>
+			<y> 350 </y>
+			<w> 110 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s19>
+		<s20>
+			<x> 2050 </x>
+			<y> 450 </y>
+			<w> 110 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s20>
+		<s21>
+			<x> 2290 </x>
+			<y> 550 </y>
+			<w> 90 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s21>
+		<s22>
+			<x> 380 </x>
+			<y> 50 </y>
+			<w> 200 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s22>
+		<s23>
+			<x> 1000 </x>
+			<y> 50 </y>
+			<w> 110 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s23>
+		<s24>
+			<x> 2160 </x>
+			<y> 650 </y>
+			<w> 110 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s24>
+		<s25>
+			<x> 3180 </x>
+			<y> 400 </y>
+			<w> 60 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s25>
+		<s26>
+			<x> 3180 </x>
+			<y> 580 </y>
+			<w> 60 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s26>
+		<s27>
+			<x> 3500 </x>
+			<y> 150 </y>
+			<w> 60 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s27>
+		<s28> 
+			<x> 3500 </x>
+			<y> 330 </y>
+			<w> 60 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s28>
+		<s29>
+			<x> 4000 </x>
+			<y> 50 </y>
+			<w> 200 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s29>
+		<s30>
+			<x> 4000 </x>
+			<y> 650 </y>
+			<w> 200 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s30>
+		<s31>
+			<x> 4250 </x>
+			<y> 560 </y>
+			<w> 50 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s31>
+		<s32> 
+			<x> 4500 </x>
+			<y> 180 </y>
+			<w> 50 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s32>
+		<s33> 
+			<x> 4890 </x>
+			<y> 230 </y>
+			<w> 60 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s33>
+		<s34>
+			<x> 5010 </x>
+			<y> 230 </y>
+			<w> 40 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s34>
+		<s35>
+			<x> 4890 </x>
+			<y> 270 </y>
+			<w> 60 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s35>
+		<s36>
+			<x> 5010 </x>
+			<y> 270 </y>
+			<w> 40 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s36>
+		<s37>
+			<x> 4870 </x>
+			<y> 430 </y>
+			<w> 60 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s37>
+		<s37>
+			<x> 4870 </x>
+			<y> 470 </y>
+			<w> 60 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s37>
+		<s38>
+			<x> 5000 </x>
+			<y> 430 </y>
+			<w> 40 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s38>
+		<s39>
+			<x> 5000 </x>
+			<y> 470 </y>
+			<w> 40 </w>
+			<direction> 0 </direction>
+			<texture> spike1 </texture>
+		</s39>
+		<s40>
+			<x> 4940 </x>
+			<y> 580 </y>
+			<w> 60 </w>
+			<direction> 1 </direction>
+			<texture> spike1 </texture>
+		</s40>
+	</spikes>
+	<checkpoints>
+		<c1>
+			<x> 1150 </x>
+			<y> 50 </y>
+			<texture> checkpoint1 </texture>
+		</c1>
+		<c2>
+			<x> 1550 </x>
+			<y> 50 </y>
+			<texture> checkpoint1 </texture>
+		</c2>
+	</checkpoints>
+</rectangles>
+
+
+
+
