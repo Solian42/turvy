@@ -11,9 +11,9 @@ dying too much at a certain area, it will help.
 Also added a new feature:  coins!  Get these coins with the character and your high score 
 will increase.
 
-Anthony Kim: Fixed a collision detection bug, which resulted in player getting stuck
-inside a platform when he enters from the side of the platform. Also, redesigned the
-platform skins, and made some other tile-based pixel graphics for future use.
+Anthony Kim: Added xml parser connectivity to the new coin system, made score increment
+logic upon coin collision, made sprites for coin, and still working on level editor,
+which is a lot more work than expected. Complete graphic level editor is coming soon.
 
 
 Tristan Orton-Urbina:
