@@ -12,7 +12,7 @@ class GameState : public State {
 public:
     int getMyState() { return STATE_GAME; }
     GameState(SDL_Renderer *r, int width, int height, ResourceManager *res,
-              std::vector<std::string> levelNames);
+              std::vector<std::string> levelNames, int levels);
     int handleEvent(SDL_Event *e, int dt);
     int getHighScore();
 
@@ -25,6 +25,8 @@ public:
     ~GameState();
 
 private:
+    int numLevels;
+    int currLevel = 0;
     int numEntities;
     int windowHeight, windowWidth;
     const int MIN_TILE_SIZE = 10;

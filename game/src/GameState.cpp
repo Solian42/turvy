@@ -1,11 +1,12 @@
 #include "../include/GameState.h"
 
 GameState::GameState(SDL_Renderer *r, int width, int height,
-                     ResourceManager *res,
-                     std::vector<std::string> levelNames) {
+                     ResourceManager *res, std::vector<std::string> levelNames,
+                     int levels) {
     windowHeight = height;
     windowWidth = width;
-
+    numLevels = levels;
+    currLevel = 1;
     numEntities = 1;
     renderer = r;
     resources = res;
@@ -36,7 +37,7 @@ void GameState::loadNewLevel(std::string levelName) {
                         // bottom left corner
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat1"});
+                                                          {"plat7"});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -46,7 +47,7 @@ void GameState::loadNewLevel(std::string levelName) {
                         // top left corner
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat2"});
+                                                          {"plat1"});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -56,7 +57,7 @@ void GameState::loadNewLevel(std::string levelName) {
                         // left side
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat3"});
+                                                          {"plat8"});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -69,7 +70,7 @@ void GameState::loadNewLevel(std::string levelName) {
                         // bottom right corner
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat4"});
+                                                          {"plat5"});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -79,7 +80,7 @@ void GameState::loadNewLevel(std::string levelName) {
                         // top right corner
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat5"});
+                                                          {"plat3"});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -89,7 +90,7 @@ void GameState::loadNewLevel(std::string levelName) {
                         // right side
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat6"});
+                                                          {"plat4"});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -101,7 +102,7 @@ void GameState::loadNewLevel(std::string levelName) {
                     // bottom (not corner)
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat7"});
+                                                      {"plat6"});
                     PlatformObject *platform =
                         new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
                                            pair.second.y + (MIN_TILE_SIZE * k),
@@ -111,7 +112,7 @@ void GameState::loadNewLevel(std::string levelName) {
                     // top (not corner)
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat7"});
+                                                      {"plat2"});
                     PlatformObject *platform =
                         new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
                                            pair.second.y + (MIN_TILE_SIZE * k),
@@ -120,7 +121,7 @@ void GameState::loadNewLevel(std::string levelName) {
                 } else {
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat8"});
+                                                      {"plat9"});
                     PlatformObject *platform =
                         new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
                                            pair.second.y + (MIN_TILE_SIZE * k),
@@ -199,7 +200,12 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
         }
     }
     if (hasWon) {
-        return STATE_HIGHSCORE;
+        if (currLevel == numLevels) {
+            reset();
+            return STATE_HIGHSCORE;
+        }
+        loadNewLevel(levelNames[currLevel]);
+        currLevel++;
     }
 
     player->input->update(e, dt);
