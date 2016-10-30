@@ -246,11 +246,22 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             }
             loadNewLevel(levelNames[1]);
             break;
+        case SDLK_c:
+            player->setCheckX(checkpoints[checkpoints.size() - 1]->getX());
+            player->setCheckY(checkpoints[checkpoints.size() - 1]->getY());
+            player->setX(player->getCheckX());
+            player->setY(player->getCheckY());
+            world->setCameraX(-640 + player->getCheckX());
+            player->setYVel(-.5);
+            player->graphics->setUpsideDown(false);
+            player->graphics->setCurrState(0);
+            world->updateVolume(player->entityNum, player->getX(),
+                                player->getY(), player->getW(), player->getH());
+            break;
         }
     }
     if (hasWon) {
         if (currLevel == numLevels) {
-            reset();
             return STATE_HIGHSCORE;
         }
 
