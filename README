@@ -20,7 +20,7 @@ Tristan Orton-Urbina:
 Rebuilt engine so that it is now tile based (for platforms and spikes), changed rendering
 logic so that we don't take a huge performance penalty for using small tiles. rewrote how
 the player reacts to collisions + changed gamestate so that we can have seamless
-transitions between levels. Also added shortcuts.
+transitions between levels. Also added shortcuts & squashed bug.
 
 To Build:
 
