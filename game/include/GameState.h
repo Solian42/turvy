@@ -44,7 +44,7 @@ private:
     World *world = nullptr;
 
     SDL_Texture *background = nullptr;
-
+    SDL_Texture *statics = nullptr;
     bool hasWon = false;
 
     void loadNewLevel(std::string levelName);

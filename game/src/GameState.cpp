@@ -30,6 +30,13 @@ void GameState::loadNewLevel(std::string levelName) {
     backgroundObjects = std::vector<GameObject *>();
     checkpoints = std::vector<CheckpointObject *>();
     entities = std::vector<GameObject *>(1);
+    statics = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
+                                SDL_TEXTUREACCESS_TARGET, windowWidth * 5,
+                                windowHeight);
+    SDL_SetTextureBlendMode(statics, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+    SDL_SetRenderTarget(renderer, statics);
+    SDL_RenderClear(renderer);
     entities[0] = player;
     int j = 0;
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
@@ -174,8 +181,17 @@ void GameState::loadNewLevel(std::string levelName) {
     backgroundMusic = std::string("game");
     scoreMgr = new ScoreManager(renderer, resources,
                                 world); /*added score manager by Anthony*/
-
     background = resources->getTexture("background");
+    for (PlatformObject *p : platforms) {
+        p->graphics->update(world);
+    }
+    for (SpikesObject *s : spikes) {
+        s->graphics->update(world);
+    }
+    for (CheckpointObject *c : checkpoints) {
+        c->graphics->update(world);
+    }
+    SDL_SetRenderTarget(renderer, NULL);
     delete parser;
 }
 
@@ -214,6 +230,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
         }
         loadNewLevel(levelNames[currLevel]);
         currLevel++;
+        hasWon = false;
     }
 
     player->input->update(e, dt);
@@ -240,24 +257,10 @@ void GameState::doPhysics(int dt) {
 }
 
 void GameState::render(int dt) {
-
     SDL_RenderCopy(renderer, background, NULL, NULL);
-    SDL_Rect intersect = {0, 0, 0, 0};
-    for (PlatformObject *p : platforms) {
-        if (world->intersectCamera(p->getLocation())) {
-            p->graphics->update(world);
-        }
-    }
-    for (SpikesObject *s : spikes) {
-        if (world->intersectCamera(s->getLocation())) {
-            s->graphics->update(world);
-        }
-    }
-    for (CheckpointObject *c : checkpoints) {
-        if (world->intersectCamera(c->getLocation())) {
-            c->graphics->update(world);
-        }
-    }
+    SDL_Rect temp = {world->transformXtoCamera(-640 + 50),
+                     world->transformYtoCamera(0 + 720), 5 * 1280, 720};
+    SDL_RenderCopy(renderer, statics, NULL, &temp);
     player->graphics->update(world, dt);
     backgroundObjects[0]->graphics->update(world, dt);
     scoreMgr->update();
@@ -343,6 +346,7 @@ void GameState::cleanCurrentLevel() {
     for (GameObject *o : backgroundObjects) {
         delete o;
     }
+    SDL_DestroyTexture(statics);
     delete world;
 }
 GameState::~GameState() {
@@ -363,5 +367,6 @@ GameState::~GameState() {
     }
     delete world;
     delete scoreMgr;
+    SDL_DestroyTexture(statics);
     SDL_DestroyTexture(background);
 }
