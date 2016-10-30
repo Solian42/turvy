@@ -21,7 +21,8 @@ void GameState::loadNewLevel(std::string levelName) {
     XmlParser *parser = new XmlParser(resources->getLevel(levelName));
     world = new World(numEntities, parser->parsedPlatforms.size(),
                       parser->parsedSpikes.size(),
-                      parser->parsedCheckpoints.size());
+                      parser->parsedCheckpoints.size(),
+                      parser->parsedCoins.size());
     player = createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
                               "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
                               "urps0", "urps1", "urps2", "urps3"});
@@ -29,6 +30,7 @@ void GameState::loadNewLevel(std::string levelName) {
     spikes = std::vector<SpikesObject *>();
     backgroundObjects = std::vector<GameObject *>();
     checkpoints = std::vector<CheckpointObject *>();
+    coins = std::vector<CoinObject *>();
     entities = std::vector<GameObject *>(1);
     entities[0] = player;
     int j = 0;
@@ -165,6 +167,21 @@ void GameState::loadNewLevel(std::string levelName) {
         world->checkpointVolumes[j] = temp;
         j++;
     }
+    j = 0;
+    for (std::pair<std::string, std::vector<int>> pair :
+         parser->parsedCoins) {
+        CoinGraphicsComponent *co =
+            new CoinGraphicsComponent(renderer,resources, {pair.first});
+        CoinPhysicsComponent *ph =
+            new CoinPhysicsComponent();
+        CoinObject *coin =
+            new CoinObject(pair.second[0], pair.second[1], j, co, ph, player);
+        coins.push_back(coin);
+        SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE,
+                         MIN_TILE_SIZE};
+        world->coinVolumes[j] = temp;
+        j++;
+    }
 
     backgroundObjects = std::vector<GameObject *>(1);
 
@@ -226,6 +243,10 @@ void GameState::doSound() { player->sound->update(world); }
 void GameState::doPhysics(int dt) {
     world->collision = world->checkCollisions();
     player->physics->update(player, world, dt);
+    for (CoinObject *co : coins) {
+        co->physics->update(co, world, dt);
+    }
+
     if (world->testCollide(*player->getLocation(),
                            *backgroundObjects[0]->getLocation())) {
         hasWon = true;
@@ -256,6 +277,11 @@ void GameState::render(int dt) {
     for (CheckpointObject *c : checkpoints) {
         if (world->intersectCamera(c->getLocation())) {
             c->graphics->update(world);
+        }
+    }
+    for (CoinObject *co : coins) {
+        if (world->intersectCamera(co->getLocation())) {
+            co->graphics->update(world);
         }
     }
     player->graphics->update(world, dt);
@@ -340,6 +366,9 @@ void GameState::cleanCurrentLevel() {
     for (CheckpointObject *c : checkpoints) {
         delete c;
     }
+    for (CoinObject *co : coins) {
+        delete co;
+    }
     for (GameObject *o : backgroundObjects) {
         delete o;
     }
@@ -357,6 +386,9 @@ GameState::~GameState() {
     }
     for (CheckpointObject *c : checkpoints) {
         delete c;
+    }
+    for (CoinObject *co : coins) {
+        delete co;
     }
     for (GameObject *o : backgroundObjects) {
         delete o;

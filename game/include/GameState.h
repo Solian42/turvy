@@ -35,6 +35,7 @@ private:
     std::vector<PlatformObject *> platforms;
     std::vector<SpikesObject *> spikes;
     std::vector<CheckpointObject *> checkpoints;
+    std::vector<CoinObject *> coins;
     std::string backgroundMusic;
     PlayerObject *player = nullptr;
 

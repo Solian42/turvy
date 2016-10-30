@@ -246,4 +246,11 @@
 			<texture> checkpoint1 </texture>
 		</c2>
 	</checkpoints>
+	<coins>
+		<co1>
+			<x> 250 </x>
+			<y> 290 </y>
+			<texture> coin1 </texture>
+		</co1>
+	</coins>
 </rectangles>

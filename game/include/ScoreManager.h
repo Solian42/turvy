@@ -19,6 +19,7 @@ public:
 
 private:
     int numDeaths = 0;
+    int numCoins = 0;
     SDL_Renderer *renderer;
     ResourceManager *resources;
     World *world;
