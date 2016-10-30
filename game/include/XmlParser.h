@@ -14,7 +14,7 @@
 class XmlParser {
 
 public:
-    XmlParser();
+    XmlParser(std::string filename);
     ~XmlParser();
 
     std::vector<std::pair<std::string, SDL_Rect>> parsedPlatforms;

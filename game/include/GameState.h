@@ -11,7 +11,8 @@
 class GameState : public State {
 public:
     int getMyState() { return STATE_GAME; }
-    GameState(SDL_Renderer *r, int width, int height, ResourceManager *res);
+    GameState(SDL_Renderer *r, int width, int height, ResourceManager *res,
+              std::vector<std::string> levelNames);
     int handleEvent(SDL_Event *e, int dt);
     int getHighScore();
 
@@ -35,12 +36,17 @@ private:
     std::string backgroundMusic;
     PlayerObject *player = nullptr;
 
+    std::vector<std::string> levelNames;
+
     SDL_Renderer *renderer;
     World *world = nullptr;
 
     SDL_Texture *background = nullptr;
 
     bool hasWon = false;
+
+    void loadNewLevel(std::string levelName);
+    void cleanCurrentLevel();
 
     PlayerObject *createPlayer(int entityNum,
                                std::vector<std::string> spriteNames);

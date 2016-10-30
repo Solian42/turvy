@@ -1,14 +1,23 @@
 #include "../include/GameState.h"
 
 GameState::GameState(SDL_Renderer *r, int width, int height,
-                     ResourceManager *res) {
+                     ResourceManager *res,
+                     std::vector<std::string> levelNames) {
     windowHeight = height;
     windowWidth = width;
-    XmlParser *parser = new XmlParser();
+
     numEntities = 1;
     renderer = r;
     resources = res;
     entities = std::vector<GameObject *>(1);
+    this->levelNames = levelNames;
+    loadNewLevel(levelNames[0]);
+}
+void GameState::loadNewLevel(std::string levelName) {
+    if (!(levelName == std::string("level1"))) {
+        cleanCurrentLevel();
+    }
+    XmlParser *parser = new XmlParser(resources->getLevel(levelName));
     world = new World(numEntities, parser->parsedPlatforms.size(),
                       parser->parsedSpikes.size(),
                       parser->parsedCheckpoints.size());
@@ -17,6 +26,7 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
                          "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
                          "urps0", "urps1", "urps2", "urps3"});
+    player = (PlayerObject *)entities[0];
     int j = 0;
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
         for (int i = 0; i < pair.second.w / MIN_TILE_SIZE; i++) {
@@ -152,8 +162,6 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         j++;
     }
 
-    player = (PlayerObject *)entities[0];
-
     backgroundObjects = std::vector<GameObject *>(1);
 
     backgroundObjects[0] = createSetpiece((1280 * 4) - (2 * 19) - 50,
@@ -267,6 +275,13 @@ GameObject *GameState::createSetpiece(int x, int y,
 int GameState::getHighScore() { return scoreMgr->getScore(); }
 
 void GameState::reset() {
+
+    scoreMgr->resetScore();
+    hasWon = false;
+    Mix_HaltMusic();
+}
+
+void GameState::cleanCurrentLevel() {
     player->setX(50.0);
     player->setY(50.0);
     world->setCameraX(-640.0 + 50);
@@ -278,14 +293,39 @@ void GameState::reset() {
     player->setYVel(-.5);
     player->graphics->setCurrState(0);
     player->graphics->setUpsideDown(false);
-    scoreMgr->resetScore();
-    hasWon = false;
-    Mix_HaltMusic();
-}
 
+    for (GameObject *g : entities) {
+        delete g;
+    }
+    for (PlatformObject *p : platforms) {
+        delete p;
+    }
+    for (SpikesObject *s : spikes) {
+        delete s;
+    }
+    for (CheckpointObject *c : checkpoints) {
+        delete c;
+    }
+    for (GameObject *o : backgroundObjects) {
+        delete o;
+    }
+    delete world;
+}
 GameState::~GameState() {
     for (GameObject *g : entities) {
         delete g;
+    }
+    for (PlatformObject *p : platforms) {
+        delete p;
+    }
+    for (SpikesObject *s : spikes) {
+        delete s;
+    }
+    for (CheckpointObject *c : checkpoints) {
+        delete c;
+    }
+    for (GameObject *o : backgroundObjects) {
+        delete o;
     }
     delete world;
     delete scoreMgr;

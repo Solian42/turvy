@@ -6,10 +6,12 @@ ResourceManager::ResourceManager(SDL_Renderer *renderer) {
     music = std::map<std::string, Mix_Music *>();
     chunks = std::map<std::string, Mix_Chunk *>();
     fonts = std::map<std::string, TTF_Font *>();
+    levels = std::map<std::string, std::string>();
     loadImages();
     loadMusic();
     loadChunks();
     loadFonts();
+    loadLevels();
 }
 
 void ResourceManager::loadImages() {
@@ -87,6 +89,20 @@ void ResourceManager::loadFonts() {
     infile.close();
 }
 
+void ResourceManager::loadLevels() {
+    std::ifstream infile;
+
+    infile.open("../data/levels/levels.data", std::ifstream::in);
+
+    std::string name = "";
+    std::string filename = "";
+
+    while (infile >> name >> filename) {
+        levels[name] = filename;
+    }
+    infile.close();
+}
+
 SDL_Texture *ResourceManager::getTexture(std::string name) {
     return textures[name];
 }
@@ -102,6 +118,10 @@ SDL_Texture *ResourceManager::getFont(std::string fontName, std::string text,
     SDL_Texture *temptex = SDL_CreateTextureFromSurface(myRenderer, temp);
     SDL_FreeSurface(temp);
     return temptex;
+}
+
+std::string ResourceManager::getLevel(std::string level) {
+    return levels[level];
 }
 
 void ResourceManager::cleanup() {

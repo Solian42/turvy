@@ -8,6 +8,7 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <vector>
 
 class ResourceManager {
 public:
@@ -19,6 +20,7 @@ public:
     Mix_Chunk *getChunk(std::string name);
     SDL_Texture *getFont(std::string fontName, std::string text,
                          SDL_Color color);
+    std::string getLevel(std::string level);
 
 private:
     void cleanup();
@@ -27,11 +29,13 @@ private:
     void loadMusic();
     void loadChunks();
     void loadFonts();
+    void loadLevels();
 
     std::map<std::string, SDL_Texture *> textures;
     std::map<std::string, Mix_Music *> music;
     std::map<std::string, Mix_Chunk *> chunks;
     std::map<std::string, TTF_Font *> fonts;
+    std::map<std::string, std::string> levels;
 };
 
 #endif

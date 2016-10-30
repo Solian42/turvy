@@ -1,8 +1,8 @@
 #include "../include/XmlParser.h"
 
-XmlParser::XmlParser() {
+XmlParser::XmlParser(std::string filename) {
 
-    infile.open("../data/levels/level.xml", std::ifstream::in);
+    infile.open(filename, std::ifstream::in);
     std::string waste;
     startTag = "";
     objName = "unknown";
