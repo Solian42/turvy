@@ -247,10 +247,20 @@
 		</c2>
 	</checkpoints>
 	<coins>
-		<co1>
-			<x> 250 </x>
-			<y> 290 </y>
+		<coin1>
+			<x> 230 </x>
+			<y> 300 </y>
 			<texture> coin1 </texture>
-		</co1>
+		<coin1>
+		<coin2>
+			<x> 400 </x>
+			<y> 630 </y>
+			<texture> coin1 </texture>
+		<coin2>
+		<coin3>
+			<x> 720 </x>
+			<y> 400 </y>
+			<texture> coin1 </texture>
+		<coin3>
 	</coins>
 </rectangles>
