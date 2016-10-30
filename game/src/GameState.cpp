@@ -237,6 +237,13 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             break;
         case SDLK_2:
             currLevel = 2;
+            if (player->getXVel() > 0) {
+                SDL_Event user_event;
+                user_event.type = SDL_KEYDOWN;
+                user_event.key.keysym.sym = SDLK_RIGHT;
+                user_event.key.repeat = 0;
+                SDL_PushEvent(&user_event);
+            }
             loadNewLevel(levelNames[1]);
             break;
         }
@@ -246,6 +253,15 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             reset();
             return STATE_HIGHSCORE;
         }
+
+        if (player->getXVel() > 0) {
+            SDL_Event user_event;
+            user_event.type = SDL_KEYDOWN;
+            user_event.key.keysym.sym = SDLK_RIGHT;
+            user_event.key.repeat = 0;
+            SDL_PushEvent(&user_event);
+        }
+
         loadNewLevel(levelNames[currLevel]);
         currLevel++;
         hasWon = false;
