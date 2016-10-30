@@ -11,7 +11,7 @@ LevelTwoBeginState::LevelTwoBeginState(SDL_Renderer *r, int width, int height,
     title = resources->getFont("manaspc80", titleTitle, white);
     ready = resources->getFont("manaspc60", readyTitle, white);
     dialogue = resources->getFont("manaspc30", dialogueTitle, white);
-    instructions = resources->getFont("manaspc60", instructionsTitle, white);
+    dialogueTwo = resources->getFont("manaspc60", dialogueTwoTitle, white);
 
     int w, h;
     SDL_QueryTexture(title, NULL, NULL, &w, &h);
@@ -23,8 +23,8 @@ LevelTwoBeginState::LevelTwoBeginState(SDL_Renderer *r, int width, int height,
     SDL_QueryTexture(dialogue, NULL, NULL, &w, &h);
     dialogueRect = {(this->width - w) / 2, (int)floor(height * 0.60), w, h};
 
-    SDL_QueryTexture(instructions, NULL, NULL, &w, &h);
-    instructionsRect = {(this->width - w) / 2, (int)floor(height * 0.80), w, h};
+    SDL_QueryTexture(dialogueTwo, NULL, NULL, &w, &h);
+    dialogueTwoRect = {(this->width - w) / 2, (int)floor(height * 0.80), w, h};
 }
 
 int LevelTwoBeginState::handleEvent(SDL_Event *e, int dt) {
@@ -64,7 +64,7 @@ void LevelTwoBeginState::render(int dt) {
         std::cout << "Something broke: " << SDL_GetError();
     }
 
-    if (SDL_RenderCopy(renderer, instructions, NULL, &instructionsRect) < 0) {
+    if (SDL_RenderCopy(renderer, dialogueTwo, NULL, &dialogueTwoRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
     }
 
@@ -78,5 +78,5 @@ LevelTwoBeginState::~LevelTwoBeginState() {
     SDL_DestroyTexture(title);
     SDL_DestroyTexture(ready);
     SDL_DestroyTexture(dialogue);
-    SDL_DestroyTexture(instructions);
+    SDL_DestroyTexture(dialogueTwo);
 }

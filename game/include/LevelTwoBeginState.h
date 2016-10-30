@@ -29,13 +29,13 @@ private:
     SDL_Texture *dialogue = nullptr;
     SDL_Rect dialogueRect;
 
-    SDL_Texture *instructions = nullptr;
-    SDL_Rect instructionsRect;
+    SDL_Texture *dialogueTwo = nullptr;
+    SDL_Rect dialogueTwoRect;
 
     std::string titleTitle = "LEVEL TWO";
     std::string readyTitle = "[Press space to start!]";
     std::string dialogueTitle = "\"Wait, where's my ship? Anybody there?\"";
-    std::string instructionsTitle = "(Get some coins)";
+    std::string dialogueTwoTitle = "\"What are all these spikes!!!\"";
     int titleAlpha = 0;
     bool fadein = false;
     SDL_Renderer *renderer;
