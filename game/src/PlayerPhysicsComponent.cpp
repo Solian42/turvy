@@ -6,17 +6,20 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
                                     int dt) {
     playerObj->setX(playerObj->getX() + playerObj->getXVel() * dt);
     world->setCameraX((world->getCameraX() + playerObj->getXVel() * dt));
-    playerObj->setY(playerObj->getY() + playerObj->getYVel() * dt);
 
     int collide = world->collideWithPlatform(playerObj);
     int collideL = collide & COLLIDE_LEFT;
     int collideR = collide & COLLIDE_RIGHT;
-    int collideU = collide & COLLIDE_UP;
-    int collideD = collide & COLLIDE_DOWN;
+
     if (collideR != 0 || collideL != 0) {
         playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
         world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
     }
+
+    playerObj->setY(playerObj->getY() + playerObj->getYVel() * dt);
+    collide = world->collideWithPlatform(playerObj);
+    int collideU = collide & COLLIDE_UP;
+    int collideD = collide & COLLIDE_DOWN;
     if (collideU != 0 || collideD != 0) {
         playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
         playerObj->onPlatform = true;
