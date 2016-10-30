@@ -16,6 +16,7 @@ void ScoreManager::update() {
     }
     if (world->coinCollision) {
         numCoins++;
+        world -> coinCollision = false;
     }
 }
 void ScoreManager::resetScore() {

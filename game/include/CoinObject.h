@@ -22,7 +22,7 @@ public:
     CoinPhysicsComponent *physics;
     PlayerObject *playerObj;
     int checkNum;
-    bool notEaten = false;
+    bool isEaten = false;
 
 private:
 };

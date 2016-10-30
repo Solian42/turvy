@@ -6,9 +6,10 @@ void CoinPhysicsComponent::update(CoinObject *coinObj, World *world, int dt) {
 
     // if player collides with Coin
     if (world->collideWithCoin(coinObj->playerObj)) {
-        if (coinObj->notEaten) {
+        if (!coinObj->isEaten) {
             world->coinCollision = true;
-            coinObj->notEaten = false;
+            coinObj->isEaten = true;
+            // std::printf(coinObj->isEaten ? "true" : "false");
         }
     }
 }
