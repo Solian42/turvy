@@ -7,7 +7,9 @@ ScoreManager::ScoreManager(SDL_Renderer *r, ResourceManager *res,
     this->world = world;
 }
 
-int ScoreManager::getScore() { return 100000 - (500) * numDeaths + (1000) * numCoins; }
+int ScoreManager::getScore() {
+    return 100000 - (500) * numDeaths + (1000) * numCoins;
+}
 void ScoreManager::update() {
     if (world->collision) {
         numDeaths++;
@@ -16,8 +18,8 @@ void ScoreManager::update() {
         numCoins++;
     }
 }
-void ScoreManager::resetScore() { 
-    numDeaths = 0; 
+void ScoreManager::resetScore() {
+    numDeaths = 0;
     numCoins = 0;
 }
 void ScoreManager::printScore(int width, int height) {

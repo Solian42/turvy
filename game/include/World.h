@@ -17,7 +17,8 @@ enum {
 class GameObject;
 class World {
 public:
-    World(int numEntities, int numPlatforms, int numSpikes, int numCheckpoints, int numCoins);
+    World(int numEntities, int numPlatforms, int numSpikes, int numCheckpoints,
+          int numCoins);
 
     int transformXtoCamera(int x);
     int transformYtoCamera(int y);

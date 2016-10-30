@@ -13,10 +13,8 @@ class PlayerObject;
 class CoinObject : public GameObject {
 
 public:
-    CoinObject(int x, int y, int checkNum,
-                     CoinGraphicsComponent *g,
-                     CoinPhysicsComponent *p,
-                     PlayerObject *pl);
+    CoinObject(int x, int y, int checkNum, CoinGraphicsComponent *g,
+               CoinPhysicsComponent *p, PlayerObject *pl);
 
     ~CoinObject();
 

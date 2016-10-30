@@ -1,9 +1,7 @@
 #include "../include/CoinObject.h"
 
-CoinObject::CoinObject(int x, int y, int checkNum,
-                                   CoinGraphicsComponent *g,
-                                   CoinPhysicsComponent *p,
-                                   PlayerObject *pl) {
+CoinObject::CoinObject(int x, int y, int checkNum, CoinGraphicsComponent *g,
+                       CoinPhysicsComponent *p, PlayerObject *pl) {
     location = {x, y, 40, 40};
     this->checkNum = checkNum;
     this->xFloat = (float)x;
@@ -19,6 +17,5 @@ CoinObject::CoinObject(int x, int y, int checkNum,
 CoinObject::~CoinObject() {
     delete graphics;
     delete physics;
-    delete playerObj;
     return;
 }

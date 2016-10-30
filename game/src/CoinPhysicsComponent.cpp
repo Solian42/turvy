@@ -2,8 +2,7 @@
 
 CoinPhysicsComponent::CoinPhysicsComponent() {}
 
-void CoinPhysicsComponent::update(CoinObject *coinObj, World *world,
-                                    int dt) {
+void CoinPhysicsComponent::update(CoinObject *coinObj, World *world, int dt) {
 
     // if player collides with Coin
     if (world->collideWithCoin(coinObj->playerObj)) {
@@ -12,7 +11,6 @@ void CoinPhysicsComponent::update(CoinObject *coinObj, World *world,
             coinObj->notEaten = false;
         }
     }
-
 }
 
 CoinPhysicsComponent::~CoinPhysicsComponent() {}

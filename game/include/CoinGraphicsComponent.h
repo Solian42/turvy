@@ -12,7 +12,7 @@ class CoinObject;
 class CoinGraphicsComponent : public GraphicsComponent {
 public:
     CoinGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
-                                std::vector<std::string> spritenames);
+                          std::vector<std::string> spritenames);
     void update(World *world);
     ~CoinGraphicsComponent();
     void setCurrState(int state);

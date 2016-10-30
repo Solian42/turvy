@@ -1,8 +1,8 @@
 #ifndef COIN_PHYSICS_COMPONENT_LIZARD
 #define COIN_PHYSICS_COMPONENT_LIZARD
 
-#include "PhysicsComponent.h"
 #include "CoinObject.h"
+#include "PhysicsComponent.h"
 #include <iostream>
 #include <string>
 class CoinObject;

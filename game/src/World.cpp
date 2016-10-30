@@ -112,7 +112,8 @@ bool World::collideWithCheckpoint(GameObject *obj) {
 bool World::collideWithCoin(GameObject *obj) {
     SDL_Rect intersect = {0, 0, 0, 0};
     for (SDL_Rect co : coinVolumes) {
-        SDL_bool result = SDL_IntersectRect(&co, obj->getLocation(), &intersect);
+        SDL_bool result =
+            SDL_IntersectRect(&co, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
             return true;
         }

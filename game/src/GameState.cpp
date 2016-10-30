@@ -19,10 +19,10 @@ void GameState::loadNewLevel(std::string levelName) {
         cleanCurrentLevel();
     }
     XmlParser *parser = new XmlParser(resources->getLevel(levelName));
-    world = new World(numEntities, parser->parsedPlatforms.size(),
-                      parser->parsedSpikes.size(),
-                      parser->parsedCheckpoints.size(),
-                      parser->parsedCoins.size());
+    world =
+        new World(numEntities, parser->parsedPlatforms.size(),
+                  parser->parsedSpikes.size(), parser->parsedCheckpoints.size(),
+                  parser->parsedCoins.size());
     player = createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
                               "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
                               "urps0", "urps1", "urps2", "urps3"});
@@ -175,12 +175,10 @@ void GameState::loadNewLevel(std::string levelName) {
         j++;
     }
     j = 0;
-    for (std::pair<std::string, std::vector<int>> pair :
-         parser->parsedCoins) {
+    for (std::pair<std::string, std::vector<int>> pair : parser->parsedCoins) {
         CoinGraphicsComponent *co =
-            new CoinGraphicsComponent(renderer,resources, {pair.first});
-        CoinPhysicsComponent *ph =
-            new CoinPhysicsComponent();
+            new CoinGraphicsComponent(renderer, resources, {pair.first});
+        CoinPhysicsComponent *ph = new CoinPhysicsComponent();
         CoinObject *coin =
             new CoinObject(pair.second[0], pair.second[1], j, co, ph, player);
         coins.push_back(coin);
