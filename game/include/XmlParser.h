@@ -20,6 +20,7 @@ public:
     std::vector<std::pair<std::string, SDL_Rect>> parsedPlatforms;
     std::vector<std::pair<std::string, std::vector<int>>> parsedSpikes;
     std::vector<std::pair<std::string, std::vector<int>>> parsedCheckpoints;
+    std::vector<std::pair<std::string, std::vector<int>>> parsedCoins;
     std::string startTag;
     std::string objName;
     std::ifstream infile;
