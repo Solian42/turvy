@@ -4,12 +4,12 @@ Hey All! This is our codebase.
 
 PROGRRESS FOR ASSIGNMENT 7:
 
-Brian Cueto:  Designed the 2nd level and wrote the xml file for it.  This level is much more
-difficult that the first, and will require more thought into how to maneuver the character
-through certain areas.  Please play somewhat slowly if you have an issue with dying too much
-at a certain area, it will help.
-Also added a new feature:  coins!  Get these coins with the character and your high score will
-increase.
+Brian Cueto:  Designed the 2nd level and wrote the xml file for it.  This level is much 
+more difficult that the first, and will require more thought into how to maneuver the 
+character through certain areas.  Please play somewhat slowly if you have an issue with 
+dying too much at a certain area, it will help.
+Also added a new feature:  coins!  Get these coins with the character and your high score 
+will increase.
 
 Anthony Kim: Fixed a collision detection bug, which resulted in player getting stuck
 inside a platform when he enters from the side of the platform. Also, redesigned the
@@ -17,10 +17,10 @@ platform skins, and made some other tile-based pixel graphics for future use.
 
 
 Tristan Orton-Urbina:
-Fixed checkpoints not appearing on the screen, cleaned up various memory leaks. Created
-new sprite for checkpoints + did preliminary work on creating level editor. I tried to
-do some tile-based rendering stuffs but ran out of time. Isn't necessary right now, but I
-will hopefully have it ready for next week! 
+Rebuilt engine so that it is now tile based (for platforms and spikes), changed rendering
+logic so that we don't take a huge performance penalty for using small tiles. rewrote how
+the player reacts to collisions + changed gamestate so that we can have seamless
+transitions between levels. Also added shortcuts.
 
 To Build:
 
@@ -48,6 +48,11 @@ Change Gravity: Spacebar (only when standing on platforms)
 Quit: Esc
 Show FPS: F
 From Game->Main menu: Q
+
+Cheat Codes:
+R: reset to last checkpoint w/ no penalty
+2: Teleport to beginning of level 2
+C: Teleport to last checkpoint in a level
 
 
 All others should be self explanatory!
