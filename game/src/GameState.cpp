@@ -208,6 +208,9 @@ void GameState::loadNewLevel(std::string levelName) {
     for (CheckpointObject *c : checkpoints) {
         c->graphics->update(world);
     }
+    for (CheckpointObject *co : coins) {
+        co->graphics->update(world);
+    }
     SDL_SetRenderTarget(renderer, NULL);
     delete parser;
 }
