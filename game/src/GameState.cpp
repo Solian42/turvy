@@ -19,43 +19,49 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
                          "urps0", "urps1", "urps2", "urps3"});
     int j = 0;
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
-        for (int i = 0; i < pair.second.w / 20; i++) {
-            for (int k = 0; k < pair.second.h / 20; k++) {
+        for (int i = 0; i < pair.second.w / MIN_TILE_SIZE; i++) {
+            for (int k = 0; k < pair.second.h / MIN_TILE_SIZE; k++) {
                 if (i == 0 && k == 0) {
                     // bottom left corner
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
                                                       {"plat1"});
-                    PlatformObject *platform = new PlatformObject(
-                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
-                        20, j, g);
+                    PlatformObject *platform =
+                        new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
+                                           pair.second.y + (MIN_TILE_SIZE * k),
+                                           MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
                     platforms.push_back(platform);
-                } else if ((i == (pair.second.w / 20) - 1) && (k == 0)) {
+                } else if ((i == (pair.second.w / MIN_TILE_SIZE) - 1) &&
+                           (k == 0)) {
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
                                                       {"plat2"});
-                    PlatformObject *platform = new PlatformObject(
-                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
-                        20, j, g);
+                    PlatformObject *platform =
+                        new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
+                                           pair.second.y + (MIN_TILE_SIZE * k),
+                                           MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
                     // bottom right corner
                     platforms.push_back(platform);
-                } else if ((i == 0) && (k == (pair.second.h / 20) - 1)) {
+                } else if ((i == 0) &&
+                           (k == (pair.second.h / MIN_TILE_SIZE) - 1)) {
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
                                                       {"plat3"});
-                    PlatformObject *platform = new PlatformObject(
-                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
-                        20, j, g);
+                    PlatformObject *platform =
+                        new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
+                                           pair.second.y + (MIN_TILE_SIZE * k),
+                                           MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
                     // top left corner
                     platforms.push_back(platform);
-                } else if ((i == (pair.second.w / 20) - 1) &&
-                           (k == (pair.second.h / 20) - 1)) {
+                } else if ((i == (pair.second.w / MIN_TILE_SIZE) - 1) &&
+                           (k == (pair.second.h / MIN_TILE_SIZE) - 1)) {
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
                                                       {"plat4"});
-                    PlatformObject *platform = new PlatformObject(
-                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
-                        20, j, g);
+                    PlatformObject *platform =
+                        new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
+                                           pair.second.y + (MIN_TILE_SIZE * k),
+                                           MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
                     // top right corner
                     platforms.push_back(platform);
                 } else {
@@ -63,9 +69,10 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
                                                       {"plat5"});
-                    PlatformObject *platform = new PlatformObject(
-                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
-                        20, j, g);
+                    PlatformObject *platform =
+                        new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
+                                           pair.second.y + (MIN_TILE_SIZE * k),
+                                           MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
                     platforms.push_back(platform);
                 }
             }
@@ -75,16 +82,17 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     }
     j = 0;
     for (std::pair<std::string, std::vector<int>> pair : parser->parsedSpikes) {
-        for (int i = 0; i < (pair.second[2] / 20); i++) {
+        for (int i = 0; i < (pair.second[2] / MIN_TILE_SIZE); i++) {
             SpikesGraphicsComponent *s =
                 new SpikesGraphicsComponent(renderer, resources, {pair.first});
             s->scaleCurrentSprite(2);
             SpikesObject *spike =
-                new SpikesObject((pair.second[0] + 20 * i), pair.second[1],
-                                 pair.second[3], j, s);
+                new SpikesObject((pair.second[0] + MIN_TILE_SIZE * i),
+                                 pair.second[1], pair.second[3], j, s);
             spikes.push_back(spike);
         }
-        SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2], 20};
+        SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2],
+                         MIN_TILE_SIZE};
         world->spikeVolumes[j] = temp;
         j++;
     }
@@ -96,7 +104,8 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
         CheckpointObject *checkpoint =
             new CheckpointObject(pair.second[0], pair.second[1], j, c);
         checkpoints.push_back(checkpoint);
-        SDL_Rect temp = {pair.second[0], pair.second[1], 20, 20};
+        SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE,
+                         MIN_TILE_SIZE};
         world->checkpointVolumes[j] = temp;
         j++;
     }

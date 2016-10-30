@@ -26,6 +26,7 @@ public:
 private:
     int numEntities;
     int windowHeight, windowWidth;
+    const int MIN_TILE_SIZE = 20;
     std::vector<GameObject *> entities;
     std::vector<GameObject *> backgroundObjects;
     std::vector<PlatformObject *> platforms;
