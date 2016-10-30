@@ -69,8 +69,6 @@ void XmlParser::parse(std::string startTag) {
         xy.push_back(x);
         xy.push_back(y);
         parsedCoins.push_back(std::make_pair(textureName, xy));
-    } else {
-        std::cout << "unidentified objName!";
     }
 
     infile >> garbage;
