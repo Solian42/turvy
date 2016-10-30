@@ -60,12 +60,12 @@ void XmlParser::parse(std::string startTag) {
         xy.push_back(x);
         xy.push_back(y);
         parsedCheckpoints.push_back(std::make_pair(textureName, xy));
-    } else if (objName.comapre("<coins>") == 0){
-    	int x = std::stoi(singleTagHandler());
-    	int y = std::stoi(singleTagHandler());
-    	std::string textureName = singleTagHandler();
+    } else if (objName.comapre("<coins>") == 0) {
+        int x = std::stoi(singleTagHandler());
+        int y = std::stoi(singleTagHandler());
+        std::string textureName = singleTagHandler();
 
-    	std::vector<int> xy;
+        std::vector<int> xy;
         xy.push_back(x);
         xy.push_back(y);
         parsedCheckpoints.push_back(std::make_pair(textureName, xy));

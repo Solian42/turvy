@@ -12,6 +12,7 @@ public:
     PlayerPhysicsComponent();
     void update(PlayerObject *playerObj, World *world, int dt);
     ~PlayerPhysicsComponent();
+    bool isDead = false;
 };
 
 #endif

@@ -6,36 +6,23 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
                                     int dt) {
     playerObj->setX(playerObj->getX() + playerObj->getXVel() * dt);
     world->setCameraX((world->getCameraX() + playerObj->getXVel() * dt));
-
-    switch (world->collideWithPlatform(playerObj)) {
-    case COLLIDE_LEFT:
-        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
-        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
-        break;
-    case COLLIDE_RIGHT:
-        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
-        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
-        break;
-    case NO_COLLIDE:
-        playerObj->onPlatform = false;
-        break;
-    }
-
-    // playerObj->x += playerObj->xVelocity;
     playerObj->setY(playerObj->getY() + playerObj->getYVel() * dt);
-    // playerObj->y += playerObj->yVelocity;
-    switch (world->collideWithPlatform(playerObj)) {
-    case COLLIDE_UP:
+
+    int collide = world->collideWithPlatform(playerObj);
+    int collideL = collide & COLLIDE_LEFT;
+    int collideR = collide & COLLIDE_RIGHT;
+    int collideU = collide & COLLIDE_UP;
+    int collideD = collide & COLLIDE_DOWN;
+    if (collideR != 0 || collideL != 0) {
+        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
+    }
+    if (collideU != 0 || collideD != 0) {
         playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
         playerObj->onPlatform = true;
-        break;
-    case COLLIDE_DOWN:
-        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-        playerObj->onPlatform = true;
-        break;
-    case NO_COLLIDE:
+    }
+    if (collide == NO_COLLIDE) {
         playerObj->onPlatform = false;
-        break;
     }
     world->updateVolume(playerObj->entityNum, playerObj->getX(),
                         playerObj->getY(), playerObj->getW(),
@@ -58,10 +45,6 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     if (world->collideWithCheckpoint(playerObj)) {
         playerObj->setCheckX(world->getCurrCheckX());
         playerObj->setCheckY(world->getCurrCheckY());
-    }
-
-    if (world->getCameraX() != (playerObj->getX() - (640))) {
-        std::cout << "Houston we have a problem\n";
     }
 }
 

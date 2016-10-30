@@ -10,10 +10,10 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     numEntities = 1;
     renderer = r;
     resources = res;
-    entities = std::vector<GameObject *>(1);
     this->levelNames = levelNames;
     loadNewLevel(levelNames[0]);
 }
+
 void GameState::loadNewLevel(std::string levelName) {
     if (!(levelName == std::string("level1"))) {
         cleanCurrentLevel();
@@ -22,12 +22,15 @@ void GameState::loadNewLevel(std::string levelName) {
     world = new World(numEntities, parser->parsedPlatforms.size(),
                       parser->parsedSpikes.size(),
                       parser->parsedCheckpoints.size());
-
-    entities[0] =
-        createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
-                         "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
-                         "urps0", "urps1", "urps2", "urps3"});
-    player = (PlayerObject *)entities[0];
+    player = createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
+                              "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
+                              "urps0", "urps1", "urps2", "urps3"});
+    platforms = std::vector<PlatformObject *>();
+    spikes = std::vector<SpikesObject *>();
+    backgroundObjects = std::vector<GameObject *>();
+    checkpoints = std::vector<CheckpointObject *>();
+    entities = std::vector<GameObject *>(1);
+    entities[0] = player;
     int j = 0;
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
         for (int i = 0; i < pair.second.w / MIN_TILE_SIZE; i++) {
@@ -173,6 +176,7 @@ void GameState::loadNewLevel(std::string levelName) {
                                 world); /*added score manager by Anthony*/
 
     background = resources->getTexture("background");
+    delete parser;
 }
 
 void GameState::startMusic(int vol) {
@@ -196,6 +200,10 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             player->graphics->setCurrState(0);
             world->updateVolume(player->entityNum, player->getX(),
                                 player->getY(), player->getW(), player->getH());
+            break;
+        case SDLK_2:
+            loadNewLevel(levelNames[currLevel]);
+            currLevel++;
             break;
         }
     }
@@ -300,6 +308,8 @@ void GameState::reset() {
     player->setYVel(-.5);
     player->graphics->setCurrState(0);
     player->graphics->setUpsideDown(false);
+    currLevel = 1;
+    loadNewLevel(levelNames[0]);
     scoreMgr->resetScore();
     hasWon = false;
     Mix_HaltMusic();
