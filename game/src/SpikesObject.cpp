@@ -2,7 +2,7 @@
 
 SpikesObject::SpikesObject(int x, int y, bool orientation, int spikeNum,
                            SpikesGraphicsComponent *g) {
-    location = {x, y, 0, 20};
+    location = {x, y, 20, 20};
     this->spikeNum = spikeNum;
     this->xFloat = (float)x;
     this->yFloat = (float)y;
@@ -11,7 +11,7 @@ SpikesObject::SpikesObject(int x, int y, bool orientation, int spikeNum,
     this->setOrientation(orientation);
     this->graphics = g;
     g->setGameObject(this);
-    this->location = (g->getTextureRect(g->getCurrentSprite()));
+    this->location = {x, y, 20, 20};
 }
 
 SpikesObject::~SpikesObject() {

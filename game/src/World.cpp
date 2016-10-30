@@ -105,3 +105,13 @@ bool World::collideWithCheckpoint(GameObject *obj) {
     }
     return false;
 }
+
+bool World::intersectCamera(SDL_Rect *toTest) {
+    SDL_bool result = SDL_TRUE;
+    SDL_Rect intersect = {0, 0, 0, 0};
+    result = SDL_IntersectRect(toTest, &camera, &intersect);
+    if (result == SDL_TRUE) {
+        return true;
+    }
+    return false;
+}

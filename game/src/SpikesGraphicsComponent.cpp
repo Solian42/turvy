@@ -9,10 +9,9 @@ void SpikesGraphicsComponent::update(World *world) {
 
     updateCurrentSprite((SpikesObject *)myObj);
 
-    SDL_Rect temp = {
-        world->transformXtoCamera(myObj->getX()),
-        world->transformYtoCamera(myObj->getY() + 2 * myObj->getH()), currW,
-        currH};
+    SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
+                     world->transformYtoCamera(myObj->getY() + myObj->getH()),
+                     currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
     SpikesObject *mySpike = (SpikesObject *)myObj;

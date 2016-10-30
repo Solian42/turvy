@@ -228,14 +228,21 @@ void GameState::doPhysics(int dt) {
 void GameState::render(int dt) {
 
     SDL_RenderCopy(renderer, background, NULL, NULL);
+    SDL_Rect intersect = {0, 0, 0, 0};
     for (PlatformObject *p : platforms) {
-        p->graphics->update(world);
+        if (world->intersectCamera(p->getLocation())) {
+            p->graphics->update(world);
+        }
     }
     for (SpikesObject *s : spikes) {
-        s->graphics->update(world);
+        if (world->intersectCamera(s->getLocation())) {
+            s->graphics->update(world);
+        }
     }
     for (CheckpointObject *c : checkpoints) {
-        c->graphics->update(world);
+        if (world->intersectCamera(c->getLocation())) {
+            c->graphics->update(world);
+        }
     }
     player->graphics->update(world, dt);
     backgroundObjects[0]->graphics->update(world, dt);
@@ -254,6 +261,7 @@ PlayerObject *GameState::createPlayer(int entityNum,
     PlayerSoundComponent *s = new PlayerSoundComponent(chunks, resources);
     PlayerObject *player =
         new PlayerObject(50, 50, 0, -.5, i, g, s, p, entityNum);
+    world->setCameraX(world->getCameraX() + 50);
     i->setPlayer(player);
     return player;
 }
@@ -275,7 +283,17 @@ GameObject *GameState::createSetpiece(int x, int y,
 int GameState::getHighScore() { return scoreMgr->getScore(); }
 
 void GameState::reset() {
-
+    player->setX(50.0);
+    player->setY(50.0);
+    world->setCameraX(-640.0 + 50);
+    world->setCurrCheckX(50.0);
+    world->setCurrCheckY(50.0);
+    player->setCheckX(50.0);
+    player->setCheckY(50.0);
+    player->setXVel(0.0);
+    player->setYVel(-.5);
+    player->graphics->setCurrState(0);
+    player->graphics->setUpsideDown(false);
     scoreMgr->resetScore();
     hasWon = false;
     Mix_HaltMusic();

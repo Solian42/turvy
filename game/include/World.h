@@ -33,6 +33,7 @@ public:
     int collideWithPlatform(GameObject *obj);
     bool collideWithSpike(GameObject *obj);
     bool collideWithCheckpoint(GameObject *obj);
+    bool intersectCamera(SDL_Rect *toTest);
 
     void setCameraX(float x) {
         cameraX = x;

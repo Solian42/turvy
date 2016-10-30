@@ -59,6 +59,10 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         playerObj->setCheckX(world->getCurrCheckX());
         playerObj->setCheckY(world->getCurrCheckY());
     }
+
+    if (world->getCameraX() != (playerObj->getX() - (640))) {
+        std::cout << "Houston we have a problem\n";
+    }
 }
 
 PlayerPhysicsComponent::~PlayerPhysicsComponent() {}
