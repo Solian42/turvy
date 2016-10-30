@@ -19,13 +19,58 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
                          "urps0", "urps1", "urps2", "urps3"});
     int j = 0;
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
+        for (int i = 0; i < pair.second.w / 20; i++) {
+            for (int k = 0; k < pair.second.h / 20; k++) {
+                if (i == 0 && k == 0) {
+                    // bottom left corner
+                    PlatformGraphicsComponent *g =
+                        new PlatformGraphicsComponent(renderer, resources,
+                                                      {"plat1"});
+                    PlatformObject *platform = new PlatformObject(
+                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
+                        20, j, g);
+                    platforms.push_back(platform);
+                } else if ((i == (pair.second.w / 20) - 1) && (k == 0)) {
+                    PlatformGraphicsComponent *g =
+                        new PlatformGraphicsComponent(renderer, resources,
+                                                      {"plat2"});
+                    PlatformObject *platform = new PlatformObject(
+                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
+                        20, j, g);
+                    // bottom right corner
+                    platforms.push_back(platform);
+                } else if ((i == 0) && (k == (pair.second.h / 20) - 1)) {
+                    PlatformGraphicsComponent *g =
+                        new PlatformGraphicsComponent(renderer, resources,
+                                                      {"plat3"});
+                    PlatformObject *platform = new PlatformObject(
+                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
+                        20, j, g);
+                    // top left corner
+                    platforms.push_back(platform);
+                } else if ((i == (pair.second.w / 20) - 1) &&
+                           (k == (pair.second.h / 20) - 1)) {
+                    PlatformGraphicsComponent *g =
+                        new PlatformGraphicsComponent(renderer, resources,
+                                                      {"plat4"});
+                    PlatformObject *platform = new PlatformObject(
+                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
+                        20, j, g);
+                    // top right corner
+                    platforms.push_back(platform);
+                } else {
 
-        PlatformGraphicsComponent *g =
-            new PlatformGraphicsComponent(renderer, resources, {pair.first});
-        PlatformObject *platform = new PlatformObject(
-            pair.second.x, pair.second.y, pair.second.w, pair.second.h, j, g);
-        platforms.push_back(platform);
-        world->platformVolumes[j] = *platform->getLocation();
+                    PlatformGraphicsComponent *g =
+                        new PlatformGraphicsComponent(renderer, resources,
+                                                      {"plat5"});
+                    PlatformObject *platform = new PlatformObject(
+                        pair.second.x + (20 * i), pair.second.y + (20 * j), 20,
+                        20, j, g);
+                    platforms.push_back(platform);
+                }
+            }
+        }
+        world->platformVolumes[j] = pair.second;
         j++;
     }
     j = 0;
