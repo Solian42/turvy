@@ -245,6 +245,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
                 SDL_PushEvent(&user_event);
             }
             loadNewLevel(levelNames[1]);
+            return STATE_LEVELTWOBEGIN;
             break;
         case SDLK_c:
             player->setCheckX(checkpoints[checkpoints.size() - 1]->getX());
@@ -276,6 +277,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
         loadNewLevel(levelNames[currLevel]);
         currLevel++;
         hasWon = false;
+        return STATE_LEVELTWOBEGIN;
     }
 
     player->input->update(e, dt);
