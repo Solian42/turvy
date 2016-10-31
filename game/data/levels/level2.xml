@@ -92,9 +92,9 @@
 	    	<texture> plat6 </texture>
 	    </p14>
 	    <p15>
-	    	<x> 480 </x>
+	    	<x> 500 </x>
 	    	<y> 350 </y>
-	    	<width> 120 </width>
+	    	<width> 100 </width>
 	    	<height> 50 </height>
 	    	<texture> plat6 </texture>
 	    </p15>
