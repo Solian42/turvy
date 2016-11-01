@@ -194,8 +194,9 @@ void GameState::loadNewLevel(std::string levelName) {
                                           720 - (2 * 18) - 50, {"ts0"});
     backgroundObjects[0]->graphics->scaleCurrentSprite(2);
     backgroundMusic = std::string("game");
-    scoreMgr = new ScoreManager(renderer, resources,
-                                world); /*added score manager by Anthony*/
+    scoreMgr =
+        new ScoreManager(renderer, resources, world, numDeaths, numCoins);
+    /*added score manager by Anthony*/
     background = resources->getTexture("background");
     for (PlatformObject *p : platforms) {
         p->graphics->update(world);
@@ -305,6 +306,8 @@ void GameState::doPhysics(int dt) {
         user_event.user.data2 = NULL;
         SDL_PushEvent(&user_event);
     }
+    numDeaths = scoreMgr->getDeaths();
+    numCoins = scoreMgr->getCoins();
 }
 
 void GameState::render(int dt) {
@@ -365,6 +368,8 @@ void GameState::reset() {
     currLevel = 1;
     loadNewLevel(levelNames[0]);
     scoreMgr->resetScore();
+    numDeaths = 0;
+    numCoins = 0;
     hasWon = false;
     Mix_HaltMusic();
 }

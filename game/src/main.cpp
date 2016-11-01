@@ -75,6 +75,7 @@ void run() {
                     currState = states[STATE_GAME];
                     currStateType = STATE_GAME;
                     currState->startMusic(32);
+                    continue;
                     break;
                 case STATE_MAINMENU:
                     currState = states[STATE_MAINMENU];

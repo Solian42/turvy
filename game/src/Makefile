@@ -54,4 +54,5 @@ clean:
 .PHONEY: remove
 remove: clean
 	@$(rm) $(BINDIR)/$(TARGET)
+	@$(rm) -r $(BINDIR)/*.dSYM
 	@echo "Executable removed!"

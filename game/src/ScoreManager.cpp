@@ -1,9 +1,11 @@
 #include "../include/ScoreManager.h"
 
-ScoreManager::ScoreManager(SDL_Renderer *r, ResourceManager *res,
-                           World *world) {
+ScoreManager::ScoreManager(SDL_Renderer *r, ResourceManager *res, World *world,
+                           int deaths, int coins) {
     renderer = r;
     resources = res;
+    numDeaths = deaths;
+    numCoins = coins;
     this->world = world;
 }
 
@@ -34,5 +36,13 @@ void ScoreManager::printScore(int width, int height) {
     SDL_RenderCopy(renderer, scoreTexture, NULL, &temp);
     SDL_DestroyTexture(scoreTexture);
 }
+
+void ScoreManager::setCoins(int coins) { numCoins = coins; }
+
+void ScoreManager::setDeaths(int deaths) { numDeaths = deaths; }
+
+int ScoreManager::getCoins() { return numCoins; }
+
+int ScoreManager::getDeaths() { return numDeaths; }
 
 ScoreManager::~ScoreManager() {}

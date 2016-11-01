@@ -9,12 +9,17 @@
 
 class ScoreManager {
 public:
-    ScoreManager(SDL_Renderer *r, ResourceManager *res, World *world);
+    ScoreManager(SDL_Renderer *r, ResourceManager *res, World *world,
+                 int deaths = 0, int coins = 0);
     int getScore();
     void update();
     void resetScore();
     void printScore(int width, int height);
+    void setDeaths(int deaths);
+    void setCoins(int coins);
 
+    int getDeaths();
+    int getCoins();
     ~ScoreManager();
 
 private:
