@@ -18,7 +18,7 @@ class GameObject;
 class World {
 public:
     World(int numEntities, int numPlatforms, int numSpikes, int numCheckpoints,
-          int numCoins);
+          int numCoins, int numTrampolines);
 
     int transformXtoCamera(int x);
     int transformYtoCamera(int y);
@@ -35,6 +35,7 @@ public:
     bool collideWithSpike(GameObject *obj);
     bool collideWithCheckpoint(GameObject *obj);
     bool collideWithCoin(GameObject *obj);
+    bool collideWithTrampoline(GameObject *obj);
     bool intersectCamera(SDL_Rect *toTest);
 
     void setCameraX(float x) {
@@ -51,6 +52,7 @@ public:
     SDL_Rect getPlatformLocation(int num);
     SDL_Rect getCheckpointLocation(int num);
     SDL_Rect getCoinLocation(int num);
+    SDL_Rect getTrampolineLocation(int num);
     int worldXLen = 4 * 1280;
     int worldYLen = 720;
     bool testCollide(SDL_Rect a, SDL_Rect b);
@@ -63,13 +65,14 @@ public:
     void setCurrCheckX(float x) { currCheckX = x; }
     void setCurrCheckY(float y) { currCheckY = y; }
 
-    int numEntities, numPlatforms, numSpikes, numCheckpoints, numCoins;
+    int numEntities, numPlatforms, numSpikes, numCheckpoints, numCoins, numTrampolines;
 
     std::vector<SDL_Rect> entityVolumes;
     std::vector<SDL_Rect> platformVolumes;
     std::vector<SDL_Rect> spikeVolumes;
     std::vector<SDL_Rect> checkpointVolumes;
     std::vector<SDL_Rect> coinVolumes;
+    std::vector<SDL_Rect> trampolineVolumes;
 
 private:
     float cameraX = -640.0;

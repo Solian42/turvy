@@ -21,7 +21,17 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     int collideU = collide & COLLIDE_UP;
     int collideD = collide & COLLIDE_DOWN;
     if (collideU != 0 || collideD != 0) {
-        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        if (playerObj->noTrampoline) {
+            playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        } else {
+            playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+            playerObj->noTrampoline = true;
+            if (playerObj->graphics->isUpsideDown()) {
+                playerObj->graphics->setUpsideDown(false);
+            } else {
+                playerObj->graphics->setUpsideDown(true);
+            }
+        }
         playerObj->onPlatform = true;
     }
     if (collide == NO_COLLIDE) {
@@ -49,6 +59,21 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         playerObj->setCheckX(world->getCurrCheckX());
         playerObj->setCheckY(world->getCurrCheckY());
     }
+
+    if (world->collideWithTrampoline(playerObj)) {
+        if (playerObj->graphics->isUpsideDown()) {
+            playerObj->graphics->setUpsideDown(false);
+            playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+            playerObj->setYVel(.5);
+        } else {
+            playerObj->graphics->setUpsideDown(true);
+            playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+            playerObj->setYVel(-.5);
+        }
+        playerObj->noTrampoline = false;
+    }
+
+
 }
 
 PlayerPhysicsComponent::~PlayerPhysicsComponent() {}

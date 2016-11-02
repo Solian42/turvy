@@ -22,7 +22,7 @@ void GameState::loadNewLevel(std::string levelName) {
     world =
         new World(numEntities, parser->parsedPlatforms.size(),
                   parser->parsedSpikes.size(), parser->parsedCheckpoints.size(),
-                  parser->parsedCoins.size());
+                  parser->parsedCoins.size(), parser->parsedTrampolines.size());
     player = createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
                               "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
                               "urps0", "urps1", "urps2", "urps3"});
@@ -31,6 +31,7 @@ void GameState::loadNewLevel(std::string levelName) {
     backgroundObjects = std::vector<GameObject *>();
     checkpoints = std::vector<CheckpointObject *>();
     coins = std::vector<CoinObject *>();
+    trampolines = std::vector<TrampolineObject *>();
     entities = std::vector<GameObject *>(1);
     statics = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
                                 SDL_TEXTUREACCESS_TARGET, windowWidth * 5,
@@ -187,6 +188,22 @@ void GameState::loadNewLevel(std::string levelName) {
         world->coinVolumes[j] = temp;
         j++;
     }
+    j = 0;
+    for (std::pair<std::string, std::vector<int>> pair : parser->parsedTrampolines) {
+        for (int i = 0; i < (pair.second[2] / (MIN_TILE_SIZE)); i++) {
+            TrampolineGraphicsComponent *t =
+                new TrampolineGraphicsComponent(renderer, resources, {pair.first});
+            TrampolineObject *trampoline =
+                new TrampolineObject(pair.second[0] + (MIN_TILE_SIZE * i),
+                                     pair.second[1], j, t);
+            trampolines.push_back(trampoline);
+        }
+        SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2],
+                         MIN_TILE_SIZE};
+        world->trampolineVolumes[j] = temp;
+        j++;
+    }
+
 
     backgroundObjects = std::vector<GameObject *>(1);
 
@@ -209,6 +226,9 @@ void GameState::loadNewLevel(std::string levelName) {
     }
     for (CoinObject *co : coins) {
         co->graphics->update(world);
+    }
+    for (TrampolineObject *t : trampolines) {
+        t->graphics->update(world);
     }
     SDL_SetRenderTarget(renderer, NULL);
     delete parser;
@@ -402,6 +422,9 @@ void GameState::cleanCurrentLevel() {
     for (CoinObject *co : coins) {
         delete co;
     }
+    for (TrampolineObject *t : trampolines) {
+        delete t;
+    }
     for (GameObject *o : backgroundObjects) {
         delete o;
     }
@@ -423,6 +446,9 @@ GameState::~GameState() {
     }
     for (CoinObject *co : coins) {
         delete co;
+    }
+    for (TrampolineObject *t : trampolines) {
+        delete t;
     }
     for (GameObject *o : backgroundObjects) {
         delete o;

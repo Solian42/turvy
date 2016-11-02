@@ -5,6 +5,7 @@
 #include "CoinObject.h"
 #include "PlatformObject.h"
 #include "SpikesObject.h"
+#include "TrampolineObject.h"
 #include <SDL.h>
 #include <cstdlib>
 #include <fstream>
@@ -22,6 +23,7 @@ public:
     std::vector<std::pair<std::string, std::vector<int>>> parsedSpikes;
     std::vector<std::pair<std::string, std::vector<int>>> parsedCheckpoints;
     std::vector<std::pair<std::string, std::vector<int>>> parsedCoins;
+    std::vector<std::pair<std::string, std::vector<int>>> parsedTrampolines;
     std::string startTag;
     std::string objName;
     std::ifstream infile;

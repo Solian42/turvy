@@ -18,6 +18,7 @@ PlayerObject::PlayerObject(int x, int y, float xVelocity, float yVelocity,
     this->location = (g->getTextureRect(g->getCurrentSprite()));
     this->entityNum = entityNum;
     onPlatform = true;
+    noTrampoline = true;
 }
 
 PlayerObject::~PlayerObject() {

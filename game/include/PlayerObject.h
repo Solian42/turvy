@@ -32,6 +32,7 @@ public:
     PlayerSoundComponent *sound;
     PlayerPhysicsComponent *physics;
     bool onPlatform;
+    bool noTrampoline;
 
 private:
     float checkX = 50;
