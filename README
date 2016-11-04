@@ -7,7 +7,7 @@ PROGRRESS FOR ASSIGNMENT 8:
 Brian Cueto:  Added a new feature:  Gravity Switchers! (Called Trampoline in code for
 convenience).  These platforms work such that if you hit them, they automatically
 switch your gravity.  So think of it as you're on a platform and you press space to
-switch gravity, except you don't have any input. 
+switch gravity, except you don't have any input. (Also added a graphic for it).
 Re-added another feature:  Enemy aliens are now back!  No longer spawn in random locations
 from the earlier assignment, but can be set through our level xml files with an x, y, and
 a direction that tells us how it moves.  If you hit it, your score decreases and you respawn
