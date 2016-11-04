@@ -1,6 +1,6 @@
 #include "../include/EnemyGraphicsComponent.h"
 
-int centerEnemy(int large, int small) { return large / 2 - small / 2; }
+//int centerEnemy(int large, int small) { return large / 2 - small / 2; }
 
 EnemyGraphicsComponent::EnemyGraphicsComponent(
     SDL_Renderer *ren, ResourceManager *r, std::vector<std::string> spritenames)
@@ -8,8 +8,7 @@ EnemyGraphicsComponent::EnemyGraphicsComponent(
 
 EnemyGraphicsComponent::~EnemyGraphicsComponent() {}
 
-void EnemyGraphicsComponent::update(SDL_Renderer *renderer, World *world,
-                                    int dt) {
+void EnemyGraphicsComponent::update(World *world, int dt) {
 
     updateCurrentSprite(dt);
 
@@ -19,7 +18,7 @@ void EnemyGraphicsComponent::update(SDL_Renderer *renderer, World *world,
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
 
-    if (SDL_RenderCopy(renderer, resources->getTexture(currentSprite), NULL,
+    if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,
                        &temp) < 0) {
         std::cout << "Something broke: " << SDL_GetError() << "\n";
     }
@@ -31,6 +30,7 @@ void EnemyGraphicsComponent::update(SDL_Renderer *renderer, World *world,
 }
 
 void EnemyGraphicsComponent::updateCurrentSprite(int dt) {
+    /*
     if (myObj->getXVel() != 0.0 || myObj->getYVel() != 0.0) {
         time += dt;
         if (time > 200) {
@@ -61,7 +61,8 @@ void EnemyGraphicsComponent::updateCurrentSprite(int dt) {
             default:
                 break;
             }
-        }
+        } 
         currentSprite = spriteNames[currState];
-    }
+    } */
+    currentSprite = spriteNames[currState];
 }

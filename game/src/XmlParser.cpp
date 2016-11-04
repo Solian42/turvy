@@ -20,14 +20,16 @@ void XmlParser::parse(std::string startTag) {
         startTag.compare("<spikes>") == 0 ||
         startTag.compare("<checkpoints>") == 0 ||
         startTag.compare("<coins>") == 0 ||
-        startTag.compare("<trampolines>") == 0) {
+        startTag.compare("<trampolines>") == 0 ||
+        startTag.compare("<enemies>") == 0) {
         infile >> garbage;
         objName = startTag;
     } else if (startTag.compare("</platforms>") == 0 ||
                startTag.compare("</spikes>") == 0 ||
                startTag.compare("</checkpoints>") == 0 ||
                startTag.compare("</coins>") == 0 ||
-               startTag.compare("</trampolines>") == 0) {
+               startTag.compare("</trampolines>") == 0 ||
+               startTag.compare("</enemies>") == 0) {
         objName = "unknown";
         return;
     }
@@ -82,6 +84,17 @@ void XmlParser::parse(std::string startTag) {
         xy.push_back(y);
         xy.push_back(w);
         parsedTrampolines.push_back(std::make_pair(textureName, xy));
+    } else if (objName.compare("<enemies>") == 0) {
+        int x = std::stoi(singleTagHandler());
+        int y = std::stoi(singleTagHandler());
+        int direction = std::stoi(singleTagHandler());
+        std::string textureName = singleTagHandler();
+
+        std::vector<int> xydir;
+        xydir.push_back(x);
+        xydir.push_back(y);
+        xydir.push_back(direction);
+        parsedEnemies.push_back(std::make_pair(textureName, xydir));
     }
 
     infile >> garbage;

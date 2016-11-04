@@ -54,6 +54,20 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
                             playerObj->getH());
     }
 
+    // if we collide with an enemy
+    if (world->collideWithEnemies(playerObj)) {
+        playerObj->setX(playerObj->getCheckX());
+        world->setCameraX(-640 + playerObj->getCheckX());
+        playerObj->setY(playerObj->getCheckY());
+        // no need to set the x velocity
+        playerObj->setYVel(-.5);
+        playerObj->graphics->setUpsideDown(false);
+        playerObj->graphics->setCurrState(0);
+        world->updateVolume(playerObj->entityNum, playerObj->getX(),
+                            playerObj->getY(), playerObj->getW(),
+                            playerObj->getH());
+    }
+
     // if we collide with a checkpoint
     if (world->collideWithCheckpoint(playerObj)) {
         playerObj->setCheckX(world->getCurrCheckX());

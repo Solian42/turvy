@@ -11,7 +11,7 @@ class EnemyGraphicsComponent : public GraphicsComponent {
 public:
     EnemyGraphicsComponent(SDL_Renderer *ren, ResourceManager *r,
                            std::vector<std::string> spritenames);
-    void update(SDL_Renderer *renderer, World *world, int dt);
+    void update(World *world, int dt);
     ~EnemyGraphicsComponent();
 
 private:

@@ -22,7 +22,8 @@ void GameState::loadNewLevel(std::string levelName) {
     world =
         new World(numEntities, parser->parsedPlatforms.size(),
                   parser->parsedSpikes.size(), parser->parsedCheckpoints.size(),
-                  parser->parsedCoins.size(), parser->parsedTrampolines.size());
+                  parser->parsedCoins.size(), parser->parsedTrampolines.size(),
+                  parser->parsedEnemies.size());
     player = createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
                               "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
                               "urps0", "urps1", "urps2", "urps3"});
@@ -32,6 +33,7 @@ void GameState::loadNewLevel(std::string levelName) {
     checkpoints = std::vector<CheckpointObject *>();
     coins = std::vector<CoinObject *>();
     trampolines = std::vector<TrampolineObject *>();
+    enemies = std::vector<EnemyObject *>();
     entities = std::vector<GameObject *>(1);
     statics = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
                                 SDL_TEXTUREACCESS_TARGET, windowWidth * 5,
@@ -203,6 +205,19 @@ void GameState::loadNewLevel(std::string levelName) {
         world->trampolineVolumes[j] = temp;
         j++;
     }
+    j = 0;
+    for (std::pair<std::string, std::vector<int>> pair : parser->parsedEnemies) {
+        EnemyGraphicsComponent *e =
+            new EnemyGraphicsComponent(renderer, resources, {pair.first});
+        EnemyPhysicsComponent *ph = new EnemyPhysicsComponent();
+        EnemyInputComponent *in = new EnemyInputComponent();
+        EnemyObject *enemy =
+            new EnemyObject(pair.second[0], pair.second[1], pair.second[2], in, e, ph, j);
+        enemies.push_back(enemy);
+        //SDL_Rect temp = {pair.second[0], pair.second[1], 25, 25};
+        //world->enemyVolumes[j] = temp;
+        //j++;
+    }
 
 
     backgroundObjects = std::vector<GameObject *>(1);
@@ -311,6 +326,9 @@ void GameState::doSound() { player->sound->update(world); }
 void GameState::doPhysics(int dt) {
     world->collision = world->checkCollisions();
     player->physics->update(player, world, dt);
+    for (EnemyObject *e : enemies) {
+        e->physics->update(e, world, dt);
+    }
     for (CoinObject *co : coins) {
         co->physics->update(co, world, dt);
     }
@@ -336,6 +354,13 @@ void GameState::render(int dt) {
                      world->transformYtoCamera(0 + 720), 5 * 1280, 720};
     SDL_RenderCopy(renderer, statics, NULL, &temp);
     player->graphics->update(world, dt);
+    int j = 0;
+    for (EnemyObject *e : enemies) {
+        e->graphics->update(world, dt);
+        SDL_Rect eTemp = {e->getX(), e->getY(), 25, 25};
+        world->enemyVolumes[j] = eTemp;
+        j++;
+    }
     backgroundObjects[0]->graphics->update(world, dt);
     scoreMgr->update();
     scoreMgr->printScore(1280,
@@ -425,6 +450,9 @@ void GameState::cleanCurrentLevel() {
     for (TrampolineObject *t : trampolines) {
         delete t;
     }
+    for (EnemyObject *e : enemies) {
+        delete e;
+    }
     for (GameObject *o : backgroundObjects) {
         delete o;
     }
@@ -449,6 +477,9 @@ GameState::~GameState() {
     }
     for (TrampolineObject *t : trampolines) {
         delete t;
+    }
+    for (EnemyObject *e : enemies) {
+        delete e;
     }
     for (GameObject *o : backgroundObjects) {
         delete o;

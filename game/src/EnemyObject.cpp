@@ -1,14 +1,14 @@
 #include "../include/EnemyObject.h"
 
-EnemyObject::EnemyObject(int x, int y, int xVelocity, int yVelocity,
+EnemyObject::EnemyObject(int x, int y, int direction,
                          EnemyInputComponent *i, EnemyGraphicsComponent *g,
                          EnemyPhysicsComponent *p, int entityNum) {
-    location = {x, y, 0, 0};
+    location = {x, y, 25, 25};
     this->xFloat = (float)x;
     this->yFloat = (float)y;
-    this->xVelocity = (float)xVelocity;
-    this->yVelocity = (float)yVelocity;
+    this->direction = direction;
     this->input = i;
+    this->input->update(this);
     this->graphics = g;
     this->physics = p;
     g->GraphicsComponent::setGameObject(this);

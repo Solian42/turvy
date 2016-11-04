@@ -1,6 +1,7 @@
 #ifndef LIZARD_XMLPARSER
 #define LIZARD_XMLPARSER
 
+#include "EnemyObject.h"
 #include "CheckpointObject.h"
 #include "CoinObject.h"
 #include "PlatformObject.h"
@@ -24,6 +25,7 @@ public:
     std::vector<std::pair<std::string, std::vector<int>>> parsedCheckpoints;
     std::vector<std::pair<std::string, std::vector<int>>> parsedCoins;
     std::vector<std::pair<std::string, std::vector<int>>> parsedTrampolines;
+    std::vector<std::pair<std::string, std::vector<int>>> parsedEnemies;
     std::string startTag;
     std::string objName;
     std::ifstream infile;

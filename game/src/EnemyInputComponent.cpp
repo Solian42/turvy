@@ -1,8 +1,7 @@
 #include "../include/EnemyInputComponent.h"
 void EnemyInputComponent::update(EnemyObject *enemyObj) {
-    int direction = std::rand() % 8;
 
-    switch (direction) {
+    switch (enemyObj->direction) {
 
     case 0:
         //(1,0)

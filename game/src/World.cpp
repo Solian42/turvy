@@ -12,19 +12,21 @@ bool World::testCollide(SDL_Rect a, SDL_Rect b) {
 }
 
 World::World(int numEntities, int numPlatforms, int numSpikes,
-             int numCheckpoints, int numCoins, int numTrampolines) {
+             int numCheckpoints, int numCoins, int numTrampolines, int numEnemies) {
     entityVolumes = std::vector<SDL_Rect>(numEntities);
     platformVolumes = std::vector<SDL_Rect>(numPlatforms);
     spikeVolumes = std::vector<SDL_Rect>(numSpikes);
     checkpointVolumes = std::vector<SDL_Rect>(numCheckpoints);
     coinVolumes = std::vector<SDL_Rect>(numCoins);
     trampolineVolumes = std::vector<SDL_Rect>(numTrampolines);
+    enemyVolumes = std::vector<SDL_Rect>(numEnemies);
     this->numPlatforms = numPlatforms;
     this->numSpikes = numSpikes;
     this->numEntities = numEntities;
     this->numCheckpoints = numCheckpoints;
     this->numCoins = numCoins;
     this->numTrampolines = numTrampolines;
+    this->numEnemies = numEnemies;
 }
 
 SDL_Rect World::getEntityLocation(int num) { return entityVolumes[num]; }
@@ -35,6 +37,7 @@ SDL_Rect World::getCheckpointLocation(int num) {
 }
 SDL_Rect World::getCoinLocation(int num) { return coinVolumes[num]; }
 SDL_Rect World::getTrampolineLocation(int num) { return trampolineVolumes[num]; }
+SDL_Rect World::getEnemyLocation(int num) { return enemyVolumes[num]; }
 
 int World::transformXtoCamera(int x) { return x - cameraX; }
 
@@ -90,6 +93,19 @@ bool World::collideWithSpike(GameObject *obj) {
     SDL_Rect intersect = {0, 0, 0, 0};
     for (SDL_Rect s : spikeVolumes) {
         SDL_bool result = SDL_IntersectRect(&s, obj->getLocation(), &intersect);
+        if (result == SDL_TRUE) {
+            collision = true;
+            return true;
+        }
+    }
+    collision = false;
+    return false;
+}
+
+bool World::collideWithEnemies(GameObject *obj) {
+    SDL_Rect intersect = {0, 0, 0, 0};
+    for (SDL_Rect e : enemyVolumes) {
+        SDL_bool result = SDL_IntersectRect(&e, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
             collision = true;
             return true;
