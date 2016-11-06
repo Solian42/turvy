@@ -27,7 +27,9 @@ public:
     int transformYToSDL(int y);
 
     void updateVolume(int entityNum, int newX, int newY, int newW, int newH);
-    bool checkCollisions();
+    //bool checkCollisions();
+    bool checkSpikeCollisions();
+    bool checkEnemyCollisions();
 
     float getCameraX() { return cameraX; }
     float getCameraY() { return cameraY; }
@@ -63,7 +65,9 @@ public:
     SDL_Rect getTrampolineLocation(int num);
     SDL_Rect getEnemyLocation(int num);
     bool testCollide(SDL_Rect a, SDL_Rect b);
-    bool collision = false;
+    //bool collision = false;
+    bool spikeCollision = false;
+    bool enemyCollision = false;
     bool coinCollision = false;
 
     float getCurrCheckX() { return currCheckX; }
