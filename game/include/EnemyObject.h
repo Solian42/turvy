@@ -13,13 +13,14 @@ class EnemyPhysicsComponent;
 class EnemyObject : public GameObject {
 
 public:
-    EnemyObject(int x, int y, int xVelocity, int yVelocity,
-                EnemyInputComponent *i, EnemyGraphicsComponent *g,
-                EnemyPhysicsComponent *p, int entityNum);
+    EnemyObject(int x, int y, int direction, EnemyInputComponent *i,
+                EnemyGraphicsComponent *g, EnemyPhysicsComponent *p,
+                int entityNum);
     ~EnemyObject();
     EnemyInputComponent *input;
     EnemyGraphicsComponent *graphics;
     EnemyPhysicsComponent *physics;
+    bool direction = 0;
 
 private:
 };

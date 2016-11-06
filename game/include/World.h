@@ -17,13 +17,14 @@ enum {
 class GameObject;
 class World {
 public:
-    World(int width, int height, int numEntities, int numPlatforms, int numSpikes, int numCheckpoints,
-          int numCoins);
+    World(int width, int height, int numEntities, int numPlatforms,
+          int numSpikes, int numCheckpoints, int numCoins, int numTrampolines,
+          int numEnemies);
 
     int transformXtoCamera(int x);
     int transformYtoCamera(int y);
-	int transformXToSDL(int x);
-	int transformYToSDL(int y);
+    int transformXToSDL(int x);
+    int transformYToSDL(int y);
 
     void updateVolume(int entityNum, int newX, int newY, int newW, int newH);
     bool checkCollisions();
@@ -32,13 +33,15 @@ public:
     float getCameraY() { return cameraY; }
     int getCameraW() { return camera.w; }
     int getCameraH() { return camera.h; }
-	
-	void setCameraH(int h);
+
+    void setCameraH(int h);
 
     int collideWithPlatform(GameObject *obj);
     bool collideWithSpike(GameObject *obj);
     bool collideWithCheckpoint(GameObject *obj);
     bool collideWithCoin(GameObject *obj);
+    bool collideWithTrampoline(GameObject *obj);
+    bool collideWithEnemies(GameObject *obj);
     bool intersectCamera(SDL_Rect *toTest);
 
     void setCameraX(float x) {
@@ -57,6 +60,8 @@ public:
     SDL_Rect getCoinLocation(int num);
     int worldXLen = 0;
     int worldYLen = 0;
+    SDL_Rect getTrampolineLocation(int num);
+    SDL_Rect getEnemyLocation(int num);
     bool testCollide(SDL_Rect a, SDL_Rect b);
     bool collision = false;
     bool coinCollision = false;
@@ -67,21 +72,23 @@ public:
     void setCurrCheckX(float x) { currCheckX = x; }
     void setCurrCheckY(float y) { currCheckY = y; }
 
-    int numEntities, numPlatforms, numSpikes, numCheckpoints, numCoins;
+    int numEntities, numPlatforms, numSpikes, numCheckpoints, numCoins,
+        numTrampolines, numEnemies;
 
     std::vector<SDL_Rect> entityVolumes;
     std::vector<SDL_Rect> platformVolumes;
     std::vector<SDL_Rect> spikeVolumes;
     std::vector<SDL_Rect> checkpointVolumes;
     std::vector<SDL_Rect> coinVolumes;
+    std::vector<SDL_Rect> trampolineVolumes;
+    std::vector<SDL_Rect> enemyVolumes;
 
 private:
-	
     float cameraX = -640.0;
     float cameraY = -360.0;
     float currCheckX = 50;
     float currCheckY = 50;
-    SDL_Rect camera = {-640, -360 , 1280, 720};
+    SDL_Rect camera = {-640, -360, 1280, 720};
 };
 
 #endif

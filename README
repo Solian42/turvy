@@ -2,14 +2,16 @@ Hey All! This is our codebase.
 
 ##########################################################################################
 
-PROGRRESS FOR ASSIGNMENT 7:
+PROGRRESS FOR ASSIGNMENT 8:
 
-Brian Cueto:  Designed the 2nd level and wrote the xml file for it.  This level is much 
-more difficult that the first, and will require more thought into how to maneuver the 
-character through certain areas.  Please play somewhat slowly if you have an issue with 
-dying too much at a certain area, it will help.
-Also added a new feature:  coins!  Get these coins with the character and your high score 
-will increase.
+Brian Cueto:  Added a new feature:  Gravity Switchers! (Called Trampoline in code for
+convenience).  These platforms work such that if you hit them, they automatically
+switch your gravity.  So think of it as you're on a platform and you press space to
+switch gravity, except you don't have any input. (Also added a graphic for it).
+Re-added another feature:  Enemy aliens are now back!  No longer spawn in random locations
+from the earlier assignment, but can be set through our level xml files with an x, y, and
+a direction that tells us how it moves.  If you hit it, your score decreases and you respawn
+at the previous checkpoint. 
 
 Anthony Kim: Added xml parser connectivity to the new coin system, made score increment
 logic upon coin collision, made sprites for coin, and still working on level editor,

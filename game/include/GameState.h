@@ -30,6 +30,8 @@ private:
     int numEntities;
     int numDeaths = 0;
     int numCoins = 0;
+    int numTrampolines = 0;
+    int numEnemies = 0;
     int windowHeight, windowWidth;
     const int MIN_TILE_SIZE = 10;
     std::vector<GameObject *> entities;
@@ -38,6 +40,8 @@ private:
     std::vector<SpikesObject *> spikes;
     std::vector<CheckpointObject *> checkpoints;
     std::vector<CoinObject *> coins;
+    std::vector<TrampolineObject *> trampolines;
+    std::vector<EnemyObject *> enemies;
     std::string backgroundMusic;
     PlayerObject *player = nullptr;
 
