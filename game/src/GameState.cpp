@@ -20,7 +20,7 @@ void GameState::loadNewLevel(std::string levelName) {
     }
     XmlParser *parser = new XmlParser(resources->getLevel(levelName));
     world =
-        new World(numEntities, parser->parsedPlatforms.size(),
+        new World(1280 * 5, 720 * 10, numEntities, parser->parsedPlatforms.size(),
                   parser->parsedSpikes.size(), parser->parsedCheckpoints.size(),
                   parser->parsedCoins.size());
     player = createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
@@ -34,13 +34,18 @@ void GameState::loadNewLevel(std::string levelName) {
     entities = std::vector<GameObject *>(1);
     statics = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
                                 SDL_TEXTUREACCESS_TARGET, windowWidth * 5,
-                                windowHeight);
+                                (windowHeight * 10));
     SDL_SetTextureBlendMode(statics, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_SetRenderTarget(renderer, statics);
     SDL_RenderClear(renderer);
     entities[0] = player;
     int j = 0;
+	world->setCameraY(0.0);
+	int h,w;
+	SDL_QueryTexture(statics, NULL, NULL, &w, &h);
+	std::cout << w << " " << h << "\n";
+	//if(currLevel == 3) world->setCameraH(7200);
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
         for (int i = 0; i < pair.second.w / MIN_TILE_SIZE; i++) {
             for (int k = 0; k < pair.second.h / MIN_TILE_SIZE; k++) {
@@ -212,6 +217,8 @@ void GameState::loadNewLevel(std::string levelName) {
     }
     SDL_SetRenderTarget(renderer, NULL);
     delete parser;
+	world->setCameraY(-360.0 + 50);
+	world->setCameraH(720);
 }
 
 void GameState::startMusic(int vol) {
@@ -230,6 +237,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             player->setX(player->getCheckX());
             player->setY(player->getCheckY());
             world->setCameraX(-640 + player->getCheckX());
+				world->setCameraY(-360.0 + player->getCheckY());
             player->setYVel(-.5);
             player->graphics->setUpsideDown(false);
             player->graphics->setCurrState(0);
@@ -248,12 +256,25 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             loadNewLevel(levelNames[1]);
             return STATE_LEVELTWOBEGIN;
             break;
+			case SDLK_3:
+				currLevel = 3;
+				if (player->getXVel() > 0) {
+					SDL_Event user_event;
+					user_event.type = SDL_KEYDOWN;
+					user_event.key.keysym.sym = SDLK_RIGHT;
+					user_event.key.repeat = 0;
+					SDL_PushEvent(&user_event);
+				}
+				loadNewLevel(levelNames[2]);
+				break;
+				
         case SDLK_c:
             player->setCheckX(checkpoints[checkpoints.size() - 1]->getX());
             player->setCheckY(checkpoints[checkpoints.size() - 1]->getY());
             player->setX(player->getCheckX());
             player->setY(player->getCheckY());
             world->setCameraX(-640 + player->getCheckX());
+			world->setCameraY(-360.0 + player->getCheckY());
             player->setYVel(-.5);
             player->graphics->setUpsideDown(false);
             player->graphics->setCurrState(0);
@@ -313,7 +334,7 @@ void GameState::doPhysics(int dt) {
 void GameState::render(int dt) {
     SDL_RenderCopy(renderer, background, NULL, NULL);
     SDL_Rect temp = {world->transformXtoCamera(-640 + 50),
-                     world->transformYtoCamera(0 + 720), 5 * 1280, 720};
+                     world->transformYtoCamera(720), 5 * 1280, 7200};
     SDL_RenderCopy(renderer, statics, NULL, &temp);
     player->graphics->update(world, dt);
     backgroundObjects[0]->graphics->update(world, dt);
@@ -333,6 +354,7 @@ PlayerObject *GameState::createPlayer(int entityNum,
     PlayerObject *player =
         new PlayerObject(50, 50, 0, -.5, i, g, s, p, entityNum);
     world->setCameraX(world->getCameraX() + 50);
+	world->setCameraY(world->getCameraY() + 50);
     i->setPlayer(player);
     return player;
 }
@@ -357,6 +379,7 @@ void GameState::reset() {
     player->setX(50.0);
     player->setY(50.0);
     world->setCameraX(-640.0 + 50);
+	world->setCameraY(-360 + 50);
     world->setCurrCheckX(50.0);
     world->setCurrCheckY(50.0);
     player->setCheckX(50.0);
@@ -378,6 +401,7 @@ void GameState::cleanCurrentLevel() {
     player->setX(50.0);
     player->setY(50.0);
     world->setCameraX(-640.0 + 50);
+	world->setCameraY(-360 + 50);
     world->setCurrCheckX(50.0);
     world->setCurrCheckY(50.0);
     player->setCheckX(50.0);

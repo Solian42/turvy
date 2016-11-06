@@ -17,11 +17,15 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     }
 
     playerObj->setY(playerObj->getY() + playerObj->getYVel() * dt);
+	
+	world->setCameraY((world->getCameraY() + playerObj->getYVel() * dt));
+	
     collide = world->collideWithPlatform(playerObj);
     int collideU = collide & COLLIDE_UP;
     int collideD = collide & COLLIDE_DOWN;
     if (collideU != 0 || collideD != 0) {
         playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+		world->setCameraY((world->getCameraY() - playerObj->getYVel() * dt));
         playerObj->onPlatform = true;
     }
     if (collide == NO_COLLIDE) {
@@ -33,7 +37,9 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     // if we got hit by a spike
     if (world->collideWithSpike(playerObj)) {
         playerObj->setX(playerObj->getCheckX());
-        world->setCameraX(-640 + playerObj->getCheckX());
+		
+		world->setCameraX(-640 + playerObj->getCheckX());
+		world->setCameraY(playerObj->getCheckY() - 360);
         playerObj->setY(playerObj->getCheckY());
         // no need to set the x velocity
         playerObj->setYVel(-.5);

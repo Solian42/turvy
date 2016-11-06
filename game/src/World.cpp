@@ -11,8 +11,10 @@ bool World::testCollide(SDL_Rect a, SDL_Rect b) {
     return false;
 }
 
-World::World(int numEntities, int numPlatforms, int numSpikes,
+World::World(int width, int height, int numEntities, int numPlatforms, int numSpikes,
              int numCheckpoints, int numCoins) {
+	worldXLen = width;
+	worldYLen = height;
     entityVolumes = std::vector<SDL_Rect>(numEntities);
     platformVolumes = std::vector<SDL_Rect>(numPlatforms);
     spikeVolumes = std::vector<SDL_Rect>(numSpikes);
@@ -35,9 +37,13 @@ SDL_Rect World::getCoinLocation(int num) { return coinVolumes[num]; }
 
 int World::transformXtoCamera(int x) { return x - cameraX; }
 
-int World::transformYtoCamera(int y) {
-    return (this->worldYLen - (y - cameraY));
-}
+int World::transformYtoCamera(int y) { return camera.h - (y - cameraY); }
+
+void World::setCameraH(int h) { camera.h = h; }
+
+int World::transformXToSDL(int x) { return x; }
+
+int World::transformYToSDL(int y) { return y - worldYLen; }
 
 void World::updateVolume(int entityNum, int newX, int newY, int newW,
                          int newH) {
