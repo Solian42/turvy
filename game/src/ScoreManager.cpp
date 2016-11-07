@@ -13,7 +13,7 @@ int ScoreManager::getScore() {
     return 100000 - (500) * numDeaths + (1000) * numCoins;
 }
 void ScoreManager::update() {
-    if (world->collision) {
+    if (world->spikeCollision || world->enemyCollision) {
         numDeaths++;
     }
     if (world->coinCollision) {

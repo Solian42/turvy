@@ -344,7 +344,8 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
 void GameState::doSound() { player->sound->update(world); }
 
 void GameState::doPhysics(int dt) {
-    world->collision = world->checkCollisions();
+    world->spikeCollision = world->checkSpikeCollisions();
+    world->enemyCollision = world->checkEnemyCollisions();
     player->physics->update(player, world, dt);
     for (EnemyObject *e : enemies) {
         e->physics->update(e, world, dt);

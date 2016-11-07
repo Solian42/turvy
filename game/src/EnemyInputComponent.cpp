@@ -1,7 +1,9 @@
 #include "../include/EnemyInputComponent.h"
 void EnemyInputComponent::update(EnemyObject *enemyObj) {
 
-    switch (enemyObj->direction) {
+    int option = enemyObj->direction;
+
+    switch (option) {
 
     case 0:
         //(1,0)

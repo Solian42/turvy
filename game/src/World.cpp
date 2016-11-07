@@ -62,6 +62,7 @@ void World::updateVolume(int entityNum, int newX, int newY, int newW,
     entityVolumes[entityNum].h = newH;
 }
 
+/*
 bool World::checkCollisions() {
     bool collision = false;
     for (int i = 1; i < numEntities; i++) {
@@ -69,6 +70,24 @@ bool World::checkCollisions() {
             collision || testCollide(entityVolumes[0], entityVolumes[i]);
     }
     return collision;
+} */
+
+bool World::checkSpikeCollisions() {
+    bool spikeCollision = false;
+    for (int i = 0; i < numSpikes; i++) {
+        spikeCollision =
+            spikeCollision || testCollide(entityVolumes[0], spikeVolumes[i]);
+    }
+    return spikeCollision;
+}
+
+bool World::checkEnemyCollisions() {
+    bool enemyCollision = false;
+    for (int i = 0; i < numEnemies; i++) {
+        enemyCollision =
+            enemyCollision || testCollide(entityVolumes[0], enemyVolumes[i]);
+    }
+    return enemyCollision;
 }
 
 int World::collideWithPlatform(GameObject *obj) {
@@ -103,11 +122,11 @@ bool World::collideWithSpike(GameObject *obj) {
     for (SDL_Rect s : spikeVolumes) {
         SDL_bool result = SDL_IntersectRect(&s, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
-            collision = true;
+            spikeCollision = true;
             return true;
         }
     }
-    collision = false;
+    spikeCollision = false;
     return false;
 }
 
@@ -116,11 +135,11 @@ bool World::collideWithEnemies(GameObject *obj) {
     for (SDL_Rect e : enemyVolumes) {
         SDL_bool result = SDL_IntersectRect(&e, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
-            collision = true;
+            enemyCollision = true;
             return true;
         }
     }
-    collision = false;
+    enemyCollision = false;
     return false;
 }
 
