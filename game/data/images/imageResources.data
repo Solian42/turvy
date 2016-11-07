@@ -45,6 +45,7 @@ plat9 ../data/images/platforms/plat9.png
 spike1 ../data/images/spikes/spikeMiddle.png
 
 checkpoint1 ../data/images/checkpoint1.png
+checkpoint2 ../data/images/checkpoint2.png
 
 coin1 ../data/images/coin.png
 

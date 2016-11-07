@@ -23,8 +23,8 @@ public:
 
     int transformXtoCamera(int x);
     int transformYtoCamera(int y);
-    int transformXToSDL(int x);
-    int transformYToSDL(int y);
+    int transformXToWorld(int x);
+    int transformYToWorld(int y);
 
     void updateVolume(int entityNum, int newX, int newY, int newW, int newH);
     // bool checkCollisions();

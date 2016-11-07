@@ -8,7 +8,7 @@ CheckpointGraphicsComponent::~CheckpointGraphicsComponent() {}
 
 void CheckpointGraphicsComponent::update(World *world) {
 
-    updateCurrentSprite();
+    updateCurrentSprite(world);
 
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
                      world->transformYtoCamera(myObj->getY() + myObj->getH()),
@@ -21,8 +21,15 @@ void CheckpointGraphicsComponent::update(World *world) {
     }
 }
 
-void CheckpointGraphicsComponent::updateCurrentSprite() {
+void CheckpointGraphicsComponent::updateCurrentSprite(World *world) {
+    if (world->getCurrCheckX() == myObj->getX() &&
+        world->getCurrCheckY() == myObj->getY()) {
+        currState = 1;
+    } else {
+        currState = 0;
+    }
     currentSprite = spriteNames[currState];
+    scaleCurrentSprite(2);
 }
 
 void CheckpointGraphicsComponent::setCurrState(int state) {

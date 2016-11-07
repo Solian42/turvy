@@ -239,11 +239,13 @@
 			<x> 230 </x>
 			<y> 290 </y>
 			<texture> checkpoint1 </texture>
+			<texture> checkpoint2 </texture>
 		</c1>
 		<c2>
 			<x> 3360 </x>
 			<y> 270 </y>
 			<texture> checkpoint1 </texture>
+			<texture> checkpoint2 </texture>
 		</c2>
 	</checkpoints>
 	<trampolines>

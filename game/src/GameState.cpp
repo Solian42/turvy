@@ -45,9 +45,6 @@ void GameState::loadNewLevel(std::string levelName) {
     entities[0] = player;
     int j = 0;
     world->setCameraY(0.0);
-    int h, w;
-    SDL_QueryTexture(statics, NULL, NULL, &w, &h);
-    std::cout << w << " " << h << "\n";
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
         for (int i = 0; i < pair.second.w / MIN_TILE_SIZE; i++) {
             for (int k = 0; k < pair.second.h / MIN_TILE_SIZE; k++) {
@@ -169,10 +166,10 @@ void GameState::loadNewLevel(std::string levelName) {
         j++;
     }
     j = 0;
-    for (std::pair<std::string, std::vector<int>> pair :
+    for (std::pair<std::vector<std::string>, std::vector<int>> pair :
          parser->parsedCheckpoints) {
-        CheckpointGraphicsComponent *c =
-            new CheckpointGraphicsComponent(renderer, resources, {pair.first});
+        CheckpointGraphicsComponent *c = new CheckpointGraphicsComponent(
+            renderer, resources, {pair.first[0], pair.first[1]});
         CheckpointObject *checkpoint =
             new CheckpointObject(pair.second[0], pair.second[1], j, c);
         checkpoints.push_back(checkpoint);
@@ -239,9 +236,6 @@ void GameState::loadNewLevel(std::string levelName) {
     }
     for (SpikesObject *s : spikes) {
         s->graphics->update(world);
-    }
-    for (CheckpointObject *c : checkpoints) {
-        c->graphics->update(world);
     }
     for (CoinObject *co : coins) {
         co->graphics->update(world);
@@ -372,11 +366,20 @@ void GameState::doPhysics(int dt) {
 
 void GameState::render(int dt) {
     SDL_RenderCopy(renderer, background, NULL, NULL);
-    SDL_Rect temp = {world->transformXtoCamera(-640 + 50),
-                     world->transformYtoCamera(720), 5 * 1280, 7200};
+    int h, w;
+    SDL_QueryTexture(statics, NULL, NULL, &w, &h);
+    SDL_Rect temp = {world->transformXtoCamera(0), world->transformYtoCamera(h),
+                     5 * 1280, 7200};
+
+    for (CheckpointObject *c : checkpoints) {
+        if (world->intersectCamera(c->getLocation())) {
+            c->graphics->update(world);
+        }
+    }
     SDL_RenderCopy(renderer, statics, NULL, &temp);
     player->graphics->update(world, dt);
     int j = 0;
+
     for (EnemyObject *e : enemies) {
         e->graphics->update(world, dt);
         SDL_Rect eTemp = {(int)e->getX(), (int)e->getY(), 25, 25};

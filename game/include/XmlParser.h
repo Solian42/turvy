@@ -22,7 +22,8 @@ public:
 
     std::vector<std::pair<std::string, SDL_Rect>> parsedPlatforms;
     std::vector<std::pair<std::string, std::vector<int>>> parsedSpikes;
-    std::vector<std::pair<std::string, std::vector<int>>> parsedCheckpoints;
+    std::vector<std::pair<std::vector<std::string>, std::vector<int>>>
+        parsedCheckpoints;
     std::vector<std::pair<std::string, std::vector<int>>> parsedCoins;
     std::vector<std::pair<std::string, std::vector<int>>> parsedTrampolines;
     std::vector<std::pair<std::string, std::vector<int>>> parsedEnemies;

@@ -1,7 +1,7 @@
 #include "../include/main.h"
 
 int main() {
-    setup("Lizard Games Assignment 1");
+    setup("Turvy");
 
     load();
 

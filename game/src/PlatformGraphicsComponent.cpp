@@ -9,8 +9,8 @@ void PlatformGraphicsComponent::update(World *world) {
 
     updateCurrentSprite();
 
-    SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
-                     world->transformYtoCamera(myObj->getY() + myObj->getH()),
+    SDL_Rect temp = {world->transformXToWorld(myObj->getX()),
+                     world->transformYToWorld(myObj->getY() + myObj->getH()),
                      currW, currH};
     // SDL_Rect temp = {centerRect(myObj->getX(), currW),
     // centerRect(myObj->getX(), currH), currW, currH};
@@ -29,8 +29,8 @@ void PlatformGraphicsComponent::update(World *world) {
     temp.h = platRect.h;
     temp.w = platRect.w;
     SDL_RenderFillRect(myRenderer, &temp);
-    SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
-    // updateParent();
+    SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);
+    */ // updateParent();
 }
 
 void PlatformGraphicsComponent::updateCurrentSprite() {

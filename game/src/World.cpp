@@ -50,9 +50,9 @@ int World::transformYtoCamera(int y) { return camera.h - (y - cameraY); }
 
 void World::setCameraH(int h) { camera.h = h; }
 
-int World::transformXToSDL(int x) { return x; }
+int World::transformXToWorld(int x) { return x; }
 
-int World::transformYToSDL(int y) { return y - worldYLen; }
+int World::transformYToWorld(int y) { return worldYLen - y; }
 
 void World::updateVolume(int entityNum, int newX, int newY, int newW,
                          int newH) {

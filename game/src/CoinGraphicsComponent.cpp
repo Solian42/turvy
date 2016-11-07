@@ -10,8 +10,8 @@ void CoinGraphicsComponent::update(World *world) {
 
     updateCurrentSprite();
 
-    SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
-                     world->transformYtoCamera(myObj->getY() + myObj->getH()),
+    SDL_Rect temp = {world->transformXToWorld(myObj->getX()),
+                     world->transformYToWorld(myObj->getY() + myObj->getH()),
                      currW, currH};
 
     if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,

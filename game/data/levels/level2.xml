@@ -701,21 +701,25 @@
 			<x> 1150 </x>
 			<y> 50 </y>
 			<texture> checkpoint1 </texture>
+			<texture> checkpoint2 </texture>
 		</c1>
 		<c2>
 			<x> 2820 </x>
 			<y> 50 </y>
 			<texture> checkpoint1 </texture>
+			<texture> checkpoint2 </texture>
 		</c2>
         <c3>
             <x> 3650 </x>
             <y> 50 </y>
             <texture> checkpoint1 </texture>
+			<texture> checkpoint2 </texture>
         </c3>
         <c4>
             <x> 4800 </x>
             <y> 50 </y>
             <texture> checkpoint1 </texture>
+			<texture> checkpoint2 </texture>
         </c4>
 	</checkpoints>
 	<coins>
