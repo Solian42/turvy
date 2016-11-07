@@ -24,8 +24,6 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     int collideU = collide & COLLIDE_UP;
     int collideD = collide & COLLIDE_DOWN;
     if (collideU != 0 || collideD != 0) {
-        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-        world->setCameraY((world->getCameraY() - playerObj->getYVel() * dt));
         if (playerObj->noTrampoline) {
             playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
             world->setCameraY(
@@ -84,6 +82,8 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         playerObj->setCheckX(world->getCurrCheckX());
         playerObj->setCheckY(world->getCurrCheckY());
     }
+	
+	
 
     if (world->collideWithTrampoline(playerObj)) {
         if (playerObj->graphics->isUpsideDown()) {

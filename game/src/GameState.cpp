@@ -48,7 +48,6 @@ void GameState::loadNewLevel(std::string levelName) {
     int h, w;
     SDL_QueryTexture(statics, NULL, NULL, &w, &h);
     std::cout << w << " " << h << "\n";
-    // if(currLevel == 3) world->setCameraH(7200);
     for (std::pair<std::string, SDL_Rect> pair : parser->parsedPlatforms) {
         for (int i = 0; i < pair.second.w / MIN_TILE_SIZE; i++) {
             for (int k = 0; k < pair.second.h / MIN_TILE_SIZE; k++) {
