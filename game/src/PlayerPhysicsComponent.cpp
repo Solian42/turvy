@@ -68,6 +68,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         playerObj->setX(playerObj->getCheckX());
         world->setCameraX(-640 + playerObj->getCheckX());
         playerObj->setY(playerObj->getCheckY());
+        world->setCameraY(playerObj->getCheckY() - 360);
         // no need to set the x velocity
         playerObj->setYVel(-.5);
         playerObj->graphics->setUpsideDown(false);
@@ -87,10 +88,14 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         if (playerObj->graphics->isUpsideDown()) {
             playerObj->graphics->setUpsideDown(false);
             playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+            world->setCameraY(
+                (world->getCameraY() - playerObj->getYVel() * dt));
             playerObj->setYVel(.5);
         } else {
             playerObj->graphics->setUpsideDown(true);
             playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+            world->setCameraY(
+                (world->getCameraY() - playerObj->getYVel() * dt));
             playerObj->setYVel(-.5);
         }
         playerObj->noTrampoline = false;
