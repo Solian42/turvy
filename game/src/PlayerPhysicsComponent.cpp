@@ -82,8 +82,6 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         playerObj->setCheckX(world->getCurrCheckX());
         playerObj->setCheckY(world->getCurrCheckY());
     }
-	
-	
 
     if (world->collideWithTrampoline(playerObj)) {
         if (playerObj->graphics->isUpsideDown()) {
