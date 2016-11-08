@@ -14,7 +14,7 @@ int main() {
 
 void run() {
 
-    std::vector<State *> states = std::vector<State *>(6);
+    std::vector<State *> states = std::vector<State *>(8);
     states[STATE_GAME] = new GameState(mainRenderer, width, height, resources,
                                        {"level1", "level2", "level3"}, 3);
     states[STATE_TITLE] =
@@ -27,6 +27,8 @@ void run() {
         new LevelOneInstructState(mainRenderer, width, height, resources);
     states[STATE_LEVELTWOBEGIN] =
         new LevelTwoBeginState(mainRenderer, width, height, resources);
+    states[STATE_LEVELTHREEBEGIN] =
+        new LevelThreeBeginState(mainRenderer, width, height, resources);
     states[STATE_HIGHSCORE] =
         new HighScoreState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
@@ -108,6 +110,11 @@ void run() {
                 case STATE_LEVELTWOBEGIN: {
                     currState = states[STATE_LEVELTWOBEGIN];
                     currStateType = STATE_LEVELTWOBEGIN;
+                    break;
+                }
+                case STATE_LEVELTHREEBEGIN: {
+                    currState = states[STATE_LEVELTHREEBEGIN];
+                    currStateType = STATE_LEVELTHREEBEGIN;
                     break;
                 }
                 default:
