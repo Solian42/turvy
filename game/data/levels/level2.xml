@@ -412,6 +412,7 @@
 			<x> 200 </x>
 			<y> 530 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s1>
@@ -419,6 +420,7 @@
 			<x> 200 </x>
 			<y> 250 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s2>
@@ -426,6 +428,7 @@
 			<x> 600 </x>
 			<y> 450 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 0 </direciton>
 			<texture> spike1 </texture>
 		</s3>
@@ -433,6 +436,7 @@
 			<x> 600 </x>
 			<y> 500 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s4>
@@ -440,6 +444,7 @@
 			<x> 350 </x>
 			<y> 500 </y>
 			<w> 50 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s5>
@@ -447,6 +452,7 @@
 			<x> 400 </x>
 			<y> 310 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s6>
@@ -454,6 +460,7 @@
 			<x> 520 </x>
 			<y> 200 </y>
 			<w> 80 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s7>
@@ -461,6 +468,7 @@
 			<x> 600 </x>
 			<y> 380 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s8>
@@ -468,6 +476,7 @@
 			<x> 720 </x>
 			<y> 300 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 0 </direciton>
 			<texture> spike1 </texture>
 		</s9>
@@ -475,6 +484,7 @@
 			<x> 820 </x>
 			<y> 380 </y>
 			<w> 80 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s10>
@@ -482,6 +492,7 @@
 			<x> 1000 </x>
 			<y> 150 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s11>
@@ -489,6 +500,7 @@
 			<x> 1100 </x>
 			<y> 450 </y>
 			<w> 50 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s12>
@@ -496,6 +508,7 @@
 			<x> 1280 </x>
 			<y> 520 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s13>
@@ -503,6 +516,7 @@
 			<x> 1480 </x>
 			<y> 560 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s14>
@@ -510,6 +524,7 @@
 			<x> 1680 </x>
 			<y> 600 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s15>
@@ -517,6 +532,7 @@
 			<x> 1880 </x>
 			<y> 560 </y>
 			<w> 100 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s16>
@@ -524,6 +540,7 @@
 			<x> 1390 </x>
 			<y> 150 </y>
 			<w> 110 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s17>
@@ -531,6 +548,7 @@
 			<x> 1610 </x>
 			<y> 250 </y>
 			<w> 110 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s18>
@@ -538,6 +556,7 @@
 			<x> 1830 </x>
 			<y> 350 </y>
 			<w> 110 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s19>
@@ -545,6 +564,7 @@
 			<x> 2050 </x>
 			<y> 450 </y>
 			<w> 110 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s20>
@@ -552,6 +572,7 @@
 			<x> 2290 </x>
 			<y> 550 </y>
 			<w> 90 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s21>
@@ -559,6 +580,7 @@
 			<x> 380 </x>
 			<y> 50 </y>
 			<w> 200 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s22>
@@ -566,6 +588,7 @@
 			<x> 1000 </x>
 			<y> 50 </y>
 			<w> 110 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s23>
@@ -573,6 +596,7 @@
 			<x> 2160 </x>
 			<y> 650 </y>
 			<w> 110 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s24>
@@ -580,6 +604,7 @@
 			<x> 3180 </x>
 			<y> 400 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s25>
@@ -587,6 +612,7 @@
 			<x> 3180 </x>
 			<y> 580 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s26>
@@ -594,6 +620,7 @@
 			<x> 3500 </x>
 			<y> 150 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s27>
@@ -601,6 +628,7 @@
 			<x> 3500 </x>
 			<y> 330 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s28>
@@ -608,6 +636,7 @@
 			<x> 4000 </x>
 			<y> 50 </y>
 			<w> 200 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s29>
@@ -615,6 +644,7 @@
 			<x> 4000 </x>
 			<y> 650 </y>
 			<w> 200 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s30>
@@ -622,6 +652,7 @@
 			<x> 4250 </x>
 			<y> 560 </y>
 			<w> 50 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s31>
@@ -629,6 +660,7 @@
 			<x> 4500 </x>
 			<y> 180 </y>
 			<w> 50 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s32>
@@ -636,6 +668,7 @@
 			<x> 4890 </x>
 			<y> 230 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s33>
@@ -643,6 +676,7 @@
 			<x> 5010 </x>
 			<y> 230 </y>
 			<w> 40 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s34>
@@ -650,6 +684,7 @@
 			<x> 4890 </x>
 			<y> 270 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s35>
@@ -657,6 +692,7 @@
 			<x> 5010 </x>
 			<y> 270 </y>
 			<w> 40 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s36>
@@ -664,6 +700,7 @@
 			<x> 4870 </x>
 			<y> 430 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s37>
@@ -671,6 +708,7 @@
 			<x> 4870 </x>
 			<y> 470 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s37>
@@ -678,6 +716,7 @@
 			<x> 5000 </x>
 			<y> 430 </y>
 			<w> 40 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s38>
@@ -685,6 +724,7 @@
 			<x> 5000 </x>
 			<y> 470 </y>
 			<w> 40 </w>
+            <h> 20 </h>
 			<direction> 0 </direction>
 			<texture> spike1 </texture>
 		</s39>
@@ -692,6 +732,7 @@
 			<x> 4940 </x>
 			<y> 580 </y>
 			<w> 60 </w>
+            <h> 20 </h>
 			<direction> 1 </direction>
 			<texture> spike1 </texture>
 		</s40>

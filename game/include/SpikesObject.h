@@ -9,10 +9,10 @@ class SpikesGraphicsComponent;
 class SpikesObject : public GameObject {
 
 public:
-    SpikesObject(int x, int y, bool orientation, int spikeNum,
+    SpikesObject(int x, int y, int orientation, int spikeNum,
                  SpikesGraphicsComponent *g);
-    bool isUpsideDown() { return upsideDown; }
-    void setOrientation(bool o) { upsideDown = o; }
+    int getOrientation() { return orientation; }
+    void setOrientation(int o) { orientation = o; }
 
     ~SpikesObject();
 
@@ -20,7 +20,7 @@ public:
     int spikeNum;
 
 private:
-    bool upsideDown = false;
+    int orientation = 0;
 };
 
 #endif

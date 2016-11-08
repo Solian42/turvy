@@ -1,6 +1,6 @@
 #include "../include/SpikesObject.h"
 
-SpikesObject::SpikesObject(int x, int y, bool orientation, int spikeNum,
+SpikesObject::SpikesObject(int x, int y, int orientation, int spikeNum,
                            SpikesGraphicsComponent *g) {
     location = {x, y, 20, 20};
     this->spikeNum = spikeNum;

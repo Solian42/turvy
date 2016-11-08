@@ -46,6 +46,7 @@ void XmlParser::parse(std::string startTag) {
         int x = std::stoi(singleTagHandler());
         int y = std::stoi(singleTagHandler());
         int w = std::stoi(singleTagHandler());
+        int h = std::stoi(singleTagHandler());
         int direction = std::stoi(singleTagHandler());
         std::string textureName = singleTagHandler();
 
@@ -53,6 +54,7 @@ void XmlParser::parse(std::string startTag) {
         xydir.push_back(x);
         xydir.push_back(y);
         xydir.push_back(w);
+        xydir.push_back(h);
         xydir.push_back(direction);
         parsedSpikes.push_back(std::make_pair(textureName, xydir));
     } else if (objName.compare("<checkpoints>") == 0) {

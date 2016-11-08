@@ -152,16 +152,19 @@ void GameState::loadNewLevel(std::string levelName) {
     j = 0;
     for (std::pair<std::string, std::vector<int>> pair : parser->parsedSpikes) {
         for (int i = 0; i < (pair.second[2] / (MIN_TILE_SIZE * 2)); i++) {
-            SpikesGraphicsComponent *s =
+            for(int k = 0; k < (pair.second[3]/ (MIN_TILE_SIZE * 2)); k++) {
+                SpikesGraphicsComponent *s =
                 new SpikesGraphicsComponent(renderer, resources, {pair.first});
-            s->scaleCurrentSprite(2);
-            SpikesObject *spike =
+                s->scaleCurrentSprite(2);
+                SpikesObject *spike =
                 new SpikesObject((pair.second[0] + (MIN_TILE_SIZE * 2) * i),
-                                 pair.second[1], pair.second[3], j, s);
-            spikes.push_back(spike);
+                                 (pair.second[1] + (MIN_TILE_SIZE * 2) * k), pair.second[4], j, s);
+                spikes.push_back(spike);
+            }
+            
         }
         SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2],
-                         (MIN_TILE_SIZE * 2)};
+                         pair.second[3]};
         world->spikeVolumes[j] = temp;
         j++;
     }
@@ -173,8 +176,8 @@ void GameState::loadNewLevel(std::string levelName) {
         CheckpointObject *checkpoint =
             new CheckpointObject(pair.second[0], pair.second[1], j, c);
         checkpoints.push_back(checkpoint);
-        SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE,
-                         MIN_TILE_SIZE};
+        SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE - 2,
+                         MIN_TILE_SIZE - 2};
         world->checkpointVolumes[j] = temp;
         j++;
     }
