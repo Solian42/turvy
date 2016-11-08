@@ -18,10 +18,8 @@ to be more interesting and engaging to whoever is playing instead of a block of 
 did the pre-level 2 state for Assingment 7, but did not list in the README for that
 asssignment)
 
-Anthony Kim: Added xml parser connectivity to the new coin system, made score increment
-logic upon coin collision, made sprites for coin, and still working on level editor,
-which is a lot more work than expected. Complete graphic level editor is coming soon.
-
+Anthony Kim: Made some new sprites and background images, and is almost done with graphic 
+level editor, which will hopefully be merged and pushed to the current repo this weekend.
 
 Tristan Orton-Urbina:
 Rebuilt engine so that it is now tile based (for platforms and spikes), changed rendering
