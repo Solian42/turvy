@@ -7,7 +7,7 @@ class LevelThreeBeginState : public State {
 public:
     int getMyState() { return STATE_LEVELTHREEBEGIN; }
     LevelThreeBeginState(SDL_Renderer *r, int width, int height,
-                       ResourceManager *res);
+                         ResourceManager *res);
     int handleEvent(SDL_Event *e, int dt);
     void doSound();
     void doPhysics(int dt);
@@ -35,7 +35,8 @@ private:
     std::string titleTitle = "LEVEL THREE";
     std::string readyTitle = "[Press space to start!]";
     std::string dialogueTitle = "\"I guess I've been abducted...\"";
-    std::string dialogueTwoTitle = "Avoid aliens, Use gravity shifters to bounce!";
+    std::string dialogueTwoTitle =
+        "Avoid aliens, Use gravity shifters to bounce!";
     int titleAlpha = 0;
     bool fadein = false;
     SDL_Renderer *renderer;

@@ -152,16 +152,16 @@ void GameState::loadNewLevel(std::string levelName) {
     j = 0;
     for (std::pair<std::string, std::vector<int>> pair : parser->parsedSpikes) {
         for (int i = 0; i < (pair.second[2] / (MIN_TILE_SIZE * 2)); i++) {
-            for(int k = 0; k < (pair.second[3]/ (MIN_TILE_SIZE * 2)); k++) {
-                SpikesGraphicsComponent *s =
-                new SpikesGraphicsComponent(renderer, resources, {pair.first});
+            for (int k = 0; k < (pair.second[3] / (MIN_TILE_SIZE * 2)); k++) {
+                SpikesGraphicsComponent *s = new SpikesGraphicsComponent(
+                    renderer, resources, {pair.first});
                 s->scaleCurrentSprite(2);
                 SpikesObject *spike =
-                new SpikesObject((pair.second[0] + (MIN_TILE_SIZE * 2) * i),
-                                 (pair.second[1] + (MIN_TILE_SIZE * 2) * k), pair.second[4], j, s);
+                    new SpikesObject((pair.second[0] + (MIN_TILE_SIZE * 2) * i),
+                                     (pair.second[1] + (MIN_TILE_SIZE * 2) * k),
+                                     pair.second[4], j, s);
                 spikes.push_back(spike);
             }
-            
         }
         SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2],
                          pair.second[3]};

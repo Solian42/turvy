@@ -1,7 +1,7 @@
 #include "../include/LevelThreeBeginState.h"
 
-LevelThreeBeginState::LevelThreeBeginState(SDL_Renderer *r, int width, int height,
-                                       ResourceManager *res) {
+LevelThreeBeginState::LevelThreeBeginState(SDL_Renderer *r, int width,
+                                           int height, ResourceManager *res) {
 
     this->width = width;
     this->height = height;

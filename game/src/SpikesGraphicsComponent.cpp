@@ -17,23 +17,23 @@ void SpikesGraphicsComponent::update(World *world) {
     SpikesObject *mySpike = (SpikesObject *)myObj;
     int o = mySpike->getOrientation();
     switch (o) {
-        case 0:
-            SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
-                             &temp, 0.0, NULL, SDL_FLIP_NONE);
-            break;
-        case 1:
-            SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
-                             &temp, 0.0, NULL, SDL_FLIP_VERTICAL);
-            break;
-        case 2:
-            SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
-                             &temp, 90.0, NULL, SDL_FLIP_NONE);
-            break;
-            
-        case 3:
-            SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
-                             &temp, -90.0, NULL, SDL_FLIP_NONE);
-            break;
+    case 0:
+        SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
+                         &temp, 0.0, NULL, SDL_FLIP_NONE);
+        break;
+    case 1:
+        SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
+                         &temp, 0.0, NULL, SDL_FLIP_VERTICAL);
+        break;
+    case 2:
+        SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
+                         &temp, 90.0, NULL, SDL_FLIP_NONE);
+        break;
+
+    case 3:
+        SDL_RenderCopyEx(myRenderer, resources->getTexture(currentSprite), NULL,
+                         &temp, -90.0, NULL, SDL_FLIP_NONE);
+        break;
     }
     /* Code to test Collisions. Turns things into rectangles.
     SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);

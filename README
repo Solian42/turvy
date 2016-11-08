@@ -10,22 +10,20 @@ switch your gravity.  So think of it as you're on a platform and you press space
 switch gravity, except you don't have any input. (Also added a graphic for it).
 Re-added another feature:  Enemy aliens are now back!  No longer spawn in random locations
 from the earlier assignment, but can be set through our level xml files with an x, y, and
-a direction that tells us how it moves.  If you hit it, your score decreases and you respawn
-at the previous checkpoint.  
-Added a pre-level 3 state that also gives some storyline and a hint as to what is to come for
-level 3.  This is how things are for the levels for now, but we will make this different later
-to be more interesting and engaging to whoever is playing instead of a block of text. (I also
-did the pre-level 2 state for Assingment 7, but did not list in the README for that
-asssignment)
+a direction that tells us how it moves.  If you hit it, your score decreases and you 
+respawn at the previous checkpoint.  
+Added a pre-level 3 state that also gives some storyline and a hint as to what is to come
+for level 3.  This is how things are for the levels for now, but we will make this 
+different later to be more interesting and engaging to whoever is playing instead of a 
+block of text. (I also did the pre-level 2 state for Assingment 7, but did not list in the
+README for that assignment)
 
 Anthony Kim: Made some new sprites and background images, and is almost done with graphic 
 level editor, which will hopefully be merged and pushed to the current repo this weekend.
 
 Tristan Orton-Urbina:
-Rebuilt engine so that it is now tile based (for platforms and spikes), changed rendering
-logic so that we don't take a huge performance penalty for using small tiles. rewrote how
-the player reacts to collisions + changed gamestate so that we can have seamless
-transitions between levels. Also added shortcuts & squashed bug.
+Made level 3, changed it so that camera works in y-directions, allowed us to create levels
+with height greater than the screen. Also went through and cleaned up code a lot.
 
 To Build:
 
