@@ -11,12 +11,15 @@ switch gravity, except you don't have any input. (Also added a graphic for it).
 Re-added another feature:  Enemy aliens are now back!  No longer spawn in random locations
 from the earlier assignment, but can be set through our level xml files with an x, y, and
 a direction that tells us how it moves.  If you hit it, your score decreases and you respawn
-at the previous checkpoint. 
+at the previous checkpoint.  
+Added a pre-level 3 state that also gives some storyline and a hint as to what is to come for
+level 3.  This is how things are for the levels for now, but we will make this different later
+to be more interesting and engaging to whoever is playing instead of a block of text. (I also
+did the pre-level 2 state for Assingment 7, but did not list in the README for that
+asssignment)
 
-Anthony Kim: Added xml parser connectivity to the new coin system, made score increment
-logic upon coin collision, made sprites for coin, and still working on level editor,
-which is a lot more work than expected. Complete graphic level editor is coming soon.
-
+Anthony Kim: Made some new sprites and background images, and is almost done with graphic 
+level editor, which will hopefully be merged and pushed to the current repo this weekend.
 
 Tristan Orton-Urbina:
 Rebuilt engine so that it is now tile based (for platforms and spikes), changed rendering

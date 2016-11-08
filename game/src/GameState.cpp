@@ -297,6 +297,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
                 SDL_PushEvent(&user_event);
             }
             loadNewLevel(levelNames[2]);
+            return STATE_LEVELTHREEBEGIN;
             break;
 
         case SDLK_c:
@@ -332,6 +333,8 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
         hasWon = false;
         if (currLevel == 2)
             return STATE_LEVELTWOBEGIN;
+        if (currLevel == 3)
+            return STATE_LEVELTHREEBEGIN;
     }
 
     player->input->update(e, dt);
