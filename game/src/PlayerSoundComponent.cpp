@@ -7,7 +7,7 @@ PlayerSoundComponent::PlayerSoundComponent(std::vector<std::string> chunks,
 }
 
 void PlayerSoundComponent::update(World *world) {
-    if (world->spikeCollision || world->enemyCollision) {
+    if (world->isCollidingWithSpike() || world->isCollidingWithEnemy()) {
         Mix_PlayChannel(-1, resources->getChunk("hurt"), 0);
     }
 }

@@ -1,7 +1,8 @@
 #include "../include/GameState.h"
 
 GameState::GameState(SDL_Renderer *r, int width, int height,
-                     ResourceManager *res, std::vector<std::string> levelNames,
+                     ResourceManager *res,
+                     std::vector<std::vector<std::string>> levelData,
                      int levels) {
     windowHeight = height;
     windowWidth = width;
@@ -10,7 +11,8 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     numEntities = 1;
     renderer = r;
     resources = res;
-    this->levelNames = levelNames;
+    this->levelNames = levelData[0];
+    this->levelMusic = levelData[1];
     loadNewLevel(levelNames[0]);
 }
 
@@ -229,7 +231,7 @@ void GameState::loadNewLevel(std::string levelName) {
     backgroundObjects[0] = createSetpiece((1280 * 4) - (2 * 19) - 50,
                                           720 - (2 * 18) - 50, {"ts0"});
     backgroundObjects[0]->graphics->scaleCurrentSprite(2);
-    backgroundMusic = std::string("game");
+    backgroundMusic = levelMusic[currLevel - 1];
     scoreMgr =
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
     /*added score manager by Anthony*/
@@ -345,8 +347,8 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
 void GameState::doSound() { player->sound->update(world); }
 
 void GameState::doPhysics(int dt) {
-    world->spikeCollision = world->checkSpikeCollisions();
-    world->enemyCollision = world->checkEnemyCollisions();
+    world->setSpikeCollision(world->checkSpikeCollisions());
+    world->setSpikeCollision(world->checkEnemyCollisions());
     player->physics->update(player, world, dt);
     for (EnemyObject *e : enemies) {
         e->physics->update(e, world, dt);

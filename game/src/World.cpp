@@ -78,7 +78,7 @@ bool World::checkSpikeCollisions() {
         spikeCollision =
             spikeCollision || testCollide(entityVolumes[0], spikeVolumes[i]);
     }
-    return spikeCollision;
+    return spikeCollision && !godMode;
 }
 
 bool World::checkEnemyCollisions() {
@@ -87,7 +87,7 @@ bool World::checkEnemyCollisions() {
         enemyCollision =
             enemyCollision || testCollide(entityVolumes[0], enemyVolumes[i]);
     }
-    return enemyCollision;
+    return enemyCollision && !godMode;
 }
 
 int World::collideWithPlatform(GameObject *obj) {
@@ -123,7 +123,7 @@ bool World::collideWithSpike(GameObject *obj) {
         SDL_bool result = SDL_IntersectRect(&s, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
             spikeCollision = true;
-            return true;
+            return true && !godMode;
         }
     }
     spikeCollision = false;
@@ -136,7 +136,7 @@ bool World::collideWithEnemies(GameObject *obj) {
         SDL_bool result = SDL_IntersectRect(&e, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
             enemyCollision = true;
-            return true;
+            return true && !godMode;
         }
     }
     enemyCollision = false;

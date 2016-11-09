@@ -66,9 +66,15 @@ public:
     SDL_Rect getEnemyLocation(int num);
     bool testCollide(SDL_Rect a, SDL_Rect b);
     // bool collision = false;
-    bool spikeCollision = false;
-    bool enemyCollision = false;
-    bool coinCollision = false;
+    void setSpikeCollision(bool collide) { spikeCollision = collide; }
+    void setEnemyCollision(bool collide) { enemyCollision = collide; }
+    void setCoinCollision(bool collide) { coinCollision = collide; }
+
+    bool isCollidingWithSpike() { return spikeCollision && !godMode; }
+    bool isCollidingWithEnemy() { return enemyCollision && !godMode; }
+    bool isCollidingWithCoin() { return coinCollision && !godMode; }
+
+    bool godMode = false;
 
     float getCurrCheckX() { return currCheckX; }
     float getCurrCheckY() { return currCheckY; }
@@ -88,6 +94,10 @@ public:
     std::vector<SDL_Rect> enemyVolumes;
 
 private:
+    bool coinCollision = false;
+    bool spikeCollision = false;
+    bool enemyCollision = false;
+
     float cameraX = -640.0;
     float cameraY = -360.0;
     float currCheckX = 50;

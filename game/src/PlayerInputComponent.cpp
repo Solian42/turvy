@@ -39,6 +39,10 @@ void PlayerInputComponent::update(SDL_Event *event, int dt) {
             // Adjust the velocity
             switch (e.key.keysym.sym) {
 
+            case SDLK_g:
+                player->godMode = !player->godMode;
+                world->godMode = player->godMode;
+                break;
             case SDLK_LEFT:
                 player->setXVel(player->getXVel() + MAX_ACCEL);
                 // player->xVelocity += MAX_ACCEL;

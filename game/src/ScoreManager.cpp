@@ -13,12 +13,12 @@ int ScoreManager::getScore() {
     return 100000 - (500) * numDeaths + (1000) * numCoins;
 }
 void ScoreManager::update() {
-    if (world->spikeCollision || world->enemyCollision) {
+    if (world->isCollidingWithSpike() || world->isCollidingWithEnemy()) {
         numDeaths++;
     }
-    if (world->coinCollision) {
+    if (world->isCollidingWithCoin()) {
         numCoins++;
-        world->coinCollision = false;
+        world->setCoinCollision(false);
     }
 }
 void ScoreManager::resetScore() {
