@@ -13,6 +13,7 @@ GameState::GameState(SDL_Renderer *r, int width, int height,
     resources = res;
     this->levelNames = levelData[0];
     this->levelMusic = levelData[1];
+    this->backgrounds = levelData[2];
     loadNewLevel(levelNames[0]);
 }
 
@@ -237,7 +238,7 @@ void GameState::loadNewLevel(std::string levelName) {
     scoreMgr =
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
     /*added score manager by Anthony*/
-    background = resources->getTexture("background");
+    background = resources->getTexture(backgrounds[currLevel - 1]);
     for (PlatformObject *p : platforms) {
         p->graphics->update(world);
     }
@@ -372,11 +373,12 @@ void GameState::doPhysics(int dt) {
 }
 
 void GameState::render(int dt) {
+    SDL_Rect temp;
     SDL_RenderCopy(renderer, background, NULL, NULL);
     int h, w;
     SDL_QueryTexture(statics, NULL, NULL, &w, &h);
-    SDL_Rect temp = {world->transformXtoCamera(0), world->transformYtoCamera(h),
-                     5 * 1280, 7200};
+    temp = {world->transformXtoCamera(0), world->transformYtoCamera(h),
+            5 * 1280, 7200};
 
     for (CheckpointObject *c : checkpoints) {
         if (world->intersectCamera(c->getLocation())) {

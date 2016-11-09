@@ -15,9 +15,12 @@ int main() {
 void run() {
 
     std::vector<State *> states = std::vector<State *>(8);
-    states[STATE_GAME] = new GameState(
-        mainRenderer, width, height, resources,
-        {{"level1", "level2", "level3"}, {"level1", "level2", "level3"}}, 3);
+    states[STATE_GAME] =
+        new GameState(mainRenderer, width, height, resources,
+                      {{"level1", "level2", "level3"},
+                       {"level1", "level2", "level3"},
+                       {"background1", "background2", "background3"}},
+                      3);
     states[STATE_TITLE] =
         new TitleState(mainRenderer, width, height, resources);
     states[STATE_MAINMENU] =

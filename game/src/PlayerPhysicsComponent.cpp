@@ -86,12 +86,14 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
 
     if (world->collideWithTrampoline(playerObj)) {
         if (playerObj->graphics->isUpsideDown()) {
+            playerObj->sound->playSound("jump2");
             playerObj->graphics->setUpsideDown(false);
             playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
             world->setCameraY(
                 (world->getCameraY() - playerObj->getYVel() * dt));
             playerObj->setYVel(.5);
         } else {
+            playerObj->sound->playSound("jump");
             playerObj->graphics->setUpsideDown(true);
             playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
             world->setCameraY(

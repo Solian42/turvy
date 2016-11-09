@@ -30,7 +30,9 @@ ss3 ../data/images/shield/shield_3.png
 
 ts0 ../data/images/trophy.png
 
-background ../data/images/background.png
+background1 ../data/images/background.png
+background2 ../data/images/nightWorld2.png
+background3 ../data/images/rainbowWorld.png
 
 plat1 ../data/images/platforms/plat1.png
 plat2 ../data/images/platforms/plat2.png

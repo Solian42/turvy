@@ -47,6 +47,7 @@ private:
 
     std::vector<std::string> levelNames;
     std::vector<std::string> levelMusic;
+    std::vector<std::string> backgrounds;
 
     SDL_Renderer *renderer;
     World *world = nullptr;
