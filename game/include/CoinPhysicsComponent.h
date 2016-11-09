@@ -10,8 +10,9 @@ class CoinObject;
 class CoinPhysicsComponent : public PhysicsComponent {
 public:
     CoinPhysicsComponent();
-    void update(CoinObject *coinObj, World *world, int dt);
+    void update(World *world, int dt);
     ~CoinPhysicsComponent();
+    CoinObject *myCoin = nullptr;
 };
 
 #endif
