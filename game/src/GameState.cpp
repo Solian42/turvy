@@ -234,11 +234,11 @@ void GameState::loadNewLevel(std::string levelName) {
     backgroundObjects[0] = createSetpiece((1280 * 4) - (2 * 19) - 50,
                                           720 - (2 * 18) - 50, {"ts0"});
     backgroundObjects[0]->graphics->scaleCurrentSprite(2);
-    backgroundMusic = levelMusic[currLevel - 1];
     scoreMgr =
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
     /*added score manager by Anthony*/
     background = resources->getTexture(backgrounds[currLevel - 1]);
+    backgroundMusic = levelMusic[currLevel - 1];
     for (PlatformObject *p : platforms) {
         p->graphics->update(world);
     }
@@ -329,14 +329,14 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             user_event.key.repeat = 0;
             SDL_PushEvent(&user_event);
         }
-
-        loadNewLevel(levelNames[currLevel]);
+        Mix_HaltMusic();
         currLevel++;
+        loadNewLevel(levelNames[currLevel - 1]);
         hasWon = false;
-        if (currLevel == 2){
+        if (currLevel == 2) {
             return STATE_LEVELTWOBEGIN;
         }
-        if (currLevel == 3){
+        if (currLevel == 3) {
             return STATE_LEVELTHREEBEGIN;
         }
     }
