@@ -74,7 +74,7 @@
 			<x> 3840 </x>
 			<y> 530 </y>
 			<width> 50 </width>
-			<height> 190 </height>
+			<height> 140 </height>
 			<texture> plat6 </texture>
 		</p11>
 		<p12>
@@ -116,7 +116,7 @@
 	    	<x> 5070 </x>
 	    	<y> 50 </y>
 	    	<width> 50 </width>
-	    	<height> 720 </height>
+	    	<height> 620 </height>
 	    	<texture> plat6 </texture>
 	    </p17>
 	</platforms>
