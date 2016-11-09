@@ -333,10 +333,12 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
         loadNewLevel(levelNames[currLevel]);
         currLevel++;
         hasWon = false;
-        if (currLevel == 2)
+        if (currLevel == 2){
             return STATE_LEVELTWOBEGIN;
-        if (currLevel == 3)
+        }
+        if (currLevel == 3){
             return STATE_LEVELTHREEBEGIN;
+        }
     }
 
     player->input->update(e, dt);
