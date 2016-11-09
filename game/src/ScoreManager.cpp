@@ -10,7 +10,7 @@ ScoreManager::ScoreManager(SDL_Renderer *r, ResourceManager *res, World *world,
 }
 
 int ScoreManager::getScore() {
-    return 100000 - (500) * numDeaths + (1000) * numCoins;
+    return 100000 - (500) * numDeaths + (2000) * numCoins;
 }
 void ScoreManager::update() {
     if (world->isCollidingWithSpike() || world->isCollidingWithEnemy()) {
