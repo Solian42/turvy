@@ -190,6 +190,8 @@ void GameState::loadNewLevel(std::string levelName) {
         CoinPhysicsComponent *ph = new CoinPhysicsComponent();
         CoinObject *coin =
             new CoinObject(pair.second[0], pair.second[1], j, co, ph, player);
+        co->myCoin = coin;
+        ph->myCoin = coin;
         coins.push_back(coin);
         SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE,
                          MIN_TILE_SIZE};
@@ -249,9 +251,6 @@ void GameState::loadNewLevel(std::string levelName) {
     }
     for (SpikesObject *s : spikes) {
         s->graphics->update(world);
-    }
-    for (CoinObject *co : coins) {
-        co->graphics->update(world);
     }
     for (TrampolineObject *t : trampolines) {
         t->graphics->update(world);
@@ -364,7 +363,7 @@ void GameState::doPhysics(int dt) {
         e->physics->update(e, world, dt);
     }
     for (CoinObject *co : coins) {
-        co->physics->update(co, world, dt);
+        co->physics->update(world, dt);
     }
 
     if (world->testCollide(*player->getLocation(),
@@ -397,7 +396,11 @@ void GameState::render(int dt) {
     SDL_RenderCopy(renderer, statics, NULL, &temp);
     player->graphics->update(world, dt);
     int j = 0;
-
+    for (CoinObject *co : coins) {
+        if (world->intersectCamera(co->getLocation())) {
+            co->graphics->update(world);
+        }
+    }
     for (EnemyObject *e : enemies) {
         e->graphics->update(world, dt);
         SDL_Rect eTemp = {(int)e->getX(), (int)e->getY(), 25, 25};

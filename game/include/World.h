@@ -72,7 +72,8 @@ public:
 
     bool isCollidingWithSpike() { return spikeCollision && !godMode; }
     bool isCollidingWithEnemy() { return enemyCollision && !godMode; }
-    bool isCollidingWithCoin() { return coinCollision && !godMode; }
+    bool isCollidingWithCoin() { return coinCollision; }
+    bool isCollidingWithCheckpoint() { return checkpointCollision; }
 
     bool godMode = false;
 
@@ -94,6 +95,7 @@ public:
     std::vector<SDL_Rect> enemyVolumes;
 
 private:
+    bool checkpointCollision = false;
     bool coinCollision = false;
     bool spikeCollision = false;
     bool enemyCollision = false;

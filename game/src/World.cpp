@@ -150,9 +150,11 @@ bool World::collideWithCheckpoint(GameObject *obj) {
         if (result == SDL_TRUE) {
             setCurrCheckX(c.x);
             setCurrCheckY(c.y);
+            checkpointCollision = true;
             return true;
         }
     }
+    checkpointCollision = false;
     return false;
 }
 

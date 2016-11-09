@@ -16,6 +16,7 @@ public:
     void update(World *world);
     ~CoinGraphicsComponent();
     void setCurrState(int state);
+    CoinObject *myCoin;
 
 private:
     int currState = 0;
