@@ -235,7 +235,15 @@ void GameState::loadNewLevel(std::string levelName) {
     scoreMgr =
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
     /*added score manager by Anthony*/
-    background = resources->getTexture("background");
+    switch(currLevel){
+        case 2: background = resources->getTexture("background2");
+            break;
+        case 3: background = resources->getTexture("background3");
+            break;
+        default: background = resources->getTexture("background");
+            break;
+    }
+    // background = resources->getTexture("background");
     for (PlatformObject *p : platforms) {
         p->graphics->update(world);
     }
@@ -333,10 +341,12 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
         loadNewLevel(levelNames[currLevel]);
         currLevel++;
         hasWon = false;
-        if (currLevel == 2)
+        if (currLevel == 2){
             return STATE_LEVELTWOBEGIN;
-        if (currLevel == 3)
+        }
+        if (currLevel == 3){
             return STATE_LEVELTHREEBEGIN;
+        }
     }
 
     player->input->update(e, dt);
