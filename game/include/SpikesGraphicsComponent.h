@@ -19,7 +19,7 @@ public:
 
 private:
     int currState = 0;
-    void updateCurrentSprite(SpikesObject *spikes);
+    void updateCurrentSprite();
 };
 
 #endif
