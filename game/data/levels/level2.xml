@@ -769,6 +769,22 @@
 			<y> 250 </y>
 			<texture> coin1 </texture>
 		</coin1>
+		<coin2>
+			<x> 600 </x>
+			<y> 570 </y>
+			<texture> coin1 </texture>
+		</coin2>
+		<coin3>
+			<x> 3850 </x>
+			<y> 500 </y>
+			<texture> coin1 </texture>
+		</coin3>
+	    <coin4>
+			<x> 3850 </x>
+			<y> 50 </y>
+			<texture> coin1 </texture>
+		</coin4>
+		</coins>
 	</coins>
 </rectangles>
 

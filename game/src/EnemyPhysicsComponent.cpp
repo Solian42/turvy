@@ -5,10 +5,6 @@ EnemyPhysicsComponent::EnemyPhysicsComponent() {}
 void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
                                    int dt) {
 
-    // enemyObj->x += enemyObj->xVelocity;
-
-    // enemyObj->y += enemyObj->yVelocity;
-
     // platform collision
     enemyObj->setX(enemyObj->getX() + enemyObj->getXVel() * dt);
     int collide = world->collideWithPlatform(enemyObj);
