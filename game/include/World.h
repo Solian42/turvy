@@ -27,7 +27,6 @@ public:
     int transformYToWorld(int y);
 
     void updateVolume(int entityNum, int newX, int newY, int newW, int newH);
-    // bool checkCollisions();
     bool checkSpikeCollisions();
     bool checkEnemyCollisions();
 
@@ -41,7 +40,7 @@ public:
     int collideWithPlatform(GameObject *obj);
     bool collideWithSpike(GameObject *obj);
     bool collideWithCheckpoint(GameObject *obj);
-    bool collideWithCoin(GameObject *obj);
+    std::pair<bool, SDL_Rect> collideWithCoin(GameObject *obj);
     bool collideWithTrampoline(GameObject *obj);
     bool collideWithEnemies(GameObject *obj);
     bool intersectCamera(SDL_Rect *toTest);

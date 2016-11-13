@@ -10,9 +10,13 @@ class CoinObject;
 class CoinPhysicsComponent : public PhysicsComponent {
 public:
     CoinPhysicsComponent();
+
     void update(World *world, int dt);
     ~CoinPhysicsComponent();
     CoinObject *myCoin = nullptr;
+    bool checkThisCollision(SDL_Rect);
+private:
+	std::pair<bool, SDL_Rect> temp;
 };
 
 #endif

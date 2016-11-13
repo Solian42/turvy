@@ -26,7 +26,8 @@ public:
         parsedCheckpoints;
     std::vector<std::pair<std::string, std::vector<int>>> parsedCoins;
     std::vector<std::pair<std::string, std::vector<int>>> parsedTrampolines;
-    std::vector<std::pair<std::string, std::vector<int>>> parsedEnemies;
+    std::vector<std::pair<std::vector<std::string>, std::vector<int>>>
+        parsedEnemies;
     std::string startTag;
     std::string objName;
     std::ifstream infile;

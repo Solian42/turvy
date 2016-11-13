@@ -215,18 +215,15 @@ void GameState::loadNewLevel(std::string levelName) {
         j++;
     }
     j = 0;
-    for (std::pair<std::string, std::vector<int>> pair :
+    for (std::pair<std::vector<std::string> , std::vector<int>> pair :
          parser->parsedEnemies) {
-        EnemyGraphicsComponent *e =
-		new EnemyGraphicsComponent(renderer, resources, {pair.first});
+        EnemyGraphicsComponent *e = new EnemyGraphicsComponent(
+            renderer, resources, {pair.first[0], pair.first[1], pair.first[2], pair.first[3]});
         EnemyPhysicsComponent *ph = new EnemyPhysicsComponent();
         EnemyInputComponent *in = new EnemyInputComponent();
         EnemyObject *enemy = new EnemyObject(pair.second[0], pair.second[1],
                                              pair.second[2], in, e, ph, j);
         enemies.push_back(enemy);
-        // SDL_Rect temp = {pair.second[0], pair.second[1], 25, 25};
-        // world->enemyVolumes[j] = temp;
-        // j++;
     }
 
     backgroundObjects = std::vector<GameObject *>(1);
@@ -409,8 +406,7 @@ void GameState::render(int dt) {
     }
     backgroundObjects[0]->graphics->update(world, dt);
     scoreMgr->update();
-    scoreMgr->printScore(1280,
-                         0); /*added printscore upon width&height of screen*/
+    scoreMgr->printScore(1280, 0);
 }
 
 PlayerObject *GameState::createPlayer(int entityNum,

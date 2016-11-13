@@ -22,15 +22,11 @@ void EnemyGraphicsComponent::update(World *world, int dt) {
                        &temp) < 0) {
         std::cout << "Something broke: " << SDL_GetError() << "\n";
     }
-    /*//Code to test collisiions. Turns things into colored rectangles.
-    SDL_SetRenderDrawColor(myRenderer, 0, 255, 0, 255);
-    SDL_RenderFillRect(myRenderer, &temp);
-    SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
     updateParent();
 }
 
 void EnemyGraphicsComponent::updateCurrentSprite(int dt) {
-    /*
+    
     if (myObj->getXVel() != 0.0 || myObj->getYVel() != 0.0) {
         time += dt;
         if (time > 200) {
@@ -48,14 +44,6 @@ void EnemyGraphicsComponent::updateCurrentSprite(int dt) {
                 break;
 
             case 3:
-                currState = 4;
-                break;
-            case 4:
-
-                currState = 5;
-                break;
-            case 5:
-
                 currState = 0;
                 break;
             default:
@@ -63,6 +51,6 @@ void EnemyGraphicsComponent::updateCurrentSprite(int dt) {
             }
         }
         currentSprite = spriteNames[currState];
-    } */
-    currentSprite = spriteNames[currState];
+    }
+    //currentSprite = spriteNames[currState];
 }

@@ -62,16 +62,6 @@ void World::updateVolume(int entityNum, int newX, int newY, int newW,
     entityVolumes[entityNum].h = newH;
 }
 
-/*
-bool World::checkCollisions() {
-    bool collision = false;
-    for (int i = 1; i < numEntities; i++) {
-        collision =
-            collision || testCollide(entityVolumes[0], entityVolumes[i]);
-    }
-    return collision;
-} */
-
 bool World::checkSpikeCollisions() {
     bool spikeCollision = false;
     for (int i = 0; i < numSpikes; i++) {
@@ -158,17 +148,17 @@ bool World::collideWithCheckpoint(GameObject *obj) {
     return false;
 }
 
-bool World::collideWithCoin(GameObject *obj) {
+std::pair<bool, SDL_Rect> World::collideWithCoin(GameObject *obj) {
     SDL_Rect intersect = {0, 0, 0, 0};
     for (SDL_Rect co : coinVolumes) {
         SDL_bool result =
             SDL_IntersectRect(&co, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
             // coinCollision = true;
-            return true;
+            return std::make_pair(true, intersect);
         }
     }
-    return false;
+    return std::make_pair(false, intersect);
 }
 
 bool World::collideWithTrampoline(GameObject *obj) {
