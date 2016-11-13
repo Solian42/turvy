@@ -2,28 +2,15 @@ Hey All! This is our codebase.
 
 ##########################################################################################
 
-PROGRRESS FOR ASSIGNMENT 8:
+PROGRRESS FOR ASSIGNMENT 9:
 
-Brian Cueto:  Added a new feature:  Gravity Switchers! (Called Trampoline in code for
-convenience).  These platforms work such that if you hit them, they automatically
-switch your gravity.  So think of it as you're on a platform and you press space to
-switch gravity, except you don't have any input. (Also added a graphic for it).
-Re-added another feature:  Enemy aliens are now back!  No longer spawn in random locations
-from the earlier assignment, but can be set through our level xml files with an x, y, and
-a direction that tells us how it moves.  If you hit it, your score decreases and you 
-respawn at the previous checkpoint.  
-Added a pre-level 3 state that also gives some storyline and a hint as to what is to come
-for level 3.  This is how things are for the levels for now, but we will make this 
-different later to be more interesting and engaging to whoever is playing instead of a 
-block of text. (I also did the pre-level 2 state for Assingment 7, but did not list in the
-README for that assignment)
-
-Anthony Kim: Made some new sprites and background images, and is almost done with graphic 
-level editor, which will hopefully be merged and pushed to the current repo this weekend.
-
-Tristan Orton-Urbina:
-Made level 3, changed it so that camera works in y-directions, allowed us to create levels
-with height greater than the screen. Also went through and cleaned up code a lot.
+Goals:
+Fixing Coins
+Add audio feedback for hitting coins/checkpoints
+Fixing Trampoline collision
+Creating Death/Respawn Animation for the player
+Adding enemy animation
+Multiple Platform/Spike graphics
 
 To Build:
 
