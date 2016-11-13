@@ -27,7 +27,6 @@ public:
     int transformYToWorld(int y);
 
     void updateVolume(int entityNum, int newX, int newY, int newW, int newH);
-    // bool checkCollisions();
     bool checkSpikeCollisions();
     bool checkEnemyCollisions();
 

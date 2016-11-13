@@ -62,16 +62,6 @@ void World::updateVolume(int entityNum, int newX, int newY, int newW,
     entityVolumes[entityNum].h = newH;
 }
 
-/*
-bool World::checkCollisions() {
-    bool collision = false;
-    for (int i = 1; i < numEntities; i++) {
-        collision =
-            collision || testCollide(entityVolumes[0], entityVolumes[i]);
-    }
-    return collision;
-} */
-
 bool World::checkSpikeCollisions() {
     bool spikeCollision = false;
     for (int i = 0; i < numSpikes; i++) {

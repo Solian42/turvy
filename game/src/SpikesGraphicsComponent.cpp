@@ -35,22 +35,9 @@ void SpikesGraphicsComponent::update(World *world) {
                          &temp, -90.0, NULL, SDL_FLIP_NONE);
         break;
     }
-    /* Code to test Collisions. Turns things into rectangles.
-    SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);
-    SDL_RenderFillRect(myRenderer, &temp);
-    SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);*/
-    // updateParent();
 }
 
 void SpikesGraphicsComponent::updateCurrentSprite(SpikesObject *spikes) {
-
-    /* Sets the sprite based on orientation. */
-    /*if (spikes->isUpsideDown()) {
-        currState = 1;
-    } else {
-        currState = 0;
-    }*/
-
     currentSprite = spriteNames[currState];
 }
 

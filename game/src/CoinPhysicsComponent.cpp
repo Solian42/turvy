@@ -23,7 +23,6 @@ void CoinPhysicsComponent::update(World *world, int dt) {
 	        if (!myCoin->isEaten) {
 	            world->setCoinCollision(true);
 	            myCoin->isEaten = true;
-	            // std::printf(coinObj->isEaten ? "true" : "false");
 	        }
 	    }
     }
