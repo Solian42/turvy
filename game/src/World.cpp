@@ -82,7 +82,7 @@ bool World::checkEnemyCollisions() {
 
 int World::collideWithPlatform(GameObject *obj) {
     SDL_Rect intersect = {0, 0, 0, 0};
-    int returnResult = 0;
+    int returnResult = NO_COLLIDE;
     for (SDL_Rect o : platformVolumes) {
         SDL_Rect pRect = *obj->getLocation();
         SDL_bool result = SDL_IntersectRect(&o, obj->getLocation(), &intersect);

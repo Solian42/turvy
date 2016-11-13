@@ -72,6 +72,15 @@ void run() {
             if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_f) {
                 renderFPS = !renderFPS;
             }
+            if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_p &&
+                e.key.repeat == 0) {
+                int debug = 0;
+                std::string test;
+                while (!(std::cin >> test)) {
+                }
+                currentTime = SDL_GetTicks();
+                lastTime = currentTime;
+            }
             // Handle input for the player
             int stateChange = currState->handleEvent(&e, dt);
             if (stateChange != currStateType) {

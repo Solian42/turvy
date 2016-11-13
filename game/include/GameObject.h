@@ -16,7 +16,6 @@ class PhysicsComponent;
 class GameObject {
 
 public:
-
     int entityNum;
     SDL_Rect *getLocation() { return &location; }
 

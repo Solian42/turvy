@@ -215,10 +215,11 @@ void GameState::loadNewLevel(std::string levelName) {
         j++;
     }
     j = 0;
-    for (std::pair<std::vector<std::string> , std::vector<int>> pair :
+    for (std::pair<std::vector<std::string>, std::vector<int>> pair :
          parser->parsedEnemies) {
         EnemyGraphicsComponent *e = new EnemyGraphicsComponent(
-            renderer, resources, {pair.first[0], pair.first[1], pair.first[2], pair.first[3]});
+            renderer, resources,
+            {pair.first[0], pair.first[1], pair.first[2], pair.first[3]});
         EnemyPhysicsComponent *ph = new EnemyPhysicsComponent();
         EnemyInputComponent *in = new EnemyInputComponent();
         EnemyObject *enemy = new EnemyObject(pair.second[0], pair.second[1],
@@ -257,7 +258,7 @@ void GameState::startMusic(int vol) {
 }
 
 int GameState::handleEvent(SDL_Event *e, int dt) {
-	SDL_Event pause;
+    SDL_Event pause;
     if (e->type == SDL_KEYUP) {
         switch (e->key.keysym.sym) {
         case SDLK_q:
@@ -313,12 +314,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             world->updateVolume(player->entityNum, player->getX(),
                                 player->getY(), player->getW(), player->getH());
             break;
-		case SDLK_p:
-				while(SDL_PollEvent(& pause))
-				break;
         }
-	
-		
     }
     if (hasWon) {
         if (currLevel == numLevels) {

@@ -22,7 +22,7 @@ void EnemyGraphicsComponent::update(World *world, int dt) {
 }
 
 void EnemyGraphicsComponent::updateCurrentSprite(int dt) {
-    
+
     if (myObj->getXVel() != 0.0 || myObj->getYVel() != 0.0) {
         time += dt;
         if (time > 200) {
@@ -49,5 +49,4 @@ void EnemyGraphicsComponent::updateCurrentSprite(int dt) {
         }
         currentSprite = spriteNames[currState];
     }
-
 }
