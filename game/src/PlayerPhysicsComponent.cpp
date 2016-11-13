@@ -26,7 +26,14 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     if (collideU != 0 || collideD != 0) {
         playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
         world->setCameraY((world->getCameraY() - playerObj->getYVel() * dt));
-
+        if (playerObj->onTrampoline) {
+            playerObj->onTrampoline = false;
+            if (playerObj->graphics->isUpsideDown()) {
+                playerObj->graphics->setUpsideDown(false);
+            } else {
+                playerObj->graphics->setUpsideDown(true);
+            }
+        }
         playerObj->onPlatform = true;
     }
     if (collide == NO_COLLIDE) {
@@ -68,6 +75,10 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
 
     // if we collide with a checkpoint
     if (world->collideWithCheckpoint(playerObj)) {
+        if (world->getCurrCheckX() != playerObj->getCheckX() &&
+            world->getCurrCheckY() != playerObj->getCheckY()) {
+            playerObj->sound->playSound("cp");
+        }
         playerObj->setCheckX(world->getCurrCheckX());
         playerObj->setCheckY(world->getCurrCheckY());
     }
