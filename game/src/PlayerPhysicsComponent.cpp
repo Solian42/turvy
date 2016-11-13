@@ -48,7 +48,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
                         playerObj->getY(), playerObj->getW(),
                         playerObj->getH());
     // if we got hit by a spike
-    if (world->collideWithSpike(playerObj) && !playerObj->godMode) {
+    if (world->collideWithSpike(playerObj)) {
         playerObj->setX(playerObj->getCheckX());
 
         world->setCameraX(-640 + playerObj->getCheckX());
@@ -64,7 +64,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     }
 
     // if we collide with an enemy
-    if (world->collideWithEnemies(playerObj) && !playerObj->godMode) {
+    if (world->collideWithEnemies(playerObj)) {
         playerObj->setX(playerObj->getCheckX());
         world->setCameraX(-640 + playerObj->getCheckX());
         playerObj->setY(playerObj->getCheckY());

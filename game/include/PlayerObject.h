@@ -33,7 +33,6 @@ public:
     PlayerPhysicsComponent *physics;
     bool onPlatform;
     bool noTrampoline;
-    bool godMode = false;
 
 private:
     float checkX = 50;

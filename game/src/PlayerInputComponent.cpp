@@ -40,8 +40,7 @@ void PlayerInputComponent::update(SDL_Event *event, int dt) {
             switch (e.key.keysym.sym) {
 
             case SDLK_g:
-                player->godMode = !player->godMode;
-                world->godMode = player->godMode;
+                world->godMode = !world->godMode;
                 break;
             case SDLK_LEFT:
                 player->setXVel(player->getXVel() + MAX_ACCEL);

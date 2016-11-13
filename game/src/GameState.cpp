@@ -210,7 +210,7 @@ void GameState::loadNewLevel(std::string levelName) {
             trampolines.push_back(trampoline);
         }
         SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2],
-                         MIN_TILE_SIZE};
+                         MIN_TILE_SIZE - 2};
         world->trampolineVolumes[j] = temp;
         j++;
     }
@@ -218,7 +218,7 @@ void GameState::loadNewLevel(std::string levelName) {
     for (std::pair<std::string, std::vector<int>> pair :
          parser->parsedEnemies) {
         EnemyGraphicsComponent *e =
-            new EnemyGraphicsComponent(renderer, resources, {pair.first});
+		new EnemyGraphicsComponent(renderer, resources, {pair.first});
         EnemyPhysicsComponent *ph = new EnemyPhysicsComponent();
         EnemyInputComponent *in = new EnemyInputComponent();
         EnemyObject *enemy = new EnemyObject(pair.second[0], pair.second[1],
@@ -260,6 +260,7 @@ void GameState::startMusic(int vol) {
 }
 
 int GameState::handleEvent(SDL_Event *e, int dt) {
+	SDL_Event pause;
     if (e->type == SDL_KEYUP) {
         switch (e->key.keysym.sym) {
         case SDLK_q:
@@ -315,7 +316,12 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             world->updateVolume(player->entityNum, player->getX(),
                                 player->getY(), player->getW(), player->getH());
             break;
+		case SDLK_p:
+				while(SDL_PollEvent(& pause))
+				break;
         }
+	
+		
     }
     if (hasWon) {
         if (currLevel == numLevels) {
