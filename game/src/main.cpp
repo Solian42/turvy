@@ -72,6 +72,21 @@ void run() {
             if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_f) {
                 renderFPS = !renderFPS;
             }
+            if(e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_p && e.key.repeat == 0) {
+                int debug = 0;
+                while(true) {
+                    SDL_Event pause;
+                    SDL_PollEvent(&pause);
+                    if(&pause != NULL && pause.type == SDL_KEYUP && pause.key.repeat == 0) {
+                        if(pause.key.keysym.sym == SDLK_p) {
+                            dt = 0.0;
+                            lastTime = SDL_GetTicks();
+                        break;
+                        }
+                    }
+                
+                }
+            }
             // Handle input for the player
             int stateChange = currState->handleEvent(&e, dt);
             if (stateChange != currStateType) {

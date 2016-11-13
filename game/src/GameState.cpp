@@ -313,9 +313,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             world->updateVolume(player->entityNum, player->getX(),
                                 player->getY(), player->getW(), player->getH());
             break;
-		case SDLK_p:
-				while(SDL_PollEvent(& pause))
-				break;
+
         }
 	
 		
