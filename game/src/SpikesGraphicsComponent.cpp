@@ -7,7 +7,7 @@ SpikesGraphicsComponent::~SpikesGraphicsComponent() {}
 
 void SpikesGraphicsComponent::update(World *world) {
 
-    updateCurrentSprite((SpikesObject *)myObj);
+    updateCurrentSprite();
 
     SDL_Rect temp = {world->transformXToWorld(myObj->getX()),
                      world->transformYToWorld(myObj->getY() + myObj->getH()),
@@ -35,7 +35,7 @@ void SpikesGraphicsComponent::update(World *world) {
     }
 }
 
-void SpikesGraphicsComponent::updateCurrentSprite(SpikesObject *spikes) {
+void SpikesGraphicsComponent::updateCurrentSprite() {
     currentSprite = spriteNames[currState];
 }
 

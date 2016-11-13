@@ -4,6 +4,8 @@ PlayerPhysicsComponent::PlayerPhysicsComponent() {}
 
 void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
                                     int dt) {
+    std::cout << playerObj->getYVel() << "\n";
+    std::cout << playerObj->graphics->isUpsideDown() << "\n";
     playerObj->setX(playerObj->getX() + playerObj->getXVel() * dt);
     world->setCameraX((world->getCameraX() + playerObj->getXVel() * dt));
 
@@ -26,14 +28,6 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     if (collideU != 0 || collideD != 0) {
         playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
         world->setCameraY((world->getCameraY() - playerObj->getYVel() * dt));
-        if (playerObj->onTrampoline) {
-            playerObj->onTrampoline = false;
-            if (playerObj->graphics->isUpsideDown()) {
-                playerObj->graphics->setUpsideDown(false);
-            } else {
-                playerObj->graphics->setUpsideDown(true);
-            }
-        }
         playerObj->onPlatform = true;
     }
     if (collide == NO_COLLIDE) {
@@ -45,11 +39,9 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     // if we got hit by a spike
     if (world->collideWithSpike(playerObj)) {
         playerObj->setX(playerObj->getCheckX());
-
-        world->setCameraX(-640 + playerObj->getCheckX());
-        world->setCameraY(playerObj->getCheckY() - 360);
         playerObj->setY(playerObj->getCheckY());
-        // no need to set the x velocity
+        world->setCameraX(-640 + playerObj->getCheckX());
+        world->setCameraY(-360.0 + playerObj->getCheckY());
         playerObj->setYVel(-.5);
         playerObj->graphics->setUpsideDown(false);
         playerObj->graphics->setCurrState(0);
@@ -85,21 +77,23 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
 
     // if we collide with a trampoline
     if (world->collideWithTrampoline(playerObj)) {
-        playerObj->onPlatform = false;
-        if (playerObj->graphics->isUpsideDown()) {
-            playerObj->sound->playSound("jump2");
-            playerObj->graphics->setUpsideDown(false);
-            playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-            world->setCameraY(
-                (world->getCameraY() - playerObj->getYVel() * dt));
-            playerObj->setYVel(.5);
-        } else {
-            playerObj->sound->playSound("jump");
-            playerObj->graphics->setUpsideDown(true);
-            playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-            world->setCameraY(
-                (world->getCameraY() - playerObj->getYVel() * dt));
-            playerObj->setYVel(-.5);
+        if (!playerObj->onTrampoline) {
+            if (playerObj->graphics->isUpsideDown()) {
+                playerObj->sound->playSound("jump2");
+                playerObj->graphics->setUpsideDown(false);
+                playerObj->setYVel(-.5);
+                playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+                world->setCameraY(
+                    (world->getCameraY() - playerObj->getYVel() * dt));
+
+            } else {
+                playerObj->sound->playSound("jump");
+                playerObj->graphics->setUpsideDown(true);
+                playerObj->setYVel(.5);
+                playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+                world->setCameraY(
+                    (world->getCameraY() - playerObj->getYVel() * dt));
+            }
         }
         playerObj->onTrampoline = true;
     } else {
