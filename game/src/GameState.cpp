@@ -54,9 +54,10 @@ void GameState::loadNewLevel(std::string levelName) {
                 if (i == 0) {
                     if (k == 0) {
                         // bottom left corner
+                        std::string platString = pair.first + "plat6";
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat7"});
+                                                          {platString});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -64,9 +65,10 @@ void GameState::loadNewLevel(std::string levelName) {
                         platforms.push_back(platform);
                     } else if (k == (pair.second.h / MIN_TILE_SIZE) - 1) {
                         // top left corner
+                        std::string platString = pair.first + "plat0";
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat1"});
+                                                          {platString});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -74,9 +76,10 @@ void GameState::loadNewLevel(std::string levelName) {
                         platforms.push_back(platform);
                     } else {
                         // left side
+                        std::string platString = pair.first + "plat3";
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat8"});
+                                                          {platString});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -87,9 +90,10 @@ void GameState::loadNewLevel(std::string levelName) {
                 } else if (i == (pair.second.w / MIN_TILE_SIZE) - 1) {
                     if (k == 0) {
                         // bottom right corner
+                        std::string platString = pair.first + "plat8";
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat5"});
+                                                          {platString});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -97,9 +101,10 @@ void GameState::loadNewLevel(std::string levelName) {
                         platforms.push_back(platform);
                     } else if (k == (pair.second.h / MIN_TILE_SIZE) - 1) {
                         // top right corner
+                        std::string platString = pair.first + "plat2";
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat3"});
+                                                          {platString});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -107,9 +112,10 @@ void GameState::loadNewLevel(std::string levelName) {
                         platforms.push_back(platform);
                     } else {
                         // right side
+                        std::string platString = pair.first + "plat5";
                         PlatformGraphicsComponent *g =
                             new PlatformGraphicsComponent(renderer, resources,
-                                                          {"plat4"});
+                                                          {platString});
                         PlatformObject *platform = new PlatformObject(
                             pair.second.x + (MIN_TILE_SIZE * i),
                             pair.second.y + (MIN_TILE_SIZE * k), MIN_TILE_SIZE,
@@ -119,9 +125,10 @@ void GameState::loadNewLevel(std::string levelName) {
 
                 } else if (k == 0) {
                     // bottom (not corner)
+                    std::string platString = pair.first + "plat7";
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat6"});
+                                                      {platString});
                     PlatformObject *platform =
                         new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
                                            pair.second.y + (MIN_TILE_SIZE * k),
@@ -129,18 +136,21 @@ void GameState::loadNewLevel(std::string levelName) {
                     platforms.push_back(platform);
                 } else if (k == (pair.second.h / MIN_TILE_SIZE) - 1) {
                     // top (not corner)
+                    std::string platString = pair.first + "plat1";
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat2"});
+                                                      {platString});
                     PlatformObject *platform =
                         new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
                                            pair.second.y + (MIN_TILE_SIZE * k),
                                            MIN_TILE_SIZE, MIN_TILE_SIZE, j, g);
                     platforms.push_back(platform);
                 } else {
+                    // inside
+                    std::string platString = pair.first + "plat4";
                     PlatformGraphicsComponent *g =
                         new PlatformGraphicsComponent(renderer, resources,
-                                                      {"plat9"});
+                                                      {platString});
                     PlatformObject *platform =
                         new PlatformObject(pair.second.x + (MIN_TILE_SIZE * i),
                                            pair.second.y + (MIN_TILE_SIZE * k),

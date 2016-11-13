@@ -34,15 +34,35 @@ background1 ../data/images/background.png
 background2 ../data/images/rainbowWorld.png
 background3 ../data/images/nightWorld.png
 
-plat1 ../data/images/platforms/plat1.png
-plat2 ../data/images/platforms/plat2.png
-plat3 ../data/images/platforms/plat3.png
-plat4 ../data/images/platforms/plat4.png
-plat5 ../data/images/platforms/plat5.png
-plat6 ../data/images/platforms/plat6.png
-plat7 ../data/images/platforms/plat7.png
-plat8 ../data/images/platforms/plat8.png
-plat9 ../data/images/platforms/plat9.png
+baseplat0 ../data/images/platforms/basePlatTile/plat_0.png
+baseplat1 ../data/images/platforms/basePlatTile/plat_1.png
+baseplat2 ../data/images/platforms/basePlatTile/plat_2.png
+baseplat3 ../data/images/platforms/basePlatTile/plat_3.png
+baseplat4 ../data/images/platforms/basePlatTile/plat_4.png
+baseplat5 ../data/images/platforms/basePlatTile/plat_5.png
+baseplat6 ../data/images/platforms/basePlatTile/plat_6.png
+baseplat7 ../data/images/platforms/basePlatTile/plat_7.png
+baseplat8 ../data/images/platforms/basePlatTile/plat_8.png
+
+iceplat0 ../data/images/platforms/iceblock/iceblock_0.png
+iceplat1 ../data/images/platforms/iceblock/iceblock_1.png
+iceplat2 ../data/images/platforms/iceblock/iceblock_2.png
+iceplat3 ../data/images/platforms/iceblock/iceblock_3.png
+iceplat4 ../data/images/platforms/iceblock/iceblock_4.png
+iceplat5 ../data/images/platforms/iceblock/iceblock_5.png
+iceplat6 ../data/images/platforms/iceblock/iceblock_6.png
+iceplat7 ../data/images/platforms/iceblock/iceblock_7.png
+iceplat8 ../data/images/platforms/iceblock/iceblock_8.png
+
+sandplat0 ../data/images/platforms/sandTile/sandTile_0.png
+sandplat1 ../data/images/platforms/sandTile/sandTile_1.png
+sandplat2 ../data/images/platforms/sandTile/sandTile_2.png
+sandplat3 ../data/images/platforms/sandTile/sandTile_3.png
+sandplat4 ../data/images/platforms/sandTile/sandTile_4.png
+sandplat5 ../data/images/platforms/sandTile/sandTile_5.png
+sandplat6 ../data/images/platforms/sandTile/sandTile_6.png
+sandplat7 ../data/images/platforms/sandTile/sandTile_7.png
+sandplat8 ../data/images/platforms/sandTile/sandTile_8.png
 
 spike1 ../data/images/spikes/spikeMiddle.png
 
