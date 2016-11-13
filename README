@@ -30,7 +30,7 @@ Goals:
     to help with demoing and testing levels.  After pressing "g" during a level, the player is
     unkillable.
 9. Multiple Platform/Spike graphics:
-10. Adding More Coins to Level 2 and 3:
+10. Adding More Coins to Level 2:
     Due to the issue with coins, which is now fixed, we can now have multiple coins for each level
     when it is implemented.
 11. Cleaning Up Code Base:
