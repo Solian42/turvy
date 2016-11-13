@@ -240,7 +240,7 @@ void GameState::loadNewLevel(std::string levelName) {
     backgroundObjects = std::vector<GameObject *>(1);
 
     backgroundObjects[0] = createSetpiece((1280 * 4) - (2 * 19) - 50,
-                                          720 - (2 * 18) - 50, {"ts0"});
+                                          720 - (2 * 18) - 50, {"tl0"});
     backgroundObjects[0]->graphics->scaleCurrentSprite(2);
     scoreMgr =
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
