@@ -83,6 +83,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         playerObj->setCheckY(world->getCurrCheckY());
     }
 
+    // if we collide with a trampoline
     if (world->collideWithTrampoline(playerObj)) {
         playerObj->onPlatform = false;
         if (playerObj->graphics->isUpsideDown()) {
