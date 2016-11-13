@@ -91,10 +91,9 @@ void XmlParser::parse(std::string startTag) {
         int x = std::stoi(singleTagHandler());
         int y = std::stoi(singleTagHandler());
         int direction = std::stoi(singleTagHandler());
-        std::vector<std::string> textureNames = {singleTagHandler(),
-                                                 singleTagHandler(),
-                                                 singleTagHandler(),
-                                                 singleTagHandler()};
+        std::vector<std::string> textureNames = {
+            singleTagHandler(), singleTagHandler(), singleTagHandler(),
+            singleTagHandler()};
 
         std::vector<int> xydir;
         xydir.push_back(x);

@@ -24,10 +24,9 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     int collideU = collide & COLLIDE_UP;
     int collideD = collide & COLLIDE_DOWN;
     if (collideU != 0 || collideD != 0) {
-            playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-            world->setCameraY(
-                (world->getCameraY() - playerObj->getYVel() * dt));
-        
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        world->setCameraY((world->getCameraY() - playerObj->getYVel() * dt));
+
         playerObj->onPlatform = true;
     }
     if (collide == NO_COLLIDE) {

@@ -17,7 +17,7 @@ void PlayerSoundComponent::update(World *world) {
 
     if (world->isCollidingWithCheckpoint()) {
         if (world->getCurrCheckX() != myObj->getX() &&
-                world->getCurrCheckY() != myObj->getY()) {
+            world->getCurrCheckY() != myObj->getY()) {
             Mix_PlayChannel(-1, resources->getChunk("cp"), 0);
         }
     }

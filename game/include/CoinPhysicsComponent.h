@@ -15,8 +15,9 @@ public:
     ~CoinPhysicsComponent();
     CoinObject *myCoin = nullptr;
     bool checkThisCollision(SDL_Rect);
+
 private:
-	std::pair<bool, SDL_Rect> temp;
+    std::pair<bool, SDL_Rect> temp;
 };
 
 #endif
