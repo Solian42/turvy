@@ -5,12 +5,38 @@ Hey All! This is our codebase.
 PROGRRESS FOR ASSIGNMENT 9:
 
 Goals:
-Fixing Coins
-Add audio feedback for hitting coins/checkpoints
-Fixing Trampoline collision
-Creating Death/Respawn Animation for the player
-Adding enemy animation
-Multiple Platform/Spike graphics
+1. Fixing Coins:
+    Previously, coins did not disappear on contact.  Also another bug in which if you
+    hit a second coin, the score did not increment.  These issues were fixed.  Coins now
+    disappear and multiple coins are now possible as scoring issues were fixed.
+2. Add audio feedback for hitting coins/checkpoints:
+    Player collision with coins/checkpoints did not have a sound and made the game boring
+    in that aspect.  Now there is a sound when the player collides with a coin or
+    checkpoint.
+3. Fixing Trampoline collision:
+4. Creating Death/Respawn Animation for the player:
+5. Incorporating enemies to level 3:
+    Enemies was a feature made LAST assignment, but were not actually placed in level 3.
+    We did place them in before the Beta presentation.  This is technically not a new
+    feature, just a feature we originally had but did not implement into our current game
+    until now.
+6. Adding enemy animation:
+    Enemies did not have animation.  They now animate as their eyes blinks.
+7. Multiple background graphics and music:
+    Each level now has a different background as well as different music, so the game will
+    not be too boring.
+8. Adding "God Mode":
+    This is not really a new feature, more just something we added before the Beta presentation
+    to help with demoing and testing levels.  After pressing "g" during a level, the player is
+    unkillable.
+9. Multiple Platform/Spike graphics:
+10. Adding More Coins to Level 2 and 3:
+    Due to the issue with coins, which is now fixed, we can now have multiple coins for each level
+    when it is implemented.
+11. Cleaning Up Code Base:
+    Code base has a bunch of code that was commented out, as well as some other comments that did not
+    match our current implementation.  We cleaned this stuff out, so our files would not be too messy
+    with unecessary comments/code.
 
 To Build:
 

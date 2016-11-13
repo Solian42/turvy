@@ -1,7 +1,5 @@
 #include "../include/EnemyGraphicsComponent.h"
 
-// int centerEnemy(int large, int small) { return large / 2 - small / 2; }
-
 EnemyGraphicsComponent::EnemyGraphicsComponent(
     SDL_Renderer *ren, ResourceManager *r, std::vector<std::string> spritenames)
     : GraphicsComponent(ren, r, spritenames) {}
@@ -15,8 +13,6 @@ void EnemyGraphicsComponent::update(World *world, int dt) {
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
                      world->transformYtoCamera(myObj->getY() + myObj->getH()),
                      currW, currH};
-    // SDL_Rect temp = {centerRect(myObj->getX(), currW),
-    // centerRect(myObj->getX(), currH), currW, currH};
 
     if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,
                        &temp) < 0) {
@@ -46,6 +42,7 @@ void EnemyGraphicsComponent::updateCurrentSprite(int dt) {
             case 3:
                 currState = 0;
                 break;
+
             default:
                 break;
             }

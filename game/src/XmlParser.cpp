@@ -111,7 +111,6 @@ std::string XmlParser::singleTagHandler() {
     std::string garbage;
     infile >> garbage >> str >> garbage;
     return str;
-    // return str.substr(1, str.length() - 2);
 }
 
 XmlParser::~XmlParser() {}

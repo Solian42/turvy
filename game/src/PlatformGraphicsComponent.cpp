@@ -20,17 +20,6 @@ void PlatformGraphicsComponent::update(World *world) {
         std::cout << "Something broke: " << SDL_GetError() << " "
                   << currentSprite << "\n";
     }
-    /*//Code to test Collisions. Turns things into rectangles.
-    SDL_SetRenderDrawColor(myRenderer, 255, 0, 0, 255);
-    PlatformObject * myPlat = (PlatformObject *) myObj;
-    SDL_Rect platRect = world->getPlatformLocation(myPlat->platNum);
-    temp.x = world->transformXtoCamera(platRect.x);
-    temp.y = world->transformYtoCamera(platRect.y + platRect.h);
-    temp.h = platRect.h;
-    temp.w = platRect.w;
-    SDL_RenderFillRect(myRenderer, &temp);
-    SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 255);
-    */ // updateParent();
 }
 
 void PlatformGraphicsComponent::updateCurrentSprite() {

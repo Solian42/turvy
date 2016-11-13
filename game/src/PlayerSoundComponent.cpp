@@ -10,6 +10,17 @@ void PlayerSoundComponent::update(World *world) {
     if (world->isCollidingWithSpike() || world->isCollidingWithEnemy()) {
         Mix_PlayChannel(-1, resources->getChunk("hurt"), 0);
     }
+
+    if (world->isCollidingWithCoin()) {
+        Mix_PlayChannel(-1, resources->getChunk("coin"), 0);
+    }
+
+    if (world->isCollidingWithCheckpoint()) {
+        if (world->getCurrCheckX() != myObj->getX() &&
+                world->getCurrCheckY() != myObj->getY()) {
+            Mix_PlayChannel(-1, resources->getChunk("cp"), 0);
+        }
+    }
 }
 
 void PlayerSoundComponent::playSound(std::string soundName) {
