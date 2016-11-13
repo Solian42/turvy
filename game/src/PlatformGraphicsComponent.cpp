@@ -12,8 +12,6 @@ void PlatformGraphicsComponent::update(World *world) {
     SDL_Rect temp = {world->transformXToWorld(myObj->getX()),
                      world->transformYToWorld(myObj->getY() + myObj->getH()),
                      currW, currH};
-    // SDL_Rect temp = {centerRect(myObj->getX(), currW),
-    // centerRect(myObj->getX(), currH), currW, currH};
 
     if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,
                        &temp) < 0) {

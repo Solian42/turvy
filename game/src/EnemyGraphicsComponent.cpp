@@ -49,5 +49,4 @@ void EnemyGraphicsComponent::updateCurrentSprite(int dt) {
         }
         currentSprite = spriteNames[currState];
     }
-    // currentSprite = spriteNames[currState];
 }

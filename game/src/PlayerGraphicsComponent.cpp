@@ -12,8 +12,6 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
                      world->transformYtoCamera(myObj->getY() + myObj->getH()),
                      currW, currH};
-    // SDL_Rect temp = {centerRect(myObj->getX(), currW),
-    // centerRect(myObj->getX(), currH), currW, currH};
 
     if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,
                        &temp) < 0) {
@@ -24,7 +22,6 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
 }
 
 void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
-    // TODO:Logic for current sprite
     PlayerObject *myPlayer = (PlayerObject *)myObj;
     if (myPlayer->getYVel() < 0.0 && !myPlayer->onPlatform) {
         if (myPlayer->getXVel() > 0.0) {
