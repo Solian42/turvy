@@ -154,7 +154,6 @@ std::pair<bool, SDL_Rect> World::collideWithCoin(GameObject *obj) {
         SDL_bool result =
             SDL_IntersectRect(&co, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
-            // coinCollision = true;
             return std::make_pair(true, intersect);
         }
     }

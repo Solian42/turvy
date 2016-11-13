@@ -1,3 +1,5 @@
 hurt ../data/sounds/hurt.wav
 jump ../data/sounds/jump.wav
 jump2 ../data/sounds/jump2.wav
+coin ../data/sounds/coin.wav
+cp ../data/sounds/cp.wav
