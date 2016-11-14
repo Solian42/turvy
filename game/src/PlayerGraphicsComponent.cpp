@@ -7,7 +7,7 @@ PlayerGraphicsComponent::~PlayerGraphicsComponent() {}
 
 void PlayerGraphicsComponent::update(World *world, int dt) {
 
-    updateCurrentSprite(dt);
+    updateCurrentSprite(world, dt);
 
     SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
                      world->transformYtoCamera(myObj->getY() + myObj->getH()),
@@ -21,8 +21,18 @@ void PlayerGraphicsComponent::update(World *world, int dt) {
     updateParent();
 }
 
-void PlayerGraphicsComponent::updateCurrentSprite(int dt) {
+void PlayerGraphicsComponent::updateCurrentSprite(World *world, int dt) {
     PlayerObject *myPlayer = (PlayerObject *)myObj;
+
+    if (world->playerIsDead()) {
+        time += dt;
+
+        if (time > 1000) {
+            myPlayer->respawn(world);
+        }
+        return;
+    }
+
     if (myPlayer->getYVel() < 0.0 && !myPlayer->onPlatform) {
         if (myPlayer->getXVel() > 0.0) {
             currState = RIGHT_GRIN_DOWN;

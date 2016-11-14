@@ -6,11 +6,13 @@
 #include "PlayerInputComponent.h"
 #include "PlayerPhysicsComponent.h"
 #include "PlayerSoundComponent.h"
+#include "ScoreManager.h"
 
 class PlayerGraphicsComponent;
 class PlayerInputComponent;
 class PlayerPhysicsComponent;
 class PlayerSoundComponent;
+class ScoreManager;
 
 class PlayerObject : public GameObject {
 
@@ -18,7 +20,7 @@ public:
     PlayerObject(int x, int y, float xVelocity, float yVelocity,
                  PlayerInputComponent *i, PlayerGraphicsComponent *g,
                  PlayerSoundComponent *s, PlayerPhysicsComponent *p,
-                 int entityNum);
+                 int entityNum, ScoreManager *score);
 
     ~PlayerObject();
 
@@ -31,13 +33,12 @@ public:
     PlayerInputComponent *input;
     PlayerSoundComponent *sound;
     PlayerPhysicsComponent *physics;
+    ScoreManager *myScore;
     bool onPlatform;
     bool onTrampoline;
-    bool isDead;
+    void respawn(World *world);
 
 private:
-    
-    void respawn(World* world);
     float checkX = 50;
     float checkY = 50;
 };

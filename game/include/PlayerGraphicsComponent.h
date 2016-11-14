@@ -40,7 +40,7 @@ private:
     int time = 0;
     int currState = 0;
     bool upsideDown = false;
-    void updateCurrentSprite(int dt);
+    void updateCurrentSprite(World *world, int dt);
 };
 
 #endif

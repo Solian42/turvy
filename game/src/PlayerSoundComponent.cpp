@@ -7,8 +7,11 @@ PlayerSoundComponent::PlayerSoundComponent(std::vector<std::string> chunks,
 }
 
 void PlayerSoundComponent::update(World *world) {
-    if (world->isCollidingWithSpike() || world->isCollidingWithEnemy()) {
+
+    if ((world->isCollidingWithSpike() || world->isCollidingWithEnemy()) &&
+        !hasDied) {
         Mix_PlayChannel(-1, resources->getChunk("hurt"), 0);
+        hasDied = true;
     }
 
     if (world->isCollidingWithCoin()) {
@@ -20,4 +23,6 @@ void PlayerSoundComponent::playSound(std::string soundName) {
 
     Mix_PlayChannel(-1, resources->getChunk(soundName), 0);
 }
+
+void PlayerSoundComponent::setPlayerObj(PlayerObject *obj) { player = obj; }
 PlayerSoundComponent::~PlayerSoundComponent() {}

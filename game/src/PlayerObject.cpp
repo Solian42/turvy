@@ -3,7 +3,7 @@
 PlayerObject::PlayerObject(int x, int y, float xVelocity, float yVelocity,
                            PlayerInputComponent *i, PlayerGraphicsComponent *g,
                            PlayerSoundComponent *s, PlayerPhysicsComponent *p,
-                           int entityNum) {
+                           int entityNum, ScoreManager *score) {
     location = {x, y, 0, 0};
     this->xFloat = (float)x;
     this->yFloat = (float)y;
@@ -13,17 +13,17 @@ PlayerObject::PlayerObject(int x, int y, float xVelocity, float yVelocity,
     this->graphics = g;
     this->sound = s;
     this->physics = p;
+    this->myScore = score;
     g->setGameObject(this);
     s->setGameObject(this);
     this->location = (g->getTextureRect(g->getCurrentSprite()));
     this->entityNum = entityNum;
     onPlatform = true;
     onTrampoline = true;
-    isDead = false;
 }
 
-void PlayerObject::respawn(World* world) {
-    isDead = true;
+void PlayerObject::respawn(World *world) {
+    world->setPlayerDeath(false);
     setX(getCheckX());
     world->setCameraX(-640 + getCheckX());
     setY(getCheckY());
@@ -32,9 +32,9 @@ void PlayerObject::respawn(World* world) {
     setYVel(-.5);
     graphics->setUpsideDown(false);
     graphics->setCurrState(0);
-    world->updateVolume(entityNum, getX(),
-                        getY(), getW(),
-                        getH());
+    world->updateVolume(entityNum, getX(), getY(), getW(), getH());
+    sound->respawn();
+    myScore->respawn();
 }
 
 PlayerObject::~PlayerObject() {

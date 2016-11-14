@@ -27,9 +27,13 @@ void GameState::loadNewLevel(std::string levelName) {
         parser->parsedSpikes.size(), parser->parsedCheckpoints.size(),
         parser->parsedCoins.size(), parser->parsedTrampolines.size(),
         parser->parsedEnemies.size());
-    player = createPlayer(0, {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
-                              "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
-                              "urps0", "urps1", "urps2", "urps3"});
+    scoreMgr =
+        new ScoreManager(renderer, resources, world, numDeaths, numCoins);
+    /*added score manager by Anthony*/
+    player = createPlayer(0, scoreMgr,
+                          {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
+                           "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
+                           "urps0", "urps1", "urps2", "urps3"});
     platforms = std::vector<PlatformObject *>();
     spikes = std::vector<SpikesObject *>();
     backgroundObjects = std::vector<GameObject *>();
@@ -242,9 +246,6 @@ void GameState::loadNewLevel(std::string levelName) {
     backgroundObjects[0] = createSetpiece((1280 * 4) - (2 * 19) - 50,
                                           720 - (2 * 18) - 50, {"tl0"});
     backgroundObjects[0]->graphics->scaleCurrentSprite(2);
-    scoreMgr =
-        new ScoreManager(renderer, resources, world, numDeaths, numCoins);
-    /*added score manager by Anthony*/
     background = resources->getTexture(backgrounds[currLevel - 1]);
     backgroundMusic = levelMusic[currLevel - 1];
     for (PlatformObject *p : platforms) {
@@ -380,6 +381,7 @@ void GameState::doPhysics(int dt) {
     }
     numDeaths = scoreMgr->getDeaths();
     numCoins = scoreMgr->getCoins();
+    scoreMgr->update();
 }
 
 void GameState::render(int dt) {
@@ -410,11 +412,10 @@ void GameState::render(int dt) {
         j++;
     }
     backgroundObjects[0]->graphics->update(world, dt);
-    scoreMgr->update();
     scoreMgr->printScore(1280, 0);
 }
 
-PlayerObject *GameState::createPlayer(int entityNum,
+PlayerObject *GameState::createPlayer(int entityNum, ScoreManager *score,
                                       std::vector<std::string> spriteNames) {
     PlayerInputComponent *i = new PlayerInputComponent(world);
     PlayerGraphicsComponent *g =
@@ -423,10 +424,11 @@ PlayerObject *GameState::createPlayer(int entityNum,
     std::vector<std::string> chunks = {std::string("bonk")};
     PlayerSoundComponent *s = new PlayerSoundComponent(chunks, resources);
     PlayerObject *player =
-        new PlayerObject(50, 50, 0, -.5, i, g, s, p, entityNum);
+        new PlayerObject(50, 50, 0, -.5, i, g, s, p, entityNum, score);
     world->setCameraX(world->getCameraX() + 50);
     world->setCameraY(world->getCameraY() + 50);
     i->setPlayer(player);
+    s->setPlayerObj(player);
     return player;
 }
 

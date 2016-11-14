@@ -59,7 +59,7 @@ private:
     void loadNewLevel(std::string levelName);
     void cleanCurrentLevel();
 
-    PlayerObject *createPlayer(int entityNum,
+    PlayerObject *createPlayer(int entityNum, ScoreManager *score,
                                std::vector<std::string> spriteNames);
     EnemyObject *createEnemy(int x, int y, int entityNum,
                              std::vector<std::string> spriteNames);

@@ -68,11 +68,13 @@ public:
     void setSpikeCollision(bool collide) { spikeCollision = collide; }
     void setEnemyCollision(bool collide) { enemyCollision = collide; }
     void setCoinCollision(bool collide) { coinCollision = collide; }
+    void setPlayerDeath(bool death) { isPlayerDead = death; }
 
     bool isCollidingWithSpike() { return spikeCollision && !godMode; }
     bool isCollidingWithEnemy() { return enemyCollision && !godMode; }
     bool isCollidingWithCoin() { return coinCollision; }
     bool isCollidingWithCheckpoint() { return checkpointCollision; }
+    bool playerIsDead() { return isPlayerDead; }
 
     bool godMode = false;
 
@@ -98,6 +100,7 @@ private:
     bool coinCollision = false;
     bool spikeCollision = false;
     bool enemyCollision = false;
+    bool isPlayerDead = false;
 
     float cameraX = -640.0;
     float cameraY = -360.0;

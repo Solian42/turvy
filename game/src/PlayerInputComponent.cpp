@@ -3,9 +3,6 @@
 PlayerInputComponent::PlayerInputComponent(World *w) { world = w; }
 
 void PlayerInputComponent::update(SDL_Event *event, int dt) {
-    if(player->isDead) {
-        return;
-    }
     SDL_Event e = *event;
     {
         // If a key was pressed
@@ -14,6 +11,9 @@ void PlayerInputComponent::update(SDL_Event *event, int dt) {
             int collide;
             switch (e.key.keysym.sym) {
             case SDLK_SPACE:
+                if (world->playerIsDead()) {
+                    return;
+                }
                 collide = world->collideWithPlatform(player);
                 if (player->onPlatform) {
                     if (!player->graphics->isUpsideDown()) {

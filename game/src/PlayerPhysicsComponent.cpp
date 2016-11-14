@@ -4,7 +4,7 @@ PlayerPhysicsComponent::PlayerPhysicsComponent() {}
 
 void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
                                     int dt) {
-    if(playerObj->isDead) {
+    if (world->playerIsDead()) {
         return;
     }
     std::cout << playerObj->getYVel() << "\n";
@@ -41,12 +41,12 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
                         playerObj->getH());
     // if we got hit by a spike
     if (world->collideWithSpike(playerObj)) {
-        playerObj->isDead = true;
+        world->setPlayerDeath(true);
     }
 
     // if we collide with an enemy
     if (world->collideWithEnemies(playerObj)) {
-        playerObj->isDead = true;
+        world->setPlayerDeath(true);
     }
 
     // if we collide with a checkpoint

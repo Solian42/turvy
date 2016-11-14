@@ -6,6 +6,9 @@ void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
                                    int dt) {
 
     // platform collision
+    if (world->playerIsDead()) {
+        return;
+    }
     enemyObj->setX(enemyObj->getX() + enemyObj->getXVel() * dt);
     int collide = world->collideWithPlatform(enemyObj);
     int collideL = collide & COLLIDE_LEFT;

@@ -17,12 +17,14 @@ public:
     void printScore(int width, int height);
     void setDeaths(int deaths);
     void setCoins(int coins);
+    void respawn() { hasDied = false; }
 
     int getDeaths();
     int getCoins();
     ~ScoreManager();
 
 private:
+    bool hasDied = false;
     int numDeaths = 0;
     int numCoins = 0;
     SDL_Renderer *renderer;

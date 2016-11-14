@@ -14,9 +14,13 @@ public:
     PlayerSoundComponent(std::vector<std::string> chunks, ResourceManager *r);
     void update(World *world);
     void playSound(std::string soundName);
+    void setPlayerObj(PlayerObject *obj);
+    void respawn() { hasDied = false; }
     ~PlayerSoundComponent();
 
 private:
+    bool hasDied = false;
+    PlayerObject *player;
     ResourceManager *resources;
     std::vector<std::string> chunks;
 };
