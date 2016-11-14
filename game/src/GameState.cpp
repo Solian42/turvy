@@ -359,6 +359,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
 void GameState::doSound() { player->sound->update(world); }
 
 void GameState::doPhysics(int dt) {
+    world->setCoinCollision(false);
     world->setSpikeCollision(world->checkSpikeCollisions());
     world->setSpikeCollision(world->checkEnemyCollisions());
     player->physics->update(player, world, dt);

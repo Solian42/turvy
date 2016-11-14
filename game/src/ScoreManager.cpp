@@ -20,7 +20,6 @@ void ScoreManager::update() {
     }
     if (world->isCollidingWithCoin()) {
         numCoins++;
-        world->setCoinCollision(false);
     }
 }
 void ScoreManager::resetScore() {
