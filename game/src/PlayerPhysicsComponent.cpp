@@ -7,6 +7,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     if (world->playerIsDead()) {
         return;
     }
+
     playerObj->setX(playerObj->getX() + playerObj->getXVel() * dt);
     world->setCameraX((world->getCameraX() + playerObj->getXVel() * dt));
 
