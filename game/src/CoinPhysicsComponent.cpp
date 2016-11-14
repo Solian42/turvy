@@ -17,6 +17,8 @@ bool CoinPhysicsComponent::checkThisCollision(SDL_Rect intersect) {
 void CoinPhysicsComponent::update(World *world, int dt) {
 
     // if player collides with Coin
+    int suppressWarning = dt;
+    suppressWarning++;
     temp = world->collideWithCoin(myCoin->playerObj);
     if (temp.first) {
         if (checkThisCollision(temp.second)) {

@@ -268,7 +268,6 @@ void GameState::startMusic(int vol) {
 }
 
 int GameState::handleEvent(SDL_Event *e, int dt) {
-    SDL_Event pause;
     if (e->type == SDL_KEYUP) {
         switch (e->key.keysym.sym) {
         case SDLK_q:
