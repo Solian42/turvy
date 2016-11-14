@@ -4,6 +4,9 @@ PlayerPhysicsComponent::PlayerPhysicsComponent() {}
 
 void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
                                     int dt) {
+    if(playerObj->isDead) {
+        return;
+    }
     std::cout << playerObj->getYVel() << "\n";
     std::cout << playerObj->graphics->isUpsideDown() << "\n";
     playerObj->setX(playerObj->getX() + playerObj->getXVel() * dt);
@@ -38,31 +41,12 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
                         playerObj->getH());
     // if we got hit by a spike
     if (world->collideWithSpike(playerObj)) {
-        playerObj->setX(playerObj->getCheckX());
-        playerObj->setY(playerObj->getCheckY());
-        world->setCameraX(-640 + playerObj->getCheckX());
-        world->setCameraY(-360.0 + playerObj->getCheckY());
-        playerObj->setYVel(-.5);
-        playerObj->graphics->setUpsideDown(false);
-        playerObj->graphics->setCurrState(0);
-        world->updateVolume(playerObj->entityNum, playerObj->getX(),
-                            playerObj->getY(), playerObj->getW(),
-                            playerObj->getH());
+        playerObj->isDead = true;
     }
 
     // if we collide with an enemy
     if (world->collideWithEnemies(playerObj)) {
-        playerObj->setX(playerObj->getCheckX());
-        world->setCameraX(-640 + playerObj->getCheckX());
-        playerObj->setY(playerObj->getCheckY());
-        world->setCameraY(playerObj->getCheckY() - 360);
-        // no need to set the x velocity
-        playerObj->setYVel(-.5);
-        playerObj->graphics->setUpsideDown(false);
-        playerObj->graphics->setCurrState(0);
-        world->updateVolume(playerObj->entityNum, playerObj->getX(),
-                            playerObj->getY(), playerObj->getW(),
-                            playerObj->getH());
+        playerObj->isDead = true;
     }
 
     // if we collide with a checkpoint

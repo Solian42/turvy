@@ -19,6 +19,22 @@ PlayerObject::PlayerObject(int x, int y, float xVelocity, float yVelocity,
     this->entityNum = entityNum;
     onPlatform = true;
     onTrampoline = true;
+    isDead = false;
+}
+
+void PlayerObject::respawn(World* world) {
+    isDead = true;
+    setX(getCheckX());
+    world->setCameraX(-640 + getCheckX());
+    setY(getCheckY());
+    world->setCameraY(getCheckY() - 360);
+    // no need to set the x velocity
+    setYVel(-.5);
+    graphics->setUpsideDown(false);
+    graphics->setCurrState(0);
+    world->updateVolume(entityNum, getX(),
+                        getY(), getW(),
+                        getH());
 }
 
 PlayerObject::~PlayerObject() {
