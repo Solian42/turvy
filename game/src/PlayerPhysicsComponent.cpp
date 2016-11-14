@@ -50,7 +50,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     // if we collide with a checkpoint
     if (world->collideWithCheckpoint(playerObj)) {
 
-        if (world->getCurrCheckX() != playerObj->getCheckX() &&
+        if (world->getCurrCheckX() != playerObj->getCheckX() ||
             world->getCurrCheckY() != playerObj->getCheckY()) {
             playerObj->sound->playSound("cp");
         }
