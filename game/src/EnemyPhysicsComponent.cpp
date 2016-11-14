@@ -16,6 +16,7 @@ void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
         enemyObj->setXVel(-enemyObj->getXVel());
     }
 
+    // also handles trampoline collision
     enemyObj->setY(enemyObj->getY() + enemyObj->getYVel() * dt);
     collide = world->collideWithPlatform(enemyObj);
     int collideU = collide & COLLIDE_UP;
