@@ -13,8 +13,15 @@ Goals:
     Player collision with coins/checkpoints did not have a sound and made the game boring
     in that aspect.  Now there is a sound when the player collides with a coin or
     checkpoint.
-3. Fixing Trampoline collision:
+3. Fixing Trampoline collision issues:
+    There were some issues with trampoline collisions, such as some space between the player
+    and the trampoline that exists when collision occurs, and also some problems in which when
+    the player goes back onto a platform, the player is in the wrong orientation and the input is
+    glitched.  This is now fixed, so actual collision is visibly working and the player's physics
+    and inputs are working well too.
 4. Creating Death/Respawn Animation for the player:
+    Added some animation to when the player dies and respawns.  Cool animation to make our
+    game more intersting.
 5. Incorporating enemies to level 3:
     Enemies was a feature made LAST assignment, but were not actually placed in level 3.
     We did place them in before the Beta presentation.  This is technically not a new
@@ -30,6 +37,9 @@ Goals:
     to help with demoing and testing levels.  After pressing "g" during a level, the player is
     unkillable.
 9. Multiple Platform/Spike graphics:
+    Previously, we used the same graphics for platforms and spikes in every level which made the
+    game a bit boring.  Now we have different graphics for the platforms and spikes per each level.
+    This is based on a theme that correlates with the background!
 10. Adding More Coins to Level 2:
     Due to the issue with coins, which is now fixed, we can now have multiple coins for each level
     when it is implemented.
@@ -37,11 +47,17 @@ Goals:
     Code base has a bunch of code that was commented out, as well as some other comments that did not
     match our current implementation.  We cleaned this stuff out, so our files would not be too messy
     with unecessary comments/code.
+12. Redesigning Level 3:
+    Level 3 is now more interesting with many trampolines and coins all over.
 
 Individual Achievements This Week:
 
 Anthony: Fixed "multiple coins not working" issue, and made many many new sprites, background,
 and other resources to incorporate into the game.
+
+Brian:  Added enemies to level 3, got enemies to animate, incorporated sound to checkpoint and
+coin collision, cleaned up unecessary comments/code and mess in code base, redesigned level 3 and
+added more coins in level 2 and 3.  
 
 To Build:
 
