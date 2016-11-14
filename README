@@ -38,6 +38,11 @@ Goals:
     match our current implementation.  We cleaned this stuff out, so our files would not be too messy
     with unecessary comments/code.
 
+Individual Achievements This Week:
+
+Anthony: Fixed "multiple coins not working" issue, and made many many new sprites, background,
+and other resources to incorporate into the game.
+
 To Build:
 
 navigate to game/src, and run "make"
