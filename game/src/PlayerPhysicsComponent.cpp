@@ -7,8 +7,6 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     if (world->playerIsDead()) {
         return;
     }
-    std::cout << playerObj->getYVel() << "\n";
-    std::cout << playerObj->graphics->isUpsideDown() << "\n";
     playerObj->setX(playerObj->getX() + playerObj->getXVel() * dt);
     world->setCameraX((world->getCameraX() + playerObj->getXVel() * dt));
 
@@ -22,7 +20,6 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     }
 
     playerObj->setY(playerObj->getY() + playerObj->getYVel() * dt);
-
     world->setCameraY((world->getCameraY() + playerObj->getYVel() * dt));
 
     collide = world->collideWithPlatform(playerObj);
@@ -51,6 +48,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
 
     // if we collide with a checkpoint
     if (world->collideWithCheckpoint(playerObj)) {
+
         if (world->getCurrCheckX() != playerObj->getCheckX() &&
             world->getCurrCheckY() != playerObj->getCheckY()) {
             playerObj->sound->playSound("cp");

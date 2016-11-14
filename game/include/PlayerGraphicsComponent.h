@@ -23,7 +23,11 @@ enum {
     U_RIGHT_GRIN_UP = 12,
     U_RIGHT_GRIN_DOWN = 13,
     U_RIGHT_SMILE_UP = 14,
-    U_RIGHT_SMILE_DOWN = 15
+    U_RIGHT_SMILE_DOWN = 15,
+    DEAD_LEFT = 16,
+    DEAD_RIGHT = 17,
+    U_DEAD_LEFT = 18,
+    U_DEAD_RIGHT = 19
 };
 class PlayerGraphicsComponent : public GraphicsComponent {
 public:

@@ -25,9 +25,59 @@ void PlayerGraphicsComponent::updateCurrentSprite(World *world, int dt) {
     PlayerObject *myPlayer = (PlayerObject *)myObj;
 
     if (world->playerIsDead()) {
-        time += dt;
+        if (currState < 16) {
+            time = 0;
+            if (myPlayer->getXVel() < 0) {
+                if (upsideDown) {
+                    currState = U_DEAD_LEFT;
+                    currentSprite = spriteNames[currState];
+                    SDL_SetTextureBlendMode(
+                        resources->getTexture(currentSprite),
+                        SDL_BLENDMODE_BLEND);
 
-        if (time > 1000) {
+                } else {
+                    currState = DEAD_LEFT;
+                    currentSprite = spriteNames[currState];
+                    SDL_SetTextureBlendMode(
+                        resources->getTexture(currentSprite),
+                        SDL_BLENDMODE_BLEND);
+                }
+
+            } else {
+                if (upsideDown) {
+                    currState = U_DEAD_RIGHT;
+                    currentSprite = spriteNames[currState];
+                    SDL_SetTextureBlendMode(
+                        resources->getTexture(currentSprite),
+                        SDL_BLENDMODE_BLEND);
+                } else {
+                    currState = DEAD_RIGHT;
+                    currentSprite = spriteNames[currState];
+                    SDL_SetTextureBlendMode(
+                        resources->getTexture(currentSprite),
+                        SDL_BLENDMODE_BLEND);
+                }
+            }
+        }
+        time += dt;
+        if (time < 255) {
+            SDL_SetTextureAlphaMod(resources->getTexture(currentSprite),
+                                   255 - time);
+        } else if (time < 510) {
+            SDL_SetTextureAlphaMod(resources->getTexture(currentSprite),
+                                   time - 255);
+        } else if (time < 755) {
+            SDL_SetTextureAlphaMod(resources->getTexture(currentSprite),
+                                   755 - time);
+        } else {
+            SDL_SetTextureAlphaMod(
+                resources->getTexture(spriteNames[U_DEAD_RIGHT]), 255);
+            SDL_SetTextureAlphaMod(
+                resources->getTexture(spriteNames[U_DEAD_LEFT]), 255);
+            SDL_SetTextureAlphaMod(
+                resources->getTexture(spriteNames[DEAD_RIGHT]), 255);
+            SDL_SetTextureAlphaMod(
+                resources->getTexture(spriteNames[DEAD_LEFT]), 255);
             myPlayer->respawn(world);
         }
         return;

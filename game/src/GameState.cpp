@@ -31,9 +31,10 @@ void GameState::loadNewLevel(std::string levelName) {
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
     /*added score manager by Anthony*/
     player = createPlayer(0, scoreMgr,
-                          {"rps0", "rps1", "rps2", "rps3", "ulps0", "ulps1",
-                           "ulps2", "ulps3", "lps0", "lps1", "lps2", "lps3",
-                           "urps0", "urps1", "urps2", "urps3"});
+                          {"rps0",  "rps1",  "rps2",  "rps3",  "ulps0",
+                           "ulps1", "ulps2", "ulps3", "lps0",  "lps1",
+                           "lps2",  "lps3",  "urps0", "urps1", "urps2",
+                           "urps3", "pdsl",  "pdsr",  "pdsul", "pdsur"});
     platforms = std::vector<PlatformObject *>();
     spikes = std::vector<SpikesObject *>();
     backgroundObjects = std::vector<GameObject *>();
