@@ -72,7 +72,11 @@ void LevelOneInstructState::render(int dt) {
     supressWarning++;
 }
 
-void LevelOneInstructState::startMusic(int vol) { return; }
+void LevelOneInstructState::startMusic(int vol) {
+    int t = vol;
+    t++;
+    return;
+}
 
 LevelOneInstructState::~LevelOneInstructState() {
     SDL_DestroyTexture(spikeInfo);

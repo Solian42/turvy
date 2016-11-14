@@ -72,7 +72,11 @@ void LevelThreeBeginState::render(int dt) {
     supressWarning++;
 }
 
-void LevelThreeBeginState::startMusic(int vol) { return; }
+void LevelThreeBeginState::startMusic(int vol) {
+    int t = vol;
+    t++;
+    return;
+}
 
 LevelThreeBeginState::~LevelThreeBeginState() {
     SDL_DestroyTexture(title);

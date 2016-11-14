@@ -59,6 +59,11 @@ Brian:  Added enemies to level 3, got enemies to animate, incorporated sound to 
 coin collision, cleaned up unecessary comments/code and mess in code base, redesigned level 3 and
 added more coins in level 2 and 3.  
 
+Tristan:
+Implemented new sprites for platforms, fixed collision issues on the trampolines, 
+implemented a "pause" button. I also created a death animation for the player so that 
+dying isn't so quick. I also fixed several audio-related bugs that came up.
+
 To Build:
 
 navigate to game/src, and run "make"
@@ -90,7 +95,8 @@ Cheat Codes:
 R: reset to last checkpoint w/ no penalty
 2: Teleport to beginning of level 2
 C: Teleport to last checkpoint in a level
-
+G: Godmode. 
+P: Pause (press return in the console to unpause)
 
 All others should be self explanatory!
 

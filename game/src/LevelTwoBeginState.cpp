@@ -72,7 +72,11 @@ void LevelTwoBeginState::render(int dt) {
     supressWarning++;
 }
 
-void LevelTwoBeginState::startMusic(int vol) { return; }
+void LevelTwoBeginState::startMusic(int vol) {
+    int t = vol;
+    t++;
+    return;
+}
 
 LevelTwoBeginState::~LevelTwoBeginState() {
     SDL_DestroyTexture(title);

@@ -72,7 +72,11 @@ void LevelOneBeginState::render(int dt) {
     supressWarning++;
 }
 
-void LevelOneBeginState::startMusic(int vol) { return; }
+void LevelOneBeginState::startMusic(int vol) {
+    int t = vol;
+    t++;
+    return;
+}
 
 LevelOneBeginState::~LevelOneBeginState() {
     SDL_DestroyTexture(title);
