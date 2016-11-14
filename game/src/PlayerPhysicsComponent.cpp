@@ -7,8 +7,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     if (world->playerIsDead()) {
         return;
     }
-    std::cout << playerObj->getYVel() << "\n";
-    std::cout << playerObj->graphics->isUpsideDown() << "\n";
+    
     playerObj->setX(playerObj->getX() + playerObj->getXVel() * dt);
     world->setCameraX((world->getCameraX() + playerObj->getXVel() * dt));
 
