@@ -3,6 +3,9 @@
 PlayerInputComponent::PlayerInputComponent(World *w) { world = w; }
 
 void PlayerInputComponent::update(SDL_Event *event, int dt) {
+    if(player->isDead) {
+        return;
+    }
     SDL_Event e = *event;
     {
         // If a key was pressed

@@ -33,8 +33,11 @@ public:
     PlayerPhysicsComponent *physics;
     bool onPlatform;
     bool onTrampoline;
+    bool isDead;
 
 private:
+    
+    void respawn(World* world);
     float checkX = 50;
     float checkY = 50;
 };
