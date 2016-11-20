@@ -1,8 +1,8 @@
 #ifndef TELEPORT_PHYSICS_COMPONENT_LIZARD
 #define TELEPORT_PHYSICS_COMPONENT_LIZARD
 
-#include "TeleportObject.h"
 #include "PhysicsComponent.h"
+#include "TeleportObject.h"
 #include <iostream>
 #include <string>
 class TeleportObject;

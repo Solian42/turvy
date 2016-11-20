@@ -109,7 +109,7 @@ void XmlParser::parse(std::string startTag) {
         int newY = std::stoi(singleTagHandler());
         std::vector<std::string> textureNames = {
             singleTagHandler(), singleTagHandler(), singleTagHandler()};
-        
+
         std::vector<int> teleXY;
         teleXY.push_back(x);
         teleXY.push_back(y);

@@ -6,8 +6,8 @@
 #include "EnemyObject.h"
 #include "PlatformObject.h"
 #include "SpikesObject.h"
-#include "TrampolineObject.h"
 #include "TeleportObject.h"
+#include "TrampolineObject.h"
 #include <SDL.h>
 #include <cstdlib>
 #include <fstream>

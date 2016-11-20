@@ -86,8 +86,8 @@ bool World::checkEnemyCollisions() {
 bool World::checkTeleportCollisions() {
     bool teleportCollision = false;
     for (int i = 0; i < numTeleports; i++) {
-        teleportCollision =
-            teleportCollision || testCollide(entityVolumes[0], teleportVolumes[i]);
+        teleportCollision = teleportCollision ||
+                            testCollide(entityVolumes[0], teleportVolumes[i]);
     }
     return teleportCollision;
 }
