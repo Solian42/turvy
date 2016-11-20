@@ -37,6 +37,7 @@ public:
     bool onPlatform;
     bool onTrampoline;
     void respawn(World *world);
+    void teleport(World *world);
 
 private:
     float checkX = 50;

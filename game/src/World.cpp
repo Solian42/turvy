@@ -13,7 +13,7 @@ bool World::testCollide(SDL_Rect a, SDL_Rect b) {
 
 World::World(int width, int height, int numEntities, int numPlatforms,
              int numSpikes, int numCheckpoints, int numCoins,
-             int numTrampolines, int numEnemies) {
+             int numTrampolines, int numEnemies, int numTeleports) {
     worldXLen = width;
     worldYLen = height;
     entityVolumes = std::vector<SDL_Rect>(numEntities);
@@ -23,6 +23,7 @@ World::World(int width, int height, int numEntities, int numPlatforms,
     coinVolumes = std::vector<SDL_Rect>(numCoins);
     trampolineVolumes = std::vector<SDL_Rect>(numTrampolines);
     enemyVolumes = std::vector<SDL_Rect>(numEnemies);
+    teleportVolumes = std::vector<SDL_Rect>(numTeleports);
     this->numPlatforms = numPlatforms;
     this->numSpikes = numSpikes;
     this->numEntities = numEntities;
@@ -30,6 +31,7 @@ World::World(int width, int height, int numEntities, int numPlatforms,
     this->numCoins = numCoins;
     this->numTrampolines = numTrampolines;
     this->numEnemies = numEnemies;
+    this->numTeleports = numTeleports;
 }
 
 SDL_Rect World::getEntityLocation(int num) { return entityVolumes[num]; }
@@ -43,6 +45,7 @@ SDL_Rect World::getTrampolineLocation(int num) {
     return trampolineVolumes[num];
 }
 SDL_Rect World::getEnemyLocation(int num) { return enemyVolumes[num]; }
+SDL_Rect World::getTeleportLocation(int num) { return teleportVolumes[num]; }
 
 int World::transformXtoCamera(int x) { return x - cameraX; }
 
@@ -78,6 +81,15 @@ bool World::checkEnemyCollisions() {
             enemyCollision || testCollide(entityVolumes[0], enemyVolumes[i]);
     }
     return enemyCollision && !godMode;
+}
+
+bool World::checkTeleportCollisions() {
+    bool teleportCollision = false;
+    for (int i = 0; i < numTeleports; i++) {
+        teleportCollision =
+            teleportCollision || testCollide(entityVolumes[0], teleportVolumes[i]);
+    }
+    return teleportCollision;
 }
 
 int World::collideWithPlatform(GameObject *obj) {
@@ -146,6 +158,20 @@ bool World::collideWithCheckpoint(GameObject *obj) {
     }
     checkpointCollision = false;
     return false;
+}
+
+std::pair<bool, SDL_Rect> World::collideWithTeleport(GameObject *obj) {
+    SDL_Rect intersect = {0, 0, 0, 0};
+    for (SDL_Rect te : teleportVolumes) {
+        SDL_bool result =
+            SDL_IntersectRect(&te, obj->getLocation(), &intersect);
+        if (result == SDL_TRUE) {
+            teleportCollision = true;
+            return std::make_pair(true, intersect);
+        }
+    }
+    teleportCollision = false;
+    return std::make_pair(false, intersect);
 }
 
 std::pair<bool, SDL_Rect> World::collideWithCoin(GameObject *obj) {

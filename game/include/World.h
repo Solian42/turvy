@@ -19,7 +19,7 @@ class World {
 public:
     World(int width, int height, int numEntities, int numPlatforms,
           int numSpikes, int numCheckpoints, int numCoins, int numTrampolines,
-          int numEnemies);
+          int numEnemies, int numTeleports);
 
     int transformXtoCamera(int x);
     int transformYtoCamera(int y);
@@ -29,6 +29,7 @@ public:
     void updateVolume(int entityNum, int newX, int newY, int newW, int newH);
     bool checkSpikeCollisions();
     bool checkEnemyCollisions();
+    bool checkTeleportCollisions();
 
     float getCameraX() { return cameraX; }
     float getCameraY() { return cameraY; }
@@ -41,6 +42,7 @@ public:
     bool collideWithSpike(GameObject *obj);
     bool collideWithCheckpoint(GameObject *obj);
     std::pair<bool, SDL_Rect> collideWithCoin(GameObject *obj);
+    std::pair<bool, SDL_Rect> collideWithTeleport(GameObject *obj);
     bool collideWithTrampoline(GameObject *obj);
     bool collideWithEnemies(GameObject *obj);
     bool intersectCamera(SDL_Rect *toTest);
@@ -63,18 +65,23 @@ public:
     int worldYLen = 0;
     SDL_Rect getTrampolineLocation(int num);
     SDL_Rect getEnemyLocation(int num);
+    SDL_Rect getTeleportLocation(int num);
     bool testCollide(SDL_Rect a, SDL_Rect b);
     // bool collision = false;
     void setSpikeCollision(bool collide) { spikeCollision = collide; }
     void setEnemyCollision(bool collide) { enemyCollision = collide; }
     void setCoinCollision(bool collide) { coinCollision = collide; }
+    void setTeleportCollision(bool collide) { teleportCollision = collide; }
     void setPlayerDeath(bool death) { isPlayerDead = death; }
+    void setPlayerTeleport(bool tele) { isPlayerTeleport = tele; }
 
     bool isCollidingWithSpike() { return spikeCollision && !godMode; }
     bool isCollidingWithEnemy() { return enemyCollision && !godMode; }
     bool isCollidingWithCoin() { return coinCollision; }
     bool isCollidingWithCheckpoint() { return checkpointCollision; }
+    bool isCollidingWithTeleport() { return teleportCollision; }
     bool playerIsDead() { return isPlayerDead; }
+    bool playerIsTeleport() { return isPlayerTeleport; }
 
     bool godMode = false;
 
@@ -84,8 +91,14 @@ public:
     void setCurrCheckX(float x) { currCheckX = x; }
     void setCurrCheckY(float y) { currCheckY = y; }
 
+    float getTeleX() { return teleX; }
+    float getTeleY() { return teleY; }
+
+    void setTeleX(float x) { teleX = x; }
+    void setTeleY(float y) { teleY = y; }
+
     int numEntities, numPlatforms, numSpikes, numCheckpoints, numCoins,
-        numTrampolines, numEnemies;
+        numTrampolines, numEnemies, numTeleports;
 
     std::vector<SDL_Rect> entityVolumes;
     std::vector<SDL_Rect> platformVolumes;
@@ -94,18 +107,23 @@ public:
     std::vector<SDL_Rect> coinVolumes;
     std::vector<SDL_Rect> trampolineVolumes;
     std::vector<SDL_Rect> enemyVolumes;
+    std::vector<SDL_Rect> teleportVolumes;
 
 private:
     bool checkpointCollision = false;
     bool coinCollision = false;
     bool spikeCollision = false;
     bool enemyCollision = false;
+    bool teleportCollision = false;
     bool isPlayerDead = false;
+    bool isPlayerTeleport = false;
 
     float cameraX = -640.0;
     float cameraY = -360.0;
     float currCheckX = 50;
     float currCheckY = 50;
+    float teleX = 0;
+    float teleY = 0;
     SDL_Rect camera = {-640, -360, 1280, 720};
 };
 

@@ -264,4 +264,24 @@
 			<texture> checkpoint2 </texture>
 		</c2>
 	</checkpoints>
+    <teleports>
+        <te1>
+            <x> 300 </x>
+            <y> 290 </y>
+            <newX> 600 </newX>
+            <newY> 500 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te1>
+        <te2>
+            <x> 450 </x>
+            <y> 290 </y>
+            <newX> 350 </newX>
+            <newY> 500 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te2>
+    </teleports>
 </rectangles>

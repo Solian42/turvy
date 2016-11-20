@@ -37,6 +37,18 @@ void PlayerObject::respawn(World *world) {
     myScore->respawn();
 }
 
+void PlayerObject::teleport(World *world) {
+    world->setPlayerTeleport(false);
+    setX(world->getTeleX());
+    world->setCameraX(-640 + world->getTeleX());
+    setY(world->getTeleY());
+    world->setCameraY(world->getTeleY() - 360);
+    setYVel(-.5);
+    graphics->setUpsideDown(false);
+    graphics->setCurrState(0);
+    world->updateVolume(entityNum, getX(), getY(), getW(), getH());
+}
+
 PlayerObject::~PlayerObject() {
     delete graphics;
     delete input;

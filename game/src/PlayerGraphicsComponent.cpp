@@ -83,6 +83,10 @@ void PlayerGraphicsComponent::updateCurrentSprite(World *world, int dt) {
         return;
     }
 
+    if (world->playerIsTeleport()) {
+        myPlayer->teleport(world);
+    }
+
     if (myPlayer->getYVel() < 0.0 && !myPlayer->onPlatform) {
         if (myPlayer->getXVel() > 0.0) {
             currState = RIGHT_GRIN_DOWN;

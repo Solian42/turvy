@@ -26,7 +26,7 @@ void GameState::loadNewLevel(std::string levelName) {
         1280 * 5, 720 * 10, numEntities, parser->parsedPlatforms.size(),
         parser->parsedSpikes.size(), parser->parsedCheckpoints.size(),
         parser->parsedCoins.size(), parser->parsedTrampolines.size(),
-        parser->parsedEnemies.size());
+        parser->parsedEnemies.size(), parser->parsedTeleports.size());
     scoreMgr =
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
     /*added score manager by Anthony*/
@@ -42,6 +42,7 @@ void GameState::loadNewLevel(std::string levelName) {
     coins = std::vector<CoinObject *>();
     trampolines = std::vector<TrampolineObject *>();
     enemies = std::vector<EnemyObject *>();
+    teleports = std::vector<TeleportObject *>();
     entities = std::vector<GameObject *>(1);
     statics = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
                                 SDL_TEXTUREACCESS_TARGET, windowWidth * 5,
@@ -241,6 +242,22 @@ void GameState::loadNewLevel(std::string levelName) {
                                              pair.second[2], in, e, ph, j);
         enemies.push_back(enemy);
     }
+    j = 0;
+    for (std::pair<std::vector<std::string>, std::vector<int>> pair :
+         parser->parsedTeleports) {
+        TeleportGraphicsComponent *te = new TeleportGraphicsComponent(
+            renderer, resources, {pair.first[0], pair.first[1], pair.first[2]});
+        TeleportPhysicsComponent *ph = new TeleportPhysicsComponent();
+        TeleportObject *teleport =
+            new TeleportObject(pair.second[0], pair.second[1], pair.second[2],
+                               pair.second[3], j, te, ph, player);
+        ph->myTeleport = teleport;
+        teleports.push_back(teleport);
+        SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE,
+                         MIN_TILE_SIZE};
+        world->teleportVolumes[j] = temp;
+        j++;
+    }
 
     backgroundObjects = std::vector<GameObject *>(1);
 
@@ -361,13 +378,17 @@ void GameState::doSound() { player->sound->update(world); }
 void GameState::doPhysics(int dt) {
     world->setCoinCollision(false);
     world->setSpikeCollision(world->checkSpikeCollisions());
-    world->setSpikeCollision(world->checkEnemyCollisions());
+    world->setEnemyCollision(world->checkEnemyCollisions());
+    world->setTeleportCollision(world->checkTeleportCollisions());
     player->physics->update(player, world, dt);
     for (EnemyObject *e : enemies) {
         e->physics->update(e, world, dt);
     }
     for (CoinObject *co : coins) {
         co->physics->update(world, dt);
+    }
+    for (TeleportObject *te : teleports) {
+        te->physics->update(world, dt);
     }
 
     if (world->testCollide(*player->getLocation(),
@@ -398,6 +419,9 @@ void GameState::render(int dt) {
         if (world->intersectCamera(c->getLocation())) {
             c->graphics->update(world);
         }
+    }
+    for (TeleportObject *te : teleports) {
+        te->graphics->update(world, dt);
     }
     SDL_RenderCopy(renderer, statics, NULL, &temp);
     player->graphics->update(world, dt);
@@ -507,6 +531,9 @@ void GameState::cleanCurrentLevel() {
     for (EnemyObject *e : enemies) {
         delete e;
     }
+    for (TeleportObject *te : teleports) {
+        delete te;
+    }
     for (GameObject *o : backgroundObjects) {
         delete o;
     }
@@ -534,6 +561,9 @@ GameState::~GameState() {
     }
     for (EnemyObject *e : enemies) {
         delete e;
+    }
+    for (TeleportObject *te : teleports) {
+        delete te;
     }
     for (GameObject *o : backgroundObjects) {
         delete o;

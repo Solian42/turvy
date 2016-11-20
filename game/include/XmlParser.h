@@ -7,6 +7,7 @@
 #include "PlatformObject.h"
 #include "SpikesObject.h"
 #include "TrampolineObject.h"
+#include "TeleportObject.h"
 #include <SDL.h>
 #include <cstdlib>
 #include <fstream>
@@ -28,6 +29,8 @@ public:
     std::vector<std::pair<std::string, std::vector<int>>> parsedTrampolines;
     std::vector<std::pair<std::vector<std::string>, std::vector<int>>>
         parsedEnemies;
+    std::vector<std::pair<std::vector<std::string>, std::vector<int>>>
+        parsedTeleports;
     std::string startTag;
     std::string objName;
     std::ifstream infile;

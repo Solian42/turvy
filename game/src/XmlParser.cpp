@@ -21,7 +21,8 @@ void XmlParser::parse(std::string startTag) {
         startTag.compare("<checkpoints>") == 0 ||
         startTag.compare("<coins>") == 0 ||
         startTag.compare("<trampolines>") == 0 ||
-        startTag.compare("<enemies>") == 0) {
+        startTag.compare("<enemies>") == 0 ||
+        startTag.compare("<teleports>") == 0) {
         infile >> garbage;
         objName = startTag;
     } else if (startTag.compare("</platforms>") == 0 ||
@@ -29,7 +30,8 @@ void XmlParser::parse(std::string startTag) {
                startTag.compare("</checkpoints>") == 0 ||
                startTag.compare("</coins>") == 0 ||
                startTag.compare("</trampolines>") == 0 ||
-               startTag.compare("</enemies>") == 0) {
+               startTag.compare("</enemies>") == 0 ||
+               startTag.compare("</teleports>") == 0) {
         objName = "unknown";
         return;
     }
@@ -100,6 +102,20 @@ void XmlParser::parse(std::string startTag) {
         xydir.push_back(y);
         xydir.push_back(direction);
         parsedEnemies.push_back(std::make_pair(textureNames, xydir));
+    } else if (objName.compare("<teleports>") == 0) {
+        int x = std::stoi(singleTagHandler());
+        int y = std::stoi(singleTagHandler());
+        int newX = std::stoi(singleTagHandler());
+        int newY = std::stoi(singleTagHandler());
+        std::vector<std::string> textureNames = {
+            singleTagHandler(), singleTagHandler(), singleTagHandler()};
+        
+        std::vector<int> teleXY;
+        teleXY.push_back(x);
+        teleXY.push_back(y);
+        teleXY.push_back(newX);
+        teleXY.push_back(newY);
+        parsedTeleports.push_back(std::make_pair(textureNames, teleXY));
     }
 
     infile >> garbage;

@@ -79,3 +79,7 @@ checkpoint2 ../data/images/checkpoint2.png
 coin1 ../data/images/coin.png
 
 trampoline1 ../data/images/trampoline.png
+
+teleport1 ../data/images/teleport1.png
+teleport2 ../data/images/teleport2.png
+teleport3 ../data/images/teleport3.png

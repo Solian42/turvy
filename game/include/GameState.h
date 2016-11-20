@@ -32,6 +32,7 @@ private:
     int numCoins = 0;
     int numTrampolines = 0;
     int numEnemies = 0;
+    int numTeleports = 0;
     int windowHeight, windowWidth;
     const int MIN_TILE_SIZE = 10;
     std::vector<GameObject *> entities;
@@ -42,6 +43,7 @@ private:
     std::vector<CoinObject *> coins;
     std::vector<TrampolineObject *> trampolines;
     std::vector<EnemyObject *> enemies;
+    std::vector<TeleportObject *> teleports;
     std::string backgroundMusic;
     PlayerObject *player = nullptr;
 

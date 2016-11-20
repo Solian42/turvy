@@ -47,6 +47,12 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         world->setPlayerDeath(true);
     }
 
+    // if we collide with a teleport
+    std::pair<bool, SDL_Rect> temp = world->collideWithTeleport(playerObj);
+    if (temp.first) {
+        world->setPlayerTeleport(true);
+    }
+
     // if we collide with a checkpoint
     if (world->collideWithCheckpoint(playerObj)) {
 
