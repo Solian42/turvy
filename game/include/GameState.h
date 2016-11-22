@@ -44,6 +44,7 @@ private:
     std::vector<TrampolineObject *> trampolines;
     std::vector<EnemyObject *> enemies;
     std::vector<TeleportObject *> teleports;
+    std::vector<DialogueObject *> dialogues;
     std::string backgroundMusic;
     PlayerObject *player = nullptr;
 
@@ -63,8 +64,8 @@ private:
 
     PlayerObject *createPlayer(int entityNum, ScoreManager *score,
                                std::vector<std::string> spriteNames);
-    EnemyObject *createEnemy(int x, int y, int entityNum,
-                             std::vector<std::string> spriteNames);
+    //EnemyObject *createEnemy(int x, int y, int entityNum,
+                             //std::vector<std::string> spriteNames);
     GameObject *createSetpiece(int x, int y, std::vector<std::string> sprites);
 
     ScoreManager *scoreMgr = nullptr;

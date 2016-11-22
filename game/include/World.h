@@ -19,7 +19,7 @@ class World {
 public:
     World(int width, int height, int numEntities, int numPlatforms,
           int numSpikes, int numCheckpoints, int numCoins, int numTrampolines,
-          int numEnemies, int numTeleports);
+          int numEnemies, int numTeleports, int numDialogues);
 
     int transformXtoCamera(int x);
     int transformYtoCamera(int y);
@@ -66,6 +66,7 @@ public:
     SDL_Rect getTrampolineLocation(int num);
     SDL_Rect getEnemyLocation(int num);
     SDL_Rect getTeleportLocation(int num);
+    SDL_Rect getDialogueLocation(int num);
     bool testCollide(SDL_Rect a, SDL_Rect b);
     // bool collision = false;
     void setSpikeCollision(bool collide) { spikeCollision = collide; }
@@ -98,7 +99,7 @@ public:
     void setTeleY(float y) { teleY = y; }
 
     int numEntities, numPlatforms, numSpikes, numCheckpoints, numCoins,
-        numTrampolines, numEnemies, numTeleports;
+        numTrampolines, numEnemies, numTeleports, numDialogues;
 
     std::vector<SDL_Rect> entityVolumes;
     std::vector<SDL_Rect> platformVolumes;
@@ -108,6 +109,7 @@ public:
     std::vector<SDL_Rect> trampolineVolumes;
     std::vector<SDL_Rect> enemyVolumes;
     std::vector<SDL_Rect> teleportVolumes;
+    std::vector<SDL_Rect> dialogueVolumes;
 
 private:
     bool checkpointCollision = false;

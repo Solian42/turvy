@@ -8,6 +8,7 @@
 #include "SpikesObject.h"
 #include "TeleportObject.h"
 #include "TrampolineObject.h"
+#include "DialogueObject.h"
 #include <SDL.h>
 #include <cstdlib>
 #include <fstream>
@@ -31,6 +32,7 @@ public:
         parsedEnemies;
     std::vector<std::pair<std::vector<std::string>, std::vector<int>>>
         parsedTeleports;
+    std::vector<std::pair<std::string, std::vector<int>>> parsedDialogues;
     std::string startTag;
     std::string objName;
     std::ifstream infile;

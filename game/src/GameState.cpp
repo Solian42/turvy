@@ -26,10 +26,11 @@ void GameState::loadNewLevel(std::string levelName) {
         1280 * 5, 720 * 10, numEntities, parser->parsedPlatforms.size(),
         parser->parsedSpikes.size(), parser->parsedCheckpoints.size(),
         parser->parsedCoins.size(), parser->parsedTrampolines.size(),
-        parser->parsedEnemies.size(), parser->parsedTeleports.size());
+        parser->parsedEnemies.size(), parser->parsedTeleports.size(),
+        parser->parsedDialogues.size());
     scoreMgr =
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
-    /*added score manager by Anthony*/
+    
     player = createPlayer(0, scoreMgr,
                           {"rps0",  "rps1",  "rps2",  "rps3",  "ulps0",
                            "ulps1", "ulps2", "ulps3", "lps0",  "lps1",
@@ -43,6 +44,7 @@ void GameState::loadNewLevel(std::string levelName) {
     trampolines = std::vector<TrampolineObject *>();
     enemies = std::vector<EnemyObject *>();
     teleports = std::vector<TeleportObject *>();
+    dialogues = std::vector<DialogueObject *>();
     entities = std::vector<GameObject *>(1);
     statics = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
                                 SDL_TEXTUREACCESS_TARGET, windowWidth * 5,
@@ -258,6 +260,23 @@ void GameState::loadNewLevel(std::string levelName) {
         world->teleportVolumes[j] = temp;
         j++;
     }
+    j = 0;
+    for (std::pair<std::string, std::vector<int>> pair :
+         parser->parsedDialogues) {
+        DialogueGraphicsComponent *d = 
+            new DialogueGraphicsComponent(renderer, resources, {pair.first});
+        DialogueInputComponent *in = new DialogueInputComponent(world);
+        DialogueObject *dialogue = new DialogueObject(
+            pair.second[0], pair.second[1], pair.second[2], pair.second[3],
+            j, d, in);
+        d->myDialogue = dialogue;
+        in->setDialogue(dialogue);
+        dialogues.push_back(dialogue);
+        SDL_Rect temp = {pair.second[0], pair.second[1], pair.second[2],
+                         pair.second[3]};
+        world->dialogueVolumes[j] = temp;
+        j++;
+    }
 
     backgroundObjects = std::vector<GameObject *>(1);
 
@@ -369,6 +388,9 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
     }
 
     player->input->update(e, dt);
+    for (DialogueObject *d: dialogues) {
+        d->input->update(e, dt);
+    }
 
     return getMyState();
 }
@@ -423,6 +445,7 @@ void GameState::render(int dt) {
     for (TeleportObject *te : teleports) {
         te->graphics->update(world, dt);
     }
+
     SDL_RenderCopy(renderer, statics, NULL, &temp);
     player->graphics->update(world, dt);
     int j = 0;
@@ -438,6 +461,9 @@ void GameState::render(int dt) {
         j++;
     }
     backgroundObjects[0]->graphics->update(world, dt);
+    for (DialogueObject *d : dialogues) {
+        d->graphics->update(world);
+    }
     scoreMgr->printScore(1280, 0);
 }
 
@@ -534,6 +560,9 @@ void GameState::cleanCurrentLevel() {
     for (TeleportObject *te : teleports) {
         delete te;
     }
+    for (DialogueObject *d : dialogues) {
+        delete d;
+    }
     for (GameObject *o : backgroundObjects) {
         delete o;
     }
@@ -564,6 +593,9 @@ GameState::~GameState() {
     }
     for (TeleportObject *te : teleports) {
         delete te;
+    }
+    for (DialogueObject *d : dialogues) {
+        delete d;
     }
     for (GameObject *o : backgroundObjects) {
         delete o;

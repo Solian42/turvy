@@ -22,7 +22,8 @@ void XmlParser::parse(std::string startTag) {
         startTag.compare("<coins>") == 0 ||
         startTag.compare("<trampolines>") == 0 ||
         startTag.compare("<enemies>") == 0 ||
-        startTag.compare("<teleports>") == 0) {
+        startTag.compare("<teleports>") == 0 ||
+        startTag.compare("<dialogues>") == 0) {
         infile >> garbage;
         objName = startTag;
     } else if (startTag.compare("</platforms>") == 0 ||
@@ -31,7 +32,8 @@ void XmlParser::parse(std::string startTag) {
                startTag.compare("</coins>") == 0 ||
                startTag.compare("</trampolines>") == 0 ||
                startTag.compare("</enemies>") == 0 ||
-               startTag.compare("</teleports>") == 0) {
+               startTag.compare("</teleports>") == 0 ||
+               startTag.compare("</dialogues>") == 0) {
         objName = "unknown";
         return;
     }
@@ -116,6 +118,19 @@ void XmlParser::parse(std::string startTag) {
         teleXY.push_back(newX);
         teleXY.push_back(newY);
         parsedTeleports.push_back(std::make_pair(textureNames, teleXY));
+    } else if (objName.compare("<dialogues>") == 0) {
+        int x = std::stoi(singleTagHandler());
+        int y = std::stoi(singleTagHandler());
+        int w = std::stoi(singleTagHandler());
+        int h = std::stoi(singleTagHandler());
+        std::string textureName = singleTagHandler();
+
+        std::vector<int> dim;
+        dim.push_back(x);
+        dim.push_back(y);
+        dim.push_back(w);
+        dim.push_back(h);
+        parsedDialogues.push_back(std::make_pair(textureName, dim));
     }
 
     infile >> garbage;
