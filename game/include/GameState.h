@@ -1,7 +1,6 @@
 #ifndef LIZARD_GAME_STATE
 #define LIZARD_GAME_STATE
 
-#include "EnemyObject.h"
 #include "PlayerObject.h"
 #include "ScoreManager.h"
 #include "State.h"
@@ -64,8 +63,6 @@ private:
 
     PlayerObject *createPlayer(int entityNum, ScoreManager *score,
                                std::vector<std::string> spriteNames);
-    //EnemyObject *createEnemy(int x, int y, int entityNum,
-                             //std::vector<std::string> spriteNames);
     GameObject *createSetpiece(int x, int y, std::vector<std::string> sprites);
 
     ScoreManager *scoreMgr = nullptr;

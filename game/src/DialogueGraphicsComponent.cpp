@@ -25,7 +25,6 @@ void DialogueGraphicsComponent::update(World *world) {
 }
 
 void DialogueGraphicsComponent::updateCurrentSprite() {
-
     currentSprite = spriteNames[currState];
 }
 
