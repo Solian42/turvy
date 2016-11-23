@@ -2,7 +2,11 @@
 
 TeleportGraphicsComponent::TeleportGraphicsComponent(
     SDL_Renderer *ren, ResourceManager *r, std::vector<std::string> spritenames)
-    : GraphicsComponent(ren, r, spritenames) {}
+    : GraphicsComponent(ren, r, spritenames) {
+
+        SDL_QueryTexture(resources->getTexture("destination1"), NULL, NULL, &currW,
+                     &currH);  
+    }
 
 TeleportGraphicsComponent::~TeleportGraphicsComponent() {}
 
@@ -10,8 +14,8 @@ void TeleportGraphicsComponent::update(World *world, int dt) {
 
     updateCurrentSprite(dt);
 
-    SDL_Rect temp = {world->transformXtoCamera(myObj->getX()),
-                     world->transformYtoCamera(myObj->getY() + myObj->getH()),
+    SDL_Rect temp = {world->transformXtoCamera(myTeleport->getX()),
+                     world->transformYtoCamera(myTeleport->getY() + myTeleport->getH()),
                      currW, currH};
 
     if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,
@@ -19,6 +23,15 @@ void TeleportGraphicsComponent::update(World *world, int dt) {
         std::cout << "Something broke: " << SDL_GetError() << " "
                   << currentSprite << "\n";
     }
+
+    SDL_Rect tempDest = {world->transformXtoCamera(myTeleport->getNewX()),
+                         world->transformYtoCamera(myTeleport->getNewY() + myTeleport->getH()),
+                         currW, currH};
+    if (SDL_RenderCopy(myRenderer, resources->getTexture("destination1"), NULL,
+                       &tempDest) < 0) {
+        std::cout << "Something broke: " << SDL_GetError() << " "
+                  << "destination1" << "\n";
+    } 
 }
 
 void TeleportGraphicsComponent::updateCurrentSprite(int dt) {

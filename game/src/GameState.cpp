@@ -253,6 +253,7 @@ void GameState::loadNewLevel(std::string levelName) {
         TeleportObject *teleport =
             new TeleportObject(pair.second[0], pair.second[1], pair.second[2],
                                pair.second[3], j, te, ph, player);
+        te->myTeleport = teleport;
         ph->myTeleport = teleport;
         teleports.push_back(teleport);
         SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE,

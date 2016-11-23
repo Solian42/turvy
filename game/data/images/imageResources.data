@@ -84,4 +84,6 @@ teleport1 ../data/images/teleport1.png
 teleport2 ../data/images/teleport2.png
 teleport3 ../data/images/teleport3.png
 
+destination1 ../data/images/destination1.png
+
 dialogueT ../data/images/dialogueTest.png

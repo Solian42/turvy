@@ -16,6 +16,7 @@ public:
     void update(World *world, int dt);
     ~TeleportGraphicsComponent();
     void setCurrState(int state);
+    TeleportObject *myTeleport = nullptr;
 
 private:
     int time = 0;
