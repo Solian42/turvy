@@ -45,6 +45,10 @@ C: Teleport to last checkpoint in a level
 G: Godmode. 
 P: Pause (press return in the console to unpause)
 
+All others should be self explanatory!
+
+##########################################################################################
+
 Level Editor:
 * Navigate through objects to place using keys 1-7.
    (1: Platform, 2: Spike, 3: Checkpoint, 4: Coin, 5: Trampoline, 6: Enemy, 7: Objective)
@@ -53,8 +57,6 @@ Level Editor:
 * Use arrow keys to navigate througout the world.
 * Use "WASD" keys to set directions of the spike(N,S,W,E directions)
 * "c" key toggles on view coordinate mode.
-
-All others should be self explanatory!
 
 ##########################################################################################
 
