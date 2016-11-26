@@ -41,6 +41,7 @@ background1 ../data/images/background.png
 background2 ../data/images/rainbowWorld.png
 background3 ../data/images/nightWorld.png
 
+baseplatcursor ../data/images/platforms/basePlatTile/platBase.png
 baseplat0 ../data/images/platforms/basePlatTile/plat_0.png
 baseplat1 ../data/images/platforms/basePlatTile/plat_1.png
 baseplat2 ../data/images/platforms/basePlatTile/plat_2.png

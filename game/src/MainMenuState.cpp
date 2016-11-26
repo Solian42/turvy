@@ -45,6 +45,8 @@ int MainMenuState::handleEvent(SDL_Event *e, int dt) {
         case SDLK_h:
             Mix_HaltMusic();
             return STATE_HIGHSCORE;
+        case SDLK_l:
+            return STATE_LEVELEDITOR;
         default:
             break;
         }

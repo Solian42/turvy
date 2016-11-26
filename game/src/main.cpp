@@ -37,6 +37,8 @@ void run() {
         new LevelFourBeginState(mainRenderer, width, height, resources);
     states[STATE_HIGHSCORE] =
         new HighScoreState(mainRenderer, width, height, resources);
+    states[STATE_LEVELEDITOR] =
+        new LevelEditor(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
     int currStateType = STATE_TITLE;
     currState->startMusic(32);
@@ -134,6 +136,11 @@ void run() {
                 case STATE_LEVELFOURBEGIN: {
                     currState = states[STATE_LEVELFOURBEGIN];
                     currStateType = STATE_LEVELFOURBEGIN;
+                    break;
+                }
+                case STATE_LEVELEDITOR: {
+                    currState = states[STATE_LEVELEDITOR];
+                    currStateType = STATE_LEVELEDITOR;
                     break;
                 }
                 default:
