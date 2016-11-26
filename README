@@ -52,6 +52,8 @@ All others should be self explanatory!
 Level Editor:
 * Navigate through objects to place using keys 1-7.
    (1: Platform, 2: Spike, 3: Checkpoint, 4: Coin, 5: Trampoline, 6: Enemy, 7: Objective)
+* Drag and release to set an object in place.
+* Press "Space" to save and quit. (XML file is saved to /data/levels/level_editor.xml)
 * For creative convenience, press "x" to toggle x-coordinate lock mode, so you can drag&draw horizontal platforms,
    and "z" to toggle y-coordinate lock mode, so you can drag and draw vertiacal platforms.
 * Use arrow keys to navigate througout the world.
