@@ -362,7 +362,15 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             break;
 
         case SDLK_l:
-            //TODO: load level edited level!
+            currLevel = 5;
+            if (player->getXVel() > 0) {
+                SDL_Event user_event;
+                user_event.type = SDL_KEYDOWN;
+                user_event.key.keysym.sym = SDLK_RIGHT;
+                user_event.key.repeat = 0;
+                SDL_PushEvent(&user_event);
+            }
+            loadNewLevel(levelNames[4]);
             break;
 
         case SDLK_c:
@@ -381,7 +389,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
         }
     }
     if (hasWon) {
-        if (currLevel == numLevels) {
+        if (currLevel == (numLevels - 1)) {
             return STATE_HIGHSCORE;
         }
 

@@ -2,3 +2,4 @@ level1 ../data/levels/level1.xml
 level2 ../data/levels/level2.xml
 level3 ../data/levels/level3.xml
 level4 ../data/levels/level4.xml
+level_editor ../data/levels/level_editor.xml
