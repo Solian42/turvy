@@ -361,6 +361,10 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             return STATE_LEVELFOURBEGIN;
             break;
 
+        case SDLK_l:
+            //TODO: load level edited level!
+            break;
+
         case SDLK_c:
             player->setCheckX(checkpoints[checkpoints.size() - 1]->getX());
             player->setCheckY(checkpoints[checkpoints.size() - 1]->getY());
