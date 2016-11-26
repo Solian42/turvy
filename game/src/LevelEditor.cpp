@@ -249,7 +249,7 @@ void LevelEditor::makeXML(std::string& filename){
         xmlfile << std::string("            <y> ") << d.y << std::string(" </y>\n");
         xmlfile << std::string("            <width> ") << d.w << std::string(" </width>\n");
         xmlfile << std::string("            <height> ") << d.h << std::string(" </height>\n");
-        xmlfile << std::string("            <texture> plat6 ") << std::string(" </texture>\n");
+        xmlfile << std::string("            <texture> sand ") << std::string(" </texture>\n");
         xmlfile << std::string("        </p") << count << '>' << '\n';
         count++;
     }
