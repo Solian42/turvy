@@ -14,13 +14,13 @@ int main() {
 
 void run() {
 
-    std::vector<State *> states = std::vector<State *>(8);
+    std::vector<State *> states = std::vector<State *>(9);
     states[STATE_GAME] =
         new GameState(mainRenderer, width, height, resources,
-                      {{"level1", "level2", "level3"},
-                       {"level1", "level2", "level3"},
-                       {"background1", "background2", "background3"}},
-                      3);
+                      {{"level1", "level2", "level3", "level4"},
+                       {"level1", "level2", "level3", "level4"},
+                       {"background1", "background2", "background3", "background3"}},
+                      4);
     states[STATE_TITLE] =
         new TitleState(mainRenderer, width, height, resources);
     states[STATE_MAINMENU] =
@@ -33,6 +33,8 @@ void run() {
         new LevelTwoBeginState(mainRenderer, width, height, resources);
     states[STATE_LEVELTHREEBEGIN] =
         new LevelThreeBeginState(mainRenderer, width, height, resources);
+    states[STATE_LEVELFOURBEGIN] =
+        new LevelFourBeginState(mainRenderer, width, height, resources);
     states[STATE_HIGHSCORE] =
         new HighScoreState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
@@ -127,6 +129,11 @@ void run() {
                 case STATE_LEVELTHREEBEGIN: {
                     currState = states[STATE_LEVELTHREEBEGIN];
                     currStateType = STATE_LEVELTHREEBEGIN;
+                    break;
+                }
+                case STATE_LEVELFOURBEGIN: {
+                    currState = states[STATE_LEVELFOURBEGIN];
+                    currStateType = STATE_LEVELFOURBEGIN;
                     break;
                 }
                 default:

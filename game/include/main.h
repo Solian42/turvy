@@ -4,6 +4,7 @@
 #include "EnemyObject.h"
 #include "GameState.h"
 #include "HighScoreState.h"
+#include "LevelFourBeginState.h"
 #include "LevelOneBeginState.h"
 #include "LevelOneInstructState.h"
 #include "LevelThreeBeginState.h"

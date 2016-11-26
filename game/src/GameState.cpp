@@ -348,6 +348,18 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
             loadNewLevel(levelNames[2]);
             return STATE_LEVELTHREEBEGIN;
             break;
+        case SDLK_4:
+            currLevel = 4;
+            if (player->getXVel() > 0) {
+                SDL_Event user_event;
+                user_event.type = SDL_KEYDOWN;
+                user_event.key.keysym.sym = SDLK_RIGHT;
+                user_event.key.repeat = 0;
+                SDL_PushEvent(&user_event);
+            }
+            loadNewLevel(levelNames[3]);
+            return STATE_LEVELFOURBEGIN;
+            break;
 
         case SDLK_c:
             player->setCheckX(checkpoints[checkpoints.size() - 1]->getX());
@@ -385,6 +397,9 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
         }
         if (currLevel == 3) {
             return STATE_LEVELTHREEBEGIN;
+        }
+        if (currLevel == 4) {
+            return STATE_LEVELFOURBEGIN;
         }
     }
 
