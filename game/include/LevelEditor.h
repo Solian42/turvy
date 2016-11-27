@@ -9,8 +9,13 @@ enum {
 class LevelEditor : public State {
 public:
     const int SCROLLSIZE = 50;
+    const int platBaseSize = 20;
+    const int spikeBaseSize = 20;
+    const int checkpointBaseSize = 20;
+    const int coinBaseSize = 40;
+    const int trampolineBaseSize = 10;
     struct DIMENSION{
-        int x, y, w, h;
+        int x, y, w, h, dir;
     };
     struct WORLDVIEW{
         int x, y;
@@ -29,8 +34,7 @@ public:
     void makeXML(std::string& filename);
     void curate();
     void translate(int nx, int ny);
-    // void setCurrScore(int score);
-    // void setHighScore(int score);
+
 
     ~LevelEditor();
 

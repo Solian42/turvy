@@ -1,88 +1,127 @@
 <rectangles>
     <platforms>
         <p1>
-            <x> 0 </x>
-            <y> 0 </y>
-            <width> 5120 </width>
-            <height> 50 </height>
+            <x> 8 </x>
+            <y> 15 </y>
+            <width> 1263 </width>
+            <height> 20 </height>
             <texture> base  </texture>
         </p1>
         <p2>
-            <x> 1248 </x>
-            <y> 28 </y>
-            <width> 50 </width>
-            <height> 679 </height>
+            <x> 1273 </x>
+            <y> 32 </y>
+            <width> 606 </width>
+            <height> 20 </height>
             <texture> base  </texture>
         </p2>
         <p3>
-            <x> 493 </x>
-            <y> 678 </y>
-            <width> 1090 </width>
-            <height> 50 </height>
+            <x> 2131 </x>
+            <y> 1046 </y>
+            <width> 816 </width>
+            <height> 20 </height>
             <texture> base  </texture>
         </p3>
         <p4>
-            <x> 867 </x>
-            <y> 411 </y>
-            <width> 799 </width>
-            <height> 50 </height>
+            <x> 1312 </x>
+            <y> 655 </y>
+            <width> 568 </width>
+            <height> 20 </height>
             <texture> base  </texture>
         </p4>
         <p5>
-            <x> 1040 </x>
-            <y> 188 </y>
-            <width> 689 </width>
-            <height> 50 </height>
+            <x> 0 </x>
+            <y> 681 </y>
+            <width> 1253 </width>
+            <height> 20 </height>
             <texture> base  </texture>
         </p5>
-        <p6>
-            <x> 532 </x>
-            <y> 1054 </y>
-            <width> 22 </width>
-            <height> 50 </height>
-            <texture> base  </texture>
-        </p6>
-        <p7>
-            <x> 575 </x>
-            <y> 901 </y>
-            <width> 31 </width>
-            <height> 50 </height>
-            <texture> base  </texture>
-        </p7>
-        <p8>
-            <x> 599 </x>
-            <y> 744 </y>
-            <width> 107 </width>
-            <height> 50 </height>
-            <texture> base  </texture>
-        </p8>
-        <p9>
-            <x> 495 </x>
-            <y> 451 </y>
-            <width> 50 </width>
-            <height> 335 </height>
-            <texture> base  </texture>
-        </p9>
-        <p10>
-            <x> 740 </x>
-            <y> 212 </y>
-            <width> 50 </width>
-            <height> 429 </height>
-            <texture> base  </texture>
-        </p10>
-        <p11>
-            <x> 215 </x>
-            <y> 267 </y>
-            <width> 50 </width>
-            <height> 318 </height>
-            <texture> base  </texture>
-        </p11>
-        <p12>
-            <x> 102 </x>
-            <y> 497 </y>
-            <width> 50 </width>
-            <height> 223 </height>
-            <texture> base  </texture>
-        </p12>
     </platforms>
+    <spikes>
+        <s1>
+            <x> 216 </x>
+            <y> 33 </y>
+            <w> 411 </w>
+            <h> 20 </h>
+            <direction> 0 </direction>
+            <texture> spike1  </texture>
+        </s1>
+        <s2>
+            <x> 721 </x>
+            <y> 540 </y>
+            <w> 42 </w>
+            <h> 20 </h>
+            <direction> 0 </direction>
+            <texture> spike1  </texture>
+        </s2>
+        <s3>
+            <x> 773 </x>
+            <y> 466 </y>
+            <w> 20 </w>
+            <h> 41 </h>
+            <direction> 2 </direction>
+            <texture> spike1  </texture>
+        </s3>
+        <s4>
+            <x> 700 </x>
+            <y> 475 </y>
+            <w> 20 </w>
+            <h> 34 </h>
+            <direction> 3 </direction>
+            <texture> spike1  </texture>
+        </s4>
+        <s5>
+            <x> 721 </x>
+            <y> 463 </y>
+            <w> 39 </w>
+            <h> 20 </h>
+            <direction> 1 </direction>
+            <texture> spike1  </texture>
+        </s5>
+    </spikes>
+    <checkpoints>
+        <c1>
+            <x> 148 </x>
+            <y> 84 </y>
+            <texture> checkpoint1  </texture>
+            <texture> checkpoint2  </texture>
+        </c1>
+        <c2>
+            <x> 852 </x>
+            <y> 87 </y>
+            <texture> checkpoint1  </texture>
+            <texture> checkpoint2  </texture>
+        </c2>
+    </checkpoints>
+    <coins>
+        <coin1>
+            <x> 388 </x>
+            <y> 333 </y>
+            <texture> coin1  </texture>
+        </coin1>
+        <coin2>
+            <x> 1030 </x>
+            <y> 226 </y>
+            <texture> coin1  </texture>
+        </coin2>
+    </coins>
+    <trampolines>
+        <t1>
+            <x> 276 </x>
+            <y> 352 </y>
+            <w> 20 </w>
+            <texture> trampoline1  </texture>
+        </t1>
+        <t2>
+            <x> 321 </x>
+            <y> 599 </y>
+            <w> 178 </w>
+            <texture> trampoline1  </texture>
+        </t2>
+        <t3>
+            <x> 315 </x>
+            <y> 156 </y>
+            <w> 273 </w>
+            <texture> trampoline1  </texture>
+        </t3>
+    </trampolines>
 </rectangles>
