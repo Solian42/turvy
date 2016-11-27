@@ -75,7 +75,7 @@ int LevelEditor::handleEvent(SDL_Event *e, int dt) {
             currType = &trampolines;
             cursorTexture = resources->getTexture("trampoline1");
             SDL_QueryTexture(cursorTexture, NULL, NULL, &cw, &ch);
-            lockMode = -1;
+            lockMode = 1;
             break;
         case SDLK_6:
             currentCursorType = ENEMY;
