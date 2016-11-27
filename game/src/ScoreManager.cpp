@@ -27,10 +27,9 @@ void ScoreManager::resetScore() {
     numCoins = 0;
 }
 void ScoreManager::printScore(int width, int height) {
-    SDL_Color white = {255, 255, 255, 255};
     SDL_Texture *scoreTexture = resources->getFont(
         std::string("manaspc30"),
-        std::string("Current Score = ") + std::to_string(getScore()), white);
+        std::string("Current Score = ") + std::to_string(getScore()));
     int w, h;
     SDL_QueryTexture(scoreTexture, NULL, NULL, &w, &h);
     SDL_Rect temp = {(width - w) / 2, height, w, h};

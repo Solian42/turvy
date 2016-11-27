@@ -7,12 +7,11 @@ TitleState::TitleState(SDL_Renderer *r, int width, int height,
     this->height = height;
     resources = res;
     renderer = r;
-    SDL_Color white = {255, 255, 255, 255};
-    titleFont = resources->getFont(std::string("manaspc80"), title, white);
+    titleFont = resources->getFont(std::string("manaspc80"), title);
 
-    msgFont = resources->getFont(std::string("manaspc30"), titleMessage, white);
+    msgFont = resources->getFont(std::string("manaspc30"), titleMessage);
 
-    gameTitle = resources->getFont("manaspc80", gameName, white);
+    gameTitle = resources->getFont("manaspc80", gameName);
 
     int textureW;
     int textureH;

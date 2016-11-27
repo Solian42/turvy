@@ -7,13 +7,13 @@ MainMenuState::MainMenuState(SDL_Renderer *r, int width, int height,
     this->height = height;
     resources = res;
     renderer = r;
-    SDL_Color white = {255, 255, 255, 255};
-    title = resources->getFont("manaspc80", titleTitle, white);
-    newGame = resources->getFont("manaspc60", newGameTitle, white);
-    highScore = resources->getFont("manaspc60", highScoreTitle, white);
-    quitGame = resources->getFont("manaspc60", quitGameTitle, white);
-    adjustBright = resources->getFont("manaspc60", adjustBrightTitle, white);
-    adjustVol = resources->getFont("manaspc60", adjustVolTitle, white);
+
+    title = resources->getFont("manaspc80", titleTitle);
+    newGame = resources->getFont("manaspc60", newGameTitle);
+    highScore = resources->getFont("manaspc60", highScoreTitle);
+    quitGame = resources->getFont("manaspc60", quitGameTitle);
+    adjustBright = resources->getFont("manaspc60", adjustBrightTitle);
+    adjustVol = resources->getFont("manaspc60", adjustVolTitle);
 
     int w, h;
     SDL_QueryTexture(title, NULL, NULL, &w, &h);

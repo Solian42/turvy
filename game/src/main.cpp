@@ -14,7 +14,7 @@ int main() {
 
 void run() {
 
-    std::vector<State *> states = std::vector<State *>(9);
+    std::vector<State *> states = std::vector<State *>(10);
     states[STATE_GAME] =
         new GameState(mainRenderer, width, height, resources,
                       {{"level1", "level2", "level3", "level4", "level_editor"},
@@ -223,9 +223,8 @@ void printFPS(std::chrono::duration<double> dtNano) {
     std::ostringstream strs;
     strs << framerate;
     std::string str = strs.str();
-    SDL_Color white = {255, 255, 255, 255};
     SDL_Texture *fps = resources->getFont(std::string("manaspc30"),
-                                          std::string("FPS:") + str, white);
+                                          std::string("FPS:") + str);
     int w, h;
     SDL_QueryTexture(fps, NULL, NULL, &w, &h);
     SDL_Rect temp = {0, 0, w, h};

@@ -18,11 +18,13 @@ public:
     SDL_Texture *getTexture(std::string name);
     Mix_Music *getMusic(std::string name);
     Mix_Chunk *getChunk(std::string name);
-    SDL_Texture *getFont(std::string fontName, std::string text,
-                         SDL_Color color);
+    SDL_Texture *getFont(std::string fontName, std::string text);
     std::string getLevel(std::string level);
+    
+    void setTextColor(SDL_Color color);
 
 private:
+    SDL_Color currColor = {255, 255, 255, 255};
     void cleanup();
     SDL_Renderer *myRenderer;
     void loadImages();

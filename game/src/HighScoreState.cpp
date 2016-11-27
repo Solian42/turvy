@@ -7,13 +7,12 @@ HighScoreState::HighScoreState(SDL_Renderer *r, int width, int height,
     this->height = height;
     resources = res;
     renderer = r;
-    SDL_Color white = {255, 255, 255, 255};
-    title = resources->getFont("manaspc60", titleTitle, white);
-    highScore = resources->getFont("manaspc60", highScoreTitle, white);
-    backToMenu = resources->getFont("manaspc60", backToMenuTitle, white);
+    title = resources->getFont("manaspc60", titleTitle);
+    highScore = resources->getFont("manaspc60", highScoreTitle);
+    backToMenu = resources->getFont("manaspc60", backToMenuTitle);
     currScore =
-        resources->getFont("manaspc60", std::to_string(currScoreInt), white);
-    currTitle = resources->getFont("manaspc60", currTitleTitle, white);
+        resources->getFont("manaspc60", std::to_string(currScoreInt));
+    currTitle = resources->getFont("manaspc60", currTitleTitle);
 
     int w, h;
     SDL_QueryTexture(title, NULL, NULL, &w, &h);
@@ -53,14 +52,13 @@ int HighScoreState::handleEvent(SDL_Event *e, int dt) {
 
 void HighScoreState::setCurrScore(int score) {
     currScoreInt = score;
-    SDL_Color white = {255, 255, 255, 255};
     SDL_DestroyTexture(currScore);
     if (currScoreInt == -1) {
         currScore =
-            resources->getFont("manaspc60", "No score found. :(", white);
+            resources->getFont("manaspc60", "No score found. :(");
     } else {
         currScore = resources->getFont("manaspc60",
-                                       std::to_string(currScoreInt), white);
+                                       std::to_string(currScoreInt));
         if (std::stoi(getHighScore()) < currScoreInt) {
             setHighScore(currScoreInt);
         }
@@ -87,8 +85,7 @@ std::string HighScoreState::getHighScore() {
     }
 
     SDL_DestroyTexture(highScore);
-    SDL_Color white = {255, 255, 255, 255};
-    highScore = resources->getFont("manaspc60", highScoreTitle, white);
+    highScore = resources->getFont("manaspc60", highScoreTitle);
     int w, h;
     SDL_QueryTexture(highScore, NULL, NULL, &w, &h);
     highScoreRect = {(this->width - w) / 2, (int)floor(height * 0.32), w, h};

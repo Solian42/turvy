@@ -7,11 +7,10 @@ LevelOneInstructState::LevelOneInstructState(SDL_Renderer *r, int width,
     this->height = height;
     resources = res;
     renderer = r;
-    SDL_Color white = {255, 255, 255, 255};
-    spikeInfo = resources->getFont("manaspc60", spikeInfoTitle, white);
-    checkInfo = resources->getFont("manaspc60", checkInfoTitle, white);
-    mechInfo = resources->getFont("manaspc60", mechInfoTitle, white);
-    startInfo = resources->getFont("manaspc60", startInfoTitle, white);
+    spikeInfo = resources->getFont("manaspc60", spikeInfoTitle);
+    checkInfo = resources->getFont("manaspc60", checkInfoTitle);
+    mechInfo = resources->getFont("manaspc60", mechInfoTitle);
+    startInfo = resources->getFont("manaspc60", startInfoTitle);
 
     int w, h;
     SDL_QueryTexture(spikeInfo, NULL, NULL, &w, &h);

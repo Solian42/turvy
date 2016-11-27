@@ -7,11 +7,10 @@ LevelOneBeginState::LevelOneBeginState(SDL_Renderer *r, int width, int height,
     this->height = height;
     resources = res;
     renderer = r;
-    SDL_Color white = {255, 255, 255, 255};
-    title = resources->getFont("manaspc80", titleTitle, white);
-    ready = resources->getFont("manaspc60", readyTitle, white);
-    dialogue = resources->getFont("manaspc60", dialogueTitle, white);
-    instructions = resources->getFont("manaspc60", instructionsTitle, white);
+    title = resources->getFont("manaspc80", titleTitle);
+    ready = resources->getFont("manaspc60", readyTitle);
+    dialogue = resources->getFont("manaspc60", dialogueTitle);
+    instructions = resources->getFont("manaspc60", instructionsTitle);
 
     int w, h;
     SDL_QueryTexture(title, NULL, NULL, &w, &h);

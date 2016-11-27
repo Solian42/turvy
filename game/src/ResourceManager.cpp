@@ -111,10 +111,9 @@ Mix_Music *ResourceManager::getMusic(std::string name) { return music[name]; }
 
 Mix_Chunk *ResourceManager::getChunk(std::string name) { return chunks[name]; }
 
-SDL_Texture *ResourceManager::getFont(std::string fontName, std::string text,
-                                      SDL_Color color) {
+SDL_Texture *ResourceManager::getFont(std::string fontName, std::string text) {
     SDL_Surface *temp =
-        TTF_RenderUTF8_Blended(fonts[fontName], text.c_str(), color);
+        TTF_RenderUTF8_Blended(fonts[fontName], text.c_str(), currColor);
     SDL_Texture *temptex = SDL_CreateTextureFromSurface(myRenderer, temp);
     SDL_FreeSurface(temp);
     return temptex;

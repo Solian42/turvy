@@ -9,8 +9,7 @@ LevelEditor::LevelEditor(SDL_Renderer *r, int width, int height,
     this->height = height;
     resources = res;
     renderer = r;
-    SDL_Color white = {255, 255, 255, 255};
-    title = resources->getFont("manaspc60", titleTitle, white);
+    title = resources->getFont("manaspc60", titleTitle);
     junk = 0;
     mx = 0;
     my = 0;
@@ -168,13 +167,12 @@ void LevelEditor::doPhysics(int dt) {
 }
 void LevelEditor::printMouseCoord() {
     std::string str = std::to_string(mx) + ", " + std::to_string(my);
-    SDL_Color white = {255, 255, 255, 255};
     SDL_Texture *mouseCoord = resources->getFont(std::string("manaspc30"),
-                                          std::string("Coord:") + str, white);
+                                          std::string("Coord:") + str);
     SDL_Texture *dimCoord = resources->getFont(std::string("manaspc30"),
                                           std::string("dim:") + std::to_string(dim.x) + ", " + std::to_string(dim.y) + ", " +
                                           std::to_string(dim.w) + ", " + std::to_string(dim.h)
-                                          , white);
+                                          );
     int w, h;
     SDL_QueryTexture(mouseCoord, NULL, NULL, &w, &h);
     SDL_Rect temp = {0, 0, w, h};
