@@ -40,6 +40,7 @@ tl0 ../data/images/turvyletter.png
 background1 ../data/images/background.png
 background2 ../data/images/rainbowWorld.png
 background3 ../data/images/nightWorld.png
+background4 ../data/images/dungeon.png 
 
 baseplatcursor ../data/images/platforms/basePlatTile/platBase.png
 baseplat0 ../data/images/platforms/basePlatTile/plat_0.png
@@ -71,6 +72,17 @@ sandplat5 ../data/images/platforms/sandTile/sandTile_5.png
 sandplat6 ../data/images/platforms/sandTile/sandTile_6.png
 sandplat7 ../data/images/platforms/sandTile/sandTile_7.png
 sandplat8 ../data/images/platforms/sandTile/sandTile_8.png
+
+dirtyplat0 ../data/images/platforms/dirtyTile/dirty_0.png
+dirtyplat1 ../data/images/platforms/dirtyTile/dirty_1.png
+dirtyplat2 ../data/images/platforms/dirtyTile/dirty_2.png
+dirtyplat3 ../data/images/platforms/dirtyTile/dirty_3.png
+dirtyplat4 ../data/images/platforms/dirtyTile/dirty_4.png
+dirtyplat5 ../data/images/platforms/dirtyTile/dirty_5.png
+dirtyplat6 ../data/images/platforms/dirtyTile/dirty_6.png
+dirtyplat7 ../data/images/platforms/dirtyTile/dirty_7.png
+dirtyplat8 ../data/images/platforms/dirtyTile/dirty_8.png
+dirtyplat9 ../data/images/platforms/dirtyTile/dirty_9.png
 
 spike1 ../data/images/spikes/spikeMiddle.png
 
