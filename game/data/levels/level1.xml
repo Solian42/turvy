@@ -284,13 +284,4 @@
             <texture> teleport3 </texture>
         </te2>
     </teleports>
-    <dialogues>
-        <d1>
-            <x> 500 </x>
-            <y> 500 </y>
-            <w> 200 </w>
-            <h> 200 </h>
-            <texture> dialogueT </texture>
-        </d1>
-    </dialogues>
 </rectangles>
