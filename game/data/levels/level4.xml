@@ -588,6 +588,174 @@
             <h> 50 </h>
             <texture> dirty </texture>
         </p5.10>
+        <p6.1>
+            <x> 2560 </x>
+            <y> 4800 </y>
+            <w> 2300 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p6.1>
+        <p6.2>
+            <x> 2770 </x>
+            <y> 5280 </y>
+            <w> 2300 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p6.2>
+        <p6.3>
+            <x> 2800 </x>
+            <y> 5430 </y>
+            <w> 500 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p6.3>
+        <p6.4>
+            <x> 3200 </x>
+            <y> 5570 </y>
+            <w> 500 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p6.4>
+        <p6.5>
+            <x> 3600 </x>
+            <y> 5430 </y>
+            <w> 500 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p6.5>
+        <p6.6>
+            <x> 4000 </x>
+            <y> 5570 </y>
+            <w> 500 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p6.6>
+        <p6.7>
+            <x> 4400 </x>
+            <y> 5430 </y>
+            <w> 600 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p6.7>
+        <p8.1>
+            <x> 2110 </x>
+            <y> 4070 </y>
+            <w> 200 </w>
+            <h> 150 </h>
+            <texture> dirty </texture>
+        </p8.1>
+        <p8.2>
+            <x> 1910 </x>
+            <y> 3970 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.2>
+        <p8.3>
+            <x> 1710 </x>
+            <y> 3870 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.3>
+        <p8.4>
+            <x> 1510 </x>
+            <y> 3770 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.4>
+        <p8.5>
+            <x> 1310 </x>
+            <y> 3570 </y>
+            <w> 200 </w>
+            <h> 200 </h>
+            <texture> dirty </texture>
+        </p8.5>
+        <p8.6>
+            <x> 2260 </x>
+            <y> 3650 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.6>
+        <p8.7>
+            <x> 2060 </x>
+            <y> 3550 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.7>
+        <p8.8>
+            <x> 1860 </x>
+            <y> 3450 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.8>
+        <p8.9>
+            <x> 1660 </x>
+            <y> 3350 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.9>
+        <p8.10>
+            <x> 1460 </x>
+            <y> 3250 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.10>
+        <p8.11>
+            <x> 1260 </x>
+            <y> 2930 </y>
+            <w> 200 </w>
+            <h> 320 </h>
+            <texture> dirty </texture>
+        </p8.11>
+        <p8.12>
+            <x> 460 </x>
+            <y> 3130 </y>
+            <w> 50 </w>
+            <h> 430 </h>
+            <texture> dirty </texture>
+        </p8.12>
+        <p8.13>
+            <x> 50 </x>
+            <y> 3730 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.13>
+        <p8.14>
+            <x> 250 </x>
+            <y> 3830 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.14>
+        <p8.15>
+            <x> 450 </x>
+            <y> 3930 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.15>
+        <p8.16>
+            <x> 650 </x>
+            <y> 4030 </y>
+            <w> 200 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </p8.16>
+        <p8.17>
+            <x> 850 </x>
+            <y> 4130 </y>
+            <w> 200 </w>
+            <h> 90 </h>
+            <texture> dirty </texture>
+        </p8.17>
     </platforms>
     <spikes>
         <s1.1>
@@ -1038,6 +1206,70 @@
             <direction> 0 </direction>
             <texture> spike1 </texture>
         </s5.3>
+        <s6.1>
+            <x> 2560 </x>
+            <y> 4850 </y>
+            <w> 2300 </w>
+            <h> 20 </h>
+            <direction> 0 </direction>
+            <texture> spike1 </texture>
+        </s6.1>
+        <s6.2>
+            <x> 2770 </x>
+            <y> 5260 </y>
+            <w> 2300 </w>
+            <h> 20 </h>
+            <direction> 1 </direction>
+            <texture> spike1 </texture>
+        </s6.2>
+        <s6.3>
+            <x> 2770 </x>
+            <y> 5330 </y>
+            <w> 2300 </w>
+            <h> 20 </h>
+            <direction> 0 </direction>
+            <texture> spike1 </texture>
+        </s6.3>
+        <s6.4>
+            <x> 2770 </x>
+            <y> 5690 </y>
+            <w> 2250 </w>
+            <h> 20 </h>
+            <direction> 1 </direction>
+            <texture> spike1 </texture>
+        </s6.4>
+        <s8.1>
+            <x> 1240 </x>
+            <y> 2930 </y>
+            <w> 20 </w>
+            <h> 300 </h>
+            <direction> 3 </direction>
+            <texture> spike1 </texture>
+        </s8.1>
+        <s8.2>
+            <x> 440 </x>
+            <y> 3130 </y>
+            <w> 20 </w>
+            <h> 430 </h>
+            <direction> 3 </direction>
+            <texture> spike1 </texture>
+        </s8.2>
+        <s8.3>
+            <x> 650 </x>
+            <y> 4010 </y>
+            <w> 200 </w>
+            <h> 20 </h>
+            <direction> 1 </direction>
+            <texture> spike1 </texture>
+        </s8.3>
+        <s8.4>
+            <x> 250 </x>
+            <y> 3810 </y>
+            <w> 200 </w>
+            <h> 20 </h>
+            <direction> 1 </direction>
+            <texture> spike1 </texture>
+        </s8.4>
     </spikes>
     <checkpoints>
         <c2.1>
@@ -1064,6 +1296,30 @@
             <texture> checkpoint1 </texture>
             <texture> checkpoint2 </texture>
         </c5.1>
+        <c6.1>
+            <x> 2660 </x>
+            <y> 4320 </y>
+            <texture> checkpoint1 </texture>
+            <texture> checkpoint2 </texture>
+        </c6.1>
+        <c7.1>
+            <x> 2560 </x>
+            <y> 4100 </y>
+            <texture> checkpoint1 </texture>
+            <texture> checkpoint2 </texture>
+        </c7.1>
+        <c8.1>
+            <x> 2410 </x>
+            <y> 4100 </y>
+            <texture> checkpoint1 </texture>
+            <texture> checkpoint2 </texture>
+        </c8.1>
+        <c8.2>
+            <x> 1310 </x>
+            <y> 3770 </y>
+            <texture> checkpoint1 </texture>
+            <texture> checkpoint2 </texture>
+        </c8.2>
     </checkpoints>
     <enemies>
         <e1.1>
@@ -1363,6 +1619,186 @@
             <texture3> es3 </texture3>
             <texture4> es4 </texture4>
         </e5.11>
+        <e6.1>
+            <x> 2760 </x>
+            <y> 4555 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.1>
+        <e6.2>
+            <x> 2960 </x>
+            <y> 4755 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.2>
+        <e6.3>
+            <x> 3160 </x>
+            <y> 4655 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.3>
+        <e6.4>
+            <x> 3360 </x>
+            <y> 4555 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.4>
+        <e6.5>
+            <x> 3560 </x>
+            <y> 4455 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.5>
+        <e6.6>
+            <x> 3760 </x>
+            <y> 4355 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.6>
+        <e6.7>
+            <x> 3960 </x>
+            <y> 4755 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.7>
+        <e6.8>
+            <x> 4160 </x>
+            <y> 4655 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.8>
+        <e6.9>
+            <x> 4360 </x>
+            <y> 4555 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.9>
+        <e6.10>
+            <x> 4560 </x>
+            <y> 4455 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.10>
+        <e6.11>
+            <x> 4760 </x>
+            <y> 4355 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.11>
+        <e6.12>
+            <x> 3050 </x>
+            <y> 5500 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.12>
+        <e6.13>
+            <x> 3450 </x>
+            <y> 5400 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.13>
+        <e6.14>
+            <x> 3850 </x>
+            <y> 5500 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.14>
+        <e6.15>
+            <x> 4250 </x>
+            <y> 5400 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.15>
+        <e6.16>
+            <x> 4650 </x>
+            <y> 5500 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e6.16>
+        <e8.1>
+            <x> 660 </x>
+            <y> 3000 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e8.1>
+        <e8.2>
+            <x> 860 </x>
+            <y> 3000 </y>
+            <direction> 1 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e8.2>
+        <e8.3>
+            <x> 230 </x>
+            <y> 3230 </y>
+            <direction> 0 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e8.3>
+        <e8.4>
+            <x> 130 </x>
+            <y> 3430 </y>
+            <direction> 0 </direction>
+            <texture> es1 </texture>
+            <texture2> es2 </texture2>
+            <texture3> es3 </texture3>
+            <texture4> es4 </texture4>
+        </e8.4>
     </enemies>
     <coins>
         <co1.1>
@@ -1490,6 +1926,154 @@
             <y> 5520 </y>
             <texture> coin1 </texture>
         </co5.11>
+        <co6.1>
+            <x> 2760 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.1>
+        <co6.2>
+            <x> 2960 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.2>
+        <co6.3>
+            <x> 3160 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.3>
+        <co6.4>
+            <x> 3360 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.4>
+        <co6.5>
+            <x> 3560 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.5>
+        <co6.6>
+            <x> 3760 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.6>
+        <co6.7>
+            <x> 3960 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.7>
+        <co6.8>
+            <x> 4160 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.8>
+        <co6.9>
+            <x> 4360 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.9>
+        <co6.10>
+            <x> 4560 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.10>
+        <co6.11>
+            <x> 4760 </x>
+            <y> 4555 </y>
+            <texture> coin1 </texture>
+        </co6.11>
+        <co7.1>
+            <x> 2760 </x>
+            <y> 3080 </y>
+            <texture> coin1 </texture>
+        </co7.1>
+        <co7.2>
+            <x> 3160 </x>
+            <y> 3080 </y>
+            <texture> coin1 </texture>
+        </co7.2>
+        <co7.3>
+            <x> 3560 </x>
+            <y> 3080 </y>
+            <texture> coin1 </texture>
+        </co7.3>
+        <co7.4>
+            <x> 3960 </x>
+            <y> 3080 </y>
+            <texture> coin1 </texture>
+        </co7.4>
+        <co7.5>
+            <x> 4360 </x>
+            <y> 3080 </y>
+            <texture> coin1 </texture>
+        </co7.5>
+        <co7.6>
+            <x> 4760 </x>
+            <y> 3080 </y>
+            <texture> coin1 </texture>
+        </co7.6>
+
+        <co7.7>
+            <x> 2760 </x>
+            <y> 3480 </y>
+            <texture> coin1 </texture>
+        </co7.7>
+        <co7.8>
+            <x> 3160 </x>
+            <y> 3480 </y>
+            <texture> coin1 </texture>
+        </co7.8>
+        <co7.9>
+            <x> 3560 </x>
+            <y> 3480 </y>
+            <texture> coin1 </texture>
+        </co7.9>
+        <co7.10>
+            <x> 3960 </x>
+            <y> 3480 </y>
+            <texture> coin1 </texture>
+        </co7.10>
+        <co7.11>
+            <x> 4360 </x>
+            <y> 3480 </y>
+            <texture> coin1 </texture>
+        </co7.11>
+        <co7.12>
+            <x> 4760 </x>
+            <y> 3480 </y>
+            <texture> coin1 </texture>
+        </co7.12>
+
+        <co7.13>
+            <x> 2760 </x>
+            <y> 3880 </y>
+            <texture> coin1 </texture>
+        </co7.13>
+        <co7.14>
+            <x> 3160 </x>
+            <y> 3880 </y>
+            <texture> coin1 </texture>
+        </co7.14>
+        <co7.15>
+            <x> 3560 </x>
+            <y> 3880 </y>
+            <texture> coin1 </texture>
+        </co7.15>
+        <co7.16>
+            <x> 3960 </x>
+            <y> 3880 </y>
+            <texture> coin1 </texture>
+        </co7.16>
+        <co7.17>
+            <x> 4360 </x>
+            <y> 3880 </y>
+            <texture> coin1 </texture>
+        </co7.17>
+        <co7.18>
+            <x> 4760 </x>
+            <y> 3880 </y>
+            <texture> coin1 </texture>
+        </co7.18>
+
     </coins>
     <trampolines>
         <t2.1>
@@ -1606,6 +2190,96 @@
             <w> 980 </w>
             <texture> trampoline1 </texture>
         </t5.2>
+        <t6.1>
+            <x> 2560 </x>
+            <y> 4900 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.1>
+        <t6.2>
+            <x> 2960 </x>
+            <y> 4900 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.2>
+        <t6.3>
+            <x> 3360 </x>
+            <y> 4900 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.3>
+        <t6.4>
+            <x> 3760 </x>
+            <y> 4900 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.4>
+        <t6.5>
+            <x> 4160 </x>
+            <y> 4900 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.5>
+        <t6.6>
+            <x> 4560 </x>
+            <y> 4900 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.6>
+        <t6.7>
+            <x> 2760 </x>
+            <y> 5230 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.7>
+        <t6.8>
+            <x> 3160 </x>
+            <y> 5230 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.8>
+        <t6.9>
+            <x> 3560 </x>
+            <y> 5230 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.9>
+        <t6.10>
+            <x> 3960 </x>
+            <y> 5230 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.10>
+        <t6.11>
+            <x> 4360 </x>
+            <y> 5230 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.11>
+        <t6.12>
+            <x> 4760 </x>
+            <y> 5230 </y>
+            <w> 200 </w>
+            <texture> trampoline1 </texture>
+        </t6.12>
+        <t8.1>
+            <x> 660 </x>
+            <y> 3240 </y>
+            <w> 620 </w>
+            <texture> trampoline1 </texture>
+        </t8.1>
+        <t8.2>
+            <x> 460 </x>
+            <y> 3560 </y>
+            <w> 1050 </w>
+            <texture> trampoline1 </texture>
+        </t8.2>
+        <t8.3>
+            <x> 460 </x>
+            <y> 3120 </y>
+            <w> 600 </w>
+            <texture> trampoline1 </texture>
+        </t8.3>
     </trampolines>
     <teleports>
         <te1.1>
@@ -1761,7 +2435,7 @@
             <texture> teleport2 </texture>
             <texture> teleport3 </texture>
         </te5.4>
-        <t18>
+        <te6.1>
             <x> 2560 </x>
             <y> 5660 </y>
             <newX> 2410 </newX>
@@ -1769,26 +2443,26 @@
             <texture> teleport1 </texture>
             <texture> teleport2 </texture>
             <texture> teleport3 </texture>
-        </t18>
-        <t19>
+        </te6.1>
+        <te6.2>
             <x> 5020 </x>
             <y> 5660 </y>
-            <newX> 2560 </newX>
+            <newX> 2410 </newX>
             <newY> 4170 </newY>
             <texture> teleport1 </texture>
             <texture> teleport2 </texture>
             <texture> teleport3 </texture>
-        </t19>
-        <t20>
+        </te6.2>
+        <te6.3>
             <x> 5020 </x>
             <y> 4320 </y>
-            <newX> 2410 </newX>
+            <newX> 2560 </newX>
             <newY> 4170 </newY>
             <texture> teleport1 </texture>
             <texture> teleport2 </texture>
             <texture> teleport3 </texture>
-        </t20>
-        <t21>
+        </te6.3>
+        <te7.1>
             <x> 2560 </x>
             <y> 2930 </y>
             <newX> 2410 </newX>
@@ -1796,8 +2470,8 @@
             <texture> teleport1 </texture>
             <texture> teleport2 </texture>
             <texture> teleport3 </texture>
-        </t21>
-        <t22>
+        </te7.1>
+        <te7.2>
             <x> 5020 </x>
             <y> 2930 </y>
             <newX> 2560 </newX>
@@ -1805,8 +2479,8 @@
             <texture> teleport1 </texture>
             <texture> teleport2 </texture>
             <texture> teleport3 </texture>
-        </t22>
-        <t23>
+        </te7.2>
+        <te7.3>
             <x> 5020 </x>
             <y> 4170 </y>
             <newX> 2410 </newX>
@@ -1814,8 +2488,8 @@
             <texture> teleport1 </texture>
             <texture> teleport2 </texture>
             <texture> teleport3 </texture>
-        </t23>
-        <t24>
+        </te7.3>
+        <te8.1>
             <x> 1255 </x>
             <y> 3575 </y>
             <newX> 5020 </newX>
@@ -1823,6 +2497,6 @@
             <texture> teleport1 </texture>
             <texture> teleport2 </texture>
             <texture> teleport3 </texture>
-        </t24>
+        </te8.1>
     </teleports>
 </rectangles>

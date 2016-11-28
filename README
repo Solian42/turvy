@@ -5,11 +5,32 @@ Hey All! This is our codebase.
 PROGRRESS FOR ASSIGNMENT 10:
 
 Brian Cueto:
-Added a new feature: teleports!  Once the player enters a teleport, the player gets teleported to a new location.  The teleport has animation, and there is just a rough graphic for the destination for now.  I also added a dialogue object, so storyline/instructions are more interactive and not boring.  Press s to skip a dialogue when you see it.
+Added a teleport feature that allows the player to teleport to another area of the screen.
+Added a dialogue box object (not shown in this game yet) for later purposes to make the game
+more fun. Dialogue box can be "skipped" by pressing s.  Designed Level 4 (see below for
+walkthrough).   
 
 Tristan:
 
 Anthony:
+
+
+##########################################################################################
+
+LEVEL 4 WALKTHROUGH: This level can get quite annoying with all the teleports, if you want
+to win the game fast, go through this path:
+1. On the first "cave", go to the bottom right most teleport.
+2. You will then be teleported to the "teleport swirl" cave.  Here, go to the bottom
+right most teleport too.
+3. You are now in a new cave.  Go to the top left most teleport.
+4. Here you are at the final cave.  There is only one teleport here that will bring you
+to the "Turvy" note to win the game.
+
+OTHER FEATURES:  It's fun if you explore this level, it gets hard by there is plenty
+of checkpoints.  There is also one "cave" that is just full of coins (our best attempt
+at making an "Easter egg" for this game).
+
+##########################################################################################
 
 To Build:
 
