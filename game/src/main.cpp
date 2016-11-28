@@ -19,7 +19,7 @@ void run() {
         new GameState(mainRenderer, width, height, resources,
                       {{"level1", "level2", "level3", "level4", "level_editor"},
                        {"level1", "level2", "level3", "level4", "level_editor"},
-                       {"background1", "background2", "background3", "background3",
+                       {"background1", "background2", "background3", "background4",
                         "background1"}},
                       5);
     states[STATE_TITLE] =

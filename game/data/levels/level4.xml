@@ -1,1401 +1,649 @@
 <rectangles>
     <platforms>
-        <p1>
-            <x> 0 </x>
-            <y> 50 </y>
-            <width> 50 </width>
-            <height> 2900 </height>
-            <texture> ice </texture>
-        </p1>
-        <p4>
-            <x> 5070 </x>
-            <y> 50 </y>
-            <width> 50 </width>
-            <height> 2900 </height>
-            <texture> ice </texture>
-        </p4>
-        <p2>
+        <pBorder>
             <x> 0 </x>
             <y> 0 </y>
-            <width> 5120 </width>
-            <height>  50 </height>
-            <texture> ice </texture>
-        </p2>
-        <p4>
+            <w> 2560 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder>
+        <pBorder2>
             <x> 0 </x>
-            <y> 2950 </y>
-            <width> 5120 </width>
-            <height>  50 </height>
-            <texture> ice </texture>
-        </p4>
-        <p3>
-            <x>  410 </x>
             <y> 50 </y>
-            <width> 50 </width>
-            <height> 2800 </height>
-            <texture> ice </texture>
-        </p3>
-        <p5>
-            <x>  50 </x>
-            <y> 620 </y>
-            <width> 150 </width>
-            <height> 50 </height>
-            <texture> ice </texture>
-        </p5>
-        <p6>
-            <x>  260 </x>
-            <y> 620 </y>
-            <width> 150 </width>
-            <height> 50 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 320 </x>
-            <y> 670 </y>
-            <width> 90 </width>
-            <height> 220 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 370 </x>
+            <w> 50 </w>
+            <h> 1390 </h>
+            <texture> dirty </texture>
+        </pBorder2>
+        <pBorder3>
+            <x> 50 </x>
+            <y> 1390 </y>
+            <w> 2510 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder3>
+        <pBorder4>
+            <x> 2510 </x>
+            <y> 50 </y>
+            <w> 50 </w>
+            <h> 1340 </h>
+            <texture> dirty </texture>
+        </pBorder4>
+        <pBorder5>
+            <x> 0 </x>
+            <y> 1440 </y>
+            <w> 2560 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder5>
+        <pBorder6>
+            <x> 0 </x>
+            <y> 1490 </y>
+            <w> 50 </w>
+            <h> 1390 </h>
+            <texture> dirty </texture>
+        </pBorder6>
+        <pBorder7>
+            <x> 50 </x>
+            <y> 2830 </y>
+            <w> 2510 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder7>
+        <pBorder8>
+            <x> 2510 </x>
+            <y> 1490 </y>
+            <w> 50 </w>
+            <h> 1340 </h>
+            <texture> dirty </texture>
+        </pBorder8>
+        <pBorder9>
+            <x> 2560 </x>
+            <y> 0 </y>
+            <w> 2560 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder9>
+        <pBorder10>
+            <x> 2560 </x>
+            <y> 50 </y>
+            <w> 50 </w>
+            <h> 1390 </h>
+            <texture> dirty </texture>
+        </pBorder10>
+        <pBorder11>
+            <x> 2610 </x>
+            <y> 1390 </y>
+            <w> 2510 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder11>
+        <pBorder12>
+            <x> 5070 </x>
+            <y> 50 </y>
+            <w> 50 </w>
+            <h> 1340 </h>
+            <texture> dirty </texture>
+        </pBorder12>
+        <pBorder13>
+            <x> 2560 </x>
+            <y> 1440 </y>
+            <w> 2560 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder13>
+        <pBorder14>
+            <x> 2560 </x>
+            <y> 1490 </y>
+            <w> 50 </w>
+            <h> 1390 </h>
+            <texture> dirty </texture>
+        </pBorder14>
+        <pBorder15>
+            <x> 2610 </x>
+            <y> 2830 </y>
+            <w> 2510 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder15>
+        <pBorder16>
+            <x> 5070 </x>
+            <y> 1490 </y>
+            <w> 50 </w>
+            <h> 1340 </h>
+            <texture> dirty </texture>
+        </pBorder16>
+        <pBorder17>
+            <x> 0 </x>
+            <y> 2880 </y>
+            <w> 5120 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder17>
+        <pBorder18>
+            <x> 0 </x>
+            <y> 2930 </y>
+            <w> 50 </w>
+            <h> 2830 </h>
+            <texture> dirty </texture>
+        </pBorder18>
+        <pBorder19>
+            <x> 50 </x>
+            <y> 4220 </y>
+            <w> 5070 </w>
+            <h> 100 </h>
+            <texture> dirty </texture>
+        </pBorder19>
+        <pBorder20>
+            <x> 50 </x>
+            <y> 5710 </y>
+            <w> 5070 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </pBorder20>
+        <pBorder21>
+            <x> 2460 </x>
+            <y> 4320 </y>
+            <w> 100 </w>
+            <h> 1390 </h>
+            <texture> dirty </texture>
+        </pBorder21>
+        <pBorder22>
+            <x> 2460 </x>
+            <y> 2930 </y>
+            <w> 100 </w>
+            <h> 1290 </h>
+            <texture> dirty </texture>
+        </pBorder22>
+        <pBorder23>
+            <x> 5070 </x>
+            <y> 2930 </y>
+            <w> 50 </w>
+            <h> 1290 </h>
+            <texture> dirty </texture>
+        </pBorder23>
+        <pBorder24>
+            <x> 5070 </x>
+            <y> 4320 </y>
+            <w> 50 </w>
+            <h> 1390 </h>
+            <texture> dirty </texture>
+        </pBorder24>
+        <p1.1>
+            <x> 600 </x>
+            <y> 50 </y>
+            <w> 50 </w>
+            <h> 500 </h>
+            <texture> dirty </texture>
+        </p1.1>
+        <p1.2>
+            <x> 600 </x>
             <y> 890 </y>
-            <width> 40 </width>
-            <height> 220 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 50 </x>
+            <w> 50 </w>
+            <h> 500 </h>
+            <texture> dirty </texture>
+        </p1.2>
+        <p1.3>
+            <x> 1960 </x>
+            <y> 50 </y>
+            <w> 50 </w>
+            <h> 500 </h>
+            <texture> dirty </texture>
+        </p1.3>
+        <p1.4>
+            <x> 1960 </x>
             <y> 890 </y>
-            <width> 50 </width>
-            <height> 220 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 50 </x>
-            <y> 1110 </y>
-            <width> 120 </width>
-            <height> 220 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 50 </x>
-            <y> 1330 </y>
-            <width> 190 </width>
-            <height> 220 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 370 </x>
-            <y> 1550 </y>
-            <width> 40 </width>
-            <height> 440 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 50 </x>
-            <y> 1550 </y>
-            <width> 150 </width>
-            <height> 440 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 50 </x>
-            <y> 1990 </y>
-            <width> 120 </width>
-            <height> 220 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 340 </x>
-            <y> 1990 </y>
-            <width> 70 </width>
-            <height> 220 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 50 </x>
-            <y> 2210 </y>
-            <width> 150 </width>
-            <height> 640 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 320 </x>
-            <y> 2210 </y>
-            <width> 90 </width>
-            <height> 640 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 4700 </x>
-            <y> 670 </y>
-            <width> 370 </width>
-            <height> 50 </height>
-            <texture> ice </texture>
-        </p6>
-        
-        <p6>
-            <x> 4700 </x>
-            <y> 120 </y>
-            <width> 50 </width>
-            <height> 550 </height>
-            <texture> ice </texture>
-        </p6>
-        
+            <w> 50 </w>
+            <h> 500 </h>
+            <texture> dirty </texture>
+        </p1.4>
+        <p1.5>
+            <x> 650 </x>
+            <y> 350 </y>
+            <w> 1310 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p1.5>
+        <p1.6>
+            <x> 650 </x>
+            <y> 1040 </y>
+            <w> 1310 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p1.6>
+        <p2.1>
+            <x> 4970 </x>
+            <y> 720 </y>
+            <w> 100 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p2.1>
+        <p2.2>
+            <x> 4970 </x>
+            <y> 470 </y>
+            <w> 100 </w>
+            <h> 50 </h>
+            <texture> dirty </texture>
+        </p2.2>
+        <p2.3>
+            <x> 4970 </x>
+            <y> 520 </y>
+            <w> 50 </w>
+            <h> 200 </h>
+            <texture> dirty </texture>
+        </p2.3>
     </platforms>
     <spikes>
-        <s1>
-            <x> 50 </x>
-            <y> 100 </y>
-            <w> 20 </w>
-            <h> 500 </h>
-            <direction> 2 </direction>
-            <texture> spike1 </texture>
-        </s1>
-        <s2>
-            <x> 390 </x>
-            <y> 100 </y>
-            <w> 20 </w>
-            <h> 500 </h>
-            <direction> 3 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        <s3>
-            <x> 50 </x>
-            <y> 600 </y>
-            <w> 140 </w>
-            <h> 20 </h>
-            <direction> 1 </direction>
-            <texture> spike1 </texture>
-        </s4>
-        <s5>
-            <x> 270 </x>
-            <y> 600 </y>
-            <w> 140 </w>
-            <h> 20 </h>
-            <direction> 1 </direction>
-            <texture> spike1 </texture>
-        </s5>
-        <s1>
-            <x> 50 </x>
-            <y> 670 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 2 </direction>
-            <texture> spike1 </texture>
-        </s1>
-        <s2>
-            <x> 300 </x>
-            <y> 670 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 3 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        
-        <s1>
-            <x> 100 </x>
-            <y> 890 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 2 </direction>
-            <texture> spike1 </texture>
-        </s1>
-        <s2>
-            <x> 350 </x>
-            <y> 890 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 3 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        
-        <s1>
-            <x> 170 </x>
-            <y> 1110 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 2 </direction>
-            <texture> spike1 </texture>
-        </s1>
-        <s2>
-            <x> 390 </x>
-            <y> 1110 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 3 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        
-        <s1>
-            <x> 240 </x>
-            <y> 1330 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 2 </direction>
-            <texture> spike1 </texture>
-        </s1>
-        <s2>
-            <x> 390 </x>
-            <y> 1330 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 3 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        
-        <s1>
-            <x> 200 </x>
-            <y> 1550 </y>
-            <w> 20 </w>
-            <h> 220 </h>
-            <direction> 2 </direction>
-            <texture> spike1 </texture>
-        </s1>
-        <s2>
-            <x> 350 </x>
-            <y> 1550 </y>
-            <w> 20 </w>
-            <h> 220 </h>
-            <direction> 3 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        
-        <s1>
-            <x> 200 </x>
-            <y> 1770 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 2 </direction>
-            <texture> spike1 </texture>
-        </s1>
-        <s2>
-            <x> 350 </x>
-            <y> 1770 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 3 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        
-        <s1>
-            <x> 170 </x>
-            <y> 1990 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 2 </direction>
-            <texture> spike1 </texture>
-        </s1>
-        <s2>
-            <x> 320 </x>
-            <y> 1990 </y>
-            <w> 20 </w>
-            <h> 200 </h>
-            <direction> 3 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        
-        <s1>
-            <x> 200 </x>
-            <y> 2210 </y>
-            <w> 20 </w>
-            <h> 640 </h>
-            <direction> 2 </direction>
-            <texture> spike1 </texture>
-        </s1>
-        <s2>
-            <x> 300 </x>
-            <y> 2210 </y>
-            <w> 20 </w>
-            <h> 640 </h>
-            <direction> 3 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        
-        <s2>
-            <x> 1000 </x>
-            <y> 2930 </y>
-            <w> 4070 </w>
-            <h> 20 </h>
-            <direction> 1 </direction>
-            <texture> spike1 </texture>
-        </s2>
-        
-        <s2>
-            <x> 460 </x>
-            <y> 50 </y>
-            <w> 4000 </w>
+        <s1.1>
+            <x> 600 </x>
+            <y> 550 </y>
+            <w> 50 </w>
             <h> 20 </h>
             <direction> 0 </direction>
             <texture> spike1 </texture>
-        </s2>
+        </s1.1>
+        <s1.2>
+            <x> 600 </x>
+            <y> 870 </y>
+            <w> 50 </w>
+            <h> 20 </h>
+            <direction> 1 </direction>
+            <texture> spike1 </texture>
+        </s1.2>
+        <s1.3>
+            <x> 1960 </x>
+            <y> 870 </y>
+            <w> 50 </w>
+            <h> 20 </h>
+            <direction> 1 </direction>
+            <texture> spike1 </texture>
+        </s1.3>
+        <s1.4>
+            <x> 1960 </x>
+            <y> 550 </y>
+            <w> 50 </w>
+            <h> 20 </h>
+            <direction> 0 </direction>
+            <texture> spike1 </texture>
+        </s1.4>
+        <s2.1>
+            <x> 2910 </x>
+            <y> 50 </y>
+            <w> 1860 </w>
+            <h> 20 </h>
+            <direction> 0 </direction>
+            <texture> spike1 </texture>
+        </s2.1>
+        <s2.2>
+            <x> 2910 </x>
+            <y> 1370 </y>
+            <w> 1860 </w>
+            <h> 20 </h>
+            <direction> 1 </direction>
+            <texture> spike1 </texture>
+        </s2.2>
     </spikes>
     <checkpoints>
-        <c1>
-            <x> 415 </x>
-            <y> 2850 </y>
+        <c2.1>
+            <x> 2710 </x>
+            <y> 50 </y>
             <texture> checkpoint1 </texture>
             <texture> checkpoint2 </texture>
-        </c1>
-        
-        <c1>
-            <x> 4600 </x>
-            <y>  50 </y>
+        </c2.1>
+        <c3.1>
+            <x> 1355 </x>
+            <y> 2135 </y>
             <texture> checkpoint1 </texture>
             <texture> checkpoint2 </texture>
-        </c1>
+        </c3.1>
+        <c4.1>
+            <x> 2710 </x>
+            <y> 1490 </y>
+            <texture> checkpoint1 </texture>
+            <texture> checkpoint2 </texture>
+        </c4.1>
     </checkpoints>
-    
     <enemies>
-        <e1>
-            <x> 500 </x>
-            <y> 2600 </y>
-            <direction> 0 </direction>
+        <e1.1>
+            <x> 750 </x>
+            <y> 720 </y>
+            <direction> 1 </direction>
             <texture> es1 </texture>
             <texture2> es2 </texture2>
             <texture3> es3 </texture3>
             <texture4> es4 </texture4>
         </e1>
-        <e2>
-            <x> 800 </x>
-            <y> 2400 </y>
-            <direction> 0 </direction>
+        <e1.2>
+            <x> 950 </x>
+            <y> 420 </y>
+            <direction> 1 </direction>
             <texture> es1 </texture>
             <texture2> es2 </texture2>
             <texture3> es3 </texture3>
             <texture4> es4 </texture4>
-        </e2>
-        <e3>
-            <x> 3000 </x>
-            <y> 2200 </y>
-            <direction> 0 </direction>
+        </e1.2>
+        <e1.3>
+            <x> 1150 </x>
+            <y> 1020 </y>
+            <direction> 1 </direction>
             <texture> es1 </texture>
             <texture2> es2 </texture2>
             <texture3> es3 </texture3>
             <texture4> es4 </texture4>
-        </e3>
-        <e4>
-            <x> 2000 </x>
-            <y> 2000 </y>
-            <direction> 0 </direction>
+        </e1.3>
+        <e1.4>
+            <x> 1350 </x>
+            <y> 720 </y>
+            <direction> 1 </direction>
             <texture> es1 </texture>
             <texture2> es2 </texture2>
             <texture3> es3 </texture3>
             <texture4> es4 </texture4>
-        </e4>
-        <e5>
-            <x> 500 </x>
-            <y> 1800 </y>
-            <direction> 0 </direction>
-            <texture> es1 </texture>
-            <texture> es2 </texture>
-            <texture> es3 </texture>
-            <texture> es4 </texture>
-        </e5>
-        <e6>
-            <x> 1500 </x>
-            <y> 1600 </y>
-            <direction> 0 </direction>
+        </e1.4>
+        <e1.5>
+            <x> 1550 </x>
+            <y> 420 </y>
+            <direction> 1 </direction>
             <texture> es1 </texture>
             <texture2> es2 </texture2>
             <texture3> es3 </texture3>
             <texture4> es4 </texture4>
-        </e6>
-        <e7>
-            <x> 3500 </x>
-            <y> 1400 </y>
-            <direction> 0 </direction>
+        </e1.5>
+        <e1.6>
+            <x> 1750 </x>
+            <y> 1020 </y>
+            <direction> 1 </direction>
             <texture> es1 </texture>
             <texture2> es2 </texture2>
             <texture3> es3 </texture3>
             <texture4> es4 </texture4>
-        </e7>
-        <e8>
-            <x> 700 </x>
-            <y> 1200 </y>
-            <direction> 0 </direction>
-            <texture> es1 </texture>
-            <texture2> es2 </texture2>
-            <texture3> es3 </texture3>
-            <texture4> es4 </texture4>
-        </e8>
-        <e9>
-            <x> 1900 </x>
-            <y> 1000 </y>
-            <direction> 0 </direction>
-            <texture> es1 </texture>
-            <texture2> es2 </texture2>
-            <texture3> es3 </texture3>
-            <texture4> es4 </texture4>
-        </e9>
-        <e10>
-            <x> 600 </x>
-            <y> 800 </y>
-            <direction> 0 </direction>
-            <texture> es1 </texture>
-            <texture2> es2 </texture2>
-            <texture3> es3 </texture3>
-            <texture4> es4 </texture4>
-        </e10>
-        <e11>
-            <x> 1200 </x>
-            <y> 600 </y>
-            <direction> 0 </direction>
-            <texture> es1 </texture>
-            <texture2> es2 </texture2>
-            <texture3> es3 </texture3>
-            <texture4> es4 </texture4>
-        </e11>
-        <e12>
-            <x> 3600 </x>
-            <y> 400 </y>
-            <direction> 0 </direction>
-            <texture> es1 </texture>
-            <texture2> es2 </texture2>
-            <texture3> es3 </texture3>
-            <texture4> es4 </texture4>
-        </e12>
-        <e13>
-            <x> 200 </x>
-            <y> 500 </y>
-            <direction> 0 </direction>
-            <texture> es1 </texture>
-            <texture2> es2 </texture2>
-            <texture3> es3 </texture3>
-            <texture4> es4 </texture4>
-        </e13>
+        </e1.6>
     </enemies>
-
     <coins>
-        <co1>
-            <x> 100 </x>
-            <y> 670 </y>
+        <co1.1>
+            <x> 850 </x>
+            <y> 720 </y>
             <texture> coin1 </texture>
-        </co1>
-
-        <co2>
-            <x> 500 </x>
-            <y> 2500 </y>
+        </co1.1>
+        <co1.2>
+            <x> 1050 </x>
+            <y> 720 </y>
             <texture> coin1 </texture>
-        </co2>
-
-        <co3>
-            <x> 500 </x>
-            <y> 1900 </y>
+        </co1.2>
+        <co1.3>
+            <x> 1250 </x>
+            <y> 720 </y>
             <texture> coin1 </texture>
-        </co3>
-
-        <co4>
-            <x> 500 </x>
-            <y> 1300 </y>
+        </co1.3>
+        <co1.4>
+            <x> 1450 </x>
+            <y> 720 </y>
             <texture> coin1 </texture>
-        </co4>
-
-        <co5>
-            <x> 500 </x>
-            <y> 700 </y>
+        </co1.4>
+        <co1.5>
+            <x> 1650 </x>
+            <y> 720 </y>
             <texture> coin1 </texture>
-        </co5>
-
-        <co6>
-            <x> 5000 </x>
-            <y> 1300 </y>
+        </co1.5>
+        <co1.6>
+            <x> 1850 </x>
+            <y> 720 </y>
             <texture> coin1 </texture>
-        </co6>
-
-        <co7>
-            <x> 5000 </x>
-            <y> 1900 </y>
-            <texture> coin1 </texture>
-        </co7>
-
-        <co8>
-            <x> 5000 </x>
-            <y> 2500 </y>
-            <texture> coin1 </texture>
-        </co8>
+        </co1.6>
     </coins>
-
     <trampolines>
-        <t1>
-            <x> 500 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t1> 
-        
-        <t2>
-            <x> 800 </x>
-            <y> 2500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 1100 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 650 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 1400 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 950 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 500 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 1700 </x>
-            <y> 1900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1250 </x>
-            <y> 1900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 800 </x>
-            <y> 1900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 2000 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1550 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1100 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 650 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 2300 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1850 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1400 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2> 
-            <x> 950 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 500 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 2600 </x>
-            <y> 1300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2150 </x>
-            <y> 1300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1700 </x>
-            <y> 1300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1250 </x>
-            <y> 1300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 800 </x>
-            <y> 1300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 2900 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2450 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2000 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1550 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1100 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 650 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 3200 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2750 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2300 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1850 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1400 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 950 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 500 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 3500 </x>
-            <y> 700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3050 </x>
-            <y> 700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2600 </x>
-            <y> 700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2150 </x>
-            <y> 700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1700 </x>
-            <y> 700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1250 </x>
-            <y> 700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 800 </x>
-            <y> 700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 3800 </x>
-            <y> 500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3350 </x>
-            <y> 500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2900 </x>
-            <y> 500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2450 </x>
-            <y> 500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2000 </x>
-            <y> 500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1550 </x>
-            <y> 500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1100 </x>
-            <y> 500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 650 </x>
-            <y> 500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 4100 </x>
+        <t2.1>
+            <x> 2610 </x>
             <y> 300 </y>
-            <w> 300 </w>
+            <w> 400 </w>
             <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3650 </x>
+        </t2.1>
+        <t2.2>
+            <x> 4670 </x>
             <y> 300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3200 </x>
-            <y> 300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2750 </x>
-            <y> 300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2300 </x>
-            <y> 300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1850 </x>
-            <y> 300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1400 </x>
-            <y> 300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 950 </x>
-            <y> 300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 500 </x>
-            <y> 300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 650 </x>
-            <y> 2900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 950 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1400 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1850 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2300 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2750 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3200 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2> 
-            <x> 3650 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4100 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4550 </x>
-            <y> 2700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 1250 </x>
-            <y> 2500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1700 </x>
-            <y> 2500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2> 
-            <x> 2150 </x>
-            <y> 2500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2600 </x>
-            <y> 2500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2> 
-            <x> 3050 </x>
-            <y> 2500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3500 </x>
-            <y> 2500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3950 </x>
-            <y> 2500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4400 </x>
-            <y> 2500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 1550 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2000 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2450 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2900 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3350 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3800 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4250 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4700 </x>
-            <y> 2300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 1850 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2300 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2750 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3200 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2> 
-            <x> 3650 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4100 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4550 </x>
-            <y> 2100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 2150 </x>
-            <y> 1900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2600 </x>
-            <y> 1900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3050 </x>
-            <y> 1900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3500 </x>
-            <y> 1900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3950 </x>
-            <y> 1900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4400 </x>
-            <y> 1900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 2450 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 2900 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3350 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3800 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4250 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4700 </x>
-            <y> 1700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 2750 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3200 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3650 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4100 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4550 </x>
-            <y> 1500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 3050 </x>
-            <y> 1300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3500 </x>
-            <y> 1300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3950 </x>
-            <y> 1300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4400 </x>
-            <y> 1300 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 3350 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 3800 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4250 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4700 </x>
-            <y> 1100 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 3650 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4100 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
-        <t2>
-            <x> 4550 </x>
-            <y> 900 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 3950 </x>
-            <y> 700 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-        
-        <t2>
-            <x> 4250 </x>
-            <y> 500 </y>
-            <w> 300 </w>
-            <texture> trampoline1 </texture>
-        </t2>
-
+            <w> 400 </w>
+            <texture> trampoline1 </texture>
+        </t2.2>
+        <t2.3>
+            <x> 2610 </x>
+            <y> 1140 </y>
+            <w> 400 </w>
+            <texture> trampoline1 </texture>
+        </t2.3>
+        <t2.4>
+            <x> 4670 </x>
+            <y> 1140 </y>
+            <w> 400 </w>
+            <texture> trampoline1 </texture>
+        </t2.4> 
+        <t2.5>
+            <x> 2910 </x>
+            <y> 1290 </y>
+            <w> 1860 </w>
+            <texture> trampoline1 </texture>
+        </t2.5>
+        <t2.6>
+            <x> 2910 </x>
+            <y> 150 </y>
+            <w> 1860 </w>
+            <texture> trampoline1 </texture>
+        </t2.6>
     </trampolines>
+    <teleports>
+        <te1.1>
+            <x> 50 </x>
+            <y> 1340 </y>
+            <newX> 2610 </newX>
+            <newY> 50 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te1.1>
+        <te1.2>
+            <x> 2460 </x>
+            <y> 50 </y>
+            <newX> 1255 </newX>
+            <newY> 2135 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te1.2>
+        <te1.3>
+            <x> 2460 </x>
+            <y> 1340 </y>
+            <newX> 2610 </newX>
+            <newY> 1490 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te1.3>
+        <te2.1>
+            <x> 2610 </x>
+            <y> 1340 </y>
+            <newX> 50 </newX>
+            <newY> 50 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te2.1>
+        <te2.2>
+            <x> 5020 </x>
+            <y> 50 </y>
+            <newX> 1255 </newX>
+            <newY> 2135 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te2.2>
+        <te2.3>
+            <x> 5020 </x>
+            <y> 1340 </y>
+            <newX> 2610 </newX>
+            <newY> 1490 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te2.3>
+        <te3.1>
+            <x> 50 </x>
+            <y> 2780 </y>
+            <newX> 50 </newX>
+            <newY> 50 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te3.1>
+        <te3.2>
+            <x> 50 </x>
+            <y> 1490 </y>
+            <newX> 2610 </newX>
+            <newY> 50 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te3.2>
+        <te3.3>
+            <x> 2460 </x>
+            <y> 2780 </y>
+            <newX> 2610 </newX>
+            <newY> 1490 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te3.3>
+        <te3.4>
+            <x> 2460 </x>
+            <y> 1490 </y>
+            <newX> 2410 </newX>
+            <newY> 4320 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te3.4>
+        <te4.1>
+            <x> 2610 </x>
+            <y> 2780 </y>
+            <newX> 50 </newX>
+            <newY> 50 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te4.1>
+        <te4.2>
+            <x> 5020 </x>
+            <y> 2780 </y>
+            <newX> 2610 </newX>
+            <newY> 50 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te4.2>
+        <te4.3>
+            <x> 5020 </x>
+            <y> 1490 </y>
+            <newX> 1255 </newX>
+            <newY> 2135 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </te4.3>
+        <t14>
+            <x> 2410 </x>
+            <y> 5660 </y>
+            <newX> 50 </newX>
+            <newY> 50 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t14>
+        <t15>
+            <x> 2310 </x>
+            <y> 5660 </y>
+            <newX> 2560 </newX>
+            <newY> 4320 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t15>
+        <t16>
+            <x> 50 </x>
+            <y> 5660 </y>
+            <newX> 2410 </newX>
+            <newY> 4170 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t16>
+        <t17>
+            <x> 50 </x>
+            <y> 4320 </y>
+            <newX> 2560 </newX>
+            <newY> 4320 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t17>
+        <t18>
+            <x> 2560 </x>
+            <y> 5660 </y>
+            <newX> 2410 </newX>
+            <newY> 4320 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t18>
+        <t19>
+            <x> 5020 </x>
+            <y> 5660 </y>
+            <newX> 2560 </newX>
+            <newY> 4170 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t19>
+        <t20>
+            <x> 5020 </x>
+            <y> 4320 </y>
+            <newX> 2410 </newX>
+            <newY> 4170 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t20>
+        <t21>
+            <x> 2560 </x>
+            <y> 2930 </y>
+            <newX> 2410 </newX>
+            <newY> 4320 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t21>
+        <t22>
+            <x> 5020 </x>
+            <y> 2930 </y>
+            <newX> 2560 </newX>
+            <newY> 4320 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t22>
+        <t23>
+            <x> 5020 </x>
+            <y> 4170 </y>
+            <newX> 2410 </newX>
+            <newY> 4170 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t23>
+        <t24>
+            <x> 1255 </x>
+            <y> 3575 </y>
+            <newX> 50 </newX>
+            <newY> 5860 </newY>
+            <texture> teleport1 </texture>
+            <texture> teleport2 </texture>
+            <texture> teleport3 </texture>
+        </t24>
+    </teleports>
 </rectangles>
