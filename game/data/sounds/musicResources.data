@@ -1,6 +1,7 @@
 level1 ../data/sounds/BRD_Teleport_Prokg.xm
 level2 ../data/sounds/a_sad_touch.xm
 level3 ../data/sounds/P_skchip(easter_egg).xm
+level4 ../data/sounds/BLiZZARD.xm
 title ../data/sounds/BraveNex.xm
 highscore ../data/sounds/little_swedish_girl.xm
 mainMenu ../data/sounds/unreeeal_superhero.xm
