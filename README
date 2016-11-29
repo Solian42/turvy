@@ -6,11 +6,14 @@ PROGRRESS FOR ASSIGNMENT 10:
 
 Brian Cueto:
 Added a teleport feature that allows the player to teleport to another area of the screen.
-Added a dialogue box object (not shown in this game yet) for later purposes to make the game
-more fun. Dialogue box can be "skipped" by pressing s.  Designed Level 4 (see below for
-walkthrough).   
+Added a dialogue box object (not shown in this game yet) for later purposes to make the
+game more fun. Dialogue box can be "skipped" by pressing s.  Designed Level 4 (see below 
+for walkthrough).   
 
 Tristan:
+Added framework for rendering arbitrary text (fast!) to dialogue boxes. Also cleaned up
+lingering bugs with level editor and states. Added music and implemented textures for the
+new level.
 
 Anthony:
 
