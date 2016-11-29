@@ -12,7 +12,8 @@ walkthrough).
 
 Tristan:
 
-Anthony:
+Anthony: Made a level editor. Directions for using it are included below. Made graphical 
+resources for level 4(Background, tile, new sprites).
 
 
 ##########################################################################################
@@ -71,8 +72,8 @@ All others should be self explanatory!
 ##########################################################################################
 
 Level Editor:
-* Navigate through objects to place using keys 1-7.
-   (1: Platform, 2: Spike, 3: Checkpoint, 4: Coin, 5: Trampoline, 6: Enemy, 7: Objective)
+* Navigate through objects to place using keys 1-6.
+   (1: Platform, 2: Spike, 3: Checkpoint, 4: Coin, 5: Trampoline, 6: Enemy)
 * Drag and release to set an object in place.
 * Press "Space" to save and quit. (XML file is saved to /data/levels/level_editor.xml)
 * For creative convenience, press "x" to toggle x-coordinate lock mode, so you can drag&draw horizontal platforms,
