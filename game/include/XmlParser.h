@@ -3,12 +3,12 @@
 
 #include "CheckpointObject.h"
 #include "CoinObject.h"
+#include "DialogueObject.h"
 #include "EnemyObject.h"
 #include "PlatformObject.h"
 #include "SpikesObject.h"
 #include "TeleportObject.h"
 #include "TrampolineObject.h"
-#include "DialogueObject.h"
 #include <SDL.h>
 #include <cstdlib>
 #include <fstream>

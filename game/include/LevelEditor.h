@@ -2,10 +2,7 @@
 #define LIZARD_LEVEL_EDITOR
 
 #include "State.h"
-enum {
-    PLATFORM, SPIKE, CHECKPOINT, COIN, TRAMPOLINE,
-    ENEMY, TROPHY
-};
+enum { PLATFORM, SPIKE, CHECKPOINT, COIN, TRAMPOLINE, ENEMY, TROPHY };
 class LevelEditor : public State {
 public:
     const int SCROLLSIZE = 50;
@@ -14,15 +11,14 @@ public:
     const int checkpointBaseSize = 20;
     const int coinBaseSize = 40;
     const int trampolineBaseSize = 10;
-    struct DIMENSION{
+    struct DIMENSION {
         int x, y, w, h, dir;
     };
-    struct WORLDVIEW{
+    struct WORLDVIEW {
         int x, y;
     };
     int getMyState() { return STATE_LEVELEDITOR; }
-    LevelEditor(SDL_Renderer *r, int width, int height,
-                   ResourceManager *res);
+    LevelEditor(SDL_Renderer *r, int width, int height, ResourceManager *res);
     int handleEvent(SDL_Event *e, int dt);
     // std::string getHighScore();
     void doSound();
@@ -31,15 +27,13 @@ public:
     void startMusic(int vol);
     void printMouseCoord();
     void followMouseCursor();
-    void makeXML(std::string& filename);
+    void makeXML(std::string &filename);
     void curate();
     void translate(int nx, int ny);
-
 
     ~LevelEditor();
 
 private:
-    
     std::vector<DIMENSION> platforms;
     std::vector<DIMENSION> spikes;
     std::vector<DIMENSION> checkpoints;

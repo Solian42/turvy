@@ -3,8 +3,8 @@
 // const int SCROLLSIZE = 50;
 
 LevelEditor::LevelEditor(SDL_Renderer *r, int width, int height,
-                               ResourceManager *res) {
-    
+                         ResourceManager *res) {
+
     this->width = width;
     this->height = height;
     resources = res;
@@ -13,7 +13,7 @@ LevelEditor::LevelEditor(SDL_Renderer *r, int width, int height,
     junk = 0;
     mx = 0;
     my = 0;
-    dim = {0,0,0,0,0};
+    dim = {0, 0, 0, 0, 0};
     direction = 0;
     int w, h;
     SDL_QueryTexture(title, NULL, NULL, &w, &h);
@@ -116,47 +116,47 @@ int LevelEditor::handleEvent(SDL_Event *e, int dt) {
             worldView.x += SCROLLSIZE;
             break;
         case SDLK_DOWN:
-            if(worldView.y > 0)
+            if (worldView.y > 0)
                 worldView.y -= SCROLLSIZE;
             break;
         case SDLK_LEFT:
-            if(worldView.x > 0)
+            if (worldView.x > 0)
                 worldView.x -= SCROLLSIZE;
             break;
         default:
             break;
         }
     }
-    if( e->type == SDL_MOUSEMOTION /*|| e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP*/ ) {
-        //Get mouse position
+    if (e->type ==
+        SDL_MOUSEMOTION /*|| e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP*/) {
+        // Get mouse position
         int trash;
-        if(lock && lockMode == -1)
+        if (lock && lockMode == -1)
             SDL_GetMouseState(&trash, &my);
-        else if(lock && lockMode == 1)
+        else if (lock && lockMode == 1)
             SDL_GetMouseState(&mx, &trash);
         else
             SDL_GetMouseState(&mx, &my);
     }
-    if(e->type == SDL_MOUSEBUTTONDOWN){
+    if (e->type == SDL_MOUSEBUTTONDOWN) {
         lock = true;
         SDL_GetMouseState(&dim.x, &dim.y);
     }
-    if(e->type == SDL_MOUSEBUTTONUP){
+    if (e->type == SDL_MOUSEBUTTONUP) {
         lock = false;
         renderPiece = true;
         int nx, ny;
         SDL_GetMouseState(&nx, &ny);
-        
+
         //
         translate(nx, ny);
-        
+
         currType->push_back(dim);
 
-        dim = {0,0,0,0,0};
+        dim = {0, 0, 0, 0, 0};
     }
     return getMyState();
 }
-
 
 void LevelEditor::doSound() { return; }
 
@@ -168,11 +168,12 @@ void LevelEditor::doPhysics(int dt) {
 void LevelEditor::printMouseCoord() {
     std::string str = std::to_string(mx) + ", " + std::to_string(my);
     SDL_Texture *mouseCoord = resources->getFont(std::string("manaspc30"),
-                                          std::string("Coord:") + str);
-    SDL_Texture *dimCoord = resources->getFont(std::string("manaspc30"),
-                                          std::string("dim:") + std::to_string(dim.x) + ", " + std::to_string(dim.y) + ", " +
-                                          std::to_string(dim.w) + ", " + std::to_string(dim.h)
-                                          );
+                                                 std::string("Coord:") + str);
+    SDL_Texture *dimCoord = resources->getFont(
+        std::string("manaspc30"), std::string("dim:") + std::to_string(dim.x) +
+                                      ", " + std::to_string(dim.y) + ", " +
+                                      std::to_string(dim.w) + ", " +
+                                      std::to_string(dim.h));
     int w, h;
     SDL_QueryTexture(mouseCoord, NULL, NULL, &w, &h);
     SDL_Rect temp = {0, 0, w, h};
@@ -183,14 +184,22 @@ void LevelEditor::printMouseCoord() {
 }
 void LevelEditor::followMouseCursor() {
     int angle = 0;
-    switch(direction){
-        case 1: angle = 180; break;
-        case 2: angle = 90; break;
-        case 3: angle = 270; break;
-        default: break;
+    switch (direction) {
+    case 1:
+        angle = 180;
+        break;
+    case 2:
+        angle = 90;
+        break;
+    case 3:
+        angle = 270;
+        break;
+    default:
+        break;
     }
-    cursorRect = {mx/*-cw*/, my/*-ch*/, cw, ch};
-    if(SDL_RenderCopyEx(renderer, cursorTexture, NULL, &cursorRect, angle, NULL, SDL_FLIP_NONE) < 0){
+    cursorRect = {mx /*-cw*/, my /*-ch*/, cw, ch};
+    if (SDL_RenderCopyEx(renderer, cursorTexture, NULL, &cursorRect, angle,
+                         NULL, SDL_FLIP_NONE) < 0) {
         std::cout << "cursor rendercopy broke: " << SDL_GetError();
     }
 }
@@ -199,10 +208,10 @@ void LevelEditor::render(int dt) {
     if (SDL_RenderCopy(renderer, title, NULL, &titleRect) < 0) {
         std::cout << "title rendercopy broke: " << SDL_GetError();
     }
-    if(viewMouseCoord)
+    if (viewMouseCoord)
         printMouseCoord();
     followMouseCursor();
-    if(renderPiece){
+    if (renderPiece) {
         SDL_RenderCopy(renderer, cursorTexture, NULL, &cursorRect);
     }
 
@@ -219,12 +228,15 @@ void LevelEditor::startMusic(int vol) {
     Mix_VolumeMusic(vol);
     return;
 }
-void LevelEditor::curate(){
-    for(DIMENSION d : platforms){
-        if((d.x + d.w > worldView.x && d.x < 1280 + worldView.x) && (d.y + d.h > worldView.y && d.y < 720 + worldView.y)){
+void LevelEditor::curate() {
+    for (DIMENSION d : platforms) {
+        if ((d.x + d.w > worldView.x && d.x < 1280 + worldView.x) &&
+            (d.y + d.h > worldView.y && d.y < 720 + worldView.y)) {
             SDL_Rect temp;
-            if(d.h != platBaseSize) temp = {d.x, 720 - d.y - d.h, d.w, d.h};
-            else temp = {d.x, 720 - d.y, d.w, d.h};
+            if (d.h != platBaseSize)
+                temp = {d.x, 720 - d.y - d.h, d.w, d.h};
+            else
+                temp = {d.x, 720 - d.y, d.w, d.h};
             // curatedPlatforms.push_back(temp);
             temp.x -= worldView.x;
             temp.y += worldView.y;
@@ -233,12 +245,15 @@ void LevelEditor::curate(){
         }
     }
     /* TODO: COVER MORE OBJ!*/
-    
-    for(DIMENSION d : spikes){
-        if((d.x + d.w > worldView.x && d.x < 1280 + worldView.x) && (d.y + d.h > worldView.y && d.y < 720 + worldView.y)){
+
+    for (DIMENSION d : spikes) {
+        if ((d.x + d.w > worldView.x && d.x < 1280 + worldView.x) &&
+            (d.y + d.h > worldView.y && d.y < 720 + worldView.y)) {
             SDL_Rect temp;
-            if(d.h != spikeBaseSize) temp = {d.x, 720 - d.y - d.h, d.w, d.h};
-            else temp = {d.x, 720 - d.y, d.w, d.h};
+            if (d.h != spikeBaseSize)
+                temp = {d.x, 720 - d.y - d.h, d.w, d.h};
+            else
+                temp = {d.x, 720 - d.y, d.w, d.h};
             // curatedPlatforms.push_back(temp);
             temp.x -= worldView.x;
             temp.y += worldView.y;
@@ -246,13 +261,15 @@ void LevelEditor::curate(){
             SDL_RenderFillRect(renderer, &temp);
         }
     }
-    
-    for(DIMENSION d : checkpoints){
-        if((d.x + checkpointBaseSize > worldView.x && d.x < 1280 + worldView.x) && 
-                (d.y + checkpointBaseSize > worldView.y && d.y < 720 + worldView.y)){
+
+    for (DIMENSION d : checkpoints) {
+        if ((d.x + checkpointBaseSize > worldView.x &&
+             d.x < 1280 + worldView.x) &&
+            (d.y + checkpointBaseSize > worldView.y &&
+             d.y < 720 + worldView.y)) {
             SDL_Rect temp;
-            //if(d.h != spikeBaseSize) temp = {d.x, 720 - d.y - d.h, d.w, d.h};
-            //else temp = {d.x, 720 - d.y, d.w, d.h};
+            // if(d.h != spikeBaseSize) temp = {d.x, 720 - d.y - d.h, d.w, d.h};
+            // else temp = {d.x, 720 - d.y, d.w, d.h};
             temp = {d.x, 720 - d.y, checkpointBaseSize, checkpointBaseSize};
             // curatedPlatforms.push_back(temp);
             temp.x -= worldView.x;
@@ -262,12 +279,12 @@ void LevelEditor::curate(){
         }
     }
 
-    for(DIMENSION d : coins){
-        if((d.x + coinBaseSize > worldView.x && d.x < 1280 + worldView.x) && 
-                (d.y + coinBaseSize > worldView.y && d.y < 720 + worldView.y)){
+    for (DIMENSION d : coins) {
+        if ((d.x + coinBaseSize > worldView.x && d.x < 1280 + worldView.x) &&
+            (d.y + coinBaseSize > worldView.y && d.y < 720 + worldView.y)) {
             SDL_Rect temp;
-            //if(d.h != spikeBaseSize) temp = {d.x, 720 - d.y - d.h, d.w, d.h};
-            //else temp = {d.x, 720 - d.y, d.w, d.h};
+            // if(d.h != spikeBaseSize) temp = {d.x, 720 - d.y - d.h, d.w, d.h};
+            // else temp = {d.x, 720 - d.y, d.w, d.h};
             temp = {d.x, 720 - d.y, coinBaseSize, coinBaseSize};
             // curatedPlatforms.push_back(temp);
             temp.x -= worldView.x;
@@ -277,15 +294,19 @@ void LevelEditor::curate(){
         }
     }
 
-    for(DIMENSION d : trampolines){
-        if((d.x + trampolineBaseSize > worldView.x && d.x < 1280 + worldView.x) && 
-                (d.y + trampolineBaseSize > worldView.y && d.y < 720 + worldView.y)){
+    for (DIMENSION d : trampolines) {
+        if ((d.x + trampolineBaseSize > worldView.x &&
+             d.x < 1280 + worldView.x) &&
+            (d.y + trampolineBaseSize > worldView.y &&
+             d.y < 720 + worldView.y)) {
             SDL_Rect temp;
-            //if(d.h != spikeBaseSize) temp = {d.x, 720 - d.y - d.h, d.w, d.h};
-            //else temp = {d.x, 720 - d.y, d.w, d.h};
+            // if(d.h != spikeBaseSize) temp = {d.x, 720 - d.y - d.h, d.w, d.h};
+            // else temp = {d.x, 720 - d.y, d.w, d.h};
             // temp = {d.x, 720 - d.y, coinBaseSize, coinBaseSize};
-            if(d.h != trampolineBaseSize) temp = {d.x, 720 - d.y - d.h, d.w, d.h};
-            else temp = {d.x, 720 - d.y, d.w, d.h};
+            if (d.h != trampolineBaseSize)
+                temp = {d.x, 720 - d.y - d.h, d.w, d.h};
+            else
+                temp = {d.x, 720 - d.y, d.w, d.h};
             // curatedPlatforms.push_back(temp);
             temp.x -= worldView.x;
             temp.y += worldView.y;
@@ -294,36 +315,47 @@ void LevelEditor::curate(){
         }
     }
 }
-void LevelEditor::makeXML(std::string& filename){
+void LevelEditor::makeXML(std::string &filename) {
     int count = 1;
 
     std::ofstream xmlfile;
     xmlfile.open(filename);
     xmlfile << std::string("<rectangles>\n");
     xmlfile << std::string("    <platforms>\n");
-    for(DIMENSION d : platforms){
+    for (DIMENSION d : platforms) {
         xmlfile << std::string("        <p") << count << '>' << '\n';
-        
-        xmlfile << std::string("            <x> ") << d.x << std::string(" </x>\n");
-        xmlfile << std::string("            <y> ") << d.y << std::string(" </y>\n");
-        xmlfile << std::string("            <width> ") << d.w << std::string(" </width>\n");
-        xmlfile << std::string("            <height> ") << d.h << std::string(" </height>\n");
-        xmlfile << std::string("            <texture> base") << std::string(" </texture>\n");
+
+        xmlfile << std::string("            <x> ") << d.x
+                << std::string(" </x>\n");
+        xmlfile << std::string("            <y> ") << d.y
+                << std::string(" </y>\n");
+        xmlfile << std::string("            <width> ") << d.w
+                << std::string(" </width>\n");
+        xmlfile << std::string("            <height> ") << d.h
+                << std::string(" </height>\n");
+        xmlfile << std::string("            <texture> base")
+                << std::string(" </texture>\n");
         xmlfile << std::string("        </p") << count << '>' << '\n';
         count++;
     }
     xmlfile << std::string("    </platforms>\n");
     count = 1;
     xmlfile << std::string("    <spikes>\n");
-    for(DIMENSION d : spikes){
+    for (DIMENSION d : spikes) {
         xmlfile << std::string("        <s") << count << '>' << '\n';
-        
-        xmlfile << std::string("            <x> ") << d.x << std::string(" </x>\n");
-        xmlfile << std::string("            <y> ") << d.y << std::string(" </y>\n");
-        xmlfile << std::string("            <w> ") << d.w << std::string(" </w>\n");
-        xmlfile << std::string("            <h> ") << d.h << std::string(" </h>\n");
-        xmlfile << std::string("            <direction> ") << d.dir << std::string(" </direction>\n");
-        xmlfile << std::string("            <texture> spike1") << std::string(" </texture>\n");
+
+        xmlfile << std::string("            <x> ") << d.x
+                << std::string(" </x>\n");
+        xmlfile << std::string("            <y> ") << d.y
+                << std::string(" </y>\n");
+        xmlfile << std::string("            <w> ") << d.w
+                << std::string(" </w>\n");
+        xmlfile << std::string("            <h> ") << d.h
+                << std::string(" </h>\n");
+        xmlfile << std::string("            <direction> ") << d.dir
+                << std::string(" </direction>\n");
+        xmlfile << std::string("            <texture> spike1")
+                << std::string(" </texture>\n");
         xmlfile << std::string("        </s") << count << '>' << '\n';
         count++;
     }
@@ -331,13 +363,17 @@ void LevelEditor::makeXML(std::string& filename){
     count = 1;
 
     xmlfile << std::string("    <checkpoints>\n");
-    for(DIMENSION d : checkpoints){
+    for (DIMENSION d : checkpoints) {
         xmlfile << std::string("        <c") << count << '>' << '\n';
-        
-        xmlfile << std::string("            <x> ") << d.x << std::string(" </x>\n");
-        xmlfile << std::string("            <y> ") << d.y << std::string(" </y>\n");
-        xmlfile << std::string("            <texture> checkpoint1 ") << std::string(" </texture>\n");
-        xmlfile << std::string("            <texture> checkpoint2 ") << std::string(" </texture>\n");
+
+        xmlfile << std::string("            <x> ") << d.x
+                << std::string(" </x>\n");
+        xmlfile << std::string("            <y> ") << d.y
+                << std::string(" </y>\n");
+        xmlfile << std::string("            <texture> checkpoint1 ")
+                << std::string(" </texture>\n");
+        xmlfile << std::string("            <texture> checkpoint2 ")
+                << std::string(" </texture>\n");
         xmlfile << std::string("        </c") << count << '>' << '\n';
         count++;
     }
@@ -345,12 +381,15 @@ void LevelEditor::makeXML(std::string& filename){
     count = 1;
 
     xmlfile << std::string("    <coins>\n");
-    for(DIMENSION d : coins){
+    for (DIMENSION d : coins) {
         xmlfile << std::string("        <coin") << count << '>' << '\n';
-        
-        xmlfile << std::string("            <x> ") << d.x << std::string(" </x>\n");
-        xmlfile << std::string("            <y> ") << d.y << std::string(" </y>\n");
-        xmlfile << std::string("            <texture> coin1 ") << std::string(" </texture>\n");
+
+        xmlfile << std::string("            <x> ") << d.x
+                << std::string(" </x>\n");
+        xmlfile << std::string("            <y> ") << d.y
+                << std::string(" </y>\n");
+        xmlfile << std::string("            <texture> coin1 ")
+                << std::string(" </texture>\n");
         xmlfile << std::string("        </coin") << count << '>' << '\n';
         count++;
     }
@@ -358,51 +397,57 @@ void LevelEditor::makeXML(std::string& filename){
     count = 1;
 
     xmlfile << std::string("    <trampolines>\n");
-    for(DIMENSION d : trampolines){
+    for (DIMENSION d : trampolines) {
         xmlfile << std::string("        <t") << count << '>' << '\n';
-        
-        xmlfile << std::string("            <x> ") << d.x << std::string(" </x>\n");
-        xmlfile << std::string("            <y> ") << d.y << std::string(" </y>\n");
-        xmlfile << std::string("            <w> ") << d.w << std::string(" </w>\n");
-        xmlfile << std::string("            <texture> trampoline1 ") << std::string(" </texture>\n");
+
+        xmlfile << std::string("            <x> ") << d.x
+                << std::string(" </x>\n");
+        xmlfile << std::string("            <y> ") << d.y
+                << std::string(" </y>\n");
+        xmlfile << std::string("            <w> ") << d.w
+                << std::string(" </w>\n");
+        xmlfile << std::string("            <texture> trampoline1 ")
+                << std::string(" </texture>\n");
         xmlfile << std::string("        </t") << count << '>' << '\n';
         count++;
     }
     xmlfile << std::string("    </trampolines>\n");
     count = 1;
-    //TODO: MORE!
+    // TODO: MORE!
 
     xmlfile << std::string("</rectangles>\n");
     xmlfile.close();
 }
 
-void LevelEditor::translate(int nx, int ny){
+void LevelEditor::translate(int nx, int ny) {
     dim.dir = direction;
-    if(lockMode == -1){
+    if (lockMode == -1) {
         dim.h = ny - dim.y;
-    } else if(lockMode == 1){
+    } else if (lockMode == 1) {
         dim.w = nx - dim.x;
     } else {
         dim.w = nx - dim.x;
         dim.h = ny - dim.y;
     }
     //
-    if(dim.h > 0){
+    if (dim.h > 0) {
         dim.y = ny;
     }
-    if(dim.w < 0){
+    if (dim.w < 0) {
         dim.x = nx;
     }
-    if(dim.w == 0 && dim.h != 0) dim.w = baseSize;
-    if(dim.h == 0 && dim.w != 0) dim.h = baseSize;
+    if (dim.w == 0 && dim.h != 0)
+        dim.w = baseSize;
+    if (dim.h == 0 && dim.w != 0)
+        dim.h = baseSize;
     dim.y = 720 - dim.y;
-        //
+    //
 
-    if(dim.h < 0){
+    if (dim.h < 0) {
         dim.h = 0 - dim.h;
-        //dim.y = dim.y + dim.h;
+        // dim.y = dim.y + dim.h;
     }
-    if(dim.w < 0){
+    if (dim.w < 0) {
         dim.w = 0 - dim.w;
         //
     }

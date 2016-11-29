@@ -13,11 +13,10 @@ public:
     void setDialogue(DialogueObject *d);
     void update(SDL_Event *event, int dt);
     ~DialogueInputComponent();
-    
 
 private:
-    World *world; 
-    DialogueObject *myDialogue;   
+    World *world;
+    DialogueObject *myDialogue;
 };
 
 #endif

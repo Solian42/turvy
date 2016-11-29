@@ -7,7 +7,7 @@ class LevelFourBeginState : public State {
 public:
     int getMyState() { return STATE_LEVELFOURBEGIN; }
     LevelFourBeginState(SDL_Renderer *r, int width, int height,
-                         ResourceManager *res);
+                        ResourceManager *res);
     int handleEvent(SDL_Event *e, int dt);
     void doSound();
     void doPhysics(int dt);
@@ -35,8 +35,7 @@ private:
     std::string titleTitle = "LEVEL FOUR";
     std::string readyTitle = "[Press space to start!]";
     std::string dialogueTitle = "\"This is getting complicated...\"";
-    std::string dialogueTwoTitle =
-        "Use teleports to find the exit!";
+    std::string dialogueTwoTitle = "Use teleports to find the exit!";
     int titleAlpha = 0;
     bool fadein = false;
     SDL_Renderer *renderer;

@@ -30,7 +30,7 @@ void GameState::loadNewLevel(std::string levelName) {
         parser->parsedDialogues.size());
     scoreMgr =
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
-    
+
     player = createPlayer(0, scoreMgr,
                           {"rps0",  "rps1",  "rps2",  "rps3",  "ulps0",
                            "ulps1", "ulps2", "ulps3", "lps0",  "lps1",
@@ -264,12 +264,12 @@ void GameState::loadNewLevel(std::string levelName) {
     j = 0;
     for (std::pair<std::string, std::vector<int>> pair :
          parser->parsedDialogues) {
-        DialogueGraphicsComponent *d = 
+        DialogueGraphicsComponent *d =
             new DialogueGraphicsComponent(renderer, resources, {pair.first});
         DialogueInputComponent *in = new DialogueInputComponent(world);
-        DialogueObject *dialogue = new DialogueObject(
-            pair.second[0], pair.second[1], pair.second[2], pair.second[3],
-            j, d, in);
+        DialogueObject *dialogue =
+            new DialogueObject(pair.second[0], pair.second[1], pair.second[2],
+                               pair.second[3], j, d, in);
         d->myDialogue = dialogue;
         in->setDialogue(dialogue);
         dialogues.push_back(dialogue);
@@ -416,7 +416,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
     }
 
     player->input->update(e, dt);
-    for (DialogueObject *d: dialogues) {
+    for (DialogueObject *d : dialogues) {
         d->input->update(e, dt);
     }
 

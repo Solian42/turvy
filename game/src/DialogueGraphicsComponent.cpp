@@ -7,8 +7,8 @@ DialogueGraphicsComponent::DialogueGraphicsComponent(
 DialogueGraphicsComponent::~DialogueGraphicsComponent() {}
 
 void DialogueGraphicsComponent::update(World *world) {
-    if(myTexture == nullptr) {
-      updateCurrentSprite();
+    if (myTexture == nullptr) {
+        updateCurrentSprite();
     }
     SDL_Rect temp;
     if (myDialogue->skip) {
@@ -17,8 +17,7 @@ void DialogueGraphicsComponent::update(World *world) {
         temp = {world->transformXtoCamera(myObj->getX()),
                 world->transformYtoCamera(myObj->getY() + myObj->getH()), currW,
                 currH};
-        if (SDL_RenderCopy(myRenderer, myTexture ,
-                           NULL, &temp) < 0) {
+        if (SDL_RenderCopy(myRenderer, myTexture, NULL, &temp) < 0) {
             std::cout << "Something broke: " << SDL_GetError() << " "
                       << currentSprite << "\n";
         }
@@ -26,25 +25,25 @@ void DialogueGraphicsComponent::update(World *world) {
 }
 
 void DialogueGraphicsComponent::updateCurrentSprite() {
-    if(myTexture != nullptr) {
+    if (myTexture != nullptr) {
         SDL_DestroyTexture(myTexture);
     }
     myTexture = SDL_CreateTexture(myRenderer, SDL_PIXELFORMAT_RGBA8888,
-    SDL_TEXTUREACCESS_TARGET, myObj->getW(), myObj->getH());
+                                  SDL_TEXTUREACCESS_TARGET, myObj->getW(),
+                                  myObj->getH());
     SDL_SetTextureBlendMode(myTexture, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 0);
     SDL_SetRenderTarget(myRenderer, myTexture);
     SDL_RenderClear(myRenderer);
-    SDL_Rect temp = {0,0,currW, currH};
-    if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite),
-                       NULL, &temp) < 0) {
+    SDL_Rect temp = {0, 0, currW, currH};
+    if (SDL_RenderCopy(myRenderer, resources->getTexture(currentSprite), NULL,
+                       &temp) < 0) {
         std::cout << "Something broke: " << SDL_GetError() << " "
-        << currentSprite << "\n";
+                  << currentSprite << "\n";
     }
-    
+
     currentSprite = spriteNames[currState];
     SDL_SetRenderTarget(myRenderer, NULL);
-    
 }
 
 void DialogueGraphicsComponent::setCurrState(int state) {

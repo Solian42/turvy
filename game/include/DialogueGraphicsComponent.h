@@ -1,8 +1,8 @@
 #ifndef DIALOGUE_GRAPHICS_COMPONENT_LIZARD
 #define DIALOGUE_GRAPHICS_COMPONENT_LIZARD
 
-#include "GraphicsComponent.h"
 #include "DialogueObject.h"
+#include "GraphicsComponent.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,7 +19,7 @@ public:
     DialogueObject *myDialogue = nullptr;
 
 private:
-    SDL_Texture * myTexture = nullptr;
+    SDL_Texture *myTexture = nullptr;
     int currState = 0;
     void updateCurrentSprite();
 };

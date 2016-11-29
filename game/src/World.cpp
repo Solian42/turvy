@@ -13,7 +13,8 @@ bool World::testCollide(SDL_Rect a, SDL_Rect b) {
 
 World::World(int width, int height, int numEntities, int numPlatforms,
              int numSpikes, int numCheckpoints, int numCoins,
-             int numTrampolines, int numEnemies, int numTeleports, int numDialogues) {
+             int numTrampolines, int numEnemies, int numTeleports,
+             int numDialogues) {
     worldXLen = width;
     worldYLen = height;
     entityVolumes = std::vector<SDL_Rect>(numEntities);
@@ -39,9 +40,13 @@ World::World(int width, int height, int numEntities, int numPlatforms,
 SDL_Rect World::getEntityLocation(int num) { return entityVolumes[num]; }
 SDL_Rect World::getPlatformLocation(int num) { return platformVolumes[num]; }
 SDL_Rect World::getSpikeLocation(int num) { return spikeVolumes[num]; }
-SDL_Rect World::getCheckpointLocation(int num) { return checkpointVolumes[num]; }
+SDL_Rect World::getCheckpointLocation(int num) {
+    return checkpointVolumes[num];
+}
 SDL_Rect World::getCoinLocation(int num) { return coinVolumes[num]; }
-SDL_Rect World::getTrampolineLocation(int num) { return trampolineVolumes[num]; }
+SDL_Rect World::getTrampolineLocation(int num) {
+    return trampolineVolumes[num];
+}
 SDL_Rect World::getEnemyLocation(int num) { return enemyVolumes[num]; }
 SDL_Rect World::getTeleportLocation(int num) { return teleportVolumes[num]; }
 SDL_Rect World::getDialogueLocation(int num) { return dialogueVolumes[num]; }

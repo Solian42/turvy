@@ -1,7 +1,7 @@
 #include "../include/LevelFourBeginState.h"
 
-LevelFourBeginState::LevelFourBeginState(SDL_Renderer *r, int width,
-                                           int height, ResourceManager *res) {
+LevelFourBeginState::LevelFourBeginState(SDL_Renderer *r, int width, int height,
+                                         ResourceManager *res) {
 
     this->width = width;
     this->height = height;

@@ -19,8 +19,8 @@ void run() {
         new GameState(mainRenderer, width, height, resources,
                       {{"level1", "level2", "level3", "level4", "level_editor"},
                        {"level1", "level2", "level3", "level4", "level_editor"},
-                       {"background1", "background2", "background3", "background4",
-                        "background1"}},
+                       {"background1", "background2", "background3",
+                        "background4", "background1"}},
                       5);
     states[STATE_TITLE] =
         new TitleState(mainRenderer, width, height, resources);
@@ -223,8 +223,8 @@ void printFPS(std::chrono::duration<double> dtNano) {
     std::ostringstream strs;
     strs << framerate;
     std::string str = strs.str();
-    SDL_Texture *fps = resources->getFont(std::string("manaspc30"),
-                                          std::string("FPS:") + str);
+    SDL_Texture *fps =
+        resources->getFont(std::string("manaspc30"), std::string("FPS:") + str);
     int w, h;
     SDL_QueryTexture(fps, NULL, NULL, &w, &h);
     SDL_Rect temp = {0, 0, w, h};

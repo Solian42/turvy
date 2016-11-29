@@ -20,7 +20,7 @@ public:
     Mix_Chunk *getChunk(std::string name);
     SDL_Texture *getFont(std::string fontName, std::string text);
     std::string getLevel(std::string level);
-    
+
     void setTextColor(SDL_Color color);
 
 private:

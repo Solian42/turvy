@@ -10,8 +10,7 @@ HighScoreState::HighScoreState(SDL_Renderer *r, int width, int height,
     title = resources->getFont("manaspc60", titleTitle);
     highScore = resources->getFont("manaspc60", highScoreTitle);
     backToMenu = resources->getFont("manaspc60", backToMenuTitle);
-    currScore =
-        resources->getFont("manaspc60", std::to_string(currScoreInt));
+    currScore = resources->getFont("manaspc60", std::to_string(currScoreInt));
     currTitle = resources->getFont("manaspc60", currTitleTitle);
 
     int w, h;
@@ -54,11 +53,10 @@ void HighScoreState::setCurrScore(int score) {
     currScoreInt = score;
     SDL_DestroyTexture(currScore);
     if (currScoreInt == -1) {
-        currScore =
-            resources->getFont("manaspc60", "No score found. :(");
+        currScore = resources->getFont("manaspc60", "No score found. :(");
     } else {
-        currScore = resources->getFont("manaspc60",
-                                       std::to_string(currScoreInt));
+        currScore =
+            resources->getFont("manaspc60", std::to_string(currScoreInt));
         if (std::stoi(getHighScore()) < currScoreInt) {
             setHighScore(currScoreInt);
         }
