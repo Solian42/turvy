@@ -11,8 +11,8 @@ TARGET   := lizard
 
 #C compiler/linker
 ifeq ($(UNAME_S), Darwin)
-	CC       := g++-6.2.0
-	LINKER   := g++-6.2.0 -o
+	CC       := g++
+	LINKER   := g++ -o
 else
 	CC := g++
 	LINKER := g++ -o

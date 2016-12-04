@@ -84,7 +84,62 @@ void PlayerGraphicsComponent::updateCurrentSprite(World *world, int dt) {
     }
 
     if (world->playerIsTeleport()) {
-        myPlayer->teleport(world);
+        if (currState < 16) {
+            time = 0;
+            if (myPlayer->getXVel() < 0) {
+                if (upsideDown) {
+                    currState = U_TELEPORT_LEFT;
+                    currentSprite = spriteNames[currState];
+                    SDL_SetTextureBlendMode(
+                        resources->getTexture(currentSprite),
+                        SDL_BLENDMODE_BLEND);
+
+                } else {
+                    currState = TELEPORT_LEFT;
+                    currentSprite = spriteNames[currState];
+                    SDL_SetTextureBlendMode(
+                        resources->getTexture(currentSprite),
+                        SDL_BLENDMODE_BLEND);
+                }
+
+            } else {
+                if (upsideDown) {
+                    currState = U_TELEPORT_RIGHT;
+                    currentSprite = spriteNames[currState];
+                    SDL_SetTextureBlendMode(
+                        resources->getTexture(currentSprite),
+                        SDL_BLENDMODE_BLEND);
+                } else {
+                    currState = TELEPORT_RIGHT;
+                    currentSprite = spriteNames[currState];
+                    SDL_SetTextureBlendMode(
+                        resources->getTexture(currentSprite),
+                        SDL_BLENDMODE_BLEND);
+                }
+            }
+        }
+        time += dt;
+        if (time < 255) {
+            SDL_SetTextureAlphaMod(resources->getTexture(currentSprite),
+                                   255 - time);
+        } else if (time < 510) {
+            SDL_SetTextureAlphaMod(resources->getTexture(currentSprite),
+                                   time - 255);
+        } else if (time < 755) {
+            SDL_SetTextureAlphaMod(resources->getTexture(currentSprite),
+                                   755 - time);
+        } else {
+            SDL_SetTextureAlphaMod(
+                resources->getTexture(spriteNames[U_TELEPORT_RIGHT]), 255);
+            SDL_SetTextureAlphaMod(
+                resources->getTexture(spriteNames[U_TELEPORT_LEFT]), 255);
+            SDL_SetTextureAlphaMod(
+                resources->getTexture(spriteNames[TELEPORT_RIGHT]), 255);
+            SDL_SetTextureAlphaMod(
+                resources->getTexture(spriteNames[TELEPORT_LEFT]), 255);
+            myPlayer->teleport(world);
+        }
+        return;
     }
 
     if (myPlayer->getYVel() < 0.0 && !myPlayer->onPlatform) {

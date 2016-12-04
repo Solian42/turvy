@@ -27,7 +27,11 @@ enum {
     DEAD_LEFT = 16,
     DEAD_RIGHT = 17,
     U_DEAD_LEFT = 18,
-    U_DEAD_RIGHT = 19
+    U_DEAD_RIGHT = 19,
+    TELEPORT_LEFT = 20,
+    TELEPORT_RIGHT = 21,
+    U_TELEPORT_LEFT = 22,
+    U_TELEPORT_RIGHT = 23
 };
 class PlayerGraphicsComponent : public GraphicsComponent {
 public:

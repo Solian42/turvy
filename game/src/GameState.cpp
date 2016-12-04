@@ -35,7 +35,8 @@ void GameState::loadNewLevel(std::string levelName) {
                           {"rps0",  "rps1",  "rps2",  "rps3",  "ulps0",
                            "ulps1", "ulps2", "ulps3", "lps0",  "lps1",
                            "lps2",  "lps3",  "urps0", "urps1", "urps2",
-                           "urps3", "pdsl",  "pdsr",  "pdsul", "pdsur"});
+                           "urps3", "pdsl",  "pdsr",  "pdsul", "pdsur",
+                           "ptsl",  "ptsr",  "ptsul", "ptsur"});
     platforms = std::vector<PlatformObject *>();
     spikes = std::vector<SpikesObject *>();
     backgroundObjects = std::vector<GameObject *>();

@@ -23,6 +23,11 @@ pdsr ../data/images/player/playerDeadRight.png
 pdsul ../data/images/player/uplayerDeadLeft.png
 pdsur ../data/images/player/uplayerDeadRight.png
 
+ptsl ../data/images/player/playerTeleportLeft.png
+ptsr ../data/images/player/playerTeleportRight.png
+ptsul ../data/images/player/uPlayerTeleportLeft.png
+ptsur ../data/images/player/uPlayerTeleportRight.png
+
 es1 ../data/images/enemy/l0_evil1.png
 es2 ../data/images/enemy/l1_evil1.png
 es3 ../data/images/enemy/l2_evil1.png
