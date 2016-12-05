@@ -5,10 +5,9 @@ Hey All! This is our codebase.
 PROGRRESS FOR ASSIGNMENT 11:
 
 Brian Cueto:
-Added a teleport feature that allows the player to teleport to another area of the screen.
-Added a dialogue box object (not shown in this game yet) for later purposes to make the
-game more fun. Dialogue box can be "skipped" by pressing s.  Designed Level 4 (see below 
-for walkthrough).   
+Added animation to teleporting, so it is more entertaining.  Expanded level 4.  Level 4
+is now much more difficult (LOL) but more complete.  Have fun, and use the God mode option
+if needed.  Look at the walkthrough before for help.  
 
 Tristan:
 Added framework for rendering arbitrary text (fast!) to dialogue boxes. Also cleaned up
@@ -28,8 +27,8 @@ to win the game fast, go through this path:
 2. You will then be teleported to the "teleport swirl" cave.  Here, go to the bottom
 right most teleport too.
 3. You are now in a new cave.  Go to the top left most teleport.
-4. Here you are at the final cave.  There is only one teleport here that will bring you
-to the "Turvy" note to win the game.
+4. Here you are at the final cave.  Going through these spike walls can be tricky.  Just
+lean up on one wall, shift gravity, and time it correctly.  
 
 OTHER FEATURES:  It's fun if you explore this level, it gets hard by there is plenty
 of checkpoints.  There is also one "cave" that is just full of coins (our best attempt
