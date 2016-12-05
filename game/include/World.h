@@ -12,11 +12,20 @@ enum {
     COLLIDE_RIGHT = 2,
     COLLIDE_UP = 4,
     COLLIDE_DOWN = 8,
+    COLLIDE_UL = 16,
+    COLLIDE_UR = 32,
+    COLLIDE_DL = 64,
+    COLLIDE_DR = 128
 };
+typedef struct{
+        int returnResult;
+        SDL_Rect intersection;
+} platCollisionInfo;
 
 class GameObject;
 class World {
 public:
+    
     World(int width, int height, int numEntities, int numPlatforms,
           int numSpikes, int numCheckpoints, int numCoins, int numTrampolines,
           int numEnemies, int numTeleports, int numDialogues);
@@ -38,7 +47,7 @@ public:
 
     void setCameraH(int h);
 
-    int collideWithPlatform(GameObject *obj);
+    platCollisionInfo collideWithPlatform(GameObject *obj);
     bool collideWithSpike(GameObject *obj);
     bool collideWithCheckpoint(GameObject *obj);
     std::pair<bool, SDL_Rect> collideWithCoin(GameObject *obj);

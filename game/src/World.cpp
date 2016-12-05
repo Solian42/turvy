@@ -96,31 +96,46 @@ bool World::checkTeleportCollisions() {
     return teleportCollision;
 }
 
-int World::collideWithPlatform(GameObject *obj) {
+platCollisionInfo World::collideWithPlatform(GameObject *obj) {
     SDL_Rect intersect = {0, 0, 0, 0};
+    SDL_Rect tempintersect = {0, 0, 0, 0};
     int returnResult = NO_COLLIDE;
     for (SDL_Rect o : platformVolumes) {
         SDL_Rect pRect = *obj->getLocation();
         SDL_bool result = SDL_IntersectRect(&o, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
-            if (pRect.x < o.x + o.w && pRect.x + pRect.w > o.x &&
-                pRect.y + pRect.h < o.y && intersect.w >= intersect.h) {
-                returnResult |= COLLIDE_UP;
-            } else if (pRect.x < o.x + o.w && pRect.x + pRect.w > o.x &&
-                       pRect.y < o.y + o.h && intersect.w > intersect.h) {
-                returnResult |= COLLIDE_DOWN;
-            } else if (pRect.x < o.x + o.w && pRect.x > o.x &&
-                       pRect.y + pRect.h > o.y && pRect.y < o.y + o.h &&
-                       intersect.w <= intersect.h) {
-                returnResult |= COLLIDE_LEFT;
-            } else if (pRect.x + pRect.w > o.x && pRect.x < o.x + o.w &&
-                       pRect.y + pRect.h > o.y && pRect.y < o.y + o.h &&
-                       intersect.w < intersect.h) {
-                returnResult |= COLLIDE_RIGHT;
+            if(intersect.w == intersect.h){
+                if(intersect.x == o.x && intersect.y == o.y){
+                    returnResult |= COLLIDE_DL;
+                } else if(intersect.x == o.x && intersect.y != o.y){
+                    returnResult |= COLLIDE_UL;
+                } else if(intersect.x != o.x && intersect.y == o.y){
+                    returnResult |= COLLIDE_DR;
+                } else {
+                    returnResult |= COLLIDE_UR;
+                }
+            } else {
+
+                if (pRect.x < o.x + o.w && pRect.x + pRect.w > o.x &&
+                    pRect.y + pRect.h < o.y && intersect.w >= intersect.h) {
+                    returnResult |= COLLIDE_UP;
+                } else if (pRect.x < o.x + o.w && pRect.x + pRect.w > o.x &&
+                           pRect.y < o.y + o.h && intersect.w > intersect.h) {
+                    returnResult |= COLLIDE_DOWN;
+                } else if (pRect.x < o.x + o.w && pRect.x > o.x &&
+                           pRect.y + pRect.h > o.y && pRect.y < o.y + o.h &&
+                           intersect.w <= intersect.h) {
+                    returnResult |= COLLIDE_LEFT;
+                } else if (pRect.x + pRect.w > o.x && pRect.x < o.x + o.w &&
+                           pRect.y + pRect.h > o.y && pRect.y < o.y + o.h &&
+                           intersect.w < intersect.h) {
+                    returnResult |= COLLIDE_RIGHT;
+                }
             }
+            tempintersect = intersect;
         }
     }
-    return returnResult;
+    return platCollisionInfo{returnResult, tempintersect};
 }
 
 bool World::collideWithSpike(GameObject *obj) {

@@ -10,7 +10,7 @@ void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
         return;
     }
     enemyObj->setX(enemyObj->getX() + enemyObj->getXVel() * dt);
-    int collide = world->collideWithPlatform(enemyObj);
+    int collide = world->collideWithPlatform(enemyObj).returnResult;
     int collideL = collide & COLLIDE_LEFT;
     int collideR = collide & COLLIDE_RIGHT;
 
@@ -21,7 +21,7 @@ void EnemyPhysicsComponent::update(EnemyObject *enemyObj, World *world,
 
     // also handles trampoline collision
     enemyObj->setY(enemyObj->getY() + enemyObj->getYVel() * dt);
-    collide = world->collideWithPlatform(enemyObj);
+    collide = world->collideWithPlatform(enemyObj).returnResult;
     int collideU = collide & COLLIDE_UP;
     int collideD = collide & COLLIDE_DOWN;
     if (collideU != 0 || collideD != 0 ||
