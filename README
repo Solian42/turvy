@@ -2,7 +2,7 @@ Hey All! This is our codebase.
 
 ##########################################################################################
 
-PROGRRESS FOR ASSIGNMENT 10:
+PROGRRESS FOR ASSIGNMENT 11:
 
 Brian Cueto:
 Added a teleport feature that allows the player to teleport to another area of the screen.
@@ -15,8 +15,9 @@ Added framework for rendering arbitrary text (fast!) to dialogue boxes. Also cle
 lingering bugs with level editor and states. Added music and implemented textures for the
 new level.
 
-Anthony: Made a level editor. Directions for using it are included below. Made graphical 
-resources for level 4(Background, tile, new sprites).
+Anthony: Finally fixed the collision bug. As far as I've tested, it's impossible to get
+stuck inside a platform now. Also integrated the new sprites into life on levels 2 
+through 4.
 
 
 ##########################################################################################
