@@ -12,7 +12,6 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     SDL_Rect colRect = pcInfo.intersection;
 
     if(collide > 8){
-        printf("hooo");
         // if(collide & COLLIDE_UR){
             playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
             world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
@@ -52,8 +51,7 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     collide = pcInfo.returnResult;
     colRect = pcInfo.intersection;
     if(colRect.w > 0  && colRect.h > 0){
-        printf("hi");
-        printf("colRect: { %d, %d, %d, %d}", colRect.x, colRect.y, colRect.w, colRect.h);
+        // printf("colRect: { %d, %d, %d, %d}", colRect.x, colRect.y, colRect.w, colRect.h);
         switch(collide){
             case COLLIDE_DOWN: 
                 playerObj->setY(playerObj->getY() + colRect.h);

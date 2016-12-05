@@ -414,7 +414,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s1>
 		<s2>
 			<x> 200 </x>
@@ -422,7 +422,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s2>
 		<s3> 
 			<x> 600 </x>
@@ -430,7 +430,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 0 </direciton>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s3>
 		<s4>
 			<x> 600 </x>
@@ -438,7 +438,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s4>
 		<s5>
 			<x> 350 </x>
@@ -446,7 +446,7 @@
 			<w> 50 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s5>
 		<s6>
 			<x> 400 </x>
@@ -454,7 +454,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s6>
 		<s7> 
 			<x> 520 </x>
@@ -462,7 +462,7 @@
 			<w> 80 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s7>
 		<s8>
 			<x> 600 </x>
@@ -470,7 +470,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s8>
 		<s9> 
 			<x> 720 </x>
@@ -478,7 +478,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 0 </direciton>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s9>
 		<s10>
 			<x> 820 </x>
@@ -486,7 +486,7 @@
 			<w> 80 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s10>
 		<s11>
 			<x> 1000 </x>
@@ -494,7 +494,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s11>
 		<s12>
 			<x> 1100 </x>
@@ -502,7 +502,7 @@
 			<w> 50 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s12>
 		<s13>
 			<x> 1280 </x>
@@ -510,7 +510,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s13>
 		<s14>
 			<x> 1480 </x>
@@ -518,7 +518,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s14>
 		<s15>
 			<x> 1680 </x>
@@ -526,7 +526,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s15>
 		<s16>
 			<x> 1880 </x>
@@ -534,7 +534,7 @@
 			<w> 100 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s16>
 		<s17>
 			<x> 1390 </x>
@@ -542,7 +542,7 @@
 			<w> 110 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s17>
 		<s18>
 			<x> 1610 </x>
@@ -550,7 +550,7 @@
 			<w> 110 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s18>
 		<s19>
 			<x> 1830 </x>
@@ -558,7 +558,7 @@
 			<w> 110 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s19>
 		<s20>
 			<x> 2050 </x>
@@ -566,7 +566,7 @@
 			<w> 110 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s20>
 		<s21>
 			<x> 2290 </x>
@@ -574,7 +574,7 @@
 			<w> 90 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s21>
 		<s22>
 			<x> 380 </x>
@@ -582,7 +582,7 @@
 			<w> 200 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s22>
 		<s23>
 			<x> 1000 </x>
@@ -590,7 +590,7 @@
 			<w> 110 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s23>
 		<s24>
 			<x> 2160 </x>
@@ -598,7 +598,7 @@
 			<w> 110 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s24>
 		<s25>
 			<x> 3180 </x>
@@ -606,7 +606,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s25>
 		<s26>
 			<x> 3180 </x>
@@ -614,7 +614,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s26>
 		<s27>
 			<x> 3500 </x>
@@ -622,7 +622,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s27>
 		<s28> 
 			<x> 3500 </x>
@@ -630,7 +630,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s28>
 		<s29>
 			<x> 4000 </x>
@@ -638,7 +638,7 @@
 			<w> 200 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s29>
 		<s30>
 			<x> 4000 </x>
@@ -646,7 +646,7 @@
 			<w> 200 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s30>
 		<s31>
 			<x> 4250 </x>
@@ -654,7 +654,7 @@
 			<w> 50 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s31>
 		<s32> 
 			<x> 4500 </x>
@@ -662,7 +662,7 @@
 			<w> 50 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s32>
 		<s33> 
 			<x> 4890 </x>
@@ -670,7 +670,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s33>
 		<s34>
 			<x> 5010 </x>
@@ -678,7 +678,7 @@
 			<w> 40 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s34>
 		<s35>
 			<x> 4890 </x>
@@ -686,7 +686,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s35>
 		<s36>
 			<x> 5010 </x>
@@ -694,7 +694,7 @@
 			<w> 40 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s36>
 		<s37>
 			<x> 4870 </x>
@@ -702,7 +702,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s37>
 		<s37>
 			<x> 4870 </x>
@@ -710,7 +710,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s37>
 		<s38>
 			<x> 5000 </x>
@@ -718,7 +718,7 @@
 			<w> 40 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s38>
 		<s39>
 			<x> 5000 </x>
@@ -726,7 +726,7 @@
 			<w> 40 </w>
             <h> 20 </h>
 			<direction> 0 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s39>
 		<s40>
 			<x> 4940 </x>
@@ -734,7 +734,7 @@
 			<w> 60 </w>
             <h> 20 </h>
 			<direction> 1 </direction>
-			<texture> spike1 </texture>
+			<texture> toxic </texture>
 		</s40>
 	</spikes>
 	<checkpoints>

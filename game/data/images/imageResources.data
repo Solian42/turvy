@@ -33,6 +33,15 @@ es2 ../data/images/enemy/l1_evil1.png
 es3 ../data/images/enemy/l2_evil1.png
 es4 ../data/images/enemy/l3_evil1.png
 
+ale1 ../data/images/ale-lien/ale-lien_0.png
+ale2 ../data/images/ale-lien/ale-lien_1.png
+ale3 ../data/images/ale-lien/ale-lien_2.png
+ale4 ../data/images/ale-lien/ale-lien_3.png
+
+pspike ../data/images/poisonSpike.png
+
+toxic ../data/images/toxicSwamp.png
+
 ss0 ../data/images/shield/shield_0.png
 ss1 ../data/images/shield/shield_1.png
 ss2 ../data/images/shield/shield_2.png
