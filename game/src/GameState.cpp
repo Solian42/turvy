@@ -198,8 +198,8 @@ void GameState::loadNewLevel(std::string levelName) {
         CheckpointObject *checkpoint =
             new CheckpointObject(pair.second[0], pair.second[1], j, c);
         checkpoints.push_back(checkpoint);
-        SDL_Rect temp = {pair.second[0], pair.second[1], c->getCurrW(),
-							c->getCurrH()};
+        SDL_Rect temp = {pair.second[0], pair.second[1], c->getCurrW()*2,
+							c->getCurrH()*2};
         world->checkpointVolumes[j] = temp;
         j++;
     }
