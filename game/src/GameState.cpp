@@ -243,6 +243,9 @@ void GameState::loadNewLevel(std::string levelName) {
         EnemyInputComponent *in = new EnemyInputComponent();
         EnemyObject *enemy = new EnemyObject(pair.second[0], pair.second[1],
                                              pair.second[2], in, e, ph, j);
+		if(world->collideWithPlatform(enemy).returnResult != 0) {
+			enemy->setY(enemy->getY() - 10);
+		}
         enemies.push_back(enemy);
     }
     j = 0;
