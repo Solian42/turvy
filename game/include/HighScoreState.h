@@ -21,7 +21,6 @@ public:
 
 private:
     int width, height;
-    int time = 0;
     int currScoreInt = 0;
 
     SDL_Texture *title = nullptr;

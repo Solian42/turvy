@@ -198,8 +198,8 @@ void GameState::loadNewLevel(std::string levelName) {
         CheckpointObject *checkpoint =
             new CheckpointObject(pair.second[0], pair.second[1], j, c);
         checkpoints.push_back(checkpoint);
-        SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE - 2,
-                         MIN_TILE_SIZE - 2};
+        SDL_Rect temp = {pair.second[0], pair.second[1], c->getCurrW(),
+							c->getCurrH()};
         world->checkpointVolumes[j] = temp;
         j++;
     }
@@ -213,8 +213,8 @@ void GameState::loadNewLevel(std::string levelName) {
         co->myCoin = coin;
         ph->myCoin = coin;
         coins.push_back(coin);
-        SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE,
-                         MIN_TILE_SIZE};
+        SDL_Rect temp = {pair.second[0], pair.second[1], co->getCurrW(),
+                         co->getCurrH()};
         world->coinVolumes[j] = temp;
         j++;
     }
@@ -257,8 +257,8 @@ void GameState::loadNewLevel(std::string levelName) {
         te->myTeleport = teleport;
         ph->myTeleport = teleport;
         teleports.push_back(teleport);
-        SDL_Rect temp = {pair.second[0], pair.second[1], MIN_TILE_SIZE,
-                         MIN_TILE_SIZE};
+        SDL_Rect temp = {pair.second[0], pair.second[1], te->getCurrW(),
+                         te->getCurrH()};
         world->teleportVolumes[j] = temp;
         j++;
     }

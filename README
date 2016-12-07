@@ -10,9 +10,8 @@ is now much more difficult (LOL) but more complete.  Have fun, and use the God m
 if needed.  Look at the walkthrough before for help.  
 
 Tristan:
-Added framework for rendering arbitrary text (fast!) to dialogue boxes. Also cleaned up
-lingering bugs with level editor and states. Added music and implemented textures for the
-new level.
+Discovered bug in text rendering, Attempted to fix, but didn't make too much headway.
+Team carried me straight up. <3
 
 Anthony: Finally fixed the collision bug. As far as I've tested, it's impossible to get
 stuck inside a platform now. Also integrated the new sprites into life on levels 2 

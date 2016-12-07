@@ -49,11 +49,8 @@ private:
     std::string filename;
     int currentCursorType;
     int baseSize, direction;
-    int clickStart, clickEnd;
     int junk, mx, my, cw, ch;
     int width, height;
-    int time = 0;
-    int currScoreInt = 0;
     bool viewMouseCoord = false;
     bool lock = false;
     int lockMode = 0;

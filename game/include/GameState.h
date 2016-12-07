@@ -29,9 +29,6 @@ private:
     int numEntities;
     int numDeaths = 0;
     int numCoins = 0;
-    int numTrampolines = 0;
-    int numEnemies = 0;
-    int numTeleports = 0;
     int windowHeight, windowWidth;
     const int MIN_TILE_SIZE = 10;
     std::vector<GameObject *> entities;
