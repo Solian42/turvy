@@ -16,33 +16,30 @@ public:
     ~MainMenuState();
 
 private:
+    int currSelect = 0;
     int width, height;
     int time = 0;
 
-    SDL_Texture *title = nullptr;
+    SDL_Texture *title[2] = {NULL, NULL};
     SDL_Rect titleRect;
 
-    SDL_Texture *newGame = nullptr;
+    SDL_Texture *newGame[2] = {NULL, NULL};
     SDL_Rect newGameRect;
 
-    SDL_Texture *highScore = nullptr;
+    SDL_Texture *highScore[2] = {NULL, NULL};
     SDL_Rect highScoreRect;
 
-    SDL_Texture *quitGame = nullptr;
+    SDL_Texture *quitGame[2] = {NULL, NULL};
     SDL_Rect quitGameRect;
 
-    SDL_Texture *adjustBright = nullptr;
+    SDL_Texture *adjustBright[2] = {NULL, NULL};
     SDL_Rect adjustBrightRect;
 
-    SDL_Texture *adjustVol = nullptr;
-    SDL_Rect adjustVolRect;
-
-    std::string titleTitle = "Menu";
-    std::string newGameTitle = "[Press space to begin new game!]";
-    std::string highScoreTitle = "[Press H to view high score!]";
-    std::string quitGameTitle = "[Press ESC to quit game!]";
-    std::string adjustBrightTitle = "[Press B to adjust brightness!]";
-    std::string adjustVolTitle = "[Press V to adjust volume!]";
+    std::string titleTitle = "Main Menu";
+    std::string newGameTitle = "New Game";
+    std::string highScoreTitle = "High Scores";
+    std::string quitGameTitle = "Quit";
+    std::string adjustBrightTitle = "Options";
     int titleAlpha = 0;
     bool fadein = false;
     SDL_Renderer *renderer;

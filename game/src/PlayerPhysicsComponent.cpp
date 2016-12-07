@@ -11,12 +11,12 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     int collide = pcInfo.returnResult;
     SDL_Rect colRect = pcInfo.intersection;
 
-    if(collide > 8){
+    if (collide > 8) {
         // if(collide & COLLIDE_UR){
-            playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
-            world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
-            playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-            world->setCameraY((world->getCameraY() - playerObj->getYVel() * dt));
+        playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
+        world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
+        playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
+        world->setCameraY((world->getCameraY() - playerObj->getYVel() * dt));
         // }
     } else {
         playerObj->setX(playerObj->getX() + playerObj->getXVel() * dt);
@@ -28,7 +28,8 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
 
         if (collideR != 0 || collideL != 0) {
             playerObj->setX(playerObj->getX() - playerObj->getXVel() * dt);
-            world->setCameraX((world->getCameraX() - playerObj->getXVel() * dt));
+            world->setCameraX(
+                (world->getCameraX() - playerObj->getXVel() * dt));
         }
 
         playerObj->setY(playerObj->getY() + playerObj->getYVel() * dt);
@@ -39,7 +40,8 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
         int collideD = collide & COLLIDE_DOWN;
         if (collideU != 0 || collideD != 0) {
             playerObj->setY(playerObj->getY() - playerObj->getYVel() * dt);
-            world->setCameraY((world->getCameraY() - playerObj->getYVel() * dt));
+            world->setCameraY(
+                (world->getCameraY() - playerObj->getYVel() * dt));
             playerObj->onPlatform = true;
         }
     }
@@ -50,30 +52,31 @@ void PlayerPhysicsComponent::update(PlayerObject *playerObj, World *world,
     pcInfo = world->collideWithPlatform(playerObj);
     collide = pcInfo.returnResult;
     colRect = pcInfo.intersection;
-    if(colRect.w > 0  && colRect.h > 0){
-        // printf("colRect: { %d, %d, %d, %d}", colRect.x, colRect.y, colRect.w, colRect.h);
-        switch(collide){
-            case COLLIDE_DOWN: 
-                playerObj->setY(playerObj->getY() + colRect.h);
-                world->setCameraY(world->getCameraY() + colRect.h);
-                playerObj->onPlatform = true;
-                break;
-            case COLLIDE_UP: 
-                playerObj->setY(playerObj->getY() - colRect.h);
-                world->setCameraY(world->getCameraY() - colRect.h);
-                playerObj->onPlatform = true;
-                break;
-            case COLLIDE_LEFT: 
-                playerObj->setX(playerObj->getX() + colRect.w);
-                world->setCameraX(world->getCameraX() + colRect.w);
-                break;
-            case COLLIDE_RIGHT: 
-                playerObj->setX(playerObj->getX() - colRect.w);
-                world->setCameraX(world->getCameraX() - colRect.w);
-                break;
+    if (colRect.w > 0 && colRect.h > 0) {
+        // printf("colRect: { %d, %d, %d, %d}", colRect.x, colRect.y, colRect.w,
+        // colRect.h);
+        switch (collide) {
+        case COLLIDE_DOWN:
+            playerObj->setY(playerObj->getY() + colRect.h);
+            world->setCameraY(world->getCameraY() + colRect.h);
+            playerObj->onPlatform = true;
+            break;
+        case COLLIDE_UP:
+            playerObj->setY(playerObj->getY() - colRect.h);
+            world->setCameraY(world->getCameraY() - colRect.h);
+            playerObj->onPlatform = true;
+            break;
+        case COLLIDE_LEFT:
+            playerObj->setX(playerObj->getX() + colRect.w);
+            world->setCameraX(world->getCameraX() + colRect.w);
+            break;
+        case COLLIDE_RIGHT:
+            playerObj->setX(playerObj->getX() - colRect.w);
+            world->setCameraX(world->getCameraX() - colRect.w);
+            break;
         }
     }
-    
+
     world->updateVolume(playerObj->entityNum, playerObj->getX(),
                         playerObj->getY(), playerObj->getW(),
                         playerObj->getH());

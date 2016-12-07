@@ -28,13 +28,7 @@ LevelFourBeginState::LevelFourBeginState(SDL_Renderer *r, int width, int height,
 
 int LevelFourBeginState::handleEvent(SDL_Event *e, int dt) {
     if (e->type == SDL_KEYUP) {
-        switch (e->key.keysym.sym) {
-        case SDLK_SPACE:
-            return STATE_GAME;
-            break;
-        default:
-            break;
-        }
+        return STATE_GAME;
     }
 
     int supressWarning = dt;

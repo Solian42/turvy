@@ -28,13 +28,7 @@ LevelOneBeginState::LevelOneBeginState(SDL_Renderer *r, int width, int height,
 
 int LevelOneBeginState::handleEvent(SDL_Event *e, int dt) {
     if (e->type == SDL_KEYUP) {
-        switch (e->key.keysym.sym) {
-        case SDLK_SPACE:
-            return STATE_LEVELONEINSTRUCT;
-            break;
-        default:
-            break;
-        }
+        return STATE_LEVELONEINSTRUCT;
     }
 
     int supressWarning = dt;

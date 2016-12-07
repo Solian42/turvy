@@ -104,12 +104,12 @@ platCollisionInfo World::collideWithPlatform(GameObject *obj) {
         SDL_Rect pRect = *obj->getLocation();
         SDL_bool result = SDL_IntersectRect(&o, obj->getLocation(), &intersect);
         if (result == SDL_TRUE) {
-            if(intersect.w == intersect.h){
-                if(intersect.x == o.x && intersect.y == o.y){
+            if (intersect.w == intersect.h) {
+                if (intersect.x == o.x && intersect.y == o.y) {
                     returnResult |= COLLIDE_DL;
-                } else if(intersect.x == o.x && intersect.y != o.y){
+                } else if (intersect.x == o.x && intersect.y != o.y) {
                     returnResult |= COLLIDE_UL;
-                } else if(intersect.x != o.x && intersect.y == o.y){
+                } else if (intersect.x != o.x && intersect.y == o.y) {
                     returnResult |= COLLIDE_DR;
                 } else {
                     returnResult |= COLLIDE_UR;

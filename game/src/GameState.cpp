@@ -31,12 +31,11 @@ void GameState::loadNewLevel(std::string levelName) {
     scoreMgr =
         new ScoreManager(renderer, resources, world, numDeaths, numCoins);
 
-    player = createPlayer(0, scoreMgr,
-                          {"rps0",  "rps1",  "rps2",  "rps3",  "ulps0",
-                           "ulps1", "ulps2", "ulps3", "lps0",  "lps1",
-                           "lps2",  "lps3",  "urps0", "urps1", "urps2",
-                           "urps3", "pdsl",  "pdsr",  "pdsul", "pdsur",
-                           "ptsl",  "ptsr",  "ptsul", "ptsur"});
+    player = createPlayer(
+        0, scoreMgr,
+        {"rps0", "rps1", "rps2",  "rps3",  "ulps0", "ulps1", "ulps2", "ulps3",
+         "lps0", "lps1", "lps2",  "lps3",  "urps0", "urps1", "urps2", "urps3",
+         "pdsl", "pdsr", "pdsul", "pdsur", "ptsl",  "ptsr",  "ptsul", "ptsur"});
     platforms = std::vector<PlatformObject *>();
     spikes = std::vector<SpikesObject *>();
     backgroundObjects = std::vector<GameObject *>();
@@ -198,8 +197,8 @@ void GameState::loadNewLevel(std::string levelName) {
         CheckpointObject *checkpoint =
             new CheckpointObject(pair.second[0], pair.second[1], j, c);
         checkpoints.push_back(checkpoint);
-        SDL_Rect temp = {pair.second[0], pair.second[1], c->getCurrW()*2,
-							c->getCurrH()*2};
+        SDL_Rect temp = {pair.second[0], pair.second[1], c->getCurrW() * 2,
+                         c->getCurrH() * 2};
         world->checkpointVolumes[j] = temp;
         j++;
     }
@@ -243,9 +242,9 @@ void GameState::loadNewLevel(std::string levelName) {
         EnemyInputComponent *in = new EnemyInputComponent();
         EnemyObject *enemy = new EnemyObject(pair.second[0], pair.second[1],
                                              pair.second[2], in, e, ph, j);
-		if(world->collideWithPlatform(enemy).returnResult != 0) {
-			enemy->setY(enemy->getY() - 10);
-		}
+        if (world->collideWithPlatform(enemy).returnResult != 0) {
+            enemy->setY(enemy->getY() - 10);
+        }
         enemies.push_back(enemy);
     }
     j = 0;

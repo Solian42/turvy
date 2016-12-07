@@ -123,6 +123,8 @@ std::string ResourceManager::getLevel(std::string level) {
     return levels[level];
 }
 
+void ResourceManager::setTextColor(SDL_Color color) { currColor = color; }
+
 void ResourceManager::cleanup() {
     for (std::pair<std::string, SDL_Texture *> p : textures) {
         SDL_DestroyTexture(p.second);

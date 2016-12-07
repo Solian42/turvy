@@ -190,7 +190,7 @@ void setup(const char *title) {
                   << Mix_GetError() << "\n";
     }
 
-    Mix_Volume(2, 76);
+    Mix_Volume(-1, 64);
     mainWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED,
                                   SDL_WINDOWPOS_UNDEFINED, width, height,
                                   SDL_WINDOW_SHOWN);

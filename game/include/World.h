@@ -17,15 +17,14 @@ enum {
     COLLIDE_DL = 64,
     COLLIDE_DR = 128
 };
-typedef struct{
-        int returnResult;
-        SDL_Rect intersection;
+typedef struct {
+    int returnResult;
+    SDL_Rect intersection;
 } platCollisionInfo;
 
 class GameObject;
 class World {
 public:
-    
     World(int width, int height, int numEntities, int numPlatforms,
           int numSpikes, int numCheckpoints, int numCoins, int numTrampolines,
           int numEnemies, int numTeleports, int numDialogues);
