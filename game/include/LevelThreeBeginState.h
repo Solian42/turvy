@@ -33,7 +33,7 @@ private:
     SDL_Rect dialogueTwoRect;
 
     std::string titleTitle = "LEVEL THREE";
-    std::string readyTitle = "[Press space to start!]";
+    std::string readyTitle = "[Press any key to start!]";
     std::string dialogueTitle = "\"I guess I've been abducted...\"";
     std::string dialogueTwoTitle =
         "Avoid aliens, Use gravity shifters to bounce!";
