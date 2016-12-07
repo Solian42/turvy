@@ -2016,7 +2016,7 @@
         </e1.2>
         <e1.3>
             <x> 1150 </x>
-            <y> 1020 </y>
+            <y> 980 </y>
             <direction> 1 </direction>
             <texture> ale1 </texture>
             <texture2> ale2 </texture2>
@@ -2043,7 +2043,7 @@
         </e1.5>
         <e1.6>
             <x> 1750 </x>
-            <y> 1020 </y>
+            <y> 980 </y>
             <direction> 1 </direction>
             <texture> ale1 </texture>
             <texture2> ale2 </texture2>
