@@ -2,12 +2,11 @@ Hey All! This is our codebase.
 
 ##########################################################################################
 
-PROGRRESS FOR ASSIGNMENT 11:
+PROGRRESS FOR ASSIGNMENT 12:
 
 Brian Cueto:
-Added animation to teleporting, so it is more entertaining.  Expanded level 4.  Level 4
-is now much more difficult (LOL) but more complete.  Have fun, and use the God mode option
-if needed.  Look at the walkthrough before for help.  
+Replaced pre-level states with text on a "letter" that the main protagonist is holding.
+Can skip with any key, and this is to build more story line. 
 
 Tristan:
 Discovered bug in text rendering, Attempted to fix, but didn't make too much headway.

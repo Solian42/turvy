@@ -20,22 +20,9 @@ private:
     int width, height;
     int time = 0;
 
-    SDL_Texture *spikeInfo = nullptr;
-    SDL_Rect spikeInfoRect;
+    SDL_Texture *title = nullptr;
+    SDL_Rect titleRect;
 
-    SDL_Texture *checkInfo = nullptr;
-    SDL_Rect checkInfoRect;
-
-    SDL_Texture *mechInfo = nullptr;
-    SDL_Rect mechInfoRect;
-
-    SDL_Texture *startInfo = nullptr;
-    SDL_Rect startInfoRect;
-
-    std::string spikeInfoTitle = "Avoid spikes";
-    std::string checkInfoTitle = "Checkpoints are there to help";
-    std::string mechInfoTitle = "Use gravity to your advantage!";
-    std::string startInfoTitle = "Press space to start.";
     int titleAlpha = 0;
     bool fadein = false;
     SDL_Renderer *renderer;

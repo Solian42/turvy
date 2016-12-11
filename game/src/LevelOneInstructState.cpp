@@ -7,23 +7,11 @@ LevelOneInstructState::LevelOneInstructState(SDL_Renderer *r, int width,
     this->height = height;
     resources = res;
     renderer = r;
-    spikeInfo = resources->getFont("manaspc60", spikeInfoTitle);
-    checkInfo = resources->getFont("manaspc60", checkInfoTitle);
-    mechInfo = resources->getFont("manaspc60", mechInfoTitle);
-    startInfo = resources->getFont("manaspc60", startInfoTitle);
+    title = resources->getTexture("levelOnePS");
 
     int w, h;
-    SDL_QueryTexture(spikeInfo, NULL, NULL, &w, &h);
-    spikeInfoRect = {(this->width - w) / 2, (int)floor(height * 0.20), w, h};
-
-    SDL_QueryTexture(checkInfo, NULL, NULL, &w, &h);
-    checkInfoRect = {(this->width - w) / 2, (int)floor(height * 0.40), w, h};
-
-    SDL_QueryTexture(mechInfo, NULL, NULL, &w, &h);
-    mechInfoRect = {(this->width - w) / 2, (int)floor(height * 0.60), w, h};
-
-    SDL_QueryTexture(startInfo, NULL, NULL, &w, &h);
-    startInfoRect = {(this->width - w) / 2, (int)floor(height * 0.80), w, h};
+    SDL_QueryTexture(title, NULL, NULL, &w, &h);
+    titleRect = {0, 0, w, h};
 }
 
 int LevelOneInstructState::handleEvent(SDL_Event *e, int dt) {
@@ -45,19 +33,7 @@ void LevelOneInstructState::doPhysics(int dt) {
 }
 void LevelOneInstructState::render(int dt) {
 
-    if (SDL_RenderCopy(renderer, spikeInfo, NULL, &spikeInfoRect) < 0) {
-        std::cout << "Something broke: " << SDL_GetError();
-    }
-
-    if (SDL_RenderCopy(renderer, checkInfo, NULL, &checkInfoRect) < 0) {
-        std::cout << "Something broke: " << SDL_GetError();
-    }
-
-    if (SDL_RenderCopy(renderer, mechInfo, NULL, &mechInfoRect) < 0) {
-        std::cout << "Something broke: " << SDL_GetError();
-    }
-
-    if (SDL_RenderCopy(renderer, startInfo, NULL, &startInfoRect) < 0) {
+    if (SDL_RenderCopy(renderer, title, NULL, &titleRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
     }
 
@@ -72,8 +48,5 @@ void LevelOneInstructState::startMusic(int vol) {
 }
 
 LevelOneInstructState::~LevelOneInstructState() {
-    SDL_DestroyTexture(spikeInfo);
-    SDL_DestroyTexture(checkInfo);
-    SDL_DestroyTexture(mechInfo);
-    SDL_DestroyTexture(startInfo);
+    SDL_DestroyTexture(title);
 }

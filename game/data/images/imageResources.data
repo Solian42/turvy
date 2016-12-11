@@ -51,6 +51,12 @@ ts0 ../data/images/trophy.png
 
 tl0 ../data/images/turvyletter.png
 
+levelOneLetter ../data/images/letters/turvyLetterLevelOne.png
+levelOnePS ../data/images/letters/turvyLetterLevelOnePS.png
+levelTwoLetter ../data/images/letters/turvyLetterLevelTwo.png
+levelThreeLetter ../data/images/letters/turvyLetterLevelThree.png
+levelFourLetter ../data/images/letters/turvyLetterLevelFour.png
+
 background1 ../data/images/background.png
 background2 ../data/images/rainbowWorld.png
 background3 ../data/images/nightWorld.png

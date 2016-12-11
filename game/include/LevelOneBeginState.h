@@ -23,19 +23,6 @@ private:
     SDL_Texture *title = nullptr;
     SDL_Rect titleRect;
 
-    SDL_Texture *ready = nullptr;
-    SDL_Rect readyRect;
-
-    SDL_Texture *dialogue = nullptr;
-    SDL_Rect dialogueRect;
-
-    SDL_Texture *instructions = nullptr;
-    SDL_Rect instructionsRect;
-
-    std::string titleTitle = "LEVEL ONE";
-    std::string readyTitle = "[Press any key to start!]";
-    std::string dialogueTitle = "\"...Where am I?\"";
-    std::string instructionsTitle = "Use arrow keys and space";
     int titleAlpha = 0;
     bool fadein = false;
     SDL_Renderer *renderer;

@@ -23,19 +23,6 @@ private:
     SDL_Texture *title = nullptr;
     SDL_Rect titleRect;
 
-    SDL_Texture *ready = nullptr;
-    SDL_Rect readyRect;
-
-    SDL_Texture *dialogue = nullptr;
-    SDL_Rect dialogueRect;
-
-    SDL_Texture *dialogueTwo = nullptr;
-    SDL_Rect dialogueTwoRect;
-
-    std::string titleTitle = "LEVEL FOUR";
-    std::string readyTitle = "[Press any key to start!]";
-    std::string dialogueTitle = "\"This is getting complicated...\"";
-    std::string dialogueTwoTitle = "Use teleports to find the exit!";
     int titleAlpha = 0;
     bool fadein = false;
     SDL_Renderer *renderer;

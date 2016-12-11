@@ -7,23 +7,12 @@ LevelFourBeginState::LevelFourBeginState(SDL_Renderer *r, int width, int height,
     this->height = height;
     resources = res;
     renderer = r;
-    title = resources->getFont("manaspc80", titleTitle);
-    ready = resources->getFont("manaspc60", readyTitle);
-    dialogue = resources->getFont("manaspc30", dialogueTitle);
-    dialogueTwo = resources->getFont("manaspc30", dialogueTwoTitle);
+    title = resources->getTexture("levelFourLetter");
 
     int w, h;
     SDL_QueryTexture(title, NULL, NULL, &w, &h);
-    titleRect = {(this->width - w) / 2, (int)floor(height * 0.20), w, h};
+    titleRect = {0, 0, w, h};
 
-    SDL_QueryTexture(ready, NULL, NULL, &w, &h);
-    readyRect = {(this->width - w) / 2, (int)floor(height * 0.40), w, h};
-
-    SDL_QueryTexture(dialogue, NULL, NULL, &w, &h);
-    dialogueRect = {(this->width - w) / 2, (int)floor(height * 0.60), w, h};
-
-    SDL_QueryTexture(dialogueTwo, NULL, NULL, &w, &h);
-    dialogueTwoRect = {(this->width - w) / 2, (int)floor(height * 0.80), w, h};
 }
 
 int LevelFourBeginState::handleEvent(SDL_Event *e, int dt) {
@@ -49,18 +38,6 @@ void LevelFourBeginState::render(int dt) {
         std::cout << "Something broke: " << SDL_GetError();
     }
 
-    if (SDL_RenderCopy(renderer, ready, NULL, &readyRect) < 0) {
-        std::cout << "Something broke: " << SDL_GetError();
-    }
-
-    if (SDL_RenderCopy(renderer, dialogue, NULL, &dialogueRect) < 0) {
-        std::cout << "Something broke: " << SDL_GetError();
-    }
-
-    if (SDL_RenderCopy(renderer, dialogueTwo, NULL, &dialogueTwoRect) < 0) {
-        std::cout << "Something broke: " << SDL_GetError();
-    }
-
     int supressWarning = dt;
     supressWarning++;
 }
@@ -73,7 +50,5 @@ void LevelFourBeginState::startMusic(int vol) {
 
 LevelFourBeginState::~LevelFourBeginState() {
     SDL_DestroyTexture(title);
-    SDL_DestroyTexture(ready);
-    SDL_DestroyTexture(dialogue);
-    SDL_DestroyTexture(dialogueTwo);
+
 }

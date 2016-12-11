@@ -1,12 +1,4 @@
-//
-//  OptionsState.cpp
-//  game
-//
-//  Created by Tristan Orton-Urbina on 12/11/16.
-//  Copyright © 2016 lizard. All rights reserved.
-//
-
-#include "OptionsState.h"
+#include "../include/OptionsState.h"
 
 OptionsState::OptionsState(SDL_Renderer *r, int width, int height,
                            ResourceManager *res, SDL_Window *window,
