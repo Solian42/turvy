@@ -4,7 +4,9 @@ DialogueInputComponent::DialogueInputComponent(World *w) { world = w; }
 
 void DialogueInputComponent::update(SDL_Event *event, int dt) {
     SDL_Event e = *event;
-    {
+    int supressWarning = dt;
+    supressWarning++;
+    while(!myDialogue->skip){
         // If a key was pressed
         if (e.type == SDL_KEYUP && e.key.repeat == 0) {
             switch (e.key.keysym.sym) {
@@ -16,8 +18,7 @@ void DialogueInputComponent::update(SDL_Event *event, int dt) {
             }
         }
     }
-    int supressWarning = dt;
-    supressWarning++;
+    
 }
 
 void DialogueInputComponent::setDialogue(DialogueObject *d) { myDialogue = d; }

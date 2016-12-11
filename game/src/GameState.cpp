@@ -310,6 +310,9 @@ void GameState::startMusic(int vol) {
 }
 
 int GameState::handleEvent(SDL_Event *e, int dt) {
+    for (DialogueObject *d : dialogues) {
+        d->input->update(e, dt);
+    }
     if (e->type == SDL_KEYUP) {
         switch (e->key.keysym.sym) {
         case SDLK_q:
@@ -419,9 +422,7 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
     }
 
     player->input->update(e, dt);
-    for (DialogueObject *d : dialogues) {
-        d->input->update(e, dt);
-    }
+    
 
     return getMyState();
 }
