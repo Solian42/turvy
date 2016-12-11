@@ -14,7 +14,9 @@ int main() {
 
 void run() {
 
-    std::vector<State *> states = std::vector<State *>(10);
+    std::vector<State *> states = std::vector<State *>(11);
+    int * mainVol = new int;
+    *mainVol = 64;
     states[STATE_GAME] =
         new GameState(mainRenderer, width, height, resources,
                       {{"level1", "level2", "level3", "level4", "level_editor"},
@@ -40,9 +42,10 @@ void run() {
         new HighScoreState(mainRenderer, width, height, resources);
     states[STATE_LEVELEDITOR] =
         new LevelEditor(mainRenderer, width, height, resources);
+    states[STATE_OPTIONS] = new OptionsState(mainRenderer, width, height, resources, mainWindow, mainVol);
     State *currState = states[STATE_TITLE];
     int currStateType = STATE_TITLE;
-    currState->startMusic(32);
+    currState->startMusic(*mainVol);
     SDL_Event e;
     bool running = true;
     unsigned int lastTime = 0;
@@ -93,13 +96,13 @@ void run() {
                 case STATE_GAME:
                     currState = states[STATE_GAME];
                     currStateType = STATE_GAME;
-                    currState->startMusic(32);
+                    currState->startMusic(*mainVol);
                     continue;
                     break;
                 case STATE_MAINMENU:
                     currState = states[STATE_MAINMENU];
                     currStateType = STATE_MAINMENU;
-                    currState->startMusic(32);
+                    currState->startMusic(*mainVol);
                     break;
                 case STATE_HIGHSCORE: {
                     int highScore = -1;
@@ -112,7 +115,7 @@ void run() {
                     currStateType = STATE_HIGHSCORE;
                     HighScoreState *hs = (HighScoreState *)currState;
                     hs->setCurrScore(highScore);
-                    currState->startMusic(32);
+                    currState->startMusic(*mainVol);
                 } break;
                 case STATE_LEVELONEBEGIN: {
                     currState = states[STATE_LEVELONEBEGIN];
@@ -144,6 +147,10 @@ void run() {
                     currStateType = STATE_LEVELEDITOR;
                     break;
                 }
+                case STATE_OPTIONS: {
+                    currState = states[STATE_OPTIONS];
+                    currStateType = STATE_OPTIONS;
+                }
                 default:
                     break;
                 }
@@ -167,7 +174,7 @@ void run() {
     for (State *s : states) {
         delete s;
     }
-
+    delete mainVol;
     return;
 }
 

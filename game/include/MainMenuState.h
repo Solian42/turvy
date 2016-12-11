@@ -34,16 +34,17 @@ private:
 
     SDL_Texture *adjustBright[2] = {NULL, NULL};
     SDL_Rect adjustBrightRect;
+    
+    SDL_Texture *navigation = nullptr;
+    SDL_Rect navigationRect;
 
     std::string titleTitle = "Main Menu";
     std::string newGameTitle = "New Game";
     std::string highScoreTitle = "High Scores";
     std::string quitGameTitle = "Quit";
     std::string adjustBrightTitle = "Options";
-    int titleAlpha = 0;
-    bool fadein = false;
+    std::string navigationTitle = "[Up/Down] to navigate, [Enter] to select";
     SDL_Renderer *renderer;
-    ResourceManager *resources;
 
     void floatingMove(int speed, int dt);
 };
