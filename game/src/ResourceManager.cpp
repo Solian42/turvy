@@ -7,11 +7,13 @@ ResourceManager::ResourceManager(SDL_Renderer *renderer) {
     chunks = std::map<std::string, Mix_Chunk *>();
     fonts = std::map<std::string, TTF_Font *>();
     levels = std::map<std::string, std::string>();
+    dialogues = std::map<std::string, SDL_Texture *>();
     loadImages();
     loadMusic();
     loadChunks();
     loadFonts();
     loadLevels();
+    loadDialogues();
 }
 
 void ResourceManager::loadImages() {
@@ -103,6 +105,50 @@ void ResourceManager::loadLevels() {
     infile.close();
 }
 
+void ResourceManager::loadDialogues() {
+    std::ifstream infile;
+    
+    infile.open("../data/text/dialogues.data", std::ifstream::in);
+    std::string string;
+    std::string name;
+    std::string text;
+    std::string firstWord;
+    SDL_Texture *background = getTexture("dialoguebgnd");
+    TTF_Font* tempFont = TTF_OpenFont("../data/fonts/manaspc.ttf", 20);
+    SDL_Color black = {0,0,0,255};
+    
+    while(std::getline(infile, string)) {
+        std::stringstream ss(string);
+        ss >> name >> firstWord;
+        std::getline(ss, text);
+        text = firstWord + text;
+        SDL_Texture *myTexture;
+        myTexture = SDL_CreateTexture(myRenderer, SDL_PIXELFORMAT_RGBA8888,
+                                      SDL_TEXTUREACCESS_TARGET, 500,
+                                      250);
+        SDL_SetTextureBlendMode(myTexture, SDL_BLENDMODE_BLEND);
+        SDL_SetRenderDrawColor(myRenderer, 0, 0, 0, 0);
+        SDL_SetRenderTarget(myRenderer, myTexture);
+        SDL_RenderClear(myRenderer);
+        SDL_Rect temp = {0, 0, 500, 250};
+        SDL_RenderCopy(myRenderer, background, NULL, &temp);
+        SDL_Surface *prerenderedFont = TTF_RenderText_Blended_Wrapped(tempFont, text.c_str(), black, 344);
+        SDL_Texture *renderedFont = SDL_CreateTextureFromSurface(myRenderer, prerenderedFont);
+        SDL_FreeSurface(prerenderedFont);
+        int w,h;
+        SDL_QueryTexture(renderedFont, NULL, NULL, &w, &h);
+        SDL_Rect fontRect = {78, 23, w, h};
+        SDL_RenderCopy(myRenderer, renderedFont, NULL, &fontRect);
+        dialogues[name] = myTexture;
+        SDL_DestroyTexture(renderedFont);
+        
+        
+    }
+    SDL_SetRenderTarget(myRenderer, NULL);
+    TTF_CloseFont(tempFont);
+    
+}
+
 SDL_Texture *ResourceManager::getTexture(std::string name) {
     return textures[name];
 }
@@ -121,6 +167,10 @@ SDL_Texture *ResourceManager::getFont(std::string fontName, std::string text) {
 
 std::string ResourceManager::getLevel(std::string level) {
     return levels[level];
+}
+
+SDL_Texture *ResourceManager::getDialogue(std::string name) {
+    return dialogues[name];
 }
 
 void ResourceManager::setTextColor(SDL_Color color) { currColor = color; }

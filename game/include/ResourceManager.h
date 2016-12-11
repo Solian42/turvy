@@ -7,6 +7,7 @@
 #include <SDL_ttf.h>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <map>
 #include <vector>
 
@@ -20,6 +21,7 @@ public:
     Mix_Chunk *getChunk(std::string name);
     SDL_Texture *getFont(std::string fontName, std::string text);
     std::string getLevel(std::string level);
+    SDL_Texture *getDialogue(std::string name);
 
     void setTextColor(SDL_Color color);
 
@@ -32,12 +34,13 @@ private:
     void loadChunks();
     void loadFonts();
     void loadLevels();
-
+    void loadDialogues();
+    
     std::map<std::string, SDL_Texture *> textures;
     std::map<std::string, Mix_Music *> music;
     std::map<std::string, Mix_Chunk *> chunks;
     std::map<std::string, TTF_Font *> fonts;
     std::map<std::string, std::string> levels;
+    std::map<std::string, SDL_Texture *> dialogues;
 };
-
 #endif

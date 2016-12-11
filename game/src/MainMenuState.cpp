@@ -109,7 +109,7 @@ void MainMenuState::doPhysics(int dt) {
     return;
 }
 void MainMenuState::render(int dt) {
-
+    
     if (SDL_RenderCopy(renderer, title[0], NULL, &titleRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
     }

@@ -196,7 +196,7 @@ void setup(const char *title) {
         std::cerr << "SDL_mixer could not initialize! SDL_mixer Error:"
                   << Mix_GetError() << "\n";
     }
-
+    Mix_AllocateChannels(4);
     Mix_Volume(-1, 64);
     mainWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED,
                                   SDL_WINDOWPOS_UNDEFINED, width, height,

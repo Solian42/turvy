@@ -19,7 +19,6 @@ public:
     DialogueObject *myDialogue = nullptr;
 
 private:
-    SDL_Texture *myTexture = nullptr;
     int currState = 0;
     void updateCurrentSprite();
 };

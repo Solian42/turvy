@@ -113,3 +113,4 @@ teleport3 ../data/images/teleport3.png
 destination1 ../data/images/destination1.png
 
 dialogueT ../data/images/dialogueTest.png
+dialoguebgnd ../data/images/dialogue_background.png
