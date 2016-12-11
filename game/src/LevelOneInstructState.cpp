@@ -16,7 +16,8 @@ LevelOneInstructState::LevelOneInstructState(SDL_Renderer *r, int width,
 
 int LevelOneInstructState::handleEvent(SDL_Event *e, int dt) {
     if (e->type == SDL_KEYUP) {
-        return STATE_GAME;
+        if(e->key.keysym.sym == SDLK_SPACE)
+            return STATE_GAME;
     }
 
     int supressWarning = dt;
