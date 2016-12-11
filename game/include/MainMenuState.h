@@ -34,7 +34,7 @@ private:
 
     SDL_Texture *adjustBright[2] = {NULL, NULL};
     SDL_Rect adjustBrightRect;
-    
+
     SDL_Texture *navigation = nullptr;
     SDL_Rect navigationRect;
 

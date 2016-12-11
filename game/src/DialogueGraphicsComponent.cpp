@@ -14,15 +14,15 @@ void DialogueGraphicsComponent::update(World *world) {
         temp = {world->transformXtoCamera(myObj->getX()),
                 world->transformYtoCamera(myObj->getY() + myObj->getH()), currW,
                 currH};
-        if (SDL_RenderCopy(myRenderer, resources->getDialogue(currentSprite), NULL, &temp) < 0) {
+        if (SDL_RenderCopy(myRenderer, resources->getDialogue(currentSprite),
+                           NULL, &temp) < 0) {
             std::cout << "Something broke: " << SDL_GetError() << " "
                       << currentSprite << "\n";
         }
     }
 }
 
-void DialogueGraphicsComponent::updateCurrentSprite() {
-}
+void DialogueGraphicsComponent::updateCurrentSprite() {}
 
 void DialogueGraphicsComponent::setCurrState(int state) {
     currState = state;

@@ -7,8 +7,8 @@
 #include <SDL_ttf.h>
 #include <fstream>
 #include <iostream>
-#include <sstream>
 #include <map>
+#include <sstream>
 #include <vector>
 
 class ResourceManager {
@@ -35,7 +35,7 @@ private:
     void loadFonts();
     void loadLevels();
     void loadDialogues();
-    
+
     std::map<std::string, SDL_Texture *> textures;
     std::map<std::string, Mix_Music *> music;
     std::map<std::string, Mix_Chunk *> chunks;

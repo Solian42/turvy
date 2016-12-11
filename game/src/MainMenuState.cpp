@@ -41,7 +41,7 @@ MainMenuState::MainMenuState(SDL_Renderer *r, int width, int height,
 
     SDL_QueryTexture(adjustBright[0], NULL, NULL, &w, &h);
     adjustBrightRect = {(this->width - w) / 2, (int)floor(height * 0.68), w, h};
-    
+
     SDL_QueryTexture(navigation, NULL, NULL, &w, &h);
     navigationRect = {(this->width - w) / 2, (int)floor(height * 0.85), w, h};
 }
@@ -51,17 +51,17 @@ int MainMenuState::handleEvent(SDL_Event *e, int dt) {
         switch (e->key.keysym.sym) {
         case SDLK_RETURN:
             Mix_PlayChannel(-1, resources->getChunk("select"), 0);
-           
+
             switch (currSelect) {
             case 0:
                 Mix_HaltMusic();
                 return STATE_LEVELONEBEGIN;
                 break;
             case 1:
-                 Mix_HaltMusic();
+                Mix_HaltMusic();
                 return STATE_HIGHSCORE;
             case 2:
-                 Mix_HaltMusic();
+                Mix_HaltMusic();
                 SDL_Event user_event;
                 user_event.type = SDL_KEYUP;
                 user_event.key.keysym.sym = SDLK_ESCAPE;
@@ -71,7 +71,7 @@ int MainMenuState::handleEvent(SDL_Event *e, int dt) {
             case 3:
                 return STATE_OPTIONS;
             }
-             Mix_HaltMusic();
+            Mix_HaltMusic();
             return STATE_LEVELONEBEGIN;
             break;
         case SDLK_h:
@@ -109,7 +109,7 @@ void MainMenuState::doPhysics(int dt) {
     return;
 }
 void MainMenuState::render(int dt) {
-    
+
     if (SDL_RenderCopy(renderer, title[0], NULL, &titleRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
     }
@@ -130,8 +130,8 @@ void MainMenuState::render(int dt) {
         0) {
         std::cout << "Something broke: " << SDL_GetError();
     }
-    
-    if(SDL_RenderCopy(renderer, navigation, NULL, &navigationRect) < 0) {
+
+    if (SDL_RenderCopy(renderer, navigation, NULL, &navigationRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
     }
 

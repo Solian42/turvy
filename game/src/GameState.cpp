@@ -422,7 +422,6 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
     }
 
     player->input->update(e, dt);
-    
 
     return getMyState();
 }
