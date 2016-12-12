@@ -22,7 +22,8 @@ enum {
     STATE_LEVELTHREEBEGIN = 7,
     STATE_LEVELFOURBEGIN = 8,
     STATE_LEVELEDITOR = 9,
-    STATE_OPTIONS = 10
+    STATE_OPTIONS = 10,
+    STATE_WIN = 11
 };
 
 class State {

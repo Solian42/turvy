@@ -2883,56 +2883,6 @@
             <y> 3880 </y>
             <texture> coin1 </texture>
         </co7.18>
-        <co9.1>
-            <x> 250 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.1>
-        <co9.2>
-            <x> 750 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.2>
-        <co9.3>
-            <x> 1250 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.3>
-        <co9.4>
-            <x> 1750 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.4>
-        <co9.5>
-            <x> 2250 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.5>
-        <co9.6>
-            <x> 2750 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.6>
-        <co9.7>
-            <x> 3250 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.7>
-        <co9.8>
-            <x> 3750 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.8>
-        <co9.9>
-            <x> 4250 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.9>
-        <co9.10>
-            <x> 4750 </x>
-            <y> 5960 </y>
-            <texture> coin1 </texture>
-        </co9.10>
     </coins>
     <trampolines>
         <t2.1>

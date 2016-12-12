@@ -15,6 +15,7 @@
 #include "PlayerObject.h"
 #include "State.h"
 #include "TitleState.h"
+#include "WinState.h"
 #include "World.h"
 #include <SDL.h>
 #include <SDL_image.h>
