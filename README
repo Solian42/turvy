@@ -6,7 +6,8 @@ PROGRRESS FOR ASSIGNMENT 12:
 
 Brian Cueto:
 Replaced pre-level states with text on a "letter" that the main protagonist is holding.
-Can skip with any key, and this is to build more story line. 
+Can skip with any key, and this is to build more story line.  Integrated a win state that
+fades in.
 
 Tristan:
 Discovered bug in text rendering, Attempted to fix, but didn't make too much headway.

@@ -14,7 +14,7 @@ int main() {
 
 void run() {
 
-    std::vector<State *> states = std::vector<State *>(11);
+    std::vector<State *> states = std::vector<State *>(12);
     int *mainVol = new int;
     *mainVol = 64;
     states[STATE_GAME] =
@@ -44,6 +44,8 @@ void run() {
         new LevelEditor(mainRenderer, width, height, resources);
     states[STATE_OPTIONS] = new OptionsState(mainRenderer, width, height,
                                              resources, mainWindow, mainVol);
+    states[STATE_WIN] =
+        new WinState(mainRenderer, width, height, resources);
     State *currState = states[STATE_TITLE];
     int currStateType = STATE_TITLE;
     currState->startMusic(*mainVol);
@@ -151,6 +153,12 @@ void run() {
                 case STATE_OPTIONS: {
                     currState = states[STATE_OPTIONS];
                     currStateType = STATE_OPTIONS;
+                    break;
+                }
+                case STATE_WIN: {
+                    currState = states[STATE_WIN];
+                    currStateType = STATE_WIN;
+                    break;
                 }
                 default:
                     break;

@@ -396,7 +396,8 @@ int GameState::handleEvent(SDL_Event *e, int dt) {
     }
     if (hasWon) {
         if (currLevel == (numLevels - 1)) {
-            return STATE_HIGHSCORE;
+            Mix_HaltMusic();
+            return STATE_WIN;
         }
 
         if (player->getXVel() > 0) {
