@@ -13,9 +13,8 @@ Tristan:
 Discovered bug in text rendering, Attempted to fix, but didn't make too much headway.
 Team carried me straight up. <3
 
-Anthony: Finally fixed the collision bug. As far as I've tested, it's impossible to get
-stuck inside a platform now. Also integrated the new sprites into life on levels 2 
-through 4.
+Anthony: Made/drew the new title screen to work, made final screen and between-levels 
+cutscene base.  
 
 
 ##########################################################################################
