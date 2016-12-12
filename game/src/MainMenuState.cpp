@@ -109,7 +109,8 @@ void MainMenuState::doPhysics(int dt) {
     return;
 }
 void MainMenuState::render(int dt) {
-
+    SDL_Rect temp = {640, 360, 500, 250};
+    SDL_RenderCopy(renderer, resources->getDialogue("test"), NULL, &temp);
     if (SDL_RenderCopy(renderer, title[0], NULL, &titleRect) < 0) {
         std::cout << "Something broke: " << SDL_GetError();
     }
