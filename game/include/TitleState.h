@@ -19,24 +19,13 @@ private:
     int width, height;
     int time = 0;
 
-    SDL_Texture *titleFont = nullptr;
-    SDL_Rect titleRect;
+    SDL_Texture *splash = nullptr;
+    SDL_Rect splashRect;
 
-    SDL_Texture *msgFont = nullptr;
-    SDL_Rect msgRect;
-
-    SDL_Texture *gameTitle = nullptr;
-    SDL_Rect gameTitleRect;
-
-    std::string title = std::string("Lizard Games presents:");
-    std::string gameName = "Turvy";
-    std::string titleMessage = std::string("Press any key to begin");
-    int titleAlpha = 0;
+    int splashAlpha = 0;
     bool fadein = false;
     SDL_Renderer *renderer;
     ResourceManager *resources;
-
-    void floatingMove(int speed, int dt);
 };
 
 #endif
