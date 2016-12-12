@@ -12,6 +12,7 @@ TitleState::TitleState(SDL_Renderer *r, int width, int height,
     splash = resources->getTexture("intro");
 
     splashRect = {0, 0, width, height};
+    SDL_SetTextureAlphaMod(splash, 0);
 ///////
 }
 
