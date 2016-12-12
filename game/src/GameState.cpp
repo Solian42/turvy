@@ -305,6 +305,7 @@ void GameState::loadNewLevel(std::string levelName) {
 }
 
 void GameState::startMusic(int vol) {
+    Mix_VolumeMusic(vol);
     Mix_PlayMusic(resources->getMusic(backgroundMusic), -1);
     Mix_VolumeMusic(vol);
 }

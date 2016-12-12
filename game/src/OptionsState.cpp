@@ -44,6 +44,7 @@ OptionsState::OptionsState(SDL_Renderer *r, int width, int height,
 }
 
 int OptionsState::handleEvent(SDL_Event *e, int dt) {
+    time += dt;
     if (e->type == SDL_KEYUP) {
         switch (e->key.keysym.sym) {
         case SDLK_RETURN:
@@ -101,6 +102,11 @@ int OptionsState::handleEvent(SDL_Event *e, int dt) {
                     currSelect = 2;
             }
             break;
+        }
+    }
+    if((e->type == SDL_KEYDOWN && time > 10) || (e->type == SDL_KEYDOWN && e->key.repeat == 0)) {
+        time -= 10;
+        switch (e->key.keysym.sym) {
         case SDLK_LEFT:
             if (editing == 1) {
                 *masterVol -= 1;
@@ -121,6 +127,7 @@ int OptionsState::handleEvent(SDL_Event *e, int dt) {
                     SDL_Color white = {255, 255, 255, 255};
                     resources->setTextColor(white);
                 }
+                Mix_VolumeMusic(*masterVol);
                 Mix_Volume(-1, *masterVol);
             } else if (editing == 2) {
                 currBright -= 1;
@@ -167,6 +174,7 @@ int OptionsState::handleEvent(SDL_Event *e, int dt) {
                     SDL_Color white = {255, 255, 255, 255};
                     resources->setTextColor(white);
                 }
+                Mix_VolumeMusic(*masterVol);
                 Mix_Volume(-1, *masterVol);
             } else if (editing == 2) {
                 currBright += 1;
@@ -196,8 +204,8 @@ int OptionsState::handleEvent(SDL_Event *e, int dt) {
         default:
             break;
         }
+    
     }
-
     int supressWarning = dt;
     supressWarning++;
     return getMyState();
