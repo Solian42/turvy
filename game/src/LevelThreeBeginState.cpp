@@ -38,6 +38,9 @@ void LevelThreeBeginState::render(int dt) {
         std::cout << "Something broke: " << SDL_GetError();
     }
 
+    SDL_Rect LevelThreeD = {500, 470, 500, 250};
+    SDL_RenderCopy(renderer, resources->getDialogue("LevelThree"), NULL, &LevelThreeD);
+
     int supressWarning = dt;
     supressWarning++;
 }
