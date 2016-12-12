@@ -38,6 +38,9 @@ void LevelOneBeginState::render(int dt) {
         std::cout << "Something broke: " << SDL_GetError();
     }
 
+    SDL_Rect LevelOneD = {500, 470, 500, 250};
+    SDL_RenderCopy(renderer, resources->getDialogue("LevelOne"), NULL, &LevelOneD);
+
     int supressWarning = dt;
     supressWarning++;
 }
