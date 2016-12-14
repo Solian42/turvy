@@ -108,12 +108,6 @@ void run() {
                     currState->startMusic(*mainVol);
                     break;
                 case STATE_HIGHSCORE: {
-                    int highScore = -1;
-                    if (currStateType == STATE_GAME) {
-                        GameState *game = (GameState *)currState;
-                        highScore = game->getHighScore();
-                        game->reset();
-                    }
                     currState = states[STATE_HIGHSCORE];
                     currStateType = STATE_HIGHSCORE;
                     HighScoreState *hs = (HighScoreState *)currState;
@@ -156,6 +150,11 @@ void run() {
                     break;
                 }
                 case STATE_WIN: {
+                    if (currStateType == STATE_GAME) {
+                        GameState *game = (GameState *)currState;
+                        highScore = game->getHighScore();
+                        game->reset();
+                    }
                     currState = states[STATE_WIN];
                     currStateType = STATE_WIN;
                     break;

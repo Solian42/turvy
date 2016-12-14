@@ -36,6 +36,7 @@ void setup(const char *title);
 
 const int width = 1280;
 const int height = 720;
+int highScore = -1;
 SDL_Window *mainWindow;
 SDL_Renderer *mainRenderer;
 ResourceManager *resources;
